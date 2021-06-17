@@ -28,6 +28,10 @@ class Chat extends Migration
 				'pesan'   => [
 					'type'           => 'TEXT',
 				],
+				'time'   => [
+					'type'           => 'INT',
+					'constraint'     => 11,
+				],
 			]
 		);
 		$this->forge->addKey('id', true);

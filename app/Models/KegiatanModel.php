@@ -6,37 +6,16 @@ use CodeIgniter\Model;
 
 class KegiatanModel extends Model
 {
-	protected $DBGroup              = 'default';
-	protected $table                = 'kegiatans';
-	protected $primaryKey           = 'id';
-	protected $useAutoIncrement     = true;
-	protected $insertID             = 0;
-	protected $returnType           = 'array';
-	protected $useSoftDeletes       = false;
-	protected $protectFields        = true;
-	protected $allowedFields        = [];
+	protected $table = 'kegiatan';
+	protected $primaryKey = 'id';
 
-	// Dates
-	protected $useTimestamps        = false;
-	protected $dateFormat           = 'datetime';
-	protected $createdField         = 'created_at';
-	protected $updatedField         = 'updated_at';
-	protected $deletedField         = 'deleted_at';
+	protected $returnType     = 'array';
+	protected $useSoftDeletes = true;
 
-	// Validation
-	protected $validationRules      = [];
-	protected $validationMessages   = [];
-	protected $skipValidation       = false;
-	protected $cleanValidationRules = true;
+	protected $allowedFields = ['id', 'nama', 'tanggal', 'lokasi', 'penanggungjawab', 'deskripsi', 'cp1', 'cp2', 'link1', 'link2', 'jenis', 'create_at', 'update_at', 'delete_at'];
 
-	// Callbacks
-	protected $allowCallbacks       = true;
-	protected $beforeInsert         = [];
-	protected $afterInsert          = [];
-	protected $beforeUpdate         = [];
-	protected $afterUpdate          = [];
-	protected $beforeFind           = [];
-	protected $afterFind            = [];
-	protected $beforeDelete         = [];
-	protected $afterDelete          = [];
+	protected $useTimestamps = false;
+	protected $createdField  = 'create_at';
+	protected $updatedField  = 'update_at';
+	protected $deletedField  = 'delete_at';
 }
