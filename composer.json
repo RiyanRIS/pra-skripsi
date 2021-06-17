@@ -1,0 +1,40 @@
+{
+	"name": "riyanapp/simketika",
+	"type": "project",
+	"description": "Sistem Informasi Manajemen Kegiatan UKM Informatika dan Komputer",
+	"homepage": "https://riyanpra.herokuapp.com",
+	"license": "MIT",
+	"require": {
+		"php": "^7.3||^8.0",
+		"codeigniter4/framework": "^4"
+	},
+	"require-dev": {
+		"fakerphp/faker": "^1.9",
+		"mikey179/vfsstream": "^1.6",
+		"phpunit/phpunit": "^9.1"
+	},
+	"suggest": {
+		"ext-fileinfo": "Improves mime type detection for files"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app",
+			"Config\\": "app/Config"
+		},
+		"exclude-from-classmap": [
+			"**/Database/Migrations/**"
+		]
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\Support\\": "tests/_support"
+		}
+	},
+	"scripts": {
+		"test": "phpunit"
+	},
+	"support": {
+		"contact_me": "https://t.me/kodokkayang",
+		"source": "https://github.com/riyanris/pra-skripsi"
+	}
+}
