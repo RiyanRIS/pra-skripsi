@@ -5,6 +5,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <!-- Datatables core css -->
+  <link href="<?= base_url() ?>/assets/plugins/datatables.net-bs4/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+  
+  <!-- Notifications css -->
+  <link href="<?= base_url() ?>/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+
   <!-- App css -->
   <link href="<?= base_url() ?>/assets/css/bootstrap-custom.min.css" rel="stylesheet" type="text/css" />
   <link href="<?= base_url() ?>/assets/css/app.min.css" rel="stylesheet" type="text/css" />
@@ -14,3 +21,12 @@
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="<?= base_url() ?>/favicon.ico">
+
+  <style>
+  .navbar-brand .brand-text{
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight:700;
+
+  }
+  </style>

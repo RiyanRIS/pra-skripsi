@@ -9,42 +9,27 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
-/**
- * Class BaseController
- *
- * BaseController provides a convenient place for loading components
- * and performing functions that are needed by all your controllers.
- * Extend this class in any new controllers:
- *     class Home extends BaseController
- *
- * For security be sure to declare any new methods as protected or private.
- */
+use \App\Libraries\Breadcrumb;
+
+use \App\Models\UsersModel;
+use \App\Models\LogModel;
 
 class BaseController extends Controller
 {
-	/**
-	 * Instance of the main Request object.
-	 *
-	 * @var IncomingRequest|CLIRequest
-	 */
 	protected $request;
-
-	/**
-	 * An array of helpers to be loaded automatically upon
-	 * class instantiation. These helpers will be available
-	 * to all other controllers that extend BaseController.
-	 *
-	 * @var array
-	 */
 	protected $helpers = [];
 
-	/**
-	 * Constructor.
-	 *
-	 * @param RequestInterface  $request
-	 * @param ResponseInterface $response
-	 * @param LoggerInterface   $logger
-	 */
+	protected $session;
+	protected $validation;
+	protected $validationListTemplate = 'list';
+
+	public $breadcrumb;
+
+	protected $users;
+	protected $log;
+
+	public $data = [];
+
 	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
 	{
 		// Do Not Edit This Line
@@ -53,6 +38,31 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
-		// E.g.: $this->session = \Config\Services::session();
+		helper(['form', 'url', 'ini_helper']);
+
+		$this->session        = \Config\Services::session();
+		$this->validation 		= \Config\Services::validation();
+
+		$this->breadcrumb 		= new Breadcrumb();
+
+		$this->users = new UsersModel();
+		$this->log = new LogModel();
+
+	}
+
+	public function log(String $ket, int $kunci = null, String $tabel = null, String $sebelum = null, String $sesudah = null, int $users = 0){
+		// $users = $users ?: $this->session->get('user_id');
+		$users = 1;
+		$data = [
+			"users" => $users,
+			"keterangan" => $ket,
+			"asal" => uri_string(),
+			"kunci" => $kunci,
+			"nama_tabel" => $tabel,
+			"sebelum" => $sebelum,
+			"sesudah" => $sesudah,
+			"time" => time(),
+		];
+		return $this->log->insert($data);
 	}
 }

@@ -43,6 +43,11 @@ class Users extends Migration
 					'constraint'     => '32',
 					'null'					 => true,
 				],
+				'terahir_dilihat'  => [
+					'type'           => 'INT',
+					'constraint'     => 11,
+					'null'					 => true,
+				],
 				'create_at'  => [
 					'type'           => 'INT',
 					'constraint'     => 11,
