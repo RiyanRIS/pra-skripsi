@@ -19,6 +19,7 @@ class Home extends BaseController
 		$data = [
 			'breadcrumbs' => $this->breadcrumb->buildAuto(),
 			'title' => "Dashboard",
+			'nav' => "Dashboard",
 			'pgtitle' => "Halaman Dashboard",
 		];
 		return view('home',$data);

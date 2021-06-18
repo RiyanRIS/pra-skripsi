@@ -41,6 +41,7 @@ class Breadcrumb
     $output .= $this->tags['olopen'];
 
     $count = count($this->breadcrumbs) - 1;
+    $no = 0;
 
     foreach ($this->breadcrumbs as $index => $breadcrumb) {
 
@@ -49,7 +50,7 @@ class Breadcrumb
         $output .= $breadcrumb['crumb'];
         $output .= $this->tags['liclose'];
       } else {
-        $output .= $this->tags['liopen1'];
+        $output .= ($no++==0?$this->tags['liopenfirst']:$this->tags['liopen']);
         $output .= '<a href="' . base_url() . $breadcrumb['href'] . '">';
         $output .= $breadcrumb['crumb'];
         $output .= '</a>';

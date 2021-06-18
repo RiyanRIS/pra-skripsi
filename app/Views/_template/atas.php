@@ -21,12 +21,3 @@
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="<?= base_url() ?>/favicon.ico">
-
-  <style>
-  .navbar-brand .brand-text{
-    color: #fff;
-    letter-spacing: 2px;
-    font-weight:700;
-
-  }
-  </style>

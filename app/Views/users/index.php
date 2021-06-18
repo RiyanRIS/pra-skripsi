@@ -18,7 +18,7 @@
               <!-- TASKS -->
               <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                  <a href="<?= site_url("home/pengguna/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
+                  <a href="<?= site_url("home/".$subnav."/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -35,8 +35,12 @@
                       <tbody>
                       <?php foreach ($users as $user):?>
                         <tr>
-                          <td><?= $user['nama'] ?> </br> <b>Username:</b> <?= $user['username'] ?></td>
-                          <td><?= ucwords($user['role']) ?></td>
+                          <td>
+                            <?= $user['nama'] ?> </br> <b>Username:</b> <?= $user['username'] ?>
+                          </td>
+                          <td>
+                           <img width="48px" src="<?= base_url("assets/images/avatar/".$user['ava']) ?>" alt="">  <?= ucwords($user['role']) ?>
+                          </td>
                           <td>
                             <img width="16px" src="<?= base_url("assets/images/wa.png") ?>" alt=""><a href="https://wa.me/"> <?= ($user['nohp']?:"-") ?></a> </br>
                             <img width="16px" src="<?= base_url("assets/images/tel.png") ?>" alt=""><a href="https://t.me/"> <?= ($user['chat_id']?:"-") ?>
@@ -46,8 +50,8 @@
                             <b>LastSeen: </b> <?= ($user['terahir_dilihat']==null?"-":date("d F Y H:i", $user['terahir_dilihat'])) ?>
                           </td>
                           <td>
-                            <a href="<?= site_url('home/pengguna/ubah/'.$user['id']) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                            <a onclick="confirmation(event)" href="<?= site_url('home/pengguna/hapus/'.$user['id']) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a href="<?= site_url('home/'.$subnav.'/ubah/'.$user['id']) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                            <a onclick="confirmation(event)" href="<?= site_url('home/'.$subnav.'/hapus/'.$user['id']) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                           </td>
                         </tr>
                         <?php endforeach;?>

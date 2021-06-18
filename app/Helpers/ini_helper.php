@@ -5,3 +5,9 @@ function nav($a,$b){
         echo "active";
     }
 }
+
+function navshow($a,$b){
+    if($a == $b){
+        echo "show";
+    }
+}

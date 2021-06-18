@@ -40,10 +40,11 @@
                 </div>
                 <div class="card-body">
                   <?= form_open_multipart(uri_string()) ?>
+                  <?= form_hidden('id', $id);?>
                    <div class="form-group row">
                       <label class="col-md-2 col-form-label"><?= $nama['label'] ?></label>
                       <div class="col-md-10">
-                        <input type="text" name="<?= $nama['name'] ?>" id="<?= $nama['name'] ?>" class="form-control <?= (@$errors['nama']?'is-invalid':'') ?>" placeholder="<?= $nama['placeholder'] ?>" required="true" autofocus="true" value="<?= $nama['value'] ?>">
+                        <input type="text" name="<?= $nama['name'] ?>" id="<?= $nama['name'] ?>" class="form-control <?= (@$errors['nama']?'is-invalid':'') ?>" placeholder="<?= $nama['placeholder'] ?>" required="true" value="<?= $nama['value'] ?>">
                         <div class="invalid-feedback">
                           <?= @$errors['nama'] ?>
                         </div>
@@ -53,27 +54,27 @@
                       <label class="col-md-2 col-form-label">Avatar</label>
                       <div class="col-md-10">
                         <label>
-                          <input type="radio" class="radioimg" required="" name="ava" value="1.png" checked="">
+                          <input <?= ($ava!="1.png"?:"checked") ?> type="radio" class="radioimg" required="" name="ava" value="1.png">
                           <img width="64px" src="<?= base_url('assets/images/avatar/1.png') ?>">
                         </label>
                         <label>
-                          <input type="radio" class="radioimg" required="" name="ava" value="2.png">
+                          <input <?= ($ava!="2.png"?:"checked") ?> type="radio" class="radioimg" required="" name="ava" value="2.png">
                           <img width="64px" src="<?= base_url('assets/images/avatar/2.png') ?>">
                         </label>
                         <label>
-                          <input type="radio" class="radioimg" required="" name="ava" value="3.png">
+                          <input <?= ($ava!="3.png"?:"checked") ?> type="radio" class="radioimg" required="" name="ava" value="3.png">
                           <img width="64px" src="<?= base_url('assets/images/avatar/3.png') ?>">
                         </label>
                         <label>
-                          <input type="radio" class="radioimg" required="" name="ava" value="4.png">
+                          <input <?= ($ava!="4.png"?:"checked") ?> type="radio" class="radioimg" required="" name="ava" value="4.png">
                           <img width="64px" src="<?= base_url('assets/images/avatar/4.png') ?>">
                         </label>
                         <label>
-                          <input type="radio" class="radioimg" required="" name="ava" value="5.png">
+                          <input <?= ($ava!="5.png"?:"checked") ?> type="radio" class="radioimg" required="" name="ava" value="5.png">
                           <img width="64px" src="<?= base_url('assets/images/avatar/5.png') ?>">
                         </label>
                         <label>
-                          <input type="radio" class="radioimg" required="" name="ava" value="6.png">
+                          <input <?= ($ava!="6.png"?:"checked") ?> type="radio" class="radioimg" required="" name="ava" value="6.png">
                           <img width="64px" src="<?= base_url('assets/images/avatar/6.png') ?>">
                         </label>
                       </div>
@@ -87,25 +88,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $password['label'] ?></label>
-                      <div class="col-md-10">
-                      <input type="password" name="<?= $password['name'] ?>" id="<?= $password['name'] ?>" class="form-control <?= (@$errors['password']?'is-invalid':'') ?>" autocapitalize="off" autocomplete="off" placeholder="<?= $password['placeholder'] ?>" required="true">
-                        <div class="invalid-feedback">
-                          <?= @$errors['password'] ?>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $password_confirm['label'] ?></label>
-                      <div class="col-md-10">
-                        <input type="password" name="<?= $password_confirm['name'] ?>" id="<?= $password_confirm['name'] ?>" class="form-control <?= (@$errors['password_confirm']?'is-invalid':'') ?>" placeholder="<?= $password_confirm['placeholder'] ?>" required="true">
-                        <div class="invalid-feedback">
-                          <?= @$errors['password_confirm'] ?>
-                        </div>
-                      </div>
-                    </div>
-
+                    
                     <?php if($subnav=="pengguna"): ?>
                     <div class="form-group row">
                       <label class="col-md-2 col-form-label"><?= $role['label'] ?></label>
@@ -118,7 +101,7 @@
                         </select>
                       </div>
                     </div>
-                    <?php 
+                    <?php   
                     elseif($subnav=="pengurus"): 
                       echo form_hidden("role", "pengurus");
                     elseif($subnav=="peserta"):
@@ -131,6 +114,25 @@
                         <input type="text" name="<?= $nohp['name'] ?>" id="<?= $nohp['name'] ?>" class="form-control <?= (@$errors['nohp']?'is-invalid':'') ?>" maxlength="16" placeholder="<?= $nohp['placeholder'] ?>" value="<?= $nohp['value'] ?>">
                         <div class="invalid-feedback">
                           <?= @$errors['nohp'] ?>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                      <label class="col-md-2 col-form-label"><?= $password['label'] ?></label>
+                      <div class="col-md-10">
+                      <input type="password" name="<?= $password['name'] ?>" id="<?= $password['name'] ?>" class="form-control <?= (@$errors['password']?'is-invalid':'') ?>" autocapitalize="off" autocomplete="off" placeholder="<?= $password['placeholder'] ?>">
+                        <div class="invalid-feedback">
+                          <?= @$errors['password'] ?>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-2 col-form-label"><?= $password_confirm['label'] ?></label>
+                      <div class="col-md-10">
+                        <input type="password" name="<?= $password_confirm['name'] ?>" id="<?= $password_confirm['name'] ?>" class="form-control <?= (@$errors['password_confirm']?'is-invalid':'') ?>" placeholder="<?= $password_confirm['placeholder'] ?>">
+                        <div class="invalid-feedback">
+                          <?= @$errors['password_confirm'] ?>
                         </div>
                       </div>
                     </div>

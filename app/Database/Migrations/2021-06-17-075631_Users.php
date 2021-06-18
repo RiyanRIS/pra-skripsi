@@ -43,6 +43,10 @@ class Users extends Migration
 					'constraint'     => '32',
 					'null'					 => true,
 				],
+				'ava'    => [
+					'type'           => 'VARCHAR',
+					'constraint'     => '32',
+				],
 				'terahir_dilihat'  => [
 					'type'           => 'INT',
 					'constraint'     => 11,
