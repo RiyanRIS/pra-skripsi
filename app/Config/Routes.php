@@ -36,6 +36,7 @@ $routes->group('home', function ($routes) {
 	$routes->get('/', 'Home::index');
 	$routes->get('dashboard', 'Home::dashboard');
 
+	// MODEL PENGGUNA
 	$routes->group('pengguna', function ($routes) {
 		$routes->get('/', 'Users::index');
 		$routes->add('tambah', 'Users::add');
@@ -56,6 +57,35 @@ $routes->group('home', function ($routes) {
 		$routes->add('ubah/(:any)', 'Users::update/$1');
 		$routes->get('hapus/(:any)', 'Users::delete/$1');
 	});
+
+	// MODEL KEGIATAN
+	$routes->group('kegiatan', function ($routes) {
+		
+		$routes->get('/', 'Kegiatan::index');
+
+		$routes->group('semua', function ($routes) {
+			$routes->get('/', 'Kegiatan::index');
+			$routes->add('tambah', 'Kegiatan::add');
+			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
+			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
+		});
+
+		$routes->group('umum', function ($routes) {
+			$routes->get('/', 'Kegiatan::index');
+			$routes->add('tambah', 'Kegiatan::add');
+			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
+			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
+		});
+
+		$routes->group('internal', function ($routes) {
+			$routes->get('/', 'Kegiatan::index');
+			$routes->add('tambah', 'Kegiatan::add');
+			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
+			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
+		});
+	});
+
+	
 });
 /*
  * --------------------------------------------------------------------

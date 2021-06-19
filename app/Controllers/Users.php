@@ -20,16 +20,19 @@ class Users extends BaseController
 		if($segments[1] == "pengguna"){
 			$data['subnav'] = "pengguna";
 			$data['pgtitle'] = "Data Pengguna";
+				$data['pgdesc'] = "Seluruh pengguna dalam sistem ini";
 			$data['users'] =  $this->users->findAll();
 
 		}elseif($segments[1] == "pengurus"){
 			$data['subnav'] = "pengurus";
 			$data['pgtitle'] = "Data Pengurus";
+			$data['pgdesc'] = "Seluruh pengurus UKM Informatika dan Komputer";
 			$data['users'] =  $this->users->where('role', 'pengurus')->findAll();
 
 		}elseif($segments[1] == "peserta"){
 			$data['subnav'] = "peserta";
 			$data['pgtitle'] = "Data Peserta";
+			$data['pgdesc'] = "Peserta yang pernah mendaftar pada sistem";
 			$data['users'] =  $this->users->where('role', 'peserta')->findAll();
 
 		}else{
@@ -47,6 +50,8 @@ class Users extends BaseController
 		$data = [
 				'breadcrumbs' => $this->breadcrumb->buildAuto(),
 				'title' => "Pengguna",
+				'pgdesc' => "Formulir menambah data pengguna",
+
 		];
 
 		if($segments[1] == "pengguna"){
@@ -162,6 +167,7 @@ class Users extends BaseController
 
 		$data = [
 				'title' => "Pengguna",
+				'pgdesc' => "Formulir mengubah data pengguna",
 		];
 
 		if($segments[1] == "pengguna"){
@@ -233,9 +239,9 @@ class Users extends BaseController
 
 			if($lastid){
 				$this->log("update",$id,"users",json_encode($sebelum),json_encode($sesudah));
-				return redirect()->to(site_url('home/pengguna'))->with('msg', [1,"Berhasil Mengubah Pengguna"]);
+				return redirect()->to($url_redirect)->with('msg', [1,"Berhasil Mengubah Pengguna"]);
 			}else{
-				return redirect()->to(site_url('home/pengguna'))->with('msg', [0,lang('gagal Mengubah Pengguna')]);
+				return redirect()->to($url_redirect)->with('msg', [0,'gagal Mengubah Pengguna']);
 			}
 		}else{
 

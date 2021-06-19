@@ -13,7 +13,7 @@
 
   <!-- Vendor -->
   <script src="<?= base_url() ?>/assets/js/vendor.min.js"></script>
-
+  
   <!-- Datables Core -->
   <script src="<?= base_url() ?>/assets/plugins/datatables.net/jquery.dataTables.min.js"></script>
   <script src="<?= base_url() ?>/assets/plugins/datatables.net-bs4/dataTables.bootstrap4.min.js"></script>

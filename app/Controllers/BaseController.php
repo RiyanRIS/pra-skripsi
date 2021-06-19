@@ -12,6 +12,7 @@ use Psr\Log\LoggerInterface;
 use \App\Libraries\Breadcrumb;
 
 use \App\Models\UsersModel;
+use \App\Models\KegiatanModel;
 use \App\Models\LogModel;
 
 class BaseController extends Controller
@@ -26,6 +27,7 @@ class BaseController extends Controller
 	public $breadcrumb;
 
 	protected $users;
+	protected $kegiatan;
 	protected $log;
 
 	public $data = [];
@@ -46,6 +48,7 @@ class BaseController extends Controller
 		$this->breadcrumb 		= new Breadcrumb();
 
 		$this->users = new UsersModel();
+		$this->kegiatan = new KegiatanModel();
 		$this->log = new LogModel();
 
 	}

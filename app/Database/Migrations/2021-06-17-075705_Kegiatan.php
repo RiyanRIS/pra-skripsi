@@ -36,6 +36,12 @@ class Kegiatan extends Migration
 				'deskripsi'       => [
 					'type'           => 'TEXT',
 				],
+				'banner'       => [
+					'type'           => 'VARCHAR',
+					'constraint'     => 128,
+					'null'					 => true,
+					'default'        => null,
+				],
 				'cp1'       => [
 					'type'           => 'VARCHAR',
 					'constraint'     => 128,
@@ -54,8 +60,8 @@ class Kegiatan extends Migration
 				],
 				'jenis'       => [
 					'type'           => 'ENUM',
-					'constraint'     => ['admin', 'pengurus', 'pengawas', 'peserta'],
-					'default'        => 'peserta',
+					'constraint'     => ['umum', 'internal', 'pengurus'],
+					'default'        => 'umum',
 				],
 				'create_at'  => [
 					'type'           => 'INT',
