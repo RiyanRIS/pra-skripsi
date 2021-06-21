@@ -50,8 +50,8 @@
                             <b>LastSeen: </b> <?= ($user['terahir_dilihat']==null?"-":date("d F Y H:i", $user['terahir_dilihat'])) ?>
                           </td>
                           <td>
-                            <a href="<?= site_url('home/'.$subnav.'/ubah/'.$user['id']) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                            <a onclick="confirmation(event)" href="<?= site_url('home/'.$subnav.'/hapus/'.$user['id']) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a href="<?= site_url('home/'.$subnav.'/ubah/'.encrypt_url($user['id'])) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                            <a onclick="confirmation(event)" href="<?= site_url('home/'.$subnav.'/hapus/'.encrypt_url($user['id'])) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                           </td>
                         </tr>
                         <?php endforeach;?>

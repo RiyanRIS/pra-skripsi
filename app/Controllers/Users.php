@@ -156,8 +156,9 @@ class Users extends BaseController
 		}
 	}
 
-	public function update(int $id)
+	public function update($id)
 	{
+		$id = decrypt_url($id);
 		$URI = service('uri');
 		$segments = $URI->getSegments();
 
@@ -293,7 +294,9 @@ class Users extends BaseController
 		}
 	}
 
-	public function delete(int $id){
+	public function delete($id)
+	{
+		$id = decrypt_url($id);
 		if(!empty($id)){
 			$URI = service('uri');
 			$segments = $URI->getSegments();

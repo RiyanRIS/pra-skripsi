@@ -63,8 +63,17 @@ $routes->group('home', function ($routes) {
 		
 		$routes->get('/', 'Kegiatan::index');
 
+		$routes->group('master', function ($routes) {
+			$routes->get('/', 'Kegiatan::masterindex');
+			$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
+			$routes->add('tambah', 'Kegiatan::add');
+			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
+			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
+		});
+
 		$routes->group('semua', function ($routes) {
 			$routes->get('/', 'Kegiatan::index');
+			$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
 			$routes->add('tambah', 'Kegiatan::add');
 			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
 			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
@@ -72,6 +81,7 @@ $routes->group('home', function ($routes) {
 
 		$routes->group('umum', function ($routes) {
 			$routes->get('/', 'Kegiatan::index');
+			$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
 			$routes->add('tambah', 'Kegiatan::add');
 			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
 			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
@@ -79,6 +89,7 @@ $routes->group('home', function ($routes) {
 
 		$routes->group('internal', function ($routes) {
 			$routes->get('/', 'Kegiatan::index');
+			$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
 			$routes->add('tambah', 'Kegiatan::add');
 			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
 			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');

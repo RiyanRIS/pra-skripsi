@@ -47,6 +47,64 @@ class Kegiatan extends BaseController
 		return view('kegiatan/index',$data);
 	}
 
+	public function masterindex()
+	{
+		$URI = service('uri');
+		$segments = $URI->getSegments();
+
+		$data = [
+				'breadcrumbs' => $this->breadcrumb->buildAuto(),
+				'title' => "Master Kegiatan",
+				'subnav' => "master",
+		];
+
+		$data['pgtitle'] = "Data Semua Kegiatan";
+		$data['pgdesc'] = "Seluruh kegiatan UKM Informatika dan Komputer";
+		$data['kegiatans'] =  $this->kegiatan->findAll();
+		
+		return view('kegiatan/master-index',$data);
+	}
+
+	public function detail($id)
+	{
+		$id = decrypt_url($id);
+		$URI = service('uri');
+		$segments = $URI->getSegments();
+
+		$this->breadcrumb->add('Home', site_url('home/dashboard'));
+		$this->breadcrumb->add('Kegiatan', site_url('home/kegiatan'));
+
+		$data = [
+				'title' => "Kegiatan",
+				'pgtitle' => "Detail Kegiatan",
+				'pgdesc' => "Mulai dari kebutuhan Kegiatan, Peserta, Berkas dan masih banyak lagi",
+
+		];
+
+		if(@$segments[2] == "semua"){
+			$data['subnav'] = "semua";
+
+		}elseif(@$segments[2] == "umum"){
+			$url_redirect = site_url('home/kegiatan/umum');
+			$data['subnav'] = "umum";
+
+		}elseif(@$segments[2] == "internal"){
+			$data['subnav'] = "internal";
+
+		}else{
+			echo "Akses dilarang."; die();
+		}
+
+		$data['kegiatan'] =  $this->kegiatan->where('id', $id)->find();
+		$data['kegiatan'] = $data['kegiatan'][0];
+
+		$this->breadcrumb->add('Detail', '/');
+		$data['breadcrumbs'] = $this->breadcrumb->render();
+		$data['id'] = $id;
+		
+		return view('kegiatan/detail',$data);
+	}
+
 	public function add()
 	{
 		$URI = service('uri');
@@ -72,6 +130,11 @@ class Kegiatan extends BaseController
 				$url_redirect = site_url('home/kegiatan/internal');
 				$data['subnav'] = "internal";
 				$data['pgtitle'] = "Tambah Kegiatan Internal";
+
+			}elseif(@$segments[2] == "master"){
+				$url_redirect = site_url('home/kegiatan/master');
+				$data['subnav'] = "master";
+				$data['pgtitle'] = "Tambah Kegiatan";
 
 			}else{
 				echo "Akses dilarang."; die();
@@ -189,8 +252,9 @@ class Kegiatan extends BaseController
 		}
 	}
 
-	public function update(int $id)
+	public function update($id)
 	{
+		$id = decrypt_url($id);
 		$URI = service('uri');
 		$segments = $URI->getSegments();
 
@@ -273,7 +337,6 @@ class Kegiatan extends BaseController
 			$data['breadcrumbs'] = $this->breadcrumb->render();
 			$data['errors'] = $this->validation->getErrors();
 			$data['banner'] = $datakegiatans['banner'];
-			$data['id'] = $id;
 
 			$data['list_penanggungjawab'] = $this->users->where('role','pengurus')->findAll();
 
@@ -288,7 +351,7 @@ class Kegiatan extends BaseController
 				'name'  => 'lokasi',
 				'label'    => 'Lokasi Kegiatan',
 				'placeholder' => 'Lokasi Kegiatan',
-				'value' => set_value('lokasi', $datakegiatans['nama']),
+				'value' => set_value('lokasi', $datakegiatans['lokasi']),
 			];
 
 			$data['tanggal'] = [
@@ -341,7 +404,8 @@ class Kegiatan extends BaseController
 		}
 	}
 
-	public function delete(int $id){
+	public function delete(int $id)
+	{
 		if(!empty($id)){
 			$URI = service('uri');
 			$segments = $URI->getSegments();
