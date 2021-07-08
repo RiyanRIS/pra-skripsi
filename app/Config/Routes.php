@@ -62,34 +62,51 @@ $routes->group('home', function ($routes) {
 	$routes->group('kegiatan', function ($routes) {
 		
 		$routes->get('/', 'Kegiatan::index');
+		$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
+		
+		// kegiatan/modal
+		$routes->group('modal', function ($routes) {
+			$routes->post('tambah-panitia', 'Kegiatan::modalTambahPanitia');
+			
+		});
+		
+		// kegiatan/aksi
+		$routes->group('aksi', function ($routes) {
+			$routes->post('tambah-panitia', 'Kegiatan::aksiTambahPanitia');
+			$routes->get('hapus-panitia/(:any)/(:any)', 'Kegiatan::aksiHapusPanitia/$1/$2');
 
+			
+		});
+
+		$routes->post('tambah-panitia', 'Kegiatan::tambahPanitia');
+
+		// kegiatan/master
 		$routes->group('master', function ($routes) {
-			$routes->get('/', 'Kegiatan::masterindex');
-			$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
+			$routes->get('/', 'Kegiatan::index');
 			$routes->add('tambah', 'Kegiatan::add');
 			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
 			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
 		});
 
+		// kegiatan/semua
 		$routes->group('semua', function ($routes) {
 			$routes->get('/', 'Kegiatan::index');
-			$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
 			$routes->add('tambah', 'Kegiatan::add');
 			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
 			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
 		});
 
+		// kegiatan/umum
 		$routes->group('umum', function ($routes) {
 			$routes->get('/', 'Kegiatan::index');
-			$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
 			$routes->add('tambah', 'Kegiatan::add');
 			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
 			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
 		});
 
+		// kegiatan/internal
 		$routes->group('internal', function ($routes) {
 			$routes->get('/', 'Kegiatan::index');
-			$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
 			$routes->add('tambah', 'Kegiatan::add');
 			$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
 			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');

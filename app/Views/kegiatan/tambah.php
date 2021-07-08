@@ -57,7 +57,7 @@
                     <div class="form-group row">
                       <label class="col-md-2 col-form-label"><?= $tanggal['label'] ?></label>
                       <div class="col-md-10">
-                        <input type="text" name="<?= $tanggal['name'] ?>" id="<?= $tanggal['name'] ?>" class="form-control <?= (@$errors['tanggal']?'is-invalid':'') ?>" placeholder="<?= $tanggal['placeholder'] ?>" required="true" value="<?= $tanggal['value'] ?>">
+                        <input type="text" autocomplete="off" name="<?= $tanggal['name'] ?>" id="<?= $tanggal['name'] ?>" class="form-control <?= (@$errors['tanggal']?'is-invalid':'') ?>" placeholder="<?= $tanggal['placeholder'] ?>" required="true" value="<?= $tanggal['value'] ?>">
                         <div class="invalid-feedback">
                           <?= @$errors['tanggal'] ?>
                         </div>

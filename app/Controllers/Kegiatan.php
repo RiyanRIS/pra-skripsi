@@ -35,6 +35,15 @@ class Kegiatan extends BaseController
 				$data['pgdesc'] = "Data kegiatan yang bersifat internal (khusus anggota dan pengurus)";
 				$data['kegiatans'] =  $this->kegiatan->where('jenis', 'internal')->orWhere('jenis', 'pengurus')->findAll();
 
+			}elseif(@$segments[2] == "master"){
+				$data['subnav'] = "master";
+				$data['title'] = "Master Kegiatan";
+				$data['pgtitle'] = "Data Semua Kegiatan";
+				$data['pgdesc'] = "Seluruh kegiatan UKM Informatika dan Komputer";
+				$data['kegiatans'] =  $this->kegiatan->findAll();
+
+				return view('kegiatan/master-index',$data);
+
 			}else{
 				echo "Akses dilarang."; die();
 			}
@@ -47,24 +56,6 @@ class Kegiatan extends BaseController
 		return view('kegiatan/index',$data);
 	}
 
-	public function masterindex()
-	{
-		$URI = service('uri');
-		$segments = $URI->getSegments();
-
-		$data = [
-				'breadcrumbs' => $this->breadcrumb->buildAuto(),
-				'title' => "Master Kegiatan",
-				'subnav' => "master",
-		];
-
-		$data['pgtitle'] = "Data Semua Kegiatan";
-		$data['pgdesc'] = "Seluruh kegiatan UKM Informatika dan Komputer";
-		$data['kegiatans'] =  $this->kegiatan->findAll();
-		
-		return view('kegiatan/master-index',$data);
-	}
-
 	public function detail($id)
 	{
 		$id = decrypt_url($id);
@@ -73,36 +64,83 @@ class Kegiatan extends BaseController
 
 		$this->breadcrumb->add('Home', site_url('home/dashboard'));
 		$this->breadcrumb->add('Kegiatan', site_url('home/kegiatan'));
+		$this->breadcrumb->add('Detail', '/');
 
 		$data = [
 				'title' => "Kegiatan",
 				'pgtitle' => "Detail Kegiatan",
 				'pgdesc' => "Mulai dari kebutuhan Kegiatan, Peserta, Berkas dan masih banyak lagi",
-
 		];
-
-		if(@$segments[2] == "semua"){
-			$data['subnav'] = "semua";
-
-		}elseif(@$segments[2] == "umum"){
-			$url_redirect = site_url('home/kegiatan/umum');
-			$data['subnav'] = "umum";
-
-		}elseif(@$segments[2] == "internal"){
-			$data['subnav'] = "internal";
-
-		}else{
-			echo "Akses dilarang."; die();
-		}
 
 		$data['kegiatan'] =  $this->kegiatan->where('id', $id)->find();
 		$data['kegiatan'] = $data['kegiatan'][0];
 
-		$this->breadcrumb->add('Detail', '/');
+		$data['list_panitia'] = $this->panitia->getByKegiatan($id);
+
+		if($data['kegiatan']['jenis'] == 'umum'){
+			$data['subnav'] = 'umum';
+		}else{
+			$data['subnav'] = 'internal';
+		}
+
 		$data['breadcrumbs'] = $this->breadcrumb->render();
 		$data['id'] = $id;
 		
 		return view('kegiatan/detail',$data);
+	}
+
+	public function modalTambahPanitia()
+	{
+		if ($this->request->isAJAX()) {
+			$id = $this->request->getPost('id');
+			$list_penanggungjawab = $this->users->where('role','pengurus')->findAll();
+			$data = [
+				'list' => $list_penanggungjawab,
+				'id' => $id,
+			];
+			$msg = [
+				'data' => view('kegiatan/modal-tambahpanitia', $data)
+			];
+			echo json_encode($msg);
+		}
+	}
+
+	public function aksiTambahPanitia()
+	{
+		if ($this->request->getPost())
+		{
+			$additionalData = [
+				'kegiatan' 	=> $this->request->getPost('kegiatan'),
+				'user' 			=> $this->request->getPost('user'),
+				'posisi'  	=> $this->request->getPost('posisi'),
+			];
+			$lastid = $this->panitia->simpan($additionalData);
+			if($lastid){
+				$this->log("insert",$lastid,"panitia");
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Panitia"]);
+			}else{
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,lang('gagal Menambahkan Panitia')]);
+			}
+		}
+	}
+
+	public function aksiHapusPanitia($id, $url)
+	{
+		$id = decrypt_url($id);
+		if(!empty($id)){
+			$url_redirect = site_url('home/kegiatan/detail/'.$url);
+
+			$status = $this->panitia->delete($id);
+			if($status){
+				$this->log("delete",$id,"panitia");
+				$message = [1, "Berhasil Menghapus Panitia"];
+			}else{
+				$message = [0, "Gagal Menghapus Panitia"];
+			}
+			return redirect()->to($url_redirect)->with('msg', $message);
+		}else{
+			return redirect()->back()->with("msg", [0,"Ada parameter yang hilang, harap hubungi pengembang."]);
+		}
 	}
 
 	public function add()
@@ -134,6 +172,7 @@ class Kegiatan extends BaseController
 			}elseif(@$segments[2] == "master"){
 				$url_redirect = site_url('home/kegiatan/master');
 				$data['subnav'] = "master";
+				$data['title'] = "Master Kegiatan";
 				$data['pgtitle'] = "Tambah Kegiatan";
 
 			}else{
@@ -162,6 +201,13 @@ class Kegiatan extends BaseController
 		if ($this->request->getPost() && $this->validation->withRequest($this->request)->run())
 		{
 			$tanggal = strtotime($this->request->getPost('tanggal'));
+
+			$photo = $this->request->getFile('banner'); $newimg = null;
+
+			if(!empty($photo->getName())){
+				$newimg = $photo->getRandomName();
+				$photo->move(ROOTPATH . 'public/assets/images/banner-kegiatan/', $newimg);
+			}
 			
 			$additionalData = [
 					'nama' 						=> $this->request->getPost('nama'),
@@ -173,6 +219,7 @@ class Kegiatan extends BaseController
 					'cp1' 						=> $this->request->getPost('cp1'),
 				  'link1' 					=> $this->request->getPost('link1'),
 					'jenis' 					=> $this->request->getPost('jenis'),
+					'banner'		 			=> $newimg,
 					'create_at'				=> time(),
 				];
 				$lastid = $this->kegiatan->simpan($additionalData);
@@ -286,6 +333,12 @@ class Kegiatan extends BaseController
 			$data['pgtitle'] = "Ubah Kegiatan Internal";
 			$this->breadcrumb->add('Internal', $url_redirect);  
 
+		}elseif(@$segments[2] == "master"){
+				$url_redirect = site_url('home/kegiatan/master');
+				$data['subnav'] = "master";
+				$data['title'] = "Master Kegiatan";
+				$data['pgtitle'] = "Ubah Kegiatan";
+
 		}else{
 			echo "Akses dilarang."; die();
 		}
@@ -306,9 +359,28 @@ class Kegiatan extends BaseController
         ],
     ]);
 
+		if($this->request->getFile('photo')){
+					$this->validation->setRule('photo', "Photo", 'mime_in[photo,image/jpg,image/jpeg,image/gif,image/png]|max_size[photo,1024]');
+				}
+
 		if ($this->request->getPost() && $this->validation->withRequest($this->request)->run())
 		{
 			$tanggal = strtotime($this->request->getPost('tanggal'));
+
+			$imglama = $this->request->getPost('imglama');
+			$photo = $this->request->getFile('banner');
+
+			if(!empty($photo->getName())){
+				$newimg = $photo->getRandomName();
+				$photo->move(ROOTPATH . 'public/assets/images/banner-kegiatan/', $newimg);
+				if($imglama!=null||$imglama!=""){
+					$filePath = ROOTPATH . 'public/assets/images/banner-kegiatan/'. $imglama;
+					if(is_writable($filePath)){
+						$deleted = unlink($filePath);
+					}
+				}
+				$imglama = $newimg;
+			}
 
 			$additionalData = [
 					'nama' 						=> $this->request->getPost('nama'),
@@ -320,6 +392,7 @@ class Kegiatan extends BaseController
 					'cp1' 						=> $this->request->getPost('cp1'),
 				  'link1' 					=> $this->request->getPost('link1'),
 					'jenis' 					=> $this->request->getPost('jenis'),
+					'banner'		 			=> $imglama,
 				];
 			
 			$sebelum = $this->kegiatan->find($id);
@@ -416,6 +489,8 @@ class Kegiatan extends BaseController
 				$url_redirect = site_url('home/pengurus');
 			}elseif($segments[1] == "peserta"){
 				$url_redirect = site_url('home/peserta');
+			}elseif($segments[1] == "master"){
+				$url_redirect = site_url('home/master');
 			}else{
 				echo "Akses dilarang."; die();
 			}

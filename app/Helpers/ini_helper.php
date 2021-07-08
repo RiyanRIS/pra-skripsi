@@ -12,6 +12,29 @@ function navshow($a,$b){
     }
 }
 
+function toRp($val){
+    return "Rp " . number_format($val,0,',','.');
+}
+
+function urlImg($nama,$jenis){
+    return base_url("assets/images/".$jenis."/".$nama);
+}
+
+function slugify($text){
+  $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+  $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+  $text = preg_replace('~[^-\w]+~', '', $text);
+  $text = trim($text, '-');
+  $text = preg_replace('~-+~', '-', $text);
+  $text = strtolower($text);
+
+  if (empty($text)) {
+    return 'n-a';
+  }
+
+  return $text;
+}
+
 function encrypt_url($string) {
 
     $output = false;

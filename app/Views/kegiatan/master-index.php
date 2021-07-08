@@ -36,10 +36,10 @@
                       <tbody>
                       <?php foreach ($kegiatans as $kegiatan):?>
                         <tr>
-                          <td><?= $kegiatan['nama'] ?> </br><?= $kegiatan['deskripsi'] ?> </td>
+                          <td><a href="<?= site_url('home/kegiatan/detail/'.encrypt_url($kegiatan['id'])) ?>"><?= $kegiatan['nama'] ?></a> </br><?= $kegiatan['deskripsi'] ?> </td>
                           <td><?= date("d F Y H:i", $kegiatan['tanggal']) ?></td>
                           <td><?= $kegiatan['lokasi'] ?></td>
-                          <td><?= $kegiatan['banner'] ?></td>
+                          <td><img width="64px" src="<?= urlImg($kegiatan['banner'], "banner-kegiatan") ?>" alt=""></td>
                           <td>cp: <?= $kegiatan['cp1'] ?> </br>link: <?= $kegiatan['link1'] ?> </br></td>
                           <td>
                             <a href="<?= site_url('home/kegiatan/'.$subnav.'/ubah/'.encrypt_url($kegiatan['id'])) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>

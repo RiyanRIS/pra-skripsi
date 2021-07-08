@@ -34,6 +34,12 @@ class Berkas extends Migration
 					'constraint'     => ['umum', 'mahasiswa', 'anggota', 'pengurus', 'khusus'],
 					'default'        => 'pengurus',
 				],
+				'size'   		 => [
+					'type'           => 'VARCHAR',
+					'constraint'		 => 32,
+					'default'				 => null,
+					'null'					 => true
+				],
 				'create_at'  => [
 					'type'           => 'INT',
 					'constraint'     => 11,

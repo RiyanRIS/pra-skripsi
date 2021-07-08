@@ -17,11 +17,11 @@
             <div class="col-sm-12 pb-3">
               <a href="<?= site_url("home/kegiatan/".$subnav."/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Buat Kegiatan Baru</a>
             </div>
-          <?php foreach ($kegiatans as $kegiatan):?>
+          <?php if(count($kegiatans)!=0){ foreach ($kegiatans as $kegiatan):?>
             <div class="col-md-6 col-lg-4">
               <div class="card project-item">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                  <h3 class="card-title"><a href="<?= site_url("home/kegiatan/".$subnav."/detail/".encrypt_url($kegiatan['id'])) ?>"><?= $kegiatan['nama'] ?></a></h3>
+                  <h3 class="card-title"><a href="<?= site_url("home/kegiatan/detail/".encrypt_url($kegiatan['id'])) ?>"><?= $kegiatan['nama'] ?></a></h3>
                   <div class="right">
                     <span class="badge badge-success">AKTIF</span>
                   </div>
@@ -53,13 +53,15 @@
                 </div>
                 <div class="card-footer">
                   <div class="controls">
-                    <a href="<?= site_url("home/kegiatan/".$subnav."/detail/".encrypt_url($kegiatan['id'])) ?>"><i class="fa fa-eye"></i>Detail Kegiatan</a>
+                    <a href="<?= site_url("home/kegiatan/detail/".encrypt_url($kegiatan['id'])) ?>"><i class="fa fa-eye"></i>Detail Kegiatan</a>
                     <a href="#"><i class="fa fa-cloud-download"></i>File Kegiatan</a>
                   </div>
                 </div>
               </div>
             </div>
-            <?php endforeach;?>
+            <?php endforeach; }else{ ?>
+             <div class="col-sm-12 pb-3"> <p class="lead">Data Kegiatan Kosong.</p> </div>
+            <?php } ?>
             
           </div>
         </div>

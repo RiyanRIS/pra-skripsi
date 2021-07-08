@@ -13,6 +13,7 @@ use \App\Libraries\Breadcrumb;
 
 use \App\Models\UsersModel;
 use \App\Models\KegiatanModel;
+use \App\Models\PanitiaModel;
 use \App\Models\LogModel;
 
 class BaseController extends Controller
@@ -28,6 +29,7 @@ class BaseController extends Controller
 
 	protected $users;
 	protected $kegiatan;
+	protected $panitia;
 	protected $log;
 
 	public $data = [];
@@ -49,6 +51,7 @@ class BaseController extends Controller
 
 		$this->users = new UsersModel();
 		$this->kegiatan = new KegiatanModel();
+		$this->panitia = new PanitiaModel();
 		$this->log = new LogModel();
 
 	}

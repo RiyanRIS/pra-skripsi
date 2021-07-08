@@ -94,7 +94,7 @@ class Users extends BaseController
 		{
 			$additionalData = [
 					'nama' 			=> $this->request->getPost('nama'),
-					'ava'  => $this->request->getPost('ava'),
+					'ava' 			=> $this->request->getPost('ava'),
 					'username'  => $this->request->getPost('username'),
 					'password'  => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
 					'role'      => $this->request->getPost('role'),
@@ -123,7 +123,7 @@ class Users extends BaseController
 			$data['username'] = [
 				'name'  => 'username',
 				'label'    => 'Username',
-				'placeholder' => 'Username',
+				'placeholder' => 'Gunakan kombinasi karakter dan angka',
 				'value' => set_value('username'),
 			];
 

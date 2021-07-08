@@ -57,7 +57,7 @@
                     <div class="form-group row">
                       <label class="col-md-2 col-form-label"><?= $tanggal['label'] ?></label>
                       <div class="col-md-10">
-                        <input type="text" name="<?= $tanggal['name'] ?>" id="<?= $tanggal['name'] ?>" class="form-control <?= (@$errors['tanggal']?'is-invalid':'') ?>" placeholder="<?= $tanggal['placeholder'] ?>" required="true" value="<?= $tanggal['value'] ?>">
+                        <input type="text" autocomplete="off" name="<?= $tanggal['name'] ?>" id="<?= $tanggal['name'] ?>" class="form-control <?= (@$errors['tanggal']?'is-invalid':'') ?>" placeholder="<?= $tanggal['placeholder'] ?>" required="true" value="<?= $tanggal['value'] ?>">
                         <div class="invalid-feedback">
                           <?= @$errors['tanggal'] ?>
                         </div>
@@ -93,7 +93,7 @@
                       </div>
                     </div>
 
-                    <?php if($subnav=="semua"): ?>
+                    <?php if($subnav=="semua"||$subnav=="master"): ?>
                     <div class="form-group row">
                       <label class="col-md-2 col-form-label"><?= $jenis['label'] ?></label>
                       <div class="col-md-10">
@@ -122,7 +122,8 @@
                     <div class="form-group row">
                       <label class="col-md-2 col-form-label"><?= $banner['label'] ?></label>
                       <div class="col-md-10">
-                        <input type="file" name="<?= $banner['name'] ?>" id="<?= $banner['name'] ?>" class="form-control <?= (@$errors['banner']?'is-invalid':'') ?>" data-default-file="<?= base_url('assets/images/banner-kegiatan/'.$banner['value']) ?>" value="<?= $banner['value'] ?>">
+                        <input type="hidden" name="imgLama" value="<?= $banner['value'] ?>">
+                        <input type="file" name="<?= $banner['name'] ?>" id="<?= $banner['name'] ?>" class="form-control <?= (@$errors['banner']?'is-invalid':'') ?>" data-default-file="<?= urlImg($banner['value'], "banner-kegiatan") ?>" value="<?= $banner['value'] ?>">
                         <div class="invalid-feedback">
                           <?= @$errors['banner'] ?>
                         </div>

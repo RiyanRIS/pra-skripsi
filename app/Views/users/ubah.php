@@ -42,7 +42,7 @@
                   <?= form_open_multipart(uri_string()) ?>
                   <?= form_hidden('id', $id);?>
                    <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $nama['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $nama['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="text" name="<?= $nama['name'] ?>" id="<?= $nama['name'] ?>" class="form-control <?= (@$errors['nama']?'is-invalid':'') ?>" placeholder="<?= $nama['placeholder'] ?>" required="true" value="<?= $nama['value'] ?>">
                         <div class="invalid-feedback">
@@ -51,7 +51,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label">Avatar</label>
+                      <label class="col-md-2 col-form-label">Avatar*</label>
                       <div class="col-md-10">
                         <label>
                           <input <?= ($ava!="1.png"?:"checked") ?> type="radio" class="radioimg" required="" name="ava" value="1.png">
@@ -80,7 +80,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $username['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $username['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="text" name="<?= $username['name'] ?>" id="<?= $username['name'] ?>" class="form-control <?= (@$errors['username']?'is-invalid':'') ?>" placeholder="<?= $username['placeholder'] ?>" required="true" value="<?= $username['value'] ?>">
                         <div class="invalid-feedback">
@@ -91,7 +91,7 @@
                     
                     <?php if($subnav=="pengguna"): ?>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $role['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $role['label'] ?>*</label>
                       <div class="col-md-10">
                         <select required="true" name="<?= $role['name'] ?>" class="form-control">
                           <option <?= ($role['value']!='admin'?:'selected') ?> value="admin">Admin</option>

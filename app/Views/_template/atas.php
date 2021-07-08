@@ -12,6 +12,9 @@
   <!-- Notifications css -->
   <link href="<?= base_url() ?>/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
 
+  <!-- Select2 css -->
+  <link href="<?= base_url() ?>/assets/plugins/select2/select2.min.css" rel="stylesheet">
+
   <!-- App css -->
   <link href="<?= base_url() ?>/assets/css/bootstrap-custom.min.css" rel="stylesheet" type="text/css" />
   <link href="<?= base_url() ?>/assets/css/app.min.css" rel="stylesheet" type="text/css" />

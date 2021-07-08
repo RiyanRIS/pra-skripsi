@@ -41,7 +41,7 @@
                 <div class="card-body">
                   <?= form_open_multipart(uri_string()) ?>
                    <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $nama['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $nama['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="text" name="<?= $nama['name'] ?>" id="<?= $nama['name'] ?>" class="form-control <?= (@$errors['nama']?'is-invalid':'') ?>" placeholder="<?= $nama['placeholder'] ?>" required="true" autofocus="true" value="<?= $nama['value'] ?>">
                         <div class="invalid-feedback">
@@ -50,7 +50,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label">Avatar</label>
+                      <label class="col-md-2 col-form-label">Avatar*</label>
                       <div class="col-md-10">
                         <label>
                           <input type="radio" class="radioimg" required="" name="ava" value="1.png" checked="">
@@ -79,7 +79,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $username['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $username['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="text" name="<?= $username['name'] ?>" id="<?= $username['name'] ?>" class="form-control <?= (@$errors['username']?'is-invalid':'') ?>" placeholder="<?= $username['placeholder'] ?>" required="true" value="<?= $username['value'] ?>">
                         <div class="invalid-feedback">
@@ -88,7 +88,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $password['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $password['label'] ?>*</label>
                       <div class="col-md-10">
                       <input type="password" name="<?= $password['name'] ?>" id="<?= $password['name'] ?>" class="form-control <?= (@$errors['password']?'is-invalid':'') ?>" autocapitalize="off" autocomplete="off" placeholder="<?= $password['placeholder'] ?>" required="true">
                         <div class="invalid-feedback">
@@ -97,7 +97,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $password_confirm['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $password_confirm['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="password" name="<?= $password_confirm['name'] ?>" id="<?= $password_confirm['name'] ?>" class="form-control <?= (@$errors['password_confirm']?'is-invalid':'') ?>" placeholder="<?= $password_confirm['placeholder'] ?>" required="true">
                         <div class="invalid-feedback">
@@ -108,7 +108,7 @@
 
                     <?php if($subnav=="pengguna"): ?>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $role['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $role['label'] ?>*</label>
                       <div class="col-md-10">
                         <select required="true" name="<?= $role['name'] ?>" class="form-control">
                           <option <?= ($role['value']!='admin'?:'selected') ?> value="admin">Admin</option>

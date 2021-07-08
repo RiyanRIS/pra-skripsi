@@ -21,6 +21,9 @@
   <!-- Sweet Alerts Plugin -->
   <script src="<?= base_url() ?>/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
+  <!-- Select2 Plugin -->
+  <script src="<?= base_url() ?>/assets/plugins/select2/select2.min.js"></script>
+
   <!-- Notifications Plugin -->
   <script src="<?= base_url() ?>/assets/plugins/toastr/toastr.min.js"></script>
 
