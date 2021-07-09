@@ -1,5 +1,7 @@
 <?= view("_template/atas.php") ?>
 <!-- LETAKKAN STYLE TAMBAHAN DISINI -->
+<!-- Uploader Styles -->
+  <link href="<?= base_url() ?>/assets/plugins/dropify/css/dropify.min.css" rel="stylesheet" type="text/css" />
 
     <?= view("_template/navbar.php") ?>
     <?= view("_template/sidebar.php") ?>
@@ -13,7 +15,12 @@
         <?= view("_template/contenthead.php") ?>
 
         <div class="container-fluid">
-           <div class="row">
+          <div class="row">
+           <?php if(count($kegiatan) == 0){ ?> 
+            <div class="col-md-12">
+              <h4>Kegiatan yang anda cari tidak ditemukan.</h4>
+            </div>
+           <?php }else{ ?>
             <div class="col-md-8">
               <div class="card">
                 <div class="project-heading">
@@ -98,6 +105,7 @@
               <?= view("kegiatan/detail-statistik") ?>
               
             </div>
+          <?php } ?>
           </div>
         </div>
       </div>
@@ -108,6 +116,7 @@
 
     <?= view("_template/footer.php") ?>
   <!-- LETAKKAN JAVASCRIPT TAMBAHAN DISINI -->
+  <script src="<?= base_url() ?>/assets/plugins/dropify/js/dropify.min.js"></script>
   <script src="<?= site_url('assets/js/detail.js') ?>"></script>
 </body>
 

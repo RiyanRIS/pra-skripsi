@@ -3,14 +3,18 @@
                 <h3 class="card-header">Resource Files</h3>
                 <div class="card-body">
                   <ul class="list-unstyled list-justify list-file-simple">
-                    <li><a href="#"><i class="fa fa-file-word-o"></i>Proposal.docx</a> <span>4 MB</span></li>
-                    <li><a href="#"><i class="fa fa-file-pdf-o"></i>Final_Presentation.ppt</a> <span>20 MB</span></li>
-                    <li><a href="#"><i class="fa fa-file-zip-o"></i>Phase1_AllFiles.zip</a> <span>315 MB</span></li>
-                    <li><a href="#"><i class="fa fa-file-excel-o"></i>Meeting_Schedule.xls</a> <span>1 MB</span></li>
+                  <?php if(count(@$list_berkas)>0){ 
+                      foreach ($list_berkas as $key) { 
+                        if($key['size'] > 10)  
+                      ?>
+                    <li><a href="<?= base_url("assets/berkas/kegiatan/".$key['link']) ?>"><i class="fa fa-file-word-o"></i><?= $key['nama'] ?></a> <span><?= formatBytes($key['size']) ?></span></li>
+                    <?php } }else{
+                      echo "<h5 style=\"color:red\">Belum ada berkas tersimpan</h5>";
+                    } ?>
                   </ul>
                 </div>
                 <div class="card-footer text-right">
-                  <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-cloud-upload"></i> UPLOAD FILE</a>
+                  <button type="button" class="btn btn-primary btn-sm" title="Tambah Berkas" id="btn-tambah-berkas" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/tambah-berkas') ?>"><i class="fa fa-cloud-upload"></i> UPLOAD FILE</button>
                 </div>
               </div>
               <!-- end resource files -->

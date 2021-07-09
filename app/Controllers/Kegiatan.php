@@ -72,16 +72,21 @@ class Kegiatan extends BaseController
 				'pgdesc' => "Mulai dari kebutuhan Kegiatan, Peserta, Berkas dan masih banyak lagi",
 		];
 
+		$data['subnav'] = 'umum';
+
+
 		$data['kegiatan'] =  $this->kegiatan->where('id', $id)->find();
-		$data['kegiatan'] = $data['kegiatan'][0];
+		if(count($data['kegiatan']) == 0){
+			$data['kegiatan'] = [];
+		}else{
+			$data['kegiatan'] = $data['kegiatan'][0];
+			if($data['kegiatan']['jenis'] == 'internal'){
+				$data['subnav'] = 'internal';
+			}
+		}
 
 		$data['list_panitia'] = $this->panitia->getByKegiatan($id);
-
-		if($data['kegiatan']['jenis'] == 'umum'){
-			$data['subnav'] = 'umum';
-		}else{
-			$data['subnav'] = 'internal';
-		}
+		$data['list_berkas'] = $this->berkas->getByKegiatan($id);
 
 		$data['breadcrumbs'] = $this->breadcrumb->render();
 		$data['id'] = $id;
@@ -125,6 +130,70 @@ class Kegiatan extends BaseController
 	}
 
 	public function aksiHapusPanitia($id, $url)
+	{
+		$id = decrypt_url($id);
+		if(!empty($id)){
+			$url_redirect = site_url('home/kegiatan/detail/'.$url);
+
+			$status = $this->panitia->delete($id);
+			if($status){
+				$this->log("delete",$id,"panitia");
+				$message = [1, "Berhasil Menghapus Panitia"];
+			}else{
+				$message = [0, "Gagal Menghapus Panitia"];
+			}
+			return redirect()->to($url_redirect)->with('msg', $message);
+		}else{
+			return redirect()->back()->with("msg", [0,"Ada parameter yang hilang, harap hubungi pengembang."]);
+		}
+	}
+
+	public function modalTambahBerkas()
+	{
+		if ($this->request->isAJAX()) {
+			$id = $this->request->getPost('id');
+			$data = [
+				'id' => $id,
+			];
+			$msg = [
+				'data' => view('kegiatan/modal-tambahberkas', $data)
+			];
+			echo json_encode($msg);
+		}
+	}
+
+	public function aksiTambahBerkas()
+	{
+		if ($this->request->getPost())
+		{
+			$berkasName = ""; $size = 0;
+			$berkas = $this->request->getFile('berkas');
+			if(!empty($berkas->getName())){
+				$size = $berkas->getSize(); // Get by bytes 
+				$berkasName = $berkas->getRandomName();
+				$berkas->move(ROOTPATH . 'public/assets/berkas/kegiatan/', $berkasName);
+			}
+
+			$additionalData = [
+				'kegiatan' 	=> $this->request->getPost('kegiatan'),
+				'nama' 			=> $this->request->getPost('nama'),
+				'link'		  => $berkasName,
+				'permission'  	=> $this->request->getPost('permission'),
+				'size'			=> $size,
+				'create_at' => time(),
+			];
+
+			$lastid = $this->berkas->simpan($additionalData);
+			if($lastid){
+				$this->log("insert",$lastid,"berkas");
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Berkas"]);
+			}else{
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,lang('gagal Menambahkan Berkas')]);
+			}
+		}
+	}
+
+	public function aksiHapusBerkas($id, $url)
 	{
 		$id = decrypt_url($id);
 		if(!empty($id)){
