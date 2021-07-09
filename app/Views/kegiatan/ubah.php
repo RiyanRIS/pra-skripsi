@@ -23,7 +23,11 @@
               <!-- TASKS -->
               <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                  <a href="<?= site_url('home/kegiatan/'.$subnav) ?>" title="Kembali" class="btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</a>
+                  <?php if($title == 'Kegiatan'){ ?>
+                    <a href="<?= site_url('home/kegiatan/detail/'.encrypt_url($id)) ?>" title="Kembali" class="btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</a>
+                  <?php }else{ ?>
+                    <a href="<?= site_url('home/kegiatan/'.$subnav) ?>" title="Kembali" class="btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Kembali</a>
+                  <?php } ?>
                 </div>
                 <div class="card-body">
                   <?= form_open_multipart(uri_string()) ?>
@@ -130,7 +134,11 @@
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Simpan</button>
+                    <?php if($title == 'Kegiatan'){ ?>
+                    <a href="<?= site_url('home/kegiatan/detail/'.encrypt_url($id)) ?>" class="btn btn-danger"> Batal</a>
+                  <?php }else{ ?>
                     <a href="<?= site_url('home/kegiatan/'.$subnav) ?>" class="btn btn-danger"> Batal</a>
+                  <?php } ?>
                   </div>
                   <?= form_close() ?>
                 </div>

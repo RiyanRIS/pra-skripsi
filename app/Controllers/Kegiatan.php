@@ -408,6 +408,16 @@ class Kegiatan extends BaseController
 				$data['title'] = "Master Kegiatan";
 				$data['pgtitle'] = "Ubah Kegiatan";
 
+		}elseif(@$segments[2] == "detail"){
+				$url_redirect = site_url('home/kegiatan/detail/'.\encrypt_url($id));
+				$data['subnav'] = "umum";
+				if($datakegiatans['jenis'] == 'internal'){
+					$data['subnav'] = 'internal';
+				}
+				$data['title'] = "Kegiatan";
+				$data['pgtitle'] = "Ubah Kegiatan";
+				$data['id'] = $id;
+
 		}else{
 			echo "Akses dilarang."; die();
 		}

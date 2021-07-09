@@ -40,11 +40,11 @@
                     </div>
                     <div class="col-md-3 text-right">
                       <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Tambah <span class="caret"></span>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Atur <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                          <li><a href="#">Tahapan</a></li>
-                          <li><a href="#">Tugas Harian</a></li>
+                          <li><a href="<?= site_url('home/kegiatan/detail/ubah/'.encrypt_url($id)) ?>">Ubah Kegiatan</a></li>
+                          <li><a href="#">Tambah Tugas</a></li>
                         </ul>
                       </div>
                     </div>
@@ -65,8 +65,8 @@
                       </div>
                       <div class="cell">
                         <div class="main-info-item">
-                          <span class="title">EST. VALUE</span>
-                          <span class="value">$21,847</span>
+                          <span class="title">ANGGARAN</span>
+                          <span class="value">-</span>
                         </div>
                       </div>
                       <div class="cell">
@@ -75,6 +75,8 @@
                           <div id="project-progress" class="progress progress-transparent custom-color-orange2">
                             <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%;">85%</div>
                           </div>
+                            <div class="small">16 hari 5 jam lagi</div>
+
                         </div>
                       </div>
                     </div>

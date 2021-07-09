@@ -12,6 +12,14 @@ function navshow($a,$b){
     }
 }
 
+function dayRemaining($date)
+{
+    $date = strtotime($date);
+    $remaining = $date - time();
+    $hours_remaining = floor(($remaining % 86400) / 3600);
+    return floor($remaining / 86400)." hari ".$hours_remaining." jam lagi";
+}
+
 function formatBytes($bytes, $precision = 2) { 
     $units = array('B', 'KB', 'MB', 'GB', 'TB'); 
 

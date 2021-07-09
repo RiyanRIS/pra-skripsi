@@ -62,6 +62,8 @@ $routes->group('home', function ($routes) {
 	$routes->group('kegiatan', function ($routes) {
 		
 		$routes->get('/', 'Kegiatan::index');
+		$routes->get('detail/ubah/(:any)', 'Kegiatan::update/$1');
+		$routes->post('detail/ubah/(:any)', 'Kegiatan::update/$1');
 		$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
 		
 		// kegiatan/modal
