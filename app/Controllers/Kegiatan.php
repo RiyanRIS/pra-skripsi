@@ -85,8 +85,16 @@ class Kegiatan extends BaseController
 			}
 		}
 
-		$data['list_panitia'] = $this->panitia->getByKegiatan($id);
-		$data['list_berkas'] = $this->berkas->getByKegiatan($id);
+		$list_panitia = $this->panitia->getByKegiatan($id);
+		$list_berkas = $this->berkas->getByKegiatan($id);
+		$list_peserta = $this->peserta->getByKegiatan($id);
+
+		$data['list_panitia'] = $list_panitia;
+		$data['list_berkas'] = $list_berkas;
+		$data['list_peserta'] = $list_peserta;
+
+		$data['total_panitia'] = count($list_panitia);
+		$data['total_peserta'] = count($list_peserta);
 
 		$data['breadcrumbs'] = $this->breadcrumb->render();
 		$data['id'] = $id;
@@ -193,18 +201,54 @@ class Kegiatan extends BaseController
 		}
 	}
 
-	public function aksiHapusBerkas($id, $url)
+	public function modalTambahPeserta()
+	{
+		if ($this->request->isAJAX()) {
+			$id = $this->request->getPost('id');
+			$list = $this->users->findAll();
+			$data = [
+				'id' => $id,
+				'list' => $list,
+			];
+			$msg = [
+				'data' => view('kegiatan/modal-tambahpeserta', $data)
+			];
+			echo json_encode($msg);
+		}
+	}
+
+	public function aksiTambahPeserta()
+	{
+		if ($this->request->getPost())
+		{
+			$additionalData = [
+				'kegiatan' 	=> $this->request->getPost('kegiatan'),
+				'user' 			=> $this->request->getPost('user'),
+				'tgl_daftar'  	=> time(),
+				'hadir' 		=> 0
+			];
+			$lastid = $this->peserta->simpan($additionalData);
+			if($lastid){
+				$this->log("insert",$lastid,"peserta");
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Peserta"]);
+			}else{
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,lang('gagal Menambahkan Peserta')]);
+			}
+		}
+	}
+
+	public function aksiHapusPeserta($id, $url)
 	{
 		$id = decrypt_url($id);
 		if(!empty($id)){
 			$url_redirect = site_url('home/kegiatan/detail/'.$url);
 
-			$status = $this->panitia->delete($id);
+			$status = $this->peserta->delete($id);
 			if($status){
-				$this->log("delete",$id,"panitia");
-				$message = [1, "Berhasil Menghapus Panitia"];
+				$this->log("delete",$id,"peserta");
+				$message = [1, "Berhasil Menghapus Peserta"];
 			}else{
-				$message = [0, "Gagal Menghapus Panitia"];
+				$message = [0, "Gagal Menghapus Peserta"];
 			}
 			return redirect()->to($url_redirect)->with('msg', $message);
 		}else{
@@ -286,6 +330,7 @@ class Kegiatan extends BaseController
 					'deskripsi' 			=> $this->request->getPost('deskripsi'),
 					'banner' 					=> $this->request->getPost('banner'),
 					'cp1' 						=> $this->request->getPost('cp1'),
+					'cp2' 						=> $this->request->getPost('cp2'),
 				  'link1' 					=> $this->request->getPost('link1'),
 					'jenis' 					=> $this->request->getPost('jenis'),
 					'banner'		 			=> $newimg,
@@ -340,9 +385,16 @@ class Kegiatan extends BaseController
 
 			$data['cp1'] = [
 				'name'  => 'cp1',
-				'label'    => 'Kontak Person',
+				'label'    => 'Kontak Person 1',
 				'placeholder' => '08xxxx',
 				'value' => set_value('cp1'),
+			];
+
+			$data['cp2'] = [
+				'name'  => 'cp2',
+				'label'    => 'Kontak Person 2',
+				'placeholder' => '08xxxx',
+				'value' => set_value('cp2'),
 			];
 
 			$data['link1'] = [
@@ -469,6 +521,7 @@ class Kegiatan extends BaseController
 					'deskripsi' 			=> $this->request->getPost('deskripsi'),
 					'banner' 					=> $this->request->getPost('banner'),
 					'cp1' 						=> $this->request->getPost('cp1'),
+					'cp2' 						=> $this->request->getPost('cp2'),
 				  'link1' 					=> $this->request->getPost('link1'),
 					'jenis' 					=> $this->request->getPost('jenis'),
 					'banner'		 			=> $imglama,
@@ -528,9 +581,16 @@ class Kegiatan extends BaseController
 
 			$data['cp1'] = [
 				'name'  => 'cp1',
-				'label'    => 'Kontak Person',
+				'label'    => 'Kontak Person 1',
 				'placeholder' => '08xxxx',
 				'value' => set_value('cp1', $datakegiatans['cp1']),
+			];
+
+			$data['cp2'] = [
+				'name'  => 'cp2',
+				'label'    => 'Kontak Person 2',
+				'placeholder' => '08xxxx',
+				'value' => set_value('cp2', $datakegiatans['cp2']),
 			];
 
 			$data['link1'] = [

@@ -65,18 +65,14 @@
                       </div>
                       <div class="cell">
                         <div class="main-info-item">
-                          <span class="title">ANGGARAN</span>
-                          <span class="value">-</span>
+                          <span class="title">PESERTA KEGIATAN</span>
+                          <span class="value"><?= $total_peserta ?> orang</span>
                         </div>
                       </div>
                       <div class="cell">
                         <div class="main-info-item">
-                          <span class="title">PROGRESS</span>
-                          <div id="project-progress" class="progress progress-transparent custom-color-orange2">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%;">85%</div>
-                          </div>
-                            <div class="small">16 hari 5 jam lagi</div>
-
+                          <span class="title">TOTAL PANITIA</span>
+                          <div class="value"><?= $total_panitia ?> orang</div>
                         </div>
                       </div>
                     </div>
@@ -85,26 +81,20 @@
                 <div class="card-body">
                   <div class="project-info">
                     <h3 class="info-heading">DESKRIPSI</h3>
-                    <p class="project-description"><?= $kegiatan['deskripsi'] ?></p>
-                    <p><b>Contact Person: </b><?= $kegiatan['cp1'] ?></p>
-                    <p><b>Link: </b><?= $kegiatan['link1'] ?></p>
+                    <p class="project-description"><?= ($kegiatan['deskripsi']?: "-") ?></p>
+                    <h3 class="info-heading">CONTACT PERSON: </h3>
+                    <p class="project-description"><?= $kegiatan['cp1'] ?> <br><?= $kegiatan['cp2'] ?> </p>
+                    <h3 class="info-heading">LINK: </h3>
+                    <p class="project-description"><?= $kegiatan['link1'] ?></p>
                   </div>
 
-                  <div class="project-info">
-                    <h3 class="info-heading">TAHAPAN KEGIATAN</h3>
-                    <div class="panel-group accordion project-accordion" id="project-accordion">
-
-                     <?= view("kegiatan/detail-tahapan") ?>
-
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <?= view("kegiatan/detail-kepanitiaan") ?>
               <?= view("kegiatan/detail-berkas") ?>
-              <?= view("kegiatan/detail-statistik") ?>
+              <?= view("kegiatan/detail-peserta") ?>
               
             </div>
           <?php } ?>

@@ -42,13 +42,15 @@
                     </div>
                   </div>
                   <div class="right">
-                    <div class="progress-chart easy-pie-chart" data-percent="65">
-                      <span class="percent">65%</span>
+                    <div class="info">
+                      <span class="title">PESERTA KEGIATAN</span>
+                      <span class="value">230 orang</span>
                     </div>
-                    <div class="task">
-                      <div class="task-progress">14/60 tugas telah selesai</div>
-                      <a href="#" class="btn btn-outline-light btn-sm"><i class="fa fa-plus"></i> Tugas</a>
+                    <div class="info">
+                      <span class="title">TOTAL PANITIA</span>
+                      <span class="value">13 orang</span>
                     </div>
+                    
                   </div>
                 </div>
                 <div class="card-footer">

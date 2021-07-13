@@ -32,7 +32,7 @@
                 <div class="card-body">
                   <?= form_open_multipart(uri_string()) ?>
                    <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $nama['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $nama['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="text" name="<?= $nama['name'] ?>" id="<?= $nama['name'] ?>" class="form-control <?= (@$errors['nama']?'is-invalid':'') ?>" placeholder="<?= $nama['placeholder'] ?>" required="true" autofocus="true" value="<?= $nama['value'] ?>">
                         <div class="invalid-feedback">
@@ -50,7 +50,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $lokasi['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $lokasi['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="text" name="<?= $lokasi['name'] ?>" id="<?= $lokasi['name'] ?>" class="form-control <?= (@$errors['lokasi']?'is-invalid':'') ?>" placeholder="<?= $lokasi['placeholder'] ?>" required="true" value="<?= $lokasi['value'] ?>">
                         <div class="invalid-feedback">
@@ -59,7 +59,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $tanggal['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $tanggal['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="text" autocomplete="off" name="<?= $tanggal['name'] ?>" id="<?= $tanggal['name'] ?>" class="form-control <?= (@$errors['tanggal']?'is-invalid':'') ?>" placeholder="<?= $tanggal['placeholder'] ?>" required="true" value="<?= $tanggal['value'] ?>">
                         <div class="invalid-feedback">
@@ -68,7 +68,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $penanggungjawab['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $penanggungjawab['label'] ?>*</label>
                       <div class="col-md-10">
                         <select required="true" name="<?= $penanggungjawab['name'] ?>" class="form-control">
                         <option value="">-- Penanggungjawab --</option>
@@ -79,7 +79,7 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $cp1['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $cp1['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="text" name="<?= $cp1['name'] ?>" id="<?= $cp1['name'] ?>" class="form-control <?= (@$errors['cp1']?'is-invalid':'') ?>" placeholder="<?= $cp1['placeholder'] ?>" required="true" value="<?= $cp1['value'] ?>">
                         <div class="invalid-feedback">
@@ -88,7 +88,16 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $link1['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $cp2['label'] ?></label>
+                      <div class="col-md-10">
+                        <input type="text" name="<?= $cp2['name'] ?>" id="<?= $cp2['name'] ?>" class="form-control <?= (@$errors['cp2']?'is-invalid':'') ?>" placeholder="<?= $cp2['placeholder'] ?>" value="<?= $cp2['value'] ?>">
+                        <div class="invalid-feedback">
+                          <?= @$errors['cp2'] ?>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-2 col-form-label"><?= $link1['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="text" name="<?= $link1['name'] ?>" id="<?= $link1['name'] ?>" class="form-control <?= (@$errors['link1']?'is-invalid':'') ?>" placeholder="<?= $link1['placeholder'] ?>" required="true" value="<?= $link1['value'] ?>">
                         <div class="invalid-feedback">
@@ -99,7 +108,7 @@
 
                     <?php if($subnav=="semua"||$subnav=="master"): ?>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $jenis['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $jenis['label'] ?>*</label>
                       <div class="col-md-10">
                         <select required="true" name="<?= $jenis['name'] ?>" class="form-control">
                           <option <?= ($jenis['value']!='umum'?:'selected') ?> value="umum">Umum</option>
@@ -113,7 +122,7 @@
                       echo form_hidden("jenis", "umum");
                     elseif($subnav=="internal"): ?>
                       <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $jenis['label'] ?></label>
+                      <label class="col-md-2 col-form-label"><?= $jenis['label'] ?>*</label>
                       <div class="col-md-10">
                         <select required="true" name="<?= $jenis['name'] ?>" class="form-control">
                           <option <?= ($jenis['value']!='internal'?:'selected') ?> value="internal">Internal</option>

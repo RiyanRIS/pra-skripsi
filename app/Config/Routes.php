@@ -70,6 +70,7 @@ $routes->group('home', function ($routes) {
 		$routes->group('modal', function ($routes) {
 			$routes->post('tambah-panitia', 'Kegiatan::modalTambahPanitia');
 			$routes->post('tambah-berkas', 'Kegiatan::modalTambahBerkas');
+			$routes->post('tambah-peserta', 'Kegiatan::modalTambahPeserta');
 			
 		});
 		
@@ -79,7 +80,9 @@ $routes->group('home', function ($routes) {
 			$routes->get('hapus-panitia/(:any)/(:any)', 'Kegiatan::aksiHapusPanitia/$1/$2');
 			
 			$routes->post('tambah-berkas', 'Kegiatan::aksiTambahBerkas');
-
+			
+			$routes->post('tambah-peserta', 'Kegiatan::aksiTambahPeserta');
+			$routes->get('hapus-peserta/(:any)/(:any)', 'Kegiatan::aksiHapusPeserta/$1/$2');
 			
 		});
 

@@ -15,6 +15,7 @@ use \App\Models\UsersModel;
 use \App\Models\KegiatanModel;
 use \App\Models\PanitiaModel;
 use \App\Models\BerkasModel;
+use \App\Models\PesertaModel;
 use \App\Models\LogModel;
 
 class BaseController extends Controller
@@ -32,6 +33,7 @@ class BaseController extends Controller
 	protected $kegiatan;
 	protected $panitia;
 	protected $berkas;
+	protected $peserta;
 	protected $log;
 
 	public $data = [];
@@ -55,6 +57,7 @@ class BaseController extends Controller
 		$this->kegiatan = new KegiatanModel();
 		$this->panitia = new PanitiaModel();
 		$this->berkas = new BerkasModel();
+		$this->peserta = new PesertaModel();
 		$this->log = new LogModel();
 
 	}
