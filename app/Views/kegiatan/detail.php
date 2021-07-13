@@ -33,7 +33,7 @@
                         <img height="64px" src="<?= urlImg($kegiatan['banner'], "banner-kegiatan") ?>" class="mr-2" alt="Banner Kegiatan">
                       <?php } ?>
                         <div class="media-body">
-                          <h2 class="project-title"><?= $kegiatan['nama'] ?></h2>
+                          <h2 class="project-title"><?= ucwords($kegiatan['nama']) ?></h2>
                           <span class="badge badge-success status">Aktif</span>
                         </div>
                       </div>
@@ -44,7 +44,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                           <li><a href="<?= site_url('home/kegiatan/detail/ubah/'.encrypt_url($id)) ?>">Ubah Kegiatan</a></li>
-                          <li><a href="#">Tambah Tugas</a></li>
+                          <li><a href="javascript:void(0)" title="Tambah Tugas" id="btn-tambah-tugas" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/tambah-tugas') ?>">Tambah Tugas</a></li>
                         </ul>
                       </div>
                     </div>
@@ -87,6 +87,8 @@
                     <h3 class="info-heading">LINK: </h3>
                     <p class="project-description"><?= $kegiatan['link1'] ?></p>
                   </div>
+
+                  <?= view("kegiatan/detail-tugas") ?>
 
                 </div>
               </div>

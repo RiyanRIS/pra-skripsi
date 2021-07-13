@@ -71,6 +71,7 @@ $routes->group('home', function ($routes) {
 			$routes->post('tambah-panitia', 'Kegiatan::modalTambahPanitia');
 			$routes->post('tambah-berkas', 'Kegiatan::modalTambahBerkas');
 			$routes->post('tambah-peserta', 'Kegiatan::modalTambahPeserta');
+			$routes->post('tambah-tugas', 'Kegiatan::modalTambahTugas');
 			
 		});
 		
@@ -83,6 +84,8 @@ $routes->group('home', function ($routes) {
 			
 			$routes->post('tambah-peserta', 'Kegiatan::aksiTambahPeserta');
 			$routes->get('hapus-peserta/(:any)/(:any)', 'Kegiatan::aksiHapusPeserta/$1/$2');
+
+			$routes->post('tambah-tugas', 'Kegiatan::aksiTambahTugas');
 			
 		});
 

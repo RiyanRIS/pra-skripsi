@@ -16,6 +16,7 @@ use \App\Models\KegiatanModel;
 use \App\Models\PanitiaModel;
 use \App\Models\BerkasModel;
 use \App\Models\PesertaModel;
+use \App\Models\TugasModel;
 use \App\Models\LogModel;
 
 class BaseController extends Controller
@@ -34,6 +35,7 @@ class BaseController extends Controller
 	protected $panitia;
 	protected $berkas;
 	protected $peserta;
+	protected $tugas;
 	protected $log;
 
 	public $data = [];
@@ -58,6 +60,7 @@ class BaseController extends Controller
 		$this->panitia = new PanitiaModel();
 		$this->berkas = new BerkasModel();
 		$this->peserta = new PesertaModel();
+		$this->tugas = new TugasModel();
 		$this->log = new LogModel();
 
 	}

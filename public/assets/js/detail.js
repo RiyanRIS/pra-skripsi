@@ -15,6 +15,27 @@ $(document).ready(function() {
 
   $("#theadilang").hide();
 
+   $('#btn-tambah-tugas').click(function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: $(this).attr('data-url'),
+      dataType: "json",
+      type: 'POST',
+      data: {
+        id: $(this).attr('data-id')
+      },
+      success: function(response) {
+        if (response.data) {
+          $('.viewmodal').html(response.data).show()
+          $('#tambah-tugas').modal('show')
+        }
+      },
+      error: function(xhr, thrownError) {
+        alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+      }
+    });
+  });
+
   $('#btn-tambah-panitia').click(function(e) {
     e.preventDefault();
     $.ajax({

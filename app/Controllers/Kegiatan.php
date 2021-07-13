@@ -88,10 +88,12 @@ class Kegiatan extends BaseController
 		$list_panitia = $this->panitia->getByKegiatan($id);
 		$list_berkas = $this->berkas->getByKegiatan($id);
 		$list_peserta = $this->peserta->getByKegiatan($id);
+		$list_tugas = $this->tugas->getByKegiatan($id);
 
 		$data['list_panitia'] = $list_panitia;
 		$data['list_berkas'] = $list_berkas;
 		$data['list_peserta'] = $list_peserta;
+		$data['list_tugas'] = $list_tugas;
 
 		$data['total_panitia'] = count($list_panitia);
 		$data['total_peserta'] = count($list_peserta);
@@ -100,6 +102,41 @@ class Kegiatan extends BaseController
 		$data['id'] = $id;
 		
 		return view('kegiatan/detail',$data);
+	}
+
+	public function modalTambahTugas()
+	{
+		if ($this->request->isAJAX()) {
+			$id = $this->request->getPost('id');
+			$data = [
+				'id' => $id,
+			];
+			$msg = [
+				'data' => view('kegiatan/modal-tambahtugas', $data)
+			];
+			echo json_encode($msg);
+		}
+	}
+
+	public function aksiTambahTugas()
+	{
+		if ($this->request->getPost())
+		{
+			$deadline = strtotime($this->request->getPost('deadline'));
+			$additionalData = [
+				'kegiatan' 	=> $this->request->getPost('kegiatan'),
+				'tugas' 			=> $this->request->getPost('tugas'),
+				'deadline'  	=> $deadline,
+				'status'		=> 0
+			];
+			$lastid = $this->tugas->simpan($additionalData);
+			if($lastid){
+				$this->log("insert",$lastid,"tugas");
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Panitia"]);
+			}else{
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,lang('gagal Menambahkan Panitia')]);
+			}
+		}
 	}
 
 	public function modalTambahPanitia()
