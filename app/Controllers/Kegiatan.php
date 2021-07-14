@@ -139,6 +139,72 @@ class Kegiatan extends BaseController
 		}
 	}
 
+	public function modalEditTugas()
+	{
+		if ($this->request->isAJAX()) {
+			$id = $this->request->getPost('id');
+			$tugas = $this->tugas->find($id);
+			$data = [
+				'id' => $id,
+				'kegiatan' => $tugas['kegiatan'],
+				'ftugas' => $tugas['tugas'],
+				'fdeadline' => date("Y-m-d", $tugas['deadline']),
+				'fstatus' => $tugas['status'],
+
+			];
+			$msg = [
+				'data' => view('kegiatan/modal-edittugas', $data)
+			];
+			echo json_encode($msg);
+		}
+	}
+
+	public function aksiEditTugas()
+	{
+		if ($this->request->getPost())
+		{
+			$id = $this->request->getPost('id');
+			$deadline = strtotime($this->request->getPost('deadline'));
+			$additionalData = [
+				'kegiatan' 	=> $this->request->getPost('kegiatan'),
+				'tugas' 			=> $this->request->getPost('tugas'),
+				'deadline'  	=> $deadline,
+				'status'		=> $this->request->getPost('status')
+			];
+
+			$sebelum = $this->tugas->find($id);
+			$update = $this->tugas->update($id, $additionalData);
+			$sesudah = $this->tugas->find($id);
+
+			if($update){
+				$this->log("update",$id,"tugas",json_encode($sebelum),json_encode($sesudah));
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Mengubah Tugas"]);
+			}else{
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,lang('gagal Mengubah Tugas')]);
+			}
+		}
+	}
+
+	public function aksiHapusTugas($id, $url)
+	{
+		$id = decrypt_url($id);
+		if(!empty($id)){
+			$url_redirect = site_url('home/kegiatan/detail/'.$url);
+
+			$status = $this->tugas->delete($id);
+			if($status){
+				$this->log("delete",$id,"tugas");
+				$message = [1, "Berhasil Menghapus Tugas"];
+			}else{
+				$message = [0, "Gagal Menghapus Tugas"];
+			}
+			return redirect()->to($url_redirect)->with('msg', $message);
+		}else{
+			return redirect()->back()->with("msg", [0,"Ada parameter yang hilang, harap hubungi pengembang."]);
+		}
+	}
+
+
 	public function modalTambahPanitia()
 	{
 		if ($this->request->isAJAX()) {
