@@ -1,0 +1,158 @@
+============[Date]============
+[ 2021-07-14 22:16:10  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: message text is empty
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016373
+ref.message.message_id= 23
+ref.message.from.id= 780207093
+ref.message.from.is_bot= false
+ref.message.from.first_name= Kamu Jelek
+ref.message.from.username= kodokkayang
+ref.message.from.language_code= id
+ref.message.chat.id= 780207093
+ref.message.chat.first_name= Kamu Jelek
+ref.message.chat.username= kodokkayang
+ref.message.chat.type= private
+ref.message.date= 1626275753
+ref.message.text= Show jebe
+
+
+[ref]
+ref.reply_markup= {"keyboard":[[{"text":"Kegiatan","request_contact":false,"request_location":false},{"text":"Peserta","request_contact":false,"request_location":false}]],"one_time_keyboard":false,"resize_keyboard":false,"selective":true}
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(41): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(928): App\Controllers\Bot->index()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(45): require_once('/home/riyanris/...')
+#9 {main}
+
+============[Date]============
+[ 2021-07-14 22:16:39  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: message text is empty
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016374
+ref.message.message_id= 25
+ref.message.from.id= 780207093
+ref.message.from.is_bot= false
+ref.message.from.first_name= Kamu Jelek
+ref.message.from.username= kodokkayang
+ref.message.from.language_code= id
+ref.message.chat.id= 780207093
+ref.message.chat.first_name= Kamu Jelek
+ref.message.chat.username= kodokkayang
+ref.message.chat.type= private
+ref.message.date= 1626275796
+ref.message.text= Show hdbd
+
+
+[ref]
+ref.reply_markup= {"keyboard":[[{"text":"Kegiatan","request_contact":false,"request_location":false},{"text":"Peserta","request_contact":false,"request_location":false}]],"one_time_keyboard":true,"resize_keyboard":false,"selective":true}
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(41): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(928): App\Controllers\Bot->index()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(45): require_once('/home/riyanris/...')
+#9 {main}
+
+============[Date]============
+[ 2021-07-14 22:19:25  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: inline keyboard button URL is invalid
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016378
+ref.message.message_id= 33
+ref.message.from.id= 780207093
+ref.message.from.is_bot= false
+ref.message.from.first_name= Kamu Jelek
+ref.message.from.username= kodokkayang
+ref.message.from.language_code= id
+ref.message.chat.id= 780207093
+ref.message.chat.first_name= Kamu Jelek
+ref.message.chat.username= kodokkayang
+ref.message.chat.type= private
+ref.message.date= 1626275963
+ref.message.text= Show
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"Kegiatan","url":"show kegiatan"},{"text":"Peserta","url":"show peserta"}]]}
+ref.text= Lihat apa bung?
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(40): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(928): App\Controllers\Bot->index()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(45): require_once('/home/riyanris/...')
+#9 {main}
+
+============[Date]============
+[ 2021-07-14 22:20:37  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: inline keyboard button URL is invalid
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016380
+ref.message.message_id= 35
+ref.message.from.id= 780207093
+ref.message.from.is_bot= false
+ref.message.from.first_name= Kamu Jelek
+ref.message.from.username= kodokkayang
+ref.message.from.language_code= id
+ref.message.chat.id= 780207093
+ref.message.chat.first_name= Kamu Jelek
+ref.message.chat.username= kodokkayang
+ref.message.chat.type= private
+ref.message.date= 1626276033
+ref.message.text= Show jsbd
+
+
+[ref]
+ref.reply_markup= {"inline_keyboard":[[{"text":"Kegiatan","url":"show kegiatan"},{"text":"Peserta","url":"show peserta"}]]}
+ref.text= Lihat apa bung?
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(40): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(928): App\Controllers\Bot->index()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(45): require_once('/home/riyanris/...')
+#9 {main}
+

@@ -127,8 +127,12 @@ $routes->group('home', function ($routes) {
 			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
 		});
 	});
-
 	
+});
+
+// BOT TELEGRAM
+$routes->group('bot', function ($routes) {
+	$routes->post('/', 'Bot::index');
 });
 /*
  * --------------------------------------------------------------------

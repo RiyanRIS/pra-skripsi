@@ -18,6 +18,8 @@ use \App\Models\BerkasModel;
 use \App\Models\PesertaModel;
 use \App\Models\TugasModel;
 use \App\Models\LogModel;
+use \App\Models\ChatModel;
+use \App\Models\CacheModel;
 
 class BaseController extends Controller
 {
@@ -37,6 +39,8 @@ class BaseController extends Controller
 	protected $peserta;
 	protected $tugas;
 	protected $log;
+	protected $chat;
+	protected $cache;
 
 	public $data = [];
 
@@ -62,6 +66,8 @@ class BaseController extends Controller
 		$this->peserta = new PesertaModel();
 		$this->tugas = new TugasModel();
 		$this->log = new LogModel();
+		$this->chat = new ChatModel();
+		$this->cache = new CacheModel();
 
 	}
 
