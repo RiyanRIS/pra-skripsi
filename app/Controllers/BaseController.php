@@ -2,24 +2,24 @@
 
 namespace App\Controllers;
 
+use \App\Models\LogModel;
+use \App\Models\ChatModel;
+use App\Models\UsersModel;
+use \App\Models\CacheModel;
+use \App\Models\TugasModel;
 use CodeIgniter\Controller;
+
+use \App\Models\BerkasModel;
+
+use Psr\Log\LoggerInterface;
+use \App\Models\PanitiaModel;
+use \App\Models\PesertaModel;
+use \App\Libraries\Breadcrumb;
+use \App\Models\KegiatanModel;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
-use Psr\Log\LoggerInterface;
-
-use \App\Libraries\Breadcrumb;
-
-use \App\Models\UsersModel;
-use \App\Models\KegiatanModel;
-use \App\Models\PanitiaModel;
-use \App\Models\BerkasModel;
-use \App\Models\PesertaModel;
-use \App\Models\TugasModel;
-use \App\Models\LogModel;
-use \App\Models\ChatModel;
-use \App\Models\CacheModel;
 
 class BaseController extends Controller
 {
@@ -68,10 +68,10 @@ class BaseController extends Controller
 		$this->log = new LogModel();
 		$this->chat = new ChatModel();
 		$this->cache = new CacheModel();
-
 	}
 
-	public function log(String $ket, int $kunci = null, String $tabel = null, String $sebelum = null, String $sesudah = null, int $users = 0){
+	public function log(String $ket, int $kunci = null, String $tabel = null, String $sebelum = null, String $sesudah = null, int $users = 0)
+	{
 		// $users = $users ?: $this->session->get('user_id');
 		$users = 1;
 		$data = [

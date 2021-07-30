@@ -2,7 +2,7 @@ body ::-webkit-scrollbar {
   position: absolute;
   width: 12px;
   margin-left: -10px;
-  -webkit-appearance: none
+  -webkit-appearance: none;
 }
 
 body ::-webkit-scrollbar-track {
