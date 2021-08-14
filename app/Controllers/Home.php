@@ -10,7 +10,6 @@ class Home extends BaseController
 	}
 
 	public function index(){
-		// return redirect()->to(site_url('/home/artikel'))->with('msg', [1,lang('Msg.berhasil_menambah_artikel')]);
 		return redirect()->to(site_url('/home/dashboard'));
 	}
 
