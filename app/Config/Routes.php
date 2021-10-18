@@ -32,7 +32,18 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->group('home', function ($routes) {
+$routes->group('auth',  function ($routes) {
+	$routes->get('/', 'Auth::login');
+	$routes->post('/', 'Auth::login');
+	$routes->get('/login', 'Auth::login');
+	$routes->post('/login', 'Auth::login');
+	$routes->get('daftar', 'Auth::daftar');
+	$routes->get('lupa-password', 'Auth::lupaPassword');
+	$routes->get('logout', 'Auth::logout');
+
+});
+
+$routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 	$routes->get('/', 'Home::index');
 	$routes->get('dashboard', 'Home::dashboard');
 

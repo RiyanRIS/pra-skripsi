@@ -7,7 +7,7 @@ class Bot extends BaseController
 
   protected $chatid;
   protected $userid;
-  protected $url = 'https://23b873e861ec.ngrok.io/bot'; // http://localhost:8080/bot/setwebhook
+  protected $url = 'https://d12e-118-99-83-32.ngrok.io/bot'; // http://localhost:8080/bot/setwebhook
   protected $bot;
 
   // CEWECANTIK
@@ -26,18 +26,39 @@ class Bot extends BaseController
     $this->chatid = $this->bot->ChatID();
     $text = $this->bot->Text();
 
-    $this->userid = $this->cek_pengguna();
-
-    $this->simpan_pesan($text, $this->userid, 0);
-
     $text = \strtolower($text);
     $ex = \explode(" ", $text);
+
+    if ($text == "daftar") {
+      $this->daftar();
+    }
+
+    $this->userid = $this->cek_pengguna();
+    // $this->simpan_pesan($text, $this->userid, 0);
+
+    if ($text == "detail") {
+      $this->detail();
+    }
+
+    // if ($text == "kegiatan yang sedang diikuti") {
+    //   $this->kegiatan_yang_sedang_diikuti($this->userid);
+    // }
+
+    // if ($text == "kegiatan yang telah diikuti") {
+    //   $this->kegiatan_yang_telah_diikuti($this->userid);
+    // }
+
+    // if ($text == "kegiatan yang bisa diikuti") {
+    //   $this->kegiatan_yang_bisa_diikuti($this->userid);
+    // }
 
     if ($text == "reset") {
       $this->cache->destroy($this->chatid);
       $this->kirim("Berhasil mereset perintah!", $this->userid);
       die();
-    } elseif ($text == "bantuan") {
+    }
+    
+    if ($text == "bantuan") {
       $this->bantuan();
     }
 
@@ -84,28 +105,75 @@ class Bot extends BaseController
     die();
   }
 
-  function bantuan()
-  {
+  function awal(){
+    $option = array(
+      array($this->bot->buildKeyboardButton("Sudah ada akun"), $this->bot->buildKeyboardButton("Daftar")),
+      array($this->bot->buildKeyboardButton("Bantuan"))
+    );
+    $keyb = $this->bot->buildKeyBoard($option, true);
+    $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => "Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.");
+    $this->bot->sendMessage($content);
+    die();
+  }
+
+  function daftar(){
+    $idd = $this->cek_pengguna();
+    if(!$idd){
+      $chatid = $this->chatid;
+      $username = $this->bot->Username();
+      $nama = $this->bot->FirstName() . " " . $this->bot->LastName();
+      $data = [
+        'username' => $username,
+        'nama' => $nama,
+        'password' => \password_hash($username, PASSWORD_DEFAULT),
+        'create_at' => time(),
+        'ava' => "1.png",
+        'chat_id' => $chatid
+      ];
+
+      $userid = $this->users->simpan($data);
+      $this->log("insert", $userid, "users");
+      $pesan = "Pendaftaran Berhasil. \n\nKami akan mengenalimu dengan nama \"$nama\". Kamu dapat masuk ke sistem kami dengan \n\nusername: $username\npassword: $username. \n\nJangan lupa untuk mengubah username & password setelah berhasil masuk.\n\nJika mengalami masalah saat masuk, hubungi admin.";
+      $this->kirim($pesan);
+      $this->bantuan();
+    } else {
+      $pesan = "Kamu telah melakukan pendaftaran. Gunakan perintah \"detail\" untuk melihat detail akun kamu. \n\nJika ini kesalahan, hubungi admin.";
+      $this->kirim($pesan);
+    }
+    die();
+  }
+
+  function detail(){
+    $cek = $this->users->where('chat_id', $this->chatid)->where('delete_at', null)->findAll();
+    $pesan = "## DETAIL USERS\n\nNama: " . $cek[0]['nama']."\nUsername: " . $cek[0]['username']."\nStatus: " . $cek[0]['role'] . "\n\nJika ini kesalahan, hubungi admin.";
+    $option = array(
+      array($this->bot->buildInlineKeyboardButton("Kegiatan yang sedang diikuti", '', 'kegiatan_yang_diikuti'), $this->bot->buildInlineKeyboardButton("Kegiatan yang bisa diikuti"), $this->bot->buildInlineKeyboardButton("Kegiatan yang telah diikuti")),
+    );
+    $keyb = $this->bot->buildKeyBoard($option, true);
+    $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => $pesan);
+    $this->bot->sendMessage($content);
+    die();
+  }
+
+  function bantuan(){
     $pesan = "Halo, ini adalah bantuan.";
     $this->kirim($pesan, $this->userid);
     $this->cache->destroy($this->chatid);
     die();
   }
 
-  function bBantuan()
-  {
+  function bBantuan(){
     $option = array(
       array($this->bot->buildKeyboardButton("Bantuan")),
     );
     $keyb = $this->bot->buildKeyBoard($option, $onetime = true);
     $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => "Waah.\nPerintah lo ambigu bro. Silahkan tekan tombol ini untuk dapet bantuan.");
     $this->bot->sendMessage($content);
-    $this->setCached("lihat");
+    // $this->setCached("lihat");
     die();
   }
 
-  function show()
-  {
+  function show(){
     $option = array(
       array($this->bot->buildKeyboardButton("Kegiatan"), $this->bot->buildKeyboardButton("Peserta")),
     );
@@ -116,8 +184,7 @@ class Bot extends BaseController
     die();
   }
 
-  function showKegiatan()
-  {
+  function showKegiatan(){
     $kegiatan = $this->kegiatan->findAll();
 
     if ($kegiatan) {
@@ -137,8 +204,7 @@ class Bot extends BaseController
     die();
   }
 
-  function showDetailKegiatan($id)
-  {
+  function showDetailKegiatan($id){
     $kegiatan = $this->kegiatan->find($id);
 
     if ($kegiatan) {
@@ -187,8 +253,7 @@ class Bot extends BaseController
   }
 
   //kirim ke user, parameter kedua jika kosong tidak akan disimpan ke database.
-  function kirim($pesan, $userid = null)
-  {
+  function kirim($pesan, $userid = null){
     $content = ['chat_id' => $this->chatid, 'text' => $pesan];
     $this->bot->sendMessage($content);
     if ($userid != null) {
@@ -210,29 +275,11 @@ class Bot extends BaseController
   function cek_pengguna()
   {
     $chatid = $this->chatid;
-    $username = $this->bot->Username();
-    $nama = $this->bot->FirstName() . " " . $this->bot->LastName();
 
-    $cek = $this->users->where('chat_id', $chatid)->findAll();
-
+    $cek = $this->users->where('chat_id', $chatid)->where('delete_at', null)->findAll();
     if (count($cek) == 0) {
-      $data = [
-        'username' => $username,
-        'nama' => $nama,
-        'password' => \password_hash($username, PASSWORD_DEFAULT),
-        'create_at' => time(),
-        'ava' => "1.png",
-        'chat_id' => $chatid
-      ];
-
-      $userid = $this->users->simpan($data);
-      $this->log("insert", $userid, "users");
-
-      $pesan = "hi, sepertinya ini pertama kali kamu menghubungi @kegiatan_ukmik_bot. \n\nKami akan mengenalimu dengan nama \"$nama\". Kamu dapat masuk ke sistem kami dengan \n\nusername: $username\npassword: $username. \n\nJangan lupa untuk mengubah username & password setelah berhasil masuk.";
-      $this->kirim($pesan);
-      return $userid;
+      $this->awal();
     } else {
-
       return $cek[0]['id'];
     }
   }

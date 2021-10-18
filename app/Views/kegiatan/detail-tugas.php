@@ -12,11 +12,8 @@
                         $stt = "warning"; 
                         if($key['status'] == 1){
                           $stt = "success";
-                        }else{
-                          $a = date_create(date("Y-m-d", $key['deadline']));
-                          $b = date_create(date("Y-m-d", time()));
-                          $datediff = date_diff($a, $b);
-                          if($datediff->days <= 1){
+                        } else {
+                          if($key['deadline'] <= time()){
                             $stt = "danger";
                           }
                         }

@@ -20,7 +20,7 @@
                 <li><a href="#"><i class="ti-user"></i> <span>My Profile</span></a></li>
                 <li><a href="appviews-inbox.html"><i class="ti-email"></i> <span>Message</span></a></li>
                 <li><a href="#"><i class="ti-settings"></i> <span>Settings</span></a></li>
-                <li><a href="page-lockscreen.html"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                <li><a href="<?= site_url("auth/logout") ?>"><i class="ti-power-off"></i> <span>Logout</span></a></li>
               </ul>
             </li>
           </ul>

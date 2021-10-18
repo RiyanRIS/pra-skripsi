@@ -6,6 +6,21 @@ function nav($a,$b){
     }
 }
 
+function anti_injection($string) {
+	$data = stripslashes(strip_tags(htmlentities(htmlspecialchars($string, ENT_QUOTES))));
+	return $data;
+}
+
+function randStr($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
 function navshow($a,$b){
     if($a == $b){
         echo "show";

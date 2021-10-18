@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use \App\Models\AuthModel;
 use \App\Models\LogModel;
 use \App\Models\ChatModel;
 use App\Models\UsersModel;
@@ -32,6 +33,7 @@ class BaseController extends Controller
 
 	public $breadcrumb;
 
+	protected $auth;
 	protected $users;
 	protected $kegiatan;
 	protected $panitia;
@@ -52,13 +54,14 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
-		helper(['form', 'url', 'ini_helper']);
+		helper(['form', 'url', 'cookie' ,'ini_helper']);
 
 		$this->session        = \Config\Services::session();
 		$this->validation 		= \Config\Services::validation();
 
 		$this->breadcrumb 		= new Breadcrumb();
 
+		$this->auth = new AuthModel();
 		$this->users = new UsersModel();
 		$this->kegiatan = new KegiatanModel();
 		$this->panitia = new PanitiaModel();

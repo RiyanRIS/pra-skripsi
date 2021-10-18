@@ -132,7 +132,7 @@ class Kegiatan extends BaseController
 				$this->log("insert",$lastid,"tugas");
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Panitia"]);
 			}else{
-				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,lang('gagal Menambahkan Panitia')]);
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Panitia']);
 			}
 		}
 	}
@@ -148,7 +148,6 @@ class Kegiatan extends BaseController
 				'ftugas' => $tugas['tugas'],
 				'fdeadline' => date("Y-m-d", $tugas['deadline']),
 				'fstatus' => $tugas['status'],
-
 			];
 			$msg = [
 				'data' => view('kegiatan/modal-edittugas', $data)
@@ -178,7 +177,7 @@ class Kegiatan extends BaseController
 				$this->log("update",$id,"tugas",json_encode($sebelum),json_encode($sesudah));
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Mengubah Tugas"]);
 			}else{
-				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,lang('gagal Mengubah Tugas')]);
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Mengubah Tugas']);
 			}
 		}
 	}
@@ -233,7 +232,7 @@ class Kegiatan extends BaseController
 				$this->log("insert",$lastid,"panitia");
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Panitia"]);
 			}else{
-				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,lang('gagal Menambahkan Panitia')]);
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Panitia']);
 			}
 		}
 	}
@@ -297,7 +296,7 @@ class Kegiatan extends BaseController
 				$this->log("insert",$lastid,"berkas");
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Berkas"]);
 			}else{
-				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,lang('gagal Menambahkan Berkas')]);
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Berkas']);
 			}
 		}
 	}
@@ -333,7 +332,7 @@ class Kegiatan extends BaseController
 				$this->log("insert",$lastid,"peserta");
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Peserta"]);
 			}else{
-				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,lang('gagal Menambahkan Peserta')]);
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Peserta']);
 			}
 		}
 	}
@@ -442,7 +441,7 @@ class Kegiatan extends BaseController
 					$this->log("insert",$lastid,"kegiatan");
 					return redirect()->to($url_redirect)->with('msg', [1,"Berhasil Membuat Kegiatan"]);
 				}else{
-					return redirect()->to($url_redirect)->with('msg', [0,lang('gagal Menambahkan Kegiatan')]);
+					return redirect()->to($url_redirect)->with('msg', [0,'gagal Menambahkan Kegiatan']);
 				}
 
 		}else{
