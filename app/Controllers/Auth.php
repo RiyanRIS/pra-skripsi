@@ -14,7 +14,7 @@ class Auth extends BaseController
 		if($this->auth->cekCookie(get_cookie('sim_ketika_riyanpunya_cok'))){
 			return redirect()->to(site_url('home'));
 		}
-                
+                 
 		$username = '';
 
 		$this->validation->setRule('username', "Username", 'required');
