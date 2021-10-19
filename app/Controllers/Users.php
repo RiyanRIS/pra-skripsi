@@ -89,22 +89,22 @@ class Users extends BaseController
 		);
 
 		if ($this->request->getPost() && $this->validation->withRequest($this->request)->run()) {
-			$additionalData = [
-				'nama' 			=> $this->request->getPost('nama'),
-				'ava' 			=> $this->request->getPost('ava'),
-				'username'  => $this->request->getPost('username'),
-				'password'  => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-				'role'      => $this->request->getPost('role'),
-				'nohp'		  => $this->request->getPost('nohp'),
-				'create_at'	=> time(),
-			];
-			$lastid = $this->users->simpan($additionalData);
-			if ($lastid) {
-				$this->log("insert", $lastid, "users");
-				return redirect()->to($url_redirect)->with('msg', [1, "Berhasil Menambahkan Pengguna"]);
-			} else {
-				return redirect()->to($url_redirect)->with('msg', [0, lang('gagal Menambahkan Pengguna')]);
-			}
+				$additionalData = [
+					'nama' 			=> $this->request->getPost('nama'),
+					'ava' 			=> $this->request->getPost('ava'),
+					'username'  => $this->request->getPost('username'),
+					'password'  => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+					'role'      => $this->request->getPost('role'),
+					'nohp'		  => $this->request->getPost('nohp'),
+					'create_at'	=> time(),
+				];
+				$lastid = $this->users->simpan($additionalData);
+				if ($lastid) {
+					$this->log("insert", $lastid, "users");
+					return redirect()->to($url_redirect)->with('msg', [1, "Berhasil Menambahkan Pengguna"]);
+				} else {
+					return redirect()->to($url_redirect)->with('msg', [0, 'gagal Menambahkan Pengguna']);
+				}
 		} else {
 
 			$data['errors'] = $this->validation->getErrors();
