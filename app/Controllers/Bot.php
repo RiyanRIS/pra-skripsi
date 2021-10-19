@@ -22,11 +22,6 @@ class Bot extends BaseController
     $this->bot = new \Telegram($this->bot_token);
   }
 
-  public function ban(){
-    $pes = ['Halo', 'Hai', 'Ya?'];
-    echo $pes[rand(0,2)];
-  }
-
   public function index()
   {
     $this->chatid = $this->bot->ChatID();
@@ -150,7 +145,8 @@ class Bot extends BaseController
       ];
 
       $userid = $this->users->simpan($data);
-      $this->log("insert", $userid, "users");
+      $rep = $this->log("insert", $userid, "users");
+      $this->report_to_admin("reg_user_from_tele", $rep);
       $pesan = "Pendaftaran Berhasil. \n\nKami akan mengenalimu dengan nama \"$nama\". Kamu dapat masuk ke sistem kami dengan \n\nusername: $username\npassword: $username. \n\nJangan lupa untuk mengubah username & password setelah berhasil masuk.\n\nJika mengalami masalah saat masuk, hubungi admin.";
       $this->kirim($pesan);
       $this->bantuan();
@@ -159,10 +155,6 @@ class Bot extends BaseController
       $this->kirim($pesan);
     }
     die();
-  }
-
-  function tes(){
-    print_r(env("URL_WEBHOOK"));
   }
 
   function sudah_ada_akun(){

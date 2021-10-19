@@ -91,16 +91,24 @@ class BaseController extends Controller
 	}
 
 	public function report_to_admin(string $ket, string $kunci){
+		$msg = '';
+		$user_id = (session()->user_id ?: 1);
+		$user_nama = (session()->user_nama ?: '');
+
 		if($ket == "add_user"){
-			$msg = "UserId: #" .session()->user_id. "(".session()->user_nama.") baru saja menambah pengguna pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah pengguna pada sistem dengan kode Log #". $kunci;
+		}
+
+		if($ket == "reg_user_from_tele"){
+			$msg = "Seseorang telah mendaftar pada sistem dengan kode Log #". $kunci;
 		}
 
 		if($ket == "edit_user"){
-			$msg = "UserId: #" .session()->user_id. "(".session()->user_nama.") baru saja mengubah pengguna pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah pengguna pada sistem dengan kode Log #". $kunci;
 		}
 
 		if($ket == "delete_user"){
-			$msg = "UserId: #" .session()->user_id. "(".session()->user_nama.") baru saja menghapus pengguna pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus pengguna pada sistem dengan kode Log #". $kunci;
 		}
 		
 		$getAllAdmin = $this->users->getAllAdmin();
@@ -111,11 +119,23 @@ class BaseController extends Controller
       }
     }
 
-		$bot_token = '1848204186:AAFVsGpjZr_EbuEOq0hpkX2FRB-x5266JbM';
+		$bot_token = env("BOT_TOKEN_TELE");
 		$bot = new \Telegram($bot_token);
 		foreach($chatIdAllAdmin as $r){
 			$content = ['chat_id' => $r, 'text' => $msg];
+			$this->simpan_chat($msg, $user_id);
 			$bot->sendMessage($content);
 		}
 	}
+
+	function simpan_chat($pesan, $user, $status = 1)
+  {
+    $data = [
+      'pesan' => $pesan,
+      'jenis' => $status, // 1 = kirim, 0 = terima
+      'time' => time(),
+      'user' => $user
+    ];
+    $this->chat->insert($data);
+  }
 }
