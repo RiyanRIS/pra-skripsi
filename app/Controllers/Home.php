@@ -81,6 +81,15 @@ class Home extends BaseController
 				$sesudah = $this->users->find($user_id);
 				if ($lastid) {
 					$this->log("update", $user_id, "users", json_encode($datausers), json_encode($sesudah));
+					// Set Session
+					$sessionData = [
+						'user_id'   => $sesudah['id'],
+						'user_nama' => $sesudah['nama'],
+						'user_role' => $sesudah['role'],
+						'user_ava'  => $sesudah['ava'],
+					];
+					session()->set($sessionData);
+					
 					return redirect()->to($url_redirect)->with('msg', [1, "Berhasil Mengubah Profil"]);
 				} else {
 					return redirect()->to($url_redirect)->with('msg', [0, 'Gagal Mengubah Profil']);
