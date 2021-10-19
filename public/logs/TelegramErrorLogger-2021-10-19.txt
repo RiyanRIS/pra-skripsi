@@ -1,0 +1,715 @@
+============[Date]============
+[ 2021-10-19 11:40:33  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.url= https://daf3-118-99-83-32.ngrok.io/bot
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(1716): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(314): Telegram->setWebhook()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->setWebhook()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#9 {main}
+
+============[Date]============
+[ 2021-10-19 11:40:46  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.url= https://daf3-118-99-83-32.ngrok.io/bot
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(1716): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(314): Telegram->setWebhook()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->setWebhook()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#9 {main}
+
+============[Date]============
+[ 2021-10-19 11:41:11  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016505
+ref.message.message_id= 354
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634618224
+ref.message.text= /start
+ref.message.entities.0.offset= 0
+ref.message.entities.0.length= 6
+ref.message.entities.0.type= bot_command
+
+
+[ref]
+ref.reply_markup= {"keyboard":[[{"text":"Sudah ada akun","request_contact":false,"request_location":false},{"text":"Daftar","request_contact":false,"request_location":false}],[{"text":"Bantuan","request_contact":false,"request_location":false}]],"one_time_keyboard":true,"resize_keyboard":false,"selective":true}
+ref.text= Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(115): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(284): App\Controllers\Bot->awal()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(36): App\Controllers\Bot->cek_pengguna()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#11 {main}
+
+============[Date]============
+[ 2021-10-19 12:19:32  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016507
+ref.message.message_id= 357
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634620751
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.reply_markup= {"keyboard":[[{"text":"Sudah ada akun","request_contact":false,"request_location":false},{"text":"Daftar","request_contact":false,"request_location":false}],[{"text":"Bantuan","request_contact":false,"request_location":false}]],"one_time_keyboard":true,"resize_keyboard":false,"selective":true}
+ref.text= Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(120): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(289): App\Controllers\Bot->awal()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(41): App\Controllers\Bot->cek_pengguna()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#11 {main}
+
+============[Date]============
+[ 2021-10-19 12:26:02  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016508
+ref.message.message_id= 358
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621146
+ref.message.text= /start
+ref.message.entities.0.offset= 0
+ref.message.entities.0.length= 6
+ref.message.entities.0.type= bot_command
+
+
+[ref]
+ref.reply_markup= {"keyboard":[[{"text":"Sudah ada akun","request_contact":false,"request_location":false},{"text":"Daftar","request_contact":false,"request_location":false}],[{"text":"Bantuan","request_contact":false,"request_location":false}]],"one_time_keyboard":true,"resize_keyboard":false,"selective":true}
+ref.text= Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(124): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(305): App\Controllers\Bot->awal()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(45): App\Controllers\Bot->cek_pengguna()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#11 {main}
+
+============[Date]============
+[ 2021-10-19 12:29:45  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		28
+curl_error:		Failed to connect to api.telegram.org port 443: Connection timed out
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016510
+ref.message.message_id= 361
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621254
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.reply_markup= {"keyboard":[[{"text":"Sudah ada akun","request_contact":false,"request_location":false},{"text":"Daftar","request_contact":false,"request_location":false}],[{"text":"Bantuan","request_contact":false,"request_location":false}]],"one_time_keyboard":true,"resize_keyboard":false,"selective":true}
+ref.text= Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(124): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(305): App\Controllers\Bot->awal()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(159): App\Controllers\Bot->cek_pengguna()
+#6 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(42): App\Controllers\Bot->sudah_ada_akun()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#9 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#12 {main}
+
+============[Date]============
+[ 2021-10-19 12:30:00  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016510
+ref.message.message_id= 361
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621254
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.reply_markup= {"keyboard":[[{"text":"Sudah ada akun","request_contact":false,"request_location":false},{"text":"Daftar","request_contact":false,"request_location":false}],[{"text":"Bantuan","request_contact":false,"request_location":false}]],"one_time_keyboard":true,"resize_keyboard":false,"selective":true}
+ref.text= Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(124): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(305): App\Controllers\Bot->awal()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(159): App\Controllers\Bot->cek_pengguna()
+#6 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(42): App\Controllers\Bot->sudah_ada_akun()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#9 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#12 {main}
+
+============[Date]============
+[ 2021-10-19 12:30:18  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016511
+ref.message.message_id= 362
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621325
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.reply_markup= {"keyboard":[[{"text":"Sudah ada akun","request_contact":false,"request_location":false},{"text":"Daftar","request_contact":false,"request_location":false}],[{"text":"Bantuan","request_contact":false,"request_location":false}]],"one_time_keyboard":true,"resize_keyboard":false,"selective":true}
+ref.text= Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(124): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(305): App\Controllers\Bot->awal()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(159): App\Controllers\Bot->cek_pengguna()
+#6 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(42): App\Controllers\Bot->sudah_ada_akun()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#9 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#12 {main}
+
+============[Date]============
+[ 2021-10-19 12:33:36  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016512
+ref.message.message_id= 364
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621595
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.reply_markup= {"keyboard":[[{"text":"Sudah ada akun","request_contact":false,"request_location":false},{"text":"Daftar","request_contact":false,"request_location":false}],[{"text":"Bantuan","request_contact":false,"request_location":false}]],"one_time_keyboard":true,"resize_keyboard":false,"selective":true}
+ref.text= Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(124): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(305): App\Controllers\Bot->awal()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(159): App\Controllers\Bot->cek_pengguna()
+#6 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(42): App\Controllers\Bot->sudah_ada_akun()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#9 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#11 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#12 {main}
+
+============[Date]============
+[ 2021-10-19 12:35:37  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016513
+ref.message.message_id= 365
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621727
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.text= Sambungkan akun kamu dengan telegram, caranya:
+
+1. Masuk ke halaman website https://riyanpra.herokuapp.com
+2. Login dengan akun yang ingin kamu sambungkan.
+3. Buka setting dengan cara, klik nama kamu di pojok kanan atas lalu klik "Pengaturan"
+4. Cari bagian "Kode Undangan Telegram" Lalu klik Dapatkan Kode
+5. Pastikan telah muncul kode unik untuk kamu, bukan pesan bahwa akun kamu sudah terikat.
+6. Setelah itu kembali ke telegram dan klik tombol "Masukkan Kode" yang ada dibawah ini(di bagian keyboard biasanya)
+7. Bot akan meminta kode undangan
+8. Masukkan kode undangan yang ada pada langkah 5.
+9. Bot akan memverifikasi kodenya dan membalas dengan pesan berhasil atau gagal.
+10. Selesai.
+
+Jika ada masalah, hubungi admin.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(285): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(165): App\Controllers\Bot->kirim()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(42): App\Controllers\Bot->sudah_ada_akun()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#11 {main}
+
+============[Date]============
+[ 2021-10-19 12:36:44  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016514
+ref.message.message_id= 366
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621780
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.text= Sambungkan akun kamu dengan telegram, caranya:
+
+1. Masuk ke halaman website https://riyanpra.herokuapp.com
+2. Login dengan akun yang ingin kamu sambungkan.
+3. Buka setting dengan cara, klik nama kamu di pojok kanan atas lalu klik "Pengaturan"
+4. Cari bagian "Kode Undangan Telegram" Lalu klik Dapatkan Kode
+5. Pastikan telah muncul kode unik untuk kamu, bukan pesan bahwa akun kamu sudah terikat.
+6. Setelah itu kembali ke telegram dan klik tombol "Masukkan Kode" yang ada dibawah ini(di bagian keyboard biasanya)
+7. Bot akan meminta kode undangan
+8. Masukkan kode undangan yang ada pada langkah 5.
+9. Bot akan memverifikasi kodenya dan membalas dengan pesan berhasil atau gagal.
+10. Selesai.
+
+Jika ada masalah, hubungi admin.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(287): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(167): App\Controllers\Bot->kirim()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(44): App\Controllers\Bot->sudah_ada_akun()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#11 {main}
+
+============[Date]============
+[ 2021-10-19 12:38:38  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016515
+ref.message.message_id= 368
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621902
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.text= Masuk kok
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(287): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(42): App\Controllers\Bot->kirim()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#10 {main}
+
+============[Date]============
+[ 2021-10-19 12:38:48  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016515
+ref.message.message_id= 368
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621902
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.text= Sambungkan akun kamu dengan telegram, caranya:
+
+1. Masuk ke halaman website https://riyanpra.herokuapp.com
+2. Login dengan akun yang ingin kamu sambungkan.
+3. Buka setting dengan cara, klik nama kamu di pojok kanan atas lalu klik "Pengaturan"
+4. Cari bagian "Kode Undangan Telegram" Lalu klik Dapatkan Kode
+5. Pastikan telah muncul kode unik untuk kamu, bukan pesan bahwa akun kamu sudah terikat.
+6. Setelah itu kembali ke telegram dan klik tombol "Masukkan Kode" yang ada dibawah ini(di bagian keyboard biasanya)
+7. Bot akan meminta kode undangan
+8. Masukkan kode undangan yang ada pada langkah 5.
+9. Bot akan memverifikasi kodenya dan membalas dengan pesan berhasil atau gagal.
+10. Selesai.
+
+Jika ada masalah, hubungi admin.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(287): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(167): App\Controllers\Bot->kirim()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(44): App\Controllers\Bot->sudah_ada_akun()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#11 {main}
+
+============[Date]============
+[ 2021-10-19 12:39:12  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016516
+ref.message.message_id= 369
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621941
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.text= Masuk kok
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(291): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(42): App\Controllers\Bot->kirim()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#10 {main}
+
+============[Date]============
+[ 2021-10-19 12:39:35  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016516
+ref.message.message_id= 369
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634621941
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.text= Sambungkan akun kamu dengan telegram, caranya:
+
+1. Masuk ke halaman website https://riyanpra.herokuapp.com
+2. Login dengan akun yang ingin kamu sambungkan.
+3. Buka setting dengan cara, klik nama kamu di pojok kanan atas lalu klik "Pengaturan"
+4. Cari bagian "Kode Undangan Telegram" Lalu klik Dapatkan Kode
+5. Pastikan telah muncul kode unik untuk kamu, bukan pesan bahwa akun kamu sudah terikat.
+6. Setelah itu kembali ke telegram dan klik tombol "Masukkan Kode" yang ada dibawah ini(di bagian keyboard biasanya)
+7. Bot akan meminta kode undangan
+8. Masukkan kode undangan yang ada pada langkah 5.
+9. Bot akan memverifikasi kodenya dan membalas dengan pesan berhasil atau gagal.
+10. Selesai.
+
+Jika ada masalah, hubungi admin.
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(291): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(171): App\Controllers\Bot->kirim()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(44): App\Controllers\Bot->sudah_ada_akun()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#11 {main}
+
+============[Date]============
+[ 2021-10-19 12:44:01  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		28
+curl_error:		Failed to connect to api.telegram.org port 443: Connection timed out
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016517
+ref.message.message_id= 372
+ref.message.from.id= 1808724914
+ref.message.from.is_bot= false
+ref.message.from.first_name= Bayi
+ref.message.from.last_name= Kecil
+ref.message.from.username= kaayumaniss
+ref.message.from.language_code= en
+ref.message.chat.id= 1808724914
+ref.message.chat.first_name= Bayi
+ref.message.chat.last_name= Kecil
+ref.message.chat.username= kaayumaniss
+ref.message.chat.type= private
+ref.message.date= 1634622106
+ref.message.text= Sudah ada akun
+
+
+[ref]
+ref.text= Masuk kok funsi
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(291): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(164): App\Controllers\Bot->kirim()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(44): App\Controllers\Bot->sudah_ada_akun()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#11 {main}
+

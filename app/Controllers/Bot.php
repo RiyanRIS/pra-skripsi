@@ -7,7 +7,7 @@ class Bot extends BaseController
 
   protected $chatid;
   protected $userid;
-  protected $url = 'https://d12e-118-99-83-32.ngrok.io/bot'; // http://localhost:8080/bot/setwebhook
+  protected $url = 'https://daf3-118-99-83-32.ngrok.io/bot'; // http://localhost:8080/bot/setwebhook
   protected $bot;
 
   // CEWECANTIK
@@ -19,6 +19,11 @@ class Bot extends BaseController
   public function __construct()
   {
     $this->bot = new \Telegram($this->bot_token);
+  }
+
+  public function ban(){
+    $pes = ['Halo', 'Hai', 'Ya?'];
+    echo $pes[rand(0,2)];
   }
 
   public function index()
@@ -33,7 +38,16 @@ class Bot extends BaseController
       $this->daftar();
     }
 
+    if ($text == "sudah ada akun") {
+      $this->kirim("Masuk kok");
+
+      $this->sudah_ada_akun();
+    }
+
     $this->userid = $this->cek_pengguna();
+    if($this->userid == null){
+      $this->awal();
+    }
     // $this->simpan_pesan($text, $this->userid, 0);
 
     if ($text == "detail") {
@@ -118,7 +132,7 @@ class Bot extends BaseController
 
   function daftar(){
     $idd = $this->cek_pengguna();
-    if(!$idd){
+    if($idd == null){
       $chatid = $this->chatid;
       $username = $this->bot->Username();
       $nama = $this->bot->FirstName() . " " . $this->bot->LastName();
@@ -141,6 +155,22 @@ class Bot extends BaseController
       $this->bantuan();
     } else {
       $pesan = "Kamu telah melakukan pendaftaran. Gunakan perintah \"detail\" untuk melihat detail akun kamu. \n\nJika ini kesalahan, hubungi admin.";
+      $this->kirim($pesan);
+    }
+    die();
+  }
+
+  function sudah_ada_akun(){
+    $this->kirim("Masuk kok funsi");
+
+    $idd = $this->cek_pengguna();
+    if($idd == null){
+      $this->kirim("Masuk sini");
+
+      $pesan = "Sambungkan akun kamu dengan telegram, caranya:\n\n1. Masuk ke halaman website https://riyanpra.herokuapp.com \n2. Login dengan akun yang ingin kamu sambungkan.\n3. Buka setting dengan cara, klik nama kamu di pojok kanan atas lalu klik \"Pengaturan\"\n4. Cari bagian \"Kode Undangan Telegram\" Lalu klik Dapatkan Kode\n5. Pastikan telah muncul kode unik untuk kamu, bukan pesan bahwa akun kamu sudah terikat.\n6. Setelah itu kembali ke telegram dan klik tombol \"Masukkan Kode\" yang ada dibawah ini(di bagian keyboard biasanya)\n7. Bot akan meminta kode undangan\n8. Masukkan kode undangan yang ada pada langkah 5.\n9. Bot akan memverifikasi kodenya dan membalas dengan pesan berhasil atau gagal.\n10. Selesai.\n\nJika ada masalah, hubungi admin.";
+      $this->kirim($pesan);
+    } else {
+      $pesan = "Akun kamu sudah terikat dengan sistem. Gunakan perintah \"detail\" untuk melihat detail akun kamu. \n\nJika ini kesalahan, hubungi admin.";
       $this->kirim($pesan);
     }
     die();
@@ -281,7 +311,7 @@ class Bot extends BaseController
 
     $cek = $this->users->where('chat_id', $chatid)->where('delete_at', null)->findAll();
     if (count($cek) == 0) {
-      $this->awal();
+      return null;
     } else {
       return $cek[0]['id'];
     }

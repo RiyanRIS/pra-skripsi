@@ -32,6 +32,27 @@ class Home extends BaseController
 		return view('home',$data);
 	}
 
+	public function setting(){
+		$data = [
+			'breadcrumbs' => $this->breadcrumb->buildAuto(),
+			'title' => "Pengaturan",
+			'nav' => "Pengaturan",
+			'pgtitle' => "Halaman Pengaturan",
+		];
+		return view('setting',$data);
+	}
+
+	function settingCode(){
+		$user_id = session()->user_id;
+		$datausers = $this->users->find($user_id);
+		if($datausers['chat_id'] == null){
+			$result = $datausers['terahir_dilihat'];
+		} else {
+			$result = "Akun kamu sudah terikat dengan Telegram";
+		}
+		return json_encode($result);
+	}
+
 	public function profil()
 	{
 		$user_id = session()->user_id;

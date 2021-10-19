@@ -17,10 +17,10 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?= urlImg(session()->user_ava, 'avatar') ?>" class="user-picture"" alt="Avatar"> <span><?= ucwords(session()->user_nama) ?></span></a>
               <ul class="dropdown-menu dropdown-menu-right logged-user-menu">
-                <li><a href="<?= site_url("home/profil") ?>"><i class="ti-user"></i> <span>My Profile</span></a></li>
+                <li><a href="<?= site_url("home/profil") ?>"><i class="ti-user"></i> <span>Profil Saya</span></a></li>
                 <li><a href="appviews-inbox.html"><i class="ti-email"></i> <span>Message</span></a></li>
-                <li><a href="#"><i class="ti-settings"></i> <span>Settings</span></a></li>
-                <li><a href="<?= site_url("auth/logout") ?>"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                <li><a href="<?= site_url('home/setting') ?>"><i class="ti-settings"></i> <span>Pengaturan</span></a></li>
+                <li><a href="<?= site_url("auth/logout") ?>"><i class="ti-power-off"></i> <span>Keluar</span></a></li>
               </ul>
             </li>
           </ul>
