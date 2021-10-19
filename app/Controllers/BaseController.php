@@ -94,6 +94,10 @@ class BaseController extends Controller
 		if($ket == "add_user"){
 			$msg = "UserId: #" .session()->user_id. "(".session()->user_nama.") baru saja menambah pengguna pada sistem dengan kode Log #". $kunci;
 		}
+
+		if($ket == "edit_user"){
+			$msg = "UserId: #" .session()->user_id. "(".session()->user_nama.") baru saja mengubah pengguna pada sistem dengan kode Log #". $kunci;
+		}
 		
 		$getAllAdmin = $this->users->getAllAdmin();
     $chatIdAllAdmin = [];
