@@ -49,7 +49,6 @@ class Users extends BaseController
 			'breadcrumbs' => $this->breadcrumb->buildAuto(),
 			'title' => "Pengguna",
 			'pgdesc' => "Formulir menambah data pengguna",
-
 		];
 
 		if ($segments[1] == "pengguna") {

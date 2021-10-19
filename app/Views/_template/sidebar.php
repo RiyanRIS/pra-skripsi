@@ -34,7 +34,7 @@
           <li><a class="<?= nav('Berkas',@$nav) ?>"  href="widgets.html" class=""><i class="ti-widget"></i> <span class="title">Berkas</span></a></li>
 
           <li class="menu-group">Setting</li>
-          <li><a class="<?= nav('Pengaturan',@$nav) ?>"  href="widgets.html" class=""><i class="ti-widget"></i> <span class="title">Setting</span></a></li>
+          <li><a class="<?= nav('Pengaturan',@$nav) ?>"  href="widgets.html" class=""><i class="ti-widget"></i> <span class="title">Dasar</span></a></li>
           <li><a class="<?= nav('Atur Notifikasi',@$nav) ?>"  href="widgets.html" class=""><i class="ti-widget"></i> <span class="title">Notifikasi</span></a></li>
 
         </ul>

@@ -46,6 +46,7 @@ $routes->group('auth',  function ($routes) {
 $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 	$routes->get('/', 'Home::index');
 	$routes->get('dashboard', 'Home::dashboard');
+	$routes->get('profil', 'Home::profil');
 
 	// MODEL PENGGUNA
 	$routes->group('pengguna', function ($routes) {
