@@ -7,7 +7,6 @@ class Bot extends BaseController
 
   protected $chatid;
   protected $userid;
-  protected $url = 'https://daf3-118-99-83-32.ngrok.io/bot'; // http://localhost:8080/bot/setwebhook
   protected $bot;
 
   // CEWECANTIK
@@ -161,14 +160,7 @@ class Bot extends BaseController
   }
 
   function tes(){
-    $getall = $this->users->getAllAdmin();
-    $chtid_admin = [];
-    foreach($getall as $row){
-      if($row['chat_id'] != null){
-        array_push($chtid_admin, $row['chat_id']);
-      }
-    }
-    print_r($chtid_admin);
+    print_r(env("URL_WEBHOOK"));
   }
 
   function sudah_ada_akun(){
@@ -352,7 +344,7 @@ class Bot extends BaseController
   function setWebhook()
   {
     echo "<pre>";
-    print_r($this->bot->setWebhook($this->url));
+    print_r($this->bot->setWebhook(env("URL_WEBHOOK") . '/bot'));
     echo "</pre>";
   }
 }
