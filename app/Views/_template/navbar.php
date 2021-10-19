@@ -15,7 +15,7 @@
             <?= view("_template/notification.php") ?>
 
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://i.imgur.com/M701HZb.jpg" class="user-picture"" alt="Avatar"> <span>Samuel</span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="<?= urlImg(session()->user_ava, 'avatar') ?>" class="user-picture"" alt="Avatar"> <span><?= ucwords(session()->user_nama) ?></span></a>
               <ul class="dropdown-menu dropdown-menu-right logged-user-menu">
                 <li><a href="<?= site_url("home/profil") ?>"><i class="ti-user"></i> <span>My Profile</span></a></li>
                 <li><a href="appviews-inbox.html"><i class="ti-email"></i> <span>Message</span></a></li>

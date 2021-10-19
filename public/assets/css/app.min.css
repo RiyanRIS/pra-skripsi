@@ -1882,7 +1882,8 @@ html.fullscreen-bg body {
 .navbar .user-picture {
   width: 24px;
   margin-right: 2px;
-  border: 1px solid #fff
+  border: 1px solid #fff;
+  border-radius: 50%;
 }
 
 .navbar .dropdown-toggle {
