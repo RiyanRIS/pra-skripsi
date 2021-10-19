@@ -592,7 +592,7 @@ class Kegiatan extends BaseController
         'lokasi' 					=> 'trim|required',
         'penanggungjawab' => 'required|is_not_unique[users.id]',
         'jenis' 					=> 'required',
-    ],   
+    ],  
     [   // Errors
         'penanggungjawab' => [
             'is_not_unique'   => 'Penanggungjawab tidak ada didalam daftar pengurus',
