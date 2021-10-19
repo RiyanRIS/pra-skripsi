@@ -99,7 +99,8 @@ class Users extends BaseController
 				];
 				$lastid = $this->users->simpan($additionalData);
 				if ($lastid) {
-					$this->log("insert", $lastid, "users");
+					$rep = $this->log("insert", $lastid, "users");
+					$this->report_to_admin("add_user", $rep);
 					return redirect()->to($url_redirect)->with('msg', [1, "Berhasil Menambahkan Pengguna"]);
 				} else {
 					return redirect()->to($url_redirect)->with('msg', [0, 'gagal Menambahkan Pengguna']);

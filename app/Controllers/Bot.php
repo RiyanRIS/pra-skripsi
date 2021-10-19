@@ -160,6 +160,17 @@ class Bot extends BaseController
     die();
   }
 
+  function tes(){
+    $getall = $this->users->getAllAdmin();
+    $chtid_admin = [];
+    foreach($getall as $row){
+      if($row['chat_id'] != null){
+        array_push($chtid_admin, $row['chat_id']);
+      }
+    }
+    print_r($chtid_admin);
+  }
+
   function sudah_ada_akun(){
     $this->kirim("Masuk kok funsi");
 

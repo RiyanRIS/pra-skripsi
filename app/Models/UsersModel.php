@@ -25,6 +25,14 @@ class UsersModel extends Model
 			return $id ?? false;
 	}
 
+	public function getAllAdmin(){
+		return $this->db->table($this->table)
+											->where('role', 'admin')
+											->where('delete_at', null)
+											->get()
+											->getResultArray();
+	}
+
 	public function findByUsername(string $username):bool
 	{
 		$query = $this->db->table($this->table)
@@ -38,7 +46,7 @@ class UsersModel extends Model
     if (isset($user)){
 			return true;
 		}
-		
+
 		return false;
 	}
 

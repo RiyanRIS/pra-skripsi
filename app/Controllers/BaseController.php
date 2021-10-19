@@ -89,4 +89,25 @@ class BaseController extends Controller
 		];
 		return $this->log->insert($data);
 	}
+
+	public function report_to_admin(string $ket, string $kunci){
+		if($ket == "add_user"){
+			$msg = "UserId: #" .session()->user_id. "(".session()->user_nama.") baru saja menambah pengguna pada sistem dengan kode Log #". $kunci;
+		}
+		
+		$getAllAdmin = $this->users->getAllAdmin();
+    $chatIdAllAdmin = [];
+    foreach($getAllAdmin as $r){
+      if($r['chat_id'] != null){
+        array_push($chatIdAllAdmin, $r['chat_id']);
+      }
+    }
+
+		$bot_token = '1848204186:AAFVsGpjZr_EbuEOq0hpkX2FRB-x5266JbM';
+		$bot = new \Telegram($bot_token);
+		foreach($chatIdAllAdmin as $r){
+			$content = ['chat_id' => $r, 'text' => $msg];
+			$bot->sendMessage($content);
+		}
+	}
 }
