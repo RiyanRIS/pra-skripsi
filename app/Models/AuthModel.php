@@ -19,6 +19,7 @@ class AuthModel extends Model
     $query = $this->db->table("users")
 						  ->select('*')
 						  ->where('username', $username)
+						  ->where('delete_at', NULL)
 						  ->limit(1)
 						  ->orderBy('id', 'desc')
 						  ->get();
@@ -68,6 +69,9 @@ class AuthModel extends Model
 	{
 		$sessionData = [
 			'user_id'             => $user->id,
+			'user_nama'             => $user->nama,
+			'user_role'             => $user->role,
+			'user_ava'             => $user->ava,
 			'islogin'             => true,
 		];
 

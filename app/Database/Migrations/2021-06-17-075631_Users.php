@@ -52,6 +52,11 @@ class Users extends Migration
 					'constraint'     => 11,
 					'null'					 => true,
 				],
+				'remember_selector'  => [
+					'type'           => 'VARCHAR',
+					'constraint'     => 64,
+					'null'					 => true,
+				],
 				'create_at'  => [
 					'type'           => 'INT',
 					'constraint'     => 11,
