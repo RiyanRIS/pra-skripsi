@@ -13,10 +13,12 @@ class Bot extends BaseController
   // protected $bot_token = '1369088735:AAGkBavShqR7Lt3CFfv_QLkvr6S2n45CvBU';
 
   // KEGIATAN_UKMIK_BOT 
-  protected $bot_token = '1848204186:AAFVsGpjZr_EbuEOq0hpkX2FRB-x5266JbM';
+  // protected $bot_token = '1848204186:AAFVsGpjZr_EbuEOq0hpkX2FRB-x5266JbM';
+  protected $bot_token;
 
   public function __construct()
   {
+    $this->bot_token = env("BOT_TOKEN_TELE");
     $this->bot = new \Telegram($this->bot_token);
   }
 
