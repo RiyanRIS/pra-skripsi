@@ -129,7 +129,8 @@ class Kegiatan extends BaseController
 			];
 			$lastid = $this->tugas->simpan($additionalData);
 			if($lastid){
-				$this->log("insert",$lastid,"tugas");
+				$resp = $this->log("insert",$lastid,"tugas");
+				$this->report_to_admin("add_tugas", $resp, 'kegiatan', $lastid);
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Panitia"]);
 			}else{
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Panitia']);
@@ -174,7 +175,8 @@ class Kegiatan extends BaseController
 			$sesudah = $this->tugas->find($id);
 
 			if($update){
-				$this->log("update",$id,"tugas",json_encode($sebelum),json_encode($sesudah));
+				$resp = $this->log("update",$id,"tugas",json_encode($sebelum),json_encode($sesudah));
+				$this->report_to_admin("edit_tugas", $resp, 'kegiatan', $id);
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Mengubah Tugas"]);
 			}else{
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Mengubah Tugas']);
@@ -190,7 +192,8 @@ class Kegiatan extends BaseController
 
 			$status = $this->tugas->delete($id);
 			if($status){
-				$this->log("delete",$id,"tugas");
+				$resp = $this->log("delete",$id,"tugas");
+				$this->report_to_admin("delete_tugas", $resp, 'kegiatan', $id);
 				$message = [1, "Berhasil Menghapus Tugas"];
 			}else{
 				$message = [0, "Gagal Menghapus Tugas"];
@@ -229,7 +232,8 @@ class Kegiatan extends BaseController
 			];
 			$lastid = $this->panitia->simpan($additionalData);
 			if($lastid){
-				$this->log("insert",$lastid,"panitia");
+				$resp = $this->log("insert",$lastid,"panitia");
+				$this->report_to_admin("add_panitia", $resp, 'kegiatan', $lastid);
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Panitia"]);
 			}else{
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Panitia']);
@@ -247,7 +251,7 @@ class Kegiatan extends BaseController
 			if($status){
 				$this->log("delete",$id,"panitia");
 				$message = [1, "Berhasil Menghapus Panitia"];
-			}else{
+			} else {
 				$message = [0, "Gagal Menghapus Panitia"];
 			}
 			return redirect()->to($url_redirect)->with('msg', $message);
@@ -438,7 +442,8 @@ class Kegiatan extends BaseController
 				];
 				$lastid = $this->kegiatan->simpan($additionalData);
 				if($lastid){
-					$this->log("insert",$lastid,"kegiatan");
+					$resp = $this->log("insert",$lastid,"kegiatan");
+					$this->report_to_admin("add_kegiatan", $resp);
 					return redirect()->to($url_redirect)->with('msg', [1,"Berhasil Membuat Kegiatan"]);
 				}else{
 					return redirect()->to($url_redirect)->with('msg', [0,'gagal Menambahkan Kegiatan']);
@@ -632,7 +637,8 @@ class Kegiatan extends BaseController
 			$sesudah = $this->kegiatan->find($id);
 
 			if($lastid){
-				$this->log("update",$id,"kegiatan",json_encode($sebelum),json_encode($sesudah));
+				$resp = $this->log("update",$id,"kegiatan",json_encode($sebelum),json_encode($sesudah));
+				$this->report_to_admin("edit_kegiatan", $resp);
 				return redirect()->to($url_redirect)->with('msg', [1,"Berhasil Mengubah Kegiatan"]);
 			}else{
 				return redirect()->to($url_redirect)->with('msg', [0,"Gagal Mengubah Kegiatan"]);
@@ -739,7 +745,8 @@ class Kegiatan extends BaseController
 			];
 			$status = $this->users->update($id,$data);
 			if($status){
-				$this->log("delete",$id,"users");
+				$resp = $this->log("delete",$id,"users");
+				$this->report_to_admin("delete_kegiatan", $resp);
 				$message = [1, "Berhasil Menghapus Pengguna"];
 			}else{
 				$message = [0, "Gagal Menghapus Pengguna"];

@@ -90,10 +90,16 @@ class BaseController extends Controller
 		return $this->log->insert($data);
 	}
 
-	public function report_to_admin(string $ket, string $kunci){
+	public function report_to_admin(string $ket, string $kunci, string $tabel = null, string $key = null){
 		$msg = '';
 		$user_id = (session()->user_id ?: 1);
 		$user_nama = (session()->user_nama ?: '');
+
+		if($tabel == 'kegiatan'){
+			$kegiatan = $this->kegiatan->find($key);
+			$kegiatan_id = ($kegiatan['id'] ?: 1);
+			$kegiatan_nama = ($kegiatan['nama'] ?: '');
+		}
 
 		if($ket == "add_user"){
 			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah pengguna pada sistem dengan kode Log #". $kunci;
@@ -109,6 +115,30 @@ class BaseController extends Controller
 
 		if($ket == "delete_user"){
 			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus pengguna pada sistem dengan kode Log #". $kunci;
+		}
+
+		if($ket == "add_kegiatan"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah kegiatan pada sistem dengan kode Log #". $kunci;
+		}
+
+		if($ket == "edit_kegiatan"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah kegiatan pada sistem dengan kode Log #". $kunci;
+		}
+
+		if($ket == "delete_kegiatan"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus kegiatan pada sistem dengan kode Log #". $kunci;
+		}
+
+		if($ket == "add_tugas"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+		}
+
+		if($ket == "edit_kegiatan"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah kegiatan pada sistem dengan kode Log #". $kunci;
+		}
+
+		if($ket == "delete_kegiatan"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus kegiatan pada sistem dengan kode Log #". $kunci;
 		}
 		
 		$getAllAdmin = $this->users->getAllAdmin();
