@@ -122,6 +122,9 @@ class Bot extends BaseController
       $chatid = $this->chatid;
       $username = $this->bot->Username();
       $nama = $this->bot->FirstName() . " " . $this->bot->LastName();
+      if($this->users->findByUsername($username)){
+        $username .= rand(1000, 9999);
+      }
       $data = [
         'username' => $username,
         'nama' => $nama,

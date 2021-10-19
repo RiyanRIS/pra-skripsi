@@ -20,9 +20,26 @@ class UsersModel extends Model
 	protected $deletedField  = 'delete_at';
 
 	public function simpan($data){
-			$query = $this->db->table($this->table)->insert($data);
+			$this->db->table($this->table)->insert($data);
 			$id = $this->db->insertId($this->table);
 			return $id ?? false;
+	}
+
+	public function findByUsername(string $username):bool
+	{
+		$query = $this->db->table($this->table)
+											->where('username', $username)
+											->where('delete_at', null)
+											->limit(1)
+											->get();
+		
+		$user = $query->getRow();
+
+    if (isset($user)){
+			return true;
+		}
+		
+		return false;
 	}
 
 }
