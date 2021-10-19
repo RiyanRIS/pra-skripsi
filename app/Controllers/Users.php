@@ -314,7 +314,8 @@ class Users extends BaseController
 			];
 			$status = $this->users->update($id, $data);
 			if ($status) {
-				$this->log("delete", $id, "users");
+				$rep = $this->log("delete", $id, "users");
+				$this->report_to_admin("delete_user", $rep);
 				$message = [1, "Berhasil Menghapus Pengguna"];
 			} else {
 				$message = [0, "Gagal Menghapus Pengguna"];
