@@ -273,7 +273,7 @@ class Kegiatan extends BaseController
 			echo json_encode($msg);
 		}
 	}
-          
+        
 	public function aksiTambahBerkas()
 	{
 		if ($this->request->getPost())
