@@ -133,12 +133,32 @@ class BaseController extends Controller
 			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
 		}
 
-		if($ket == "edit_kegiatan"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah kegiatan pada sistem dengan kode Log #". $kunci;
+		if($ket == "edit_tugas"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah tugas pada sistem dengan kode Log #". $kunci;
 		}
 
-		if($ket == "delete_kegiatan"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus kegiatan pada sistem dengan kode Log #". $kunci;
+		if($ket == "delete_tugas"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus tugas pada sistem dengan kode Log #". $kunci;
+		}
+
+		if($ket == "add_panitia"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah panitia pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+		}
+
+		if($ket == "delete_panitia"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus panitia pada sistem dengan kode Log #". $kunci;
+		}
+
+		if($ket == "add_peserta"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah peserta pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+		}
+
+		if($ket == "delete_peserta"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus peserta pada sistem dengan kode Log #". $kunci;
+		}
+
+		if($ket == "add_berkas"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah berkas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
 		}
 		
 		$getAllAdmin = $this->users->getAllAdmin();

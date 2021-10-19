@@ -249,7 +249,8 @@ class Kegiatan extends BaseController
 
 			$status = $this->panitia->delete($id);
 			if($status){
-				$this->log("delete",$id,"panitia");
+				$resp = $this->log("delete",$id,"panitia");
+				$this->report_to_admin("delete_panitia", $resp, 'kegiatan', $id);
 				$message = [1, "Berhasil Menghapus Panitia"];
 			} else {
 				$message = [0, "Gagal Menghapus Panitia"];
@@ -297,7 +298,8 @@ class Kegiatan extends BaseController
 
 			$lastid = $this->berkas->simpan($additionalData);
 			if($lastid){
-				$this->log("insert",$lastid,"berkas");
+				$resp = $this->log("insert",$lastid,"berkas");
+				$this->report_to_admin("add_berkas", $resp, 'kegiatan', $lastid);
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Berkas"]);
 			}else{
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Berkas']);
@@ -333,7 +335,8 @@ class Kegiatan extends BaseController
 			];
 			$lastid = $this->peserta->simpan($additionalData);
 			if($lastid){
-				$this->log("insert",$lastid,"peserta");
+				$resp = $this->log("insert",$lastid,"peserta");
+				$this->report_to_admin("add_peserta", $resp, 'kegiatan', $lastid);
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Peserta"]);
 			}else{
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Peserta']);
@@ -349,7 +352,8 @@ class Kegiatan extends BaseController
 
 			$status = $this->peserta->delete($id);
 			if($status){
-				$this->log("delete",$id,"peserta");
+				$resp = $this->log("delete",$id,"peserta");
+				$this->report_to_admin("delete_peserta", $resp, 'kegiatan', $id);
 				$message = [1, "Berhasil Menghapus Peserta"];
 			}else{
 				$message = [0, "Gagal Menghapus Peserta"];
