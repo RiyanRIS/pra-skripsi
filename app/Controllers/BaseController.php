@@ -118,15 +118,15 @@ class BaseController extends Controller
 		}
 
 		if($ket == "add_kegiatan"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah kegiatan pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") pada sistem dengan kode Log #". $kunci;
 		}
 
 		if($ket == "edit_kegiatan"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah kegiatan pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") pada sistem dengan kode Log #". $kunci;
 		}
 
 		if($ket == "delete_kegiatan"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus kegiatan pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") pada sistem dengan kode Log #". $kunci;
 		}
 
 		if($ket == "add_tugas"){
@@ -134,11 +134,11 @@ class BaseController extends Controller
 		}
 
 		if($ket == "edit_tugas"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah tugas pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
 		}
 
 		if($ket == "delete_tugas"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus tugas pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
 		}
 
 		if($ket == "add_panitia"){
@@ -146,7 +146,7 @@ class BaseController extends Controller
 		}
 
 		if($ket == "delete_panitia"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus panitia pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus panitia pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
 		}
 
 		if($ket == "add_peserta"){

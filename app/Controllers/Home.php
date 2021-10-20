@@ -44,11 +44,15 @@ class Home extends BaseController
 
 	function settingCode(){
 		$user_id = session()->user_id;
-		$datausers = $this->users->find($user_id);
-		if($datausers['chat_id'] == null){
-			$result = $datausers['terahir_dilihat'];
+		if($user_id){
+			$datausers = $this->users->find($user_id);
+			if($datausers['chat_id'] == null){
+				$result = $datausers['terahir_dilihat'];
+			} else {
+				$result = "Akun kamu sudah terikat dengan Telegram";
+			}
 		} else {
-			$result = "Akun kamu sudah terikat dengan Telegram";
+			$result = "Kamu tidak memiliki akses kode";
 		}
 		return json_encode($result);
 	}
