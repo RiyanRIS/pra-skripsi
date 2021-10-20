@@ -18,7 +18,14 @@
                     <?php foreach ($list_peserta as $key) { ?>
                       <tr>
                         <td><?= $key['nama'] ?></td>
-                        <td><a href="#" class="btn btn-info btn-sm" title="Hadir"><i class="fa fa-check"></i></a> <a onclick="confirmation(event)" href="<?= site_url("home/kegiatan/aksi/hapus-peserta/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" class="btn btn-danger btn-sm" title="Hapus"><i class="fa fa-trash-o"></i></a></td>
+                        <td>
+                          <?php if($key['hadir'] == 0){ ?>
+                          <a href="<?= site_url("home/kegiatan/aksi/hadir-peserta/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" class="btn btn-info btn-sm" title="Hadir"><i class="fa fa-check"></i></a> 
+                          <?php } else { ?>
+                            <a href="<?= site_url("home/kegiatan/aksi/batal-hadir-peserta/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" class="btn btn-info btn-sm" title="Batalkan kehadiran"><i class="fa fa-times"></i></a> 
+                          <?php } ?>
+                          <a onclick="confirmation(event)" href="<?= site_url("home/kegiatan/aksi/hapus-peserta/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" class="btn btn-danger btn-sm" title="Hapus"><i class="fa fa-trash-o"></i></a>
+                        </td>
                       </tr>
                     <?php } ?>
                     </tbody>

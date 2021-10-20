@@ -153,6 +153,14 @@ class BaseController extends Controller
 			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah peserta pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
 		}
 
+		if($ket == "hadir_peserta"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah status kehadiran menjadi hadir pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+		}
+
+		if($ket == "batal_hadir_peserta"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah status kehadiran menjadi tidak hadir pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+		}
+
 		if($ket == "delete_peserta"){
 			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus peserta pada sistem dengan kode Log #". $kunci;
 		}

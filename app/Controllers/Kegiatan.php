@@ -344,6 +344,46 @@ class Kegiatan extends BaseController
 		}
 	}
 
+	public function aksiHadirPeserta($id, $url)
+	{
+		$id = decrypt_url($id);
+		$url_redirect = site_url('home/kegiatan/detail/'.$url);
+		if(!empty($id)){
+			$additionalData = [
+				'hadir' 		=> 1
+			];
+			$ambilnya = $this->peserta->find($id);
+			$lastid = $this->peserta->update($id, $additionalData);
+			if($lastid){
+				$resp = $this->log("update",$lastid,"peserta");
+				$this->report_to_admin("hadir_peserta", $resp, 'kegiatan', $ambilnya['kegiatan']);
+				return redirect()->to($url_redirect)->with('msg', [1,"Berhasil Mengubah Status Kehadiran Peserta"]);
+			}else{
+				return redirect()->to($url_redirect)->with('msg', [0,'Gagal Mengubah Status Kehadiran Peserta']);
+			}
+		}
+	}
+
+	public function aksiBatalHadirPeserta($id, $url)
+	{
+		$id = decrypt_url($id);
+		$url_redirect = site_url('home/kegiatan/detail/'.$url);
+		if(!empty($id)){
+			$additionalData = [
+				'hadir' 		=> 0
+			];
+			$ambilnya = $this->peserta->find($id);
+			$lastid = $this->peserta->update($id, $additionalData);
+			if($lastid){
+				$resp = $this->log("update",$lastid,"peserta");
+				$this->report_to_admin("batal_hadir_peserta", $resp, 'kegiatan', $ambilnya['kegiatan']);
+				return redirect()->to($url_redirect)->with('msg', [1,"Berhasil Mengubah Status Kehadiran Peserta"]);
+			}else{
+				return redirect()->to($url_redirect)->with('msg', [0,'Gagal Mengubah Status Kehadiran Peserta']);
+			}
+		}
+	}
+
 	public function aksiHapusPeserta($id, $url)
 	{
 		$id = decrypt_url($id);

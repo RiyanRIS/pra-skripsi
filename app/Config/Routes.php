@@ -98,6 +98,8 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 			$routes->post('tambah-berkas', 'Kegiatan::aksiTambahBerkas');
 			
 			$routes->post('tambah-peserta', 'Kegiatan::aksiTambahPeserta');
+			$routes->get('hadir-peserta/(:any)/(:any)', 'Kegiatan::aksiHadirPeserta/$1/$2');
+			$routes->get('batal-hadir-peserta/(:any)/(:any)', 'Kegiatan::aksiBatalHadirPeserta/$1/$2');
 			$routes->get('hapus-peserta/(:any)/(:any)', 'Kegiatan::aksiHapusPeserta/$1/$2');
 
 			$routes->post('tambah-tugas', 'Kegiatan::aksiTambahTugas');
