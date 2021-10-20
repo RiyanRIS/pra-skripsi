@@ -168,6 +168,10 @@ class BaseController extends Controller
 		if($ket == "add_berkas"){
 			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah berkas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
 		}
+
+		if($ket == "delete_berkas"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus berkas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+		}
 		
 		$getAllAdmin = $this->users->getAllAdmin();
     $chatIdAllAdmin = [];

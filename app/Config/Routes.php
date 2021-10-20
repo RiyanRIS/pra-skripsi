@@ -84,6 +84,7 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 		$routes->group('modal', function ($routes) {
 			$routes->post('tambah-panitia', 'Kegiatan::modalTambahPanitia');
 			$routes->post('tambah-berkas', 'Kegiatan::modalTambahBerkas');
+			$routes->post('detail-berkas', 'Kegiatan::modalDetailBerkas');
 			$routes->post('tambah-peserta', 'Kegiatan::modalTambahPeserta');
 			$routes->post('tambah-tugas', 'Kegiatan::modalTambahTugas');
 			$routes->post('edit-tugas', 'Kegiatan::modalEditTugas');
@@ -94,8 +95,9 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 		$routes->group('aksi', function ($routes) {
 			$routes->post('tambah-panitia', 'Kegiatan::aksiTambahPanitia');
 			$routes->get('hapus-panitia/(:any)/(:any)', 'Kegiatan::aksiHapusPanitia/$1/$2');
-			
+
 			$routes->post('tambah-berkas', 'Kegiatan::aksiTambahBerkas');
+			$routes->get('hapus-berkas/(:any)/(:any)', 'Kegiatan::aksiHapusBerkas/$1/$2');
 			
 			$routes->post('tambah-peserta', 'Kegiatan::aksiTambahPeserta');
 			$routes->get('hadir-peserta/(:any)/(:any)', 'Kegiatan::aksiHadirPeserta/$1/$2');

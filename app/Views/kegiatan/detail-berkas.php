@@ -14,6 +14,7 @@
                   </ul>
                 </div>
                 <div class="card-footer text-right">
+                  <button type="button" class="btn btn-primary btn-sm" title="Detail Berkas" id="btn-detail-berkas" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/detail-berkas') ?>"><i class="fa fa-eye"></i></button>
                   <button type="button" class="btn btn-primary btn-sm" title="Tambah Berkas" id="btn-tambah-berkas" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/tambah-berkas') ?>"><i class="fa fa-cloud-upload"></i> UPLOAD FILE</button>
                 </div>
               </div>

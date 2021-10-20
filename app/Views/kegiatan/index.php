@@ -38,25 +38,26 @@
                     </div>
                     <div class="info">
                       <span class="title">PENANGGUNGJAWAB</span>
-                      <span class="value"><img src="assets/images/people/male1.png" class="leader-picture" alt=""><?= $kegiatan['penanggungjawab'] ?></span>
+                      <span class="value"><img src="assets/images/people/male1.png" class="leader-picture" alt=""><?= getUsersById($kegiatan['penanggungjawab'])['nama']; ?></span>
                     </div>
                   </div>
                   <div class="right">
                     <div class="info">
                       <span class="title">PESERTA KEGIATAN</span>
-                      <span class="value">230 orang</span>
+                      <span class="value"><?= getCountPesertaKegiatan($kegiatan['id']) ?> orang</span>
                     </div>
                     <div class="info">
                       <span class="title">TOTAL PANITIA</span>
-                      <span class="value">13 orang</span>
+                      <span class="value"><?= getCountPanitiaKegiatan($kegiatan['id']) ?> orang</span>
                     </div>
-                    
+                  
                   </div>
                 </div>
                 <div class="card-footer">
                   <div class="controls">
                     <a href="<?= site_url("home/kegiatan/detail/".encrypt_url($kegiatan['id'])) ?>"><i class="fa fa-eye"></i>Detail Kegiatan</a>
-                    <a href="#"><i class="fa fa-cloud-download"></i>File Kegiatan</a>
+                    <!-- <a href="#"><i class="fa fa-cloud-download"></i>File Kegiatan</a> -->
+                    <a href="javascript:void(0)" class="btn-detail-berkas" data-id="<?= $kegiatan['id'] ?>" data-url="<?= site_url('home/kegiatan/modal/detail-berkas') ?>"><i class="fa fa-cloud-download"></i>File Kegiatan</a>
                   </div>
                 </div>
               </div>
@@ -72,6 +73,7 @@
 
     </div>
     <!-- END MAIN -->
+    <div class="viewmodal"></div>
 
     <?= view("_template/footer.php") ?>
   <!-- LETAKKAN JAVASCRIPT TAMBAHAN DISINI -->
@@ -81,6 +83,26 @@
 
   <script>
   !function(o){"use strict";var t=function(){};t.prototype.init=function(){0<o(".progress-chart").length&&o(".progress-chart").easyPieChart({size:110,barColor:"#45AEEF",trackColor:"rgba(160, 174, 186, .2)",scaleColor:!1,lineWidth:6,lineCap:"round",animate:800}),0<o(".project-accordion").length&&o('.project-accordion [data-toggle="collapse"]').on("click",function(){o(this).find(".toggle-icon").toggleClass("fa-minus-circle fa-plus-circle")})},o.AppViewsProjects=new t,o.AppViewsProjects.Constructor=t}(window.jQuery),function(o){"use strict";window.jQuery.AppViewsProjects.init()}();
+  $('.btn-detail-berkas').click(function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: $(this).attr('data-url'),
+      dataType: "json",
+      type: 'POST',
+      data: {
+        id: $(this).attr('data-id')
+      },
+      success: function(response) {
+        if (response.data) {
+          $('.viewmodal').html(response.data).show()
+          $('#tambah-berkas').modal('show')
+        }
+      },
+      error: function(xhr, thrownError) {
+        alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+      }
+    });
+  });
   </script>
   
 </body>

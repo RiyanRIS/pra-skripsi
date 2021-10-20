@@ -307,6 +307,43 @@ class Kegiatan extends BaseController
 		}
 	}
 
+	public function modalDetailBerkas()
+	{
+		if ($this->request->isAJAX()) {
+			$id = $this->request->getPost('id');
+			$list = $this->berkas->getByKegiatan($id);
+			$data = [
+				'id' => $id,
+				'list' => $list,
+			];
+			$msg = [
+				'data' => view('kegiatan/modal-detailberkas', $data)
+			];
+			echo json_encode($msg);
+		}
+	}
+
+	public function aksiHapusBerkas($id, $url)
+	{
+		$id = decrypt_url($id);
+		if(!empty($id)){
+			$url_redirect = site_url('home/kegiatan/detail/'.$url);
+			$keg_id = $this->berkas->find($id);
+			unlink("assets/berkas/kegiatan/".$keg_id['link']);
+			$status = $this->berkas->delete($id);
+			if($status){
+				$resp = $this->log("delete",$id,"berkas");
+				$this->report_to_admin("delete_berkas", $resp, 'kegiatan', $keg_id['kegiatan']);
+				$message = [1, "Berhasil Menghapus Berkas"];
+			} else {
+				$message = [0, "Gagal Menghapus Berkas"];
+			}
+			return redirect()->to($url_redirect)->with('msg', $message);
+		}else{
+			return redirect()->back()->with("msg", [0,"Ada parameter yang hilang, harap hubungi pengembang."]);
+		}
+	}
+
 	public function modalTambahPeserta()
 	{
 		if ($this->request->isAJAX()) {

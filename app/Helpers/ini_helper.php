@@ -6,6 +6,26 @@ function nav($a,$b){
     }
 }
 
+function getCountPesertaKegiatan($id){
+    $userModel = model('App\Models\PesertaModel', false);
+    $total = 0;
+    $total = count($userModel->getByKegiatan($id));
+    return $total;
+}
+
+function getCountPanitiaKegiatan($id){
+    $userModel = model('App\Models\PanitiaModel', false);
+    $total = 0;
+    $total = count($userModel->getByKegiatan($id));
+    return $total;
+}
+
+function getUsersById($id){
+    $userModel = model('App\Models\UsersModel', false);
+    $res = $userModel->withDeleted()->find($id);
+    return $res;
+}
+
 function anti_injection($string) {
 	$data = stripslashes(strip_tags(htmlentities(htmlspecialchars($string, ENT_QUOTES))));
 	return $data;
