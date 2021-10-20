@@ -50,7 +50,7 @@
                       <span class="title">TOTAL PANITIA</span>
                       <span class="value"><?= getCountPanitiaKegiatan($kegiatan['id']) ?> orang</span>
                     </div>
-       
+        
                   </div>
                 </div>
                 <div class="card-footer">
