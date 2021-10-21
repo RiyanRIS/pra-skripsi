@@ -59,7 +59,7 @@
                           <a onclick="confirmation(event)" href="<?= site_url('home/' . $subnav . '/hapus/' . encrypt_url($user['id'])) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </td>
                       <?php } ?>
-                                        </tr>
+                                         </tr>
                     <?php endforeach; ?>
                   <tbody>
                 </table>
