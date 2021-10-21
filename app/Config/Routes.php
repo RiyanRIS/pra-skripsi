@@ -40,8 +40,9 @@ $routes->group('auth',  function ($routes) {
 	$routes->get('daftar', 'Auth::daftar');
 	$routes->get('lupa-password', 'Auth::lupaPassword');
 	$routes->get('logout', 'Auth::logout');
-
 });
+
+$routes->get('log/(:any)', 'Home::logg/$1');
 
 $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 	$routes->get('/', 'Home::index');

@@ -15,7 +15,7 @@
             </div>
           </li>
 
-          <li><a class="<?= nav('Notifikasi',@$title) ?>" href="#" class=""><i class="ti-widget"></i> <span class="title">Notifikasi</span></a></li>
+          <li><a class="<?= nav('Notifikasi',@$title) ?>" href="#" class=""><i class="ti-widget"></i> <span class="title">Pengingat</span></a></li>
           <li><a class="<?= nav('Chat',@$title) ?>" href="#" class=""><i class="ti-widget"></i> <span class="title">Chat</span></a></li>
 
           <li class="menu-group">Master Data</li>

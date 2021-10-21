@@ -101,76 +101,79 @@ class BaseController extends Controller
 			$kegiatan_nama = ($kegiatan['nama'] ?: '');
 		}
 
+		$hylink = site_url("log/".encrypt_url($kunci));
+		$hylink = "<a href='".$hylink."'>Klik disini untuk detail</a>";
+
 		if($ket == "add_user"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah pengguna pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah pengguna pada sistem dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "reg_user_from_tele"){
-			$msg = "Seseorang telah mendaftar pada sistem dengan kode Log #". $kunci;
+			$msg = "Seseorang telah mendaftar pada sistem dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "edit_user"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah pengguna pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah pengguna pada sistem dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "delete_user"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus pengguna pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus pengguna pada sistem dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "add_kegiatan"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") pada sistem dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "edit_kegiatan"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") pada sistem dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "delete_kegiatan"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") pada sistem dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "add_tugas"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "edit_tugas"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "delete_tugas"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "add_panitia"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah panitia pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah panitia pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "delete_panitia"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus panitia pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus panitia pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "add_peserta"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah peserta pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah peserta pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "hadir_peserta"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah status kehadiran menjadi hadir pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah status kehadiran menjadi hadir pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "batal_hadir_peserta"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah status kehadiran menjadi tidak hadir pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah status kehadiran menjadi tidak hadir pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "delete_peserta"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus peserta pada sistem dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus peserta pada sistem dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "add_berkas"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah berkas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah berkas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		if($ket == "delete_berkas"){
-			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus berkas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci;
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus berkas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 		
 		$getAllAdmin = $this->users->getAllAdmin();
@@ -184,7 +187,7 @@ class BaseController extends Controller
 		$bot_token = env("BOT_TOKEN_TELE");
 		$bot = new \Telegram($bot_token);
 		foreach($chatIdAllAdmin as $r){
-			$content = ['chat_id' => $r, 'text' => $msg];
+			$content = ['chat_id' => $r, 'text' => $msg, 'parse_mode' => 'HTML'];
 			$this->simpan_chat($msg, $user_id);
 			$bot->sendMessage($content);
 		}

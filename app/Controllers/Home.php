@@ -179,4 +179,23 @@ class Home extends BaseController
 			return view('profil',$data);
 		}
 	}
+
+	public function logg($id){
+		$id = decrypt_url($id);
+		$log = $this->log->find($id);
+		$data = [
+			'data' => $log,
+			'nama' => $this->users->withDeleted()->find($log['users'])['nama']
+		];
+		return view('log_umum',$data);
+	}
+
+	function tes(){
+		$msg = "<a href='https://google.com'>tes</a>";
+
+		$bot_token = env("BOT_TOKEN_TELE");
+		$bot = new \Telegram($bot_token);
+		$content = ['chat_id' => '780207093', 'text' => $msg, 'parse_mode' => 'HTML'];
+		$bot->sendMessage($content);
+	}
 }

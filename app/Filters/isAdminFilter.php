@@ -6,12 +6,12 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class AuthFilter implements FilterInterface
+class isAdminFilter implements FilterInterface
 {
   public function before(RequestInterface $request, $arguments = null)
   {
-    if (!session()->islogin) {
-      return redirect()->to(base_url('/auth'))->with('msg', [0,'Akses dilarang']);
+    if (session()->user_role != 'admin') {
+      return redirect()->to(base_url('/home/dashboard'))->with('msg', [0,'Akses dilarang.']);
     }
   }
 

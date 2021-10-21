@@ -69,6 +69,13 @@ function urlImg($nama,$jenis){
     return base_url("assets/images/".$jenis."/".$nama);
 }
 
+function punyaAkses(array $akses):bool{
+    if(in_array(session()->user_role, $akses)){
+        return true;
+    }
+    return false;
+}
+
 function slugify($text){
   $text = preg_replace('~[^\pL\d]+~u', '-', $text);
   $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);

@@ -28,6 +28,12 @@ class Notifikasi extends Migration
 					'type'           => 'INT',
 					'constraint'     => 11,
 				],
+				'sent'   => [
+					'type'           => 'INT',
+					'constraint'     => 11,
+					'null'					 => true,
+					'default'				 => null
+				],
 			]
 		);
 		$this->forge->addKey('id', true);

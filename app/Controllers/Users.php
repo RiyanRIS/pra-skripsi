@@ -8,9 +8,12 @@ class Users extends BaseController
 {
 	public function index()
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+		}
+
 		$URI = service('uri');
 		$segments = $URI->getSegments();
-
 
 		$data = [
 			'breadcrumbs' => $this->breadcrumb->buildAuto(),
@@ -42,6 +45,10 @@ class Users extends BaseController
 
 	public function add()
 	{
+		if(!punyaAkses(['admin', 'pengawas'])){
+			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+		}
+
 		$URI = service('uri');
 		$segments = $URI->getSegments();
 
@@ -154,6 +161,10 @@ class Users extends BaseController
 
 	public function update($id)
 	{
+		if(!punyaAkses(['admin', 'pengawas'])){
+			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+		}
+		
 		$id = decrypt_url($id);
 		$URI = service('uri');
 		$segments = $URI->getSegments();
@@ -293,6 +304,10 @@ class Users extends BaseController
 
 	public function delete($id)
 	{
+		if(!punyaAkses(['admin', 'pengawas'])){
+			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+		}
+		
 		$id = decrypt_url($id);
 		if (!empty($id)) {
 			$URI = service('uri');
