@@ -248,6 +248,7 @@ class Users extends BaseController
 			if ($lastid) {
 				$rep = $this->log("update", $id, "users", json_encode($sebelum), json_encode($sesudah));
 				$this->report_to_admin("edit_user", $rep);
+				$this->report_to_usernya("edit_user", $id, $rep);
 				return redirect()->to($url_redirect)->with('msg', [1, "Berhasil Mengubah Pengguna"]);
 			} else {
 				return redirect()->to($url_redirect)->with('msg', [0, 'gagal Mengubah Pengguna']);

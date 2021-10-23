@@ -234,6 +234,7 @@ class Kegiatan extends BaseController
 			if($lastid){
 				$resp = $this->log("insert",$lastid,"panitia");
 				$this->report_to_admin("add_panitia", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
+				$this->report_to_usernya("add_panitia", $this->request->getPost('user'), $resp, 'kegiatan', $this->request->getPost('kegiatan'), $this->request->getPost('posisi'));
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Panitia"]);
 			}else{
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Panitia']);
@@ -251,6 +252,7 @@ class Kegiatan extends BaseController
 			if($status){
 				$resp = $this->log("delete",$id,"panitia");
 				$this->report_to_admin("delete_panitia", $resp, 'kegiatan', $keg_id['kegiatan']);
+				$this->report_to_usernya("delete_panitia", $keg_id['user'], $resp, 'kegiatan', $keg_id['kegiatan']);
 				$message = [1, "Berhasil Menghapus Panitia"];
 			} else {
 				$message = [0, "Gagal Menghapus Panitia"];
@@ -373,7 +375,8 @@ class Kegiatan extends BaseController
 			$lastid = $this->peserta->simpan($additionalData);
 			if($lastid){
 				$resp = $this->log("insert",$lastid,"peserta");
-				$this->report_to_admin("add_peserta", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
+				$this->report_to_admin("add_peserta", $resp, 'kegiatan', $this->request->getPost('kegiatan')); 
+				$this->report_to_usernya("add_peserta", $this->request->getPost('user'), $resp, 'kegiatan', $this->request->getPost('kegiatan'));
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Peserta"]);
 			}else{
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Peserta']);
@@ -431,6 +434,7 @@ class Kegiatan extends BaseController
 			if($status){
 				$resp = $this->log("delete",$id,"peserta");
 				$this->report_to_admin("delete_peserta", $resp, 'kegiatan', $keg_id['kegiatan']);
+				$this->report_to_usernya("delete_peserta", $keg_id['user'], $resp, 'kegiatan', $keg_id['kegiatan']);
 				$message = [1, "Berhasil Menghapus Peserta"];
 			}else{
 				$message = [0, "Gagal Menghapus Peserta"];

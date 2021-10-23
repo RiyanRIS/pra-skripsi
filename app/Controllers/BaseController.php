@@ -90,6 +90,50 @@ class BaseController extends Controller
 		return $this->log->insert($data);
 	}
 
+	public function report_to_usernya($ket, $user_id, $kunci, $tabel = null, $key = null, $param1 = null){
+		
+		$user = $this->users->find($user_id);
+		$chat_id = $user['chat_id'];
+		if($chat_id == null){
+			return false;
+		}
+
+		$hylink = site_url("log/".encrypt_url($kunci));
+		$hylink = "<a href='".$hylink."'>Klik disini untuk detail</a>";
+		
+		if($tabel == 'kegiatan'){
+			$kegiatan = $this->kegiatan->find($key);
+			$kegiatan_id = ($kegiatan['id'] ?: 1);
+			$kegiatan_nama = ($kegiatan['nama'] ?: '');
+		}
+
+		if($ket == "edit_user"){
+			$msg = "Detail data kamu baru saja dirubah, jika memang benar kamu melakukan aktivitas ini, abaikan pesan ini.\n\n" + $hylink;
+		}
+
+		if($ket == "add_panitia"){
+			$msg = "Kamu baru saja dimasukkan kepanitiaan pada kegiatan ${kegiatan_nama} sebagai ${param1}.\n\n" . $hylink;
+		}
+
+		if($ket == "delete_panitia"){
+			$msg = "Kamu baru saja dihapus/dikeluarkan kepanitiaan pada kegiatan ".$kegiatan_nama.".\n\n" . $hylink;
+		}
+
+		if($ket == "add_peserta"){
+			$msg = "Kamu baru saja dimasukkan/mendaftar sebagai peserta pada kegiatan ${kegiatan_nama}.\n\n" . $hylink;
+		}
+
+		if($ket == "delete_peserta"){
+			$msg = "Kamu baru saja dihapus/dikeluarkan sebagai peserta untuk kegiatan ".$kegiatan_nama.".\n\n" . $hylink;
+		}
+
+		$bot_token = env("BOT_TOKEN_TELE");
+		$bot = new \Telegram($bot_token);
+		$content = ['chat_id' => $chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];
+		$this->simpan_chat($msg, $user_id);
+		$bot->sendMessage($content);
+	}
+
 	public function report_to_admin(string $ket, string $kunci, string $tabel = null, string $key = null){
 		$msg = '';
 		$user_id = (session()->user_id ?: 1);

@@ -82,9 +82,9 @@ class Bot extends BaseController
       $this->detail();
     }
 
-    // if ($text == "kegiatan yang sedang diikuti") {
-    //   $this->kegiatan_yang_sedang_diikuti($this->userid);
-    // }
+    if ($text == "kegiatan yang sedang diikuti") {
+      $this->kegiatan_yang_sedang_diikuti($this->userid);
+    }
 
     // if ($text == "kegiatan yang telah diikuti") {
     //   $this->kegiatan_yang_telah_diikuti($this->userid);
@@ -211,6 +211,10 @@ class Bot extends BaseController
     $pesan = "Baiklah, Sekarang silahkan masukkan kode undanganmu.";
     $this->kirim($pesan);
     die();
+  }
+
+  function kegiatan_yang_sedang_diikuti($user_id){
+    
   }
 
   function detail(){
