@@ -375,7 +375,7 @@ class Kegiatan extends BaseController
 			$lastid = $this->peserta->simpan($additionalData);
 			if($lastid){
 				$resp = $this->log("insert",$lastid,"peserta");
-				$this->report_to_admin("add_peserta", $resp, 'kegiatan', $this->request->getPost('kegiatan'));      
+				$this->report_to_admin("add_peserta", $resp, 'kegiatan', $this->request->getPost('kegiatan'));     
 				$this->report_to_usernya("add_peserta", $this->request->getPost('user'), $resp, 'kegiatan', $this->request->getPost('kegiatan'));
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Peserta"]);
 			}else{
