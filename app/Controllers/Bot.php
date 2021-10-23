@@ -45,7 +45,7 @@ class Bot extends BaseController
       if(count($usersByTerahir) == 1){
         $data_up = [
           'chat_id' => $this->chatid
-        ];
+        ]; 
         $this->users->update($usersByTerahir[0]['id'], $data_up);
         $nama = $usersByTerahir[0]['nama'];
         $username = $usersByTerahir[0]['username'];
