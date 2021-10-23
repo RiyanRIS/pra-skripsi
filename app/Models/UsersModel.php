@@ -12,7 +12,7 @@ class UsersModel extends Model
 	protected $returnType     = 'array';
 	protected $useSoftDeletes = true;
 
-	protected $allowedFields = ['id', 'nama', 'username', 'password', 'role', 'nohp', 'chatid', 'ava', 'terahir_dilihat', 'create_at', 'update_at', 'delete_at'];
+	protected $allowedFields = ['id', 'nama', 'username', 'password', 'role', 'nohp', 'chat_id', 'ava', 'terahir_dilihat', 'create_at', 'update_at', 'delete_at'];
 
 	protected $useTimestamps = false;
 	protected $createdField  = 'create_at';
@@ -29,6 +29,16 @@ class UsersModel extends Model
 		return $this->db->table($this->table)
 											->where('role', 'admin')
 											->where('delete_at', null)
+											->get()
+											->getResultArray();
+	}
+
+	public function getByTerahir(string $terahir)
+	{
+		return $this->db->table($this->table)
+											->where('terahir_dilihat', $terahir)
+											->where('delete_at', null)
+											->where('chat_id', null)
 											->get()
 											->getResultArray();
 	}
