@@ -64,7 +64,7 @@ class Bot extends BaseController
     if ($text == "daftar") {
       $this->daftar();
     }
-
+ 
     if ($text == "sudah ada akun") {
       $this->sudah_ada_akun();
     }
