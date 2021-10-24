@@ -31,7 +31,7 @@
           </li>
 
           <li><a class="<?= nav('Berkas',@$nav) ?>"  href="<?= site_url("home/berkas") ?>" class=""><i class="ti-files"></i> <span class="title">Berkas</span></a></li>
-       
+        
           <li class="menu-group">Setting</li>
           <li><a class="<?= nav('Pengaturan',@$nav) ?>" href="<?= site_url("home/setting") ?>" class=""><i class="ti-panel"></i> <span class="title">Dasar</span></a></li>
           <li><a class="<?= nav('Profil',@$nav) ?>" href="<?= site_url("home/profil") ?>" class=""><i class="ti-user"></i> <span class="title">Profil</span></a></li>
