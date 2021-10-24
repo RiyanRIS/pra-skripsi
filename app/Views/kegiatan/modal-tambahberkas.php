@@ -42,7 +42,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
         <button type="submit" class="btn btn-primary btn-tambah-berkas">Simpan</button>
-      </div>
+      </div>  
        <?= form_close(); ?>
     </div>
   </div>

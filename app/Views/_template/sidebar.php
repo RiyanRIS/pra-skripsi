@@ -15,8 +15,7 @@
             </div>
           </li>
 
-          <li><a class="<?= nav('Notifikasi',@$title) ?>" href="#" class=""><i class="ti-widget"></i> <span class="title">Pengingat</span></a></li>
-          <li><a class="<?= nav('Chat',@$title) ?>" href="#" class=""><i class="ti-widget"></i> <span class="title">Chat</span></a></li>
+          <li><a class="<?= nav('Notifikasi',@$title) ?>" href="#" class=""><i class="ti-light-bulb"></i> <span class="title">Pengingat</span></a></li>
 
           <li class="menu-group">Master Data</li>
           <li><a class="<?= nav('Master Kegiatan',@$title) ?>"  href="<?= site_url("home/kegiatan/master") ?>" class=""><i class="ti-calendar"></i> <span class="title">Master Kegiatan</span></a></li>
@@ -31,11 +30,12 @@
             </div>
           </li>
 
-          <li><a class="<?= nav('Berkas',@$nav) ?>"  href="<?= site_url("home/berkas") ?>" class=""><i class="ti-widget"></i> <span class="title">Berkas</span></a></li>
-
+          <li><a class="<?= nav('Berkas',@$nav) ?>"  href="<?= site_url("home/berkas") ?>" class=""><i class="ti-files"></i> <span class="title">Berkas</span></a></li>
+ 
           <li class="menu-group">Setting</li>
-          <li><a class="<?= nav('Pengaturan',@$nav) ?>"  href="widgets.html" class=""><i class="ti-widget"></i> <span class="title">Dasar</span></a></li>
-          <li><a class="<?= nav('Atur Notifikasi',@$nav) ?>"  href="widgets.html" class=""><i class="ti-widget"></i> <span class="title">Notifikasi</span></a></li>
+          <li><a class="<?= nav('Pengaturan',@$nav) ?>" href="<?= site_url("home/setting") ?>" class=""><i class="ti-panel"></i> <span class="title">Dasar</span></a></li>
+          <li><a class="<?= nav('Profil',@$nav) ?>" href="<?= site_url("home/profil") ?>" class=""><i class="ti-user"></i> <span class="title">Profil</span></a></li>
+          <li><a class="<?= nav('Atur Notifikasi',@$nav) ?>"  href="widgets.html" class=""><i class="ti-bell"></i> <span class="title">Notifikasi</span></a></li>
 
         </ul>
         <button type="button" class="btn-toggle-minified" title="Toggle Minified Menu"><i class="ti-arrows-horizontal"></i></button>
