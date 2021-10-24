@@ -73,6 +73,13 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 		$routes->get('hapus/(:any)', 'Users::delete/$1');
 	});
 
+	$routes->group('berkas', function ($routes) {
+		$routes->get('/', 'Berkas::index');
+		$routes->add('tambah', 'Kegiatan::add');
+		$routes->add('ubah/(:any)', 'Kegiatan::update/$1');
+		$routes->get('hapus/(:any)', 'Berkas::delete/$1');
+	});
+
 	// MODEL KEGIATAN
 	$routes->group('kegiatan', function ($routes) {
 		
@@ -89,7 +96,6 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 			$routes->post('tambah-peserta', 'Kegiatan::modalTambahPeserta');
 			$routes->post('tambah-tugas', 'Kegiatan::modalTambahTugas');
 			$routes->post('edit-tugas', 'Kegiatan::modalEditTugas');
-			
 		});
 		
 		// kegiatan/aksi

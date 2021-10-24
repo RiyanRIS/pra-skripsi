@@ -1,0 +1,27 @@
+============[Date]============
+[ 2021-10-24 14:27:43  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		7
+curl_error:		Failed to connect to api.telegram.org port 443: No route to host
+=========[Sent Data]==========
+[ref]
+ref.text= UserId: #6(Riyan Risky y) baru saja menghapus berkas pada kegiatan 2(Seminar Nasionall) dengan kode Log #89
+
+<a href='http://localhost:8080/log/ZFBvWjJuRzNOd1o2YXFQVnZUcDJUQT09'>Klik disini untuk detail</a>
+ref.parse_mode= HTML
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/BaseController.php(236): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Berkas.php(31): App\Controllers\BaseController->report_to_admin()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Berkas->delete()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#10 {main}
+

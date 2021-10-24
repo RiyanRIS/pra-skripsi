@@ -26,6 +26,12 @@ function getUsersById($id){
     return $res;
 }
 
+function getKegiatanById($id){
+    $model = model('App\Models\KegiatanModel', false);
+    $res = $model->withDeleted()->find($id);
+    return $res;
+}
+
 function anti_injection($string) {
 	$data = stripslashes(strip_tags(htmlentities(htmlspecialchars($string, ENT_QUOTES))));
 	return $data;

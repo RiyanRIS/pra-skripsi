@@ -31,7 +31,7 @@
             </div>
           </li>
 
-          <li><a class="<?= nav('Berkas',@$nav) ?>"  href="widgets.html" class=""><i class="ti-widget"></i> <span class="title">Berkas</span></a></li>
+          <li><a class="<?= nav('Berkas',@$nav) ?>"  href="<?= site_url("home/berkas") ?>" class=""><i class="ti-widget"></i> <span class="title">Berkas</span></a></li>
 
           <li class="menu-group">Setting</li>
           <li><a class="<?= nav('Pengaturan',@$nav) ?>"  href="widgets.html" class=""><i class="ti-widget"></i> <span class="title">Dasar</span></a></li>
