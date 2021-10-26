@@ -20,6 +20,8 @@
             <div class="card-header d-flex justify-content-between align-items-center">
               <?php if(punyaAkses(['admin', 'pengawas'])){ ?>
                 <a href="<?= site_url("home/" . $subnav . "/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
+              <?php } else if(punyaAkses(['pengurus']) && $subnav == "peserta") { ?>
+                <a href="<?= site_url("home/peserta/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
               <?php } else { echo $pgtitle; } ?>
             </div>
             <div class="card-body">
@@ -33,6 +35,8 @@
                       <th>Activity</th>
                       <?php if(punyaAkses(['admin', 'pengawas'])){ ?>
                       <th>#</th>
+                      <?php } else if(punyaAkses(['pengurus']) && $subnav == "peserta") { ?>
+                        <th>#</th>
                       <?php } ?>
                     </tr>
                   </thead>
@@ -58,7 +62,12 @@
                           <a href="<?= site_url('home/' . $subnav . '/ubah/' . encrypt_url($user['id'])) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
                           <a onclick="confirmation(event)" href="<?= site_url('home/' . $subnav . '/hapus/' . encrypt_url($user['id'])) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </td>
-                      <?php } ?>
+                      <?php } else if(punyaAkses(['pengurus']) && $subnav == "peserta") { ?>
+                        <td>
+                          <a href="<?= site_url('home/' . $subnav . '/ubah/' . encrypt_url($user['id'])) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                          <a onclick="confirmation(event)" href="<?= site_url('home/' . $subnav . '/hapus/' . encrypt_url($user['id'])) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        </td>
+                        <?php } ?>
                       </tr>
                     <?php endforeach; ?>
                   <tbody>

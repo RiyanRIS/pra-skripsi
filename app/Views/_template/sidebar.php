@@ -16,6 +16,8 @@
           </li>
 
           <li><a class="<?= nav('Notifikasi',@$title) ?>" href="#" class=""><i class="ti-light-bulb"></i> <span class="title">Pengingat</span></a></li>
+          
+          <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
 
           <li class="menu-group">Master Data</li>
           <li><a class="<?= nav('Master Kegiatan',@$title) ?>"  href="<?= site_url("home/kegiatan/master") ?>" class=""><i class="ti-calendar"></i> <span class="title">Master Kegiatan</span></a></li>
@@ -31,6 +33,8 @@
           </li>
 
           <li><a class="<?= nav('Berkas',@$nav) ?>"  href="<?= site_url("home/berkas") ?>" class=""><i class="ti-files"></i> <span class="title">Berkas</span></a></li>
+
+          <?php } ?>
 
           <li class="menu-group">Setting</li>
           <li><a class="<?= nav('Pengaturan',@$nav) ?>" href="<?= site_url("home/setting") ?>" class=""><i class="ti-panel"></i> <span class="title">Dasar</span></a></li>

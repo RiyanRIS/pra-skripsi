@@ -45,12 +45,18 @@ class Users extends BaseController
 
 	public function add()
 	{
-		if(!punyaAkses(['admin', 'pengawas'])){
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
 			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+			die();
 		}
 
 		$URI = service('uri');
 		$segments = $URI->getSegments();
+
+		if(session()->user_role == "pengurus" && $segments[1] != "peserta"){
+			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+			die();
+		}
 
 		$data = [
 			'breadcrumbs' => $this->breadcrumb->buildAuto(),
@@ -71,7 +77,7 @@ class Users extends BaseController
 			$data['subnav'] = "peserta";
 			$data['pgtitle'] = "Tambah Peserta";
 		} else {
-			echo "Akses dilarang.";
+			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
 			die();
 		}
 
@@ -79,7 +85,7 @@ class Users extends BaseController
 		$this->validation->setRules(
 			[
 				'nama' 						=> 'trim|required',
-				'username' 				=> 'trim|required|is_unique[users.username]',
+				'username' 				=> 'trim|required|alpha_dash|is_unique[users.username]',
 				'password' 				=> 'required|min_length[8]|matches[password_confirm]',
 				'password_confirm' => 'required',
 			],
@@ -104,6 +110,13 @@ class Users extends BaseController
 					'nohp'		  => $this->request->getPost('nohp'),
 					'create_at'	=> time(),
 				];
+
+				if($segments[1] == "peserta"){
+					$additionalData['role'] = 'peserta';
+				} else  if($segments[1] == "pengurus"){
+					$additionalData['role'] = 'pengurus';
+				}
+
 				$lastid = $this->users->simpan($additionalData);
 				if ($lastid) {
 					$rep = $this->log("insert", $lastid, "users");
@@ -161,13 +174,18 @@ class Users extends BaseController
 
 	public function update($id)
 	{
-		if(!punyaAkses(['admin', 'pengawas'])){
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
 			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
 		}
 		
 		$id = decrypt_url($id);
 		$URI = service('uri');
 		$segments = $URI->getSegments();
+
+		if(session()->user_role == "pengurus" && $segments[1] != "peserta"){
+			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+			die();
+		}
 
 		$datausers = $this->users->find($id);
 
@@ -194,7 +212,7 @@ class Users extends BaseController
 			$data['pgtitle'] = "Ubah Peserta";
 			$this->breadcrumb->add('Peserta', $url_redirect);
 		} else {
-			echo "Akses dilarang.";
+			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
 			die();
 		}
 
@@ -204,7 +222,7 @@ class Users extends BaseController
 		$this->validation->setRules(
 			[
 				'nama' 						=> 'trim|required',
-				'username' 				=> 'trim|required|is_unique[users.username,id,{id}]',
+				'username' 				=> 'trim|required|alpha_dash|is_unique[users.username,id,{id}]',
 			],
 			[   // Errors
 				'username' => [
@@ -239,6 +257,12 @@ class Users extends BaseController
 			// update the password if it was posted
 			if ($this->request->getPost('password')) {
 				$additionalData['password'] = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+			}
+
+			if($segments[1] == "peserta"){
+				$additionalData['role'] = 'peserta';
+			} else  if($segments[1] == "pengurus"){
+				$additionalData['role'] = 'pengurus';
 			}
 
 			$sebelum = $this->users->find($id);
@@ -305,7 +329,7 @@ class Users extends BaseController
 
 	public function delete($id)
 	{
-		if(!punyaAkses(['admin', 'pengawas'])){
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
 			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
 		}
 		
@@ -314,6 +338,11 @@ class Users extends BaseController
 			$URI = service('uri');
 			$segments = $URI->getSegments();
 
+			if(session()->user_role == "pengurus" && $segments[1] != "peserta"){
+				return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+				die();
+			}
+
 			if ($segments[1] == "pengguna") {
 				$url_redirect = site_url('home/pengguna');
 			} elseif ($segments[1] == "pengurus") {
@@ -321,7 +350,7 @@ class Users extends BaseController
 			} elseif ($segments[1] == "peserta") {
 				$url_redirect = site_url('home/peserta');
 			} else {
-				echo "Akses dilarang.";
+				return redirect()->back()->with('msg', [0,'Akses dilarang.']);
 				die();
 			}
 

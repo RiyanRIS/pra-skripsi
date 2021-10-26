@@ -6,6 +6,10 @@ use App\Controllers\BaseController;
 
 class Auth extends BaseController
 {
+	public function index(){
+		return redirect()->to(site_url('auth'));
+	}	
+
 	public function login(){
 		if(session()->islogin){
 			return redirect()->to(site_url("home"));
