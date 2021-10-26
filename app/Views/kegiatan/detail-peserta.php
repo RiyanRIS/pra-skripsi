@@ -24,7 +24,7 @@
                         <td><?= $key['nama'] ?></td>
                         <?php if(punyaAkses(['admin', 'pengawas', 'pengurus']) || punyaAksesKegiatan(session()->user_id, $kegiatan['id'])){ ?>
                         <td>
-                          <?php if($key['hadir'] == 0){ ?>            
+                          <?php if($key['hadir'] == 0){ ?>           
                           <a href="<?= site_url("home/kegiatan/aksi/hadir-peserta/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" class="btn btn-info btn-sm" title="Hadir"><i class="fa fa-check"></i></a> 
                           <?php } else { ?>
                             <a href="<?= site_url("home/kegiatan/aksi/batal-hadir-peserta/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" class="btn btn-info btn-sm" title="Batalkan kehadiran"><i class="fa fa-times"></i></a> 
