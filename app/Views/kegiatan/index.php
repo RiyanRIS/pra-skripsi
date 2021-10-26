@@ -15,7 +15,9 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-12 pb-3">
+            <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
               <a href="<?= site_url("home/kegiatan/".$subnav."/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Buat Kegiatan Baru</a>
+            <?php } ?>
             </div>
           <?php if(count($kegiatans)!=0){ foreach ($kegiatans as $kegiatan):?>
             <div class="col-md-6 col-lg-4">

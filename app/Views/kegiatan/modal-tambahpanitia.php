@@ -12,7 +12,7 @@
       <div class="modal-body">
         <input type="hidden" name="kegiatan" value="<?= $id ?>">
         <div class="form-group row">
-          <label for="pilih-pengurus-tambah-panitia" class="col-md-2 col-form-label">Pilih Pengurus*</label>
+          <label for="pilih-pengurus-tambah-panitia" class="col-md-2 col-form-label">Pilih Peserta*</label>
           <div class="col-md-10">
             <select id="pilih-pengurus-tambah-panitia" class="form-control" style="width:100%" required="true" name="user">
               <option></option>

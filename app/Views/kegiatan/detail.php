@@ -38,6 +38,7 @@
                         </div>
                       </div>
                     </div>
+                    <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
                     <div class="col-md-3 text-right">
                       <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Atur <span class="caret"></span>
@@ -45,9 +46,12 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                           <li><a href="<?= site_url('home/kegiatan/detail/ubah/'.encrypt_url($id)) ?>">Ubah Kegiatan</a></li>
                           <li><a href="javascript:void(0)" title="Tambah Tugas" id="btn-tambah-tugas" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/tambah-tugas') ?>">Tambah Tugas</a></li>
+                          <hr>
+                          <li><a href="<?= site_url('home/kegiatan/detail/cek-aktivitas/'.encrypt_url($id)) ?>">Log Aktivitas</a></li>
                         </ul>
                       </div>
                     </div>
+                    <?php } ?>
                   </div>
                   <div class="project-subheading">
                     <div class="layout-table project-metrics">
@@ -80,22 +84,24 @@
                 </div>
                 <div class="card-body">
                   <div class="project-info">
-                    <h3 class="info-heading">DESKRIPSI</h3>
+                    <h3 class="info-heading">INFORMASI</h3>
                     <p class="project-description"><?= ($kegiatan['deskripsi']?: "-") ?></p>
                     <h3 class="info-heading">CONTACT PERSON: </h3>
                     <p class="project-description"><?= $kegiatan['cp1'] ?> <br><?= $kegiatan['cp2'] ?> </p>
                     <h3 class="info-heading">LINK: </h3>
                     <p class="project-description"><?= $kegiatan['link1'] ?></p>
                   </div>
-
+                  <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
                   <?= view("kegiatan/detail-tugas") ?>
-
+                  <?php } ?>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <?= view("kegiatan/detail-kepanitiaan") ?>
+              <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
               <?= view("kegiatan/detail-berkas") ?>
+              <?php } ?>
               <?= view("kegiatan/detail-peserta") ?>
               
             </div>

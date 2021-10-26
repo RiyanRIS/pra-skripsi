@@ -72,7 +72,6 @@ class Kegiatan extends BaseController
 
 		$data['subnav'] = 'umum';
 
-
 		$data['kegiatan'] =  $this->kegiatan->where('id', $id)->find();
 		if(count($data['kegiatan']) == 0){
 			$data['kegiatan'] = [];
@@ -118,6 +117,11 @@ class Kegiatan extends BaseController
 
 	public function aksiTambahTugas()
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+
 		if ($this->request->getPost())
 		{
 			$deadline = strtotime($this->request->getPost('deadline'));
@@ -140,6 +144,11 @@ class Kegiatan extends BaseController
 
 	public function modalEditTugas()
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+
 		if ($this->request->isAJAX()) {
 			$id = $this->request->getPost('id');
 			$tugas = $this->tugas->find($id);
@@ -159,6 +168,11 @@ class Kegiatan extends BaseController
 
 	public function aksiEditTugas()
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+		
 		if ($this->request->getPost())
 		{
 			$id = $this->request->getPost('id');
@@ -186,6 +200,11 @@ class Kegiatan extends BaseController
 
 	public function aksiHapusTugas($id, $url)
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+		
 		$id = decrypt_url($id);
 		if(!empty($id)){
 			$url_redirect = site_url('home/kegiatan/detail/'.$url);
@@ -209,7 +228,7 @@ class Kegiatan extends BaseController
 	{
 		if ($this->request->isAJAX()) {
 			$id = $this->request->getPost('id');
-			$list_penanggungjawab = $this->users->whereIn('role',['pengurus', 'peserta'])->findAll();
+			$list_penanggungjawab = $this->users->findAll();
 			$data = [
 				'list' => $list_penanggungjawab,
 				'id' => $id,
@@ -223,6 +242,11 @@ class Kegiatan extends BaseController
 
 	public function aksiTambahPanitia()
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+		
 		if ($this->request->getPost())
 		{
 			$additionalData = [
@@ -244,6 +268,11 @@ class Kegiatan extends BaseController
 
 	public function aksiHapusPanitia($id, $url)
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+		
 		$id = decrypt_url($id);
 		if(!empty($id)){
 			$url_redirect = site_url('home/kegiatan/detail/'.$url);
@@ -279,6 +308,11 @@ class Kegiatan extends BaseController
 
 	public function aksiTambahBerkas()
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+		
 		if ($this->request->getPost())
 		{
 			$berkasName = ""; $size = 0;
@@ -327,6 +361,11 @@ class Kegiatan extends BaseController
 
 	public function aksiHapusBerkas($id, $url)
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+		
 		$id = decrypt_url($id);
 		if(!empty($id)){
 			$url_redirect = site_url('home/kegiatan/detail/'.$url);
@@ -364,6 +403,11 @@ class Kegiatan extends BaseController
 
 	public function aksiTambahPeserta()
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+		
 		if ($this->request->getPost())
 		{
 			$additionalData = [
@@ -386,6 +430,11 @@ class Kegiatan extends BaseController
 
 	public function aksiHadirPeserta($id, $url)
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+		
 		$id = decrypt_url($id);
 		$url_redirect = site_url('home/kegiatan/detail/'.$url);
 		if(!empty($id)){
@@ -406,6 +455,11 @@ class Kegiatan extends BaseController
 
 	public function aksiBatalHadirPeserta($id, $url)
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+		
 		$id = decrypt_url($id);
 		$url_redirect = site_url('home/kegiatan/detail/'.$url);
 		if(!empty($id)){
@@ -426,6 +480,11 @@ class Kegiatan extends BaseController
 
 	public function aksiHapusPeserta($id, $url)
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return false;
+			die();
+		}
+		
 		$id = decrypt_url($id);
 		if(!empty($id)){
 			$url_redirect = site_url('home/kegiatan/detail/'.$url);
@@ -447,6 +506,11 @@ class Kegiatan extends BaseController
 
 	public function add()
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return redirect()->back()->with('msg', [0, "Akses dilarang"]);
+			die();
+		}
+
 		$URI = service('uri');
 		$segments = $URI->getSegments();
 
@@ -612,6 +676,11 @@ class Kegiatan extends BaseController
 
 	public function update($id)
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return redirect()->back()->with('msg', [0, "Akses dilarang"]);
+			die();
+		}
+
 		$id = decrypt_url($id);
 		$URI = service('uri');
 		$segments = $URI->getSegments();
@@ -809,6 +878,11 @@ class Kegiatan extends BaseController
 
 	public function delete(int $id)
 	{
+		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+			return redirect()->back()->with('msg', [0, "Akses dilarang"]);
+			die();
+		}
+
 		if(!empty($id)){
 			$URI = service('uri');
 			$segments = $URI->getSegments();

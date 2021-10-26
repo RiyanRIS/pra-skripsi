@@ -2,9 +2,11 @@
                 <div class="card">
                   <div class="card-header d-flex justify-content-between align-items-center">
                     <h3 class="card-title">Kepanitiaan Kegiatan</h3>
+                    <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
                     <div class="right">
                       <button type="button" class="btn btn-primary btn-sm" title="Tambah Panitia" id="btn-tambah-panitia" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/tambah-panitia') ?>"><i class="fa fa-user-plus"></i></button>
                     </div>
+                    <?php } ?>
                   </div>
                   <div class="card-body">
                     <ul class="list-unstyled list-contacts">
@@ -20,9 +22,11 @@
                           <span class="name"><?= $key['nama'] ?></span>
                           <span class="title"><?= $key['posisi'] ?></span>
                         </div>
+                        <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
                         <div class="controls">
                           <a onclick="confirmation(event)" href="<?= site_url("home/kegiatan/aksi/hapus-panitia/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" title="Hapus Panitia"><i class="fa fa-trash-o"></i></a>
                         </div>
+                        <?php } ?>
                       </li>
                     <?php } }else{
                       echo "<h5 style=\"color:red\">Belum ada panitia</h5>";
