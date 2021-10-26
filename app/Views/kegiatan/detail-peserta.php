@@ -28,7 +28,7 @@
                           <a href="<?= site_url("home/kegiatan/aksi/hadir-peserta/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" class="btn btn-info btn-sm" title="Hadir"><i class="fa fa-check"></i></a> 
                           <?php } else { ?>
                             <a href="<?= site_url("home/kegiatan/aksi/batal-hadir-peserta/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" class="btn btn-info btn-sm" title="Batalkan kehadiran"><i class="fa fa-times"></i></a> 
-                          <?php } ?>
+                          <?php } ?> 
                           <a onclick="confirmation(event)" href="<?= site_url("home/kegiatan/aksi/hapus-peserta/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" class="btn btn-danger btn-sm" title="Hapus"><i class="fa fa-trash-o"></i></a>
                         </td>
                         <?php } ?>
