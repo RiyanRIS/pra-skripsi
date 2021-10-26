@@ -24,7 +24,7 @@
                           <td>
                             <span class="actions">
                               <!-- <a href="#"><i class="fa fa-eye"></i></a> -->
-                              <a href="javascript:void(0)" title="Edit Tugas" id="btn-edit-tugas" data-id="<?= $key['id'] ?>" data-url="<?= site_url('home/kegiatan/modal/edit-tugas') ?>"><i class="fa fa-pencil"></i></a>
+                              <a href="javascript:void(0)" title="Edit Tugas" class="btn-edit-tugas" data-id="<?= $key['id'] ?>" data-url="<?= site_url('home/kegiatan/modal/edit-tugas') ?>"><i class="fa fa-pencil"></i></a>
                               <a onclick="confirmation(event)" href="<?= site_url("home/kegiatan/aksi/hapus-tugas/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" title="Hapus Tugas"><i class="fa fa-trash"></i></a>
                             </span>
                           </td>

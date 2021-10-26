@@ -36,7 +36,7 @@ $(document).ready(function() {
     });
   });
 
-  $('#btn-edit-tugas').click(function(e) {
+  $('.btn-edit-tugas').click(function(e) {
     e.preventDefault();
     $.ajax({
       url: $(this).attr('data-url'),

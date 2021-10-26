@@ -2,7 +2,7 @@
               <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                   <h3 class="card-title">Peserta</h3>
-                  <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
+                  <?php if(punyaAkses(['admin', 'pengawas', 'pengurus']) || punyaAksesKegiatan(session()->user_id, $kegiatan['id'])){ ?>
                   <div class="right">
                     <button type="button" class="btn btn-primary btn-sm" title="Tambah Peserta" id="btn-tambah-peserta" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/tambah-peserta') ?>"><i class="fa fa-user-plus"></i></button>
                   </div>
@@ -13,7 +13,7 @@
                     <thead id="theadilang">
                       <tr>
                         <th>Nama</th>
-                        <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
+                        <?php if(punyaAkses(['admin', 'pengawas', 'pengurus']) || punyaAksesKegiatan(session()->user_id, $kegiatan['id'])){ ?>
                         <th style="min-width:110px">#</th>
                         <?php } ?>
                       </tr>
@@ -22,7 +22,7 @@
                     <?php foreach ($list_peserta as $key) { ?>
                       <tr>
                         <td><?= $key['nama'] ?></td>
-                        <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
+                        <?php if(punyaAkses(['admin', 'pengawas', 'pengurus']) || punyaAksesKegiatan(session()->user_id, $kegiatan['id'])){ ?>
                         <td>
                           <?php if($key['hadir'] == 0){ ?>
                           <a href="<?= site_url("home/kegiatan/aksi/hadir-peserta/".encrypt_url($key['id'])."/".encrypt_url($id)) ?>" class="btn btn-info btn-sm" title="Hadir"><i class="fa fa-check"></i></a> 
