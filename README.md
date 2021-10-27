@@ -149,7 +149,7 @@ Kegiatan dapat dibuat oleh user yang memiliki role `admin, pengurus ataupun peng
 ### Tugas
 
 Tugas adalah task kecil untuk setiap kegiatan yang perlu dikerjakan oleh panitia.
-   
+    
 ### Panitia
 
 ### Berkas
