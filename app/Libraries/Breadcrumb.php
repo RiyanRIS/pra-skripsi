@@ -51,7 +51,7 @@ class Breadcrumb
         $output .= $this->tags['liclose'];
       } else {
         $output .= ($no++==0?$this->tags['liopenfirst']:$this->tags['liopen']);
-        $output .= '<a href="' . base_url() . $breadcrumb['href'] . '">';
+        $output .= '<a href="' . $breadcrumb['href'] . '">';
         $output .= $breadcrumb['crumb'];
         $output .= '</a>';
         $output .= $this->tags['liclose'];

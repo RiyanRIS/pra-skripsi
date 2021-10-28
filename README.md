@@ -70,7 +70,7 @@ Fitur pada Aplikasi ini meliputi:
 
 ## Demo Aplikasi
 
-| URL | http://grosir-obat.nafies.id/login |
+| URL | https://skripsi.riyanris.my.id |
 | --- | --- |
 | username | kodokkayang |
 | password | kodokkayang |
@@ -142,13 +142,22 @@ Status kegiatan ada 2 yaitu `aktif` dan `sudah selesai`
 
 Notifikasi akan otomatis dikirim kepada `panitia kegiatan dan admin` ketika ada perubahan pada kegiatan terkait.
 
+
+### Reg Tele
+
+- Masuk kedalam bot [@kegiatan_ukmik_bot](https://t.me/kegiatan_ukmik_bot)
+- Tulis pesan ```Daftar``` lalu kirim
+- Ikuti petunjuk berikutnya
+
 ## Alur Kegiatan
 
 Kegiatan dapat dibuat oleh user yang memiliki role `admin, pengurus ataupun pengawas`. Dengan cara membuka halaman kegiatan dan klik `Buat Kegiatan Baru`. Lalu isi form pembuatan kegiatan dan klik `Simpan`
 
+Kegiatan dapat menyimpan task/tugas, panitia, berkas dan peserta.
+
 ### Tugas
 
-Tugas adalah task kecil untuk setiap kegiatan yang perlu dikerjakan oleh panitia.
+Tugas adalah task kecil untuk setiap kegiatan yang perlu dikerjakan oleh panitia demi kelancaran acara.
 
 ### Panitia
 
@@ -156,9 +165,14 @@ Tugas adalah task kecil untuk setiap kegiatan yang perlu dikerjakan oleh panitia
 
 ### Peserta
 
-### Reg Tele
-- Masuk kedalam bot [@kegiatan_ukmik_bot](https://t.me/kegiatan_ukmik_bot)
-- Tulis pesan ```Daftar``` lalu kirim
-- 
+<hr>
+
+## Screenshots
+
+gambar gambar
+
+## Lisensi
+
+Project ini open source di bawah [lisensi MIT](LICENSE).
 
 
