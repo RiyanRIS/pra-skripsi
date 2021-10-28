@@ -29,6 +29,10 @@ class Auth extends BaseController
 			$remember =  (bool)$this->request->getVar('ingatsaya');
 
 			if($this->auth->login($username, $password, $remember)){
+				$data_user = $this->users->getByUsername($username);
+				if($this->setting_notif->loginNotifBool($data_user->id)){
+					$this->notifLogin($data_user);
+				}
 				return redirect()->to(site_url("home/dashboard"))->with('msg', [1, "Berhasil masuk"]);
 			} else {
 				$ses = [0, "Kombinasi username dan password masih belum tepat."];
@@ -42,9 +46,18 @@ class Auth extends BaseController
 		return view("auth/login", $data);
 	}
 
-	public function cekLoginWithCook(String $val):mixed
-	{
-		
+	function notifLogin($data_user){
+		$chat_id = $data_user->chat_id;
+		$user_id = $data_user->id;
+		if($chat_id == null){
+			return false;
+		}
+		$msg = "Terjadi aktivitas login pada akun kamu, jika memang benar, abaikan pesan ini.";
+		$bot_token = env("BOT_TOKEN_TELE");
+		$bot = new \Telegram($bot_token);
+		$content = ['chat_id' => $chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];
+		$this->simpan_chat($msg, $user_id);
+		$bot->sendMessage($content);
 	}
 
 	public function daftar()

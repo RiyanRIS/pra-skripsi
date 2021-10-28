@@ -60,4 +60,14 @@ class UsersModel extends Model
 		return false;
 	}
 
+	public function getByUsername(string $username)
+	{
+		return $this->db->table($this->table)
+											->where('username', $username)
+											->where('delete_at', null)
+											->limit(1)
+											->get()
+											->getRow();
+	}
+
 }

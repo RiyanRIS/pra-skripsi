@@ -152,6 +152,15 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 			$routes->get('hapus/(:any)', 'Kegiatan::delete/$1');
 		});
 	});
+
+	$routes->group('notifikasi', function ($routes) {
+		$routes->get('/', 'Notifikasi::index');
+		$routes->get('login/on', 'Notifikasi::loginOn');
+		$routes->get('login/off', 'Notifikasi::loginOff');
+		$routes->add('tambah', 'Users::add');
+		$routes->add('ubah/(:any)', 'Users::update/$1');
+		$routes->get('hapus/(:any)', 'Users::delete/$1');
+	});
 	
 });
 

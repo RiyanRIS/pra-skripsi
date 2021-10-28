@@ -118,6 +118,12 @@ class Users extends BaseController
 				}
 
 				$lastid = $this->users->simpan($additionalData);
+				
+				$settingNotif = [
+					'user' => $lastid,
+					'login' => 0
+				];
+				$lastid1 = $this->setting_notif->simpan($settingNotif);
 				if ($lastid) {
 					$rep = $this->log("insert", $lastid, "users");
 					$this->report_to_admin("add_user", $rep);

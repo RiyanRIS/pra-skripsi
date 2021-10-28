@@ -5,18 +5,20 @@ namespace App\Controllers;
 use \App\Models\AuthModel;
 use \App\Models\LogModel;
 use \App\Models\ChatModel;
-use App\Models\UsersModel;
+use \App\Models\UsersModel;
 use \App\Models\CacheModel;
 use \App\Models\TugasModel;
-use CodeIgniter\Controller;
-
+use \App\Models\SettingNotifModel;
 use \App\Models\BerkasModel;
-
-use Psr\Log\LoggerInterface;
 use \App\Models\PanitiaModel;
 use \App\Models\PesertaModel;
-use \App\Libraries\Breadcrumb;
 use \App\Models\KegiatanModel;
+
+use \App\Libraries\Breadcrumb;
+
+use Psr\Log\LoggerInterface;
+
+use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
@@ -43,6 +45,7 @@ class BaseController extends Controller
 	protected $log;
 	protected $chat;
 	protected $cache;
+	protected $setting_notif;
 
 	public $data = [];
 
@@ -71,6 +74,7 @@ class BaseController extends Controller
 		$this->log = new LogModel();
 		$this->chat = new ChatModel();
 		$this->cache = new CacheModel();
+		$this->setting_notif = new SettingNotifModel();
 	}
 
 	public function log(String $ket, int $kunci = null, String $tabel = null, String $sebelum = null, String $sesudah = null, int $users = 0)
