@@ -260,8 +260,36 @@ class BaseController extends Controller
 			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah panitia(".$param1." sebagai ".$param2.") pada kegiatan ". $kegiatan_nama ." dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
+		if($ket == "delete_panitia"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus panitia(".$param1." sebagai ".$param2.") pada kegiatan ". $kegiatan_nama ." dengan kode Log #". $kunci . "\n\n". $hylink;
+		}
+
 		if($ket == "add_tugas"){
 			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah tugas: ".$param1." pada kegiatan ". $kegiatan_nama ." dengan kode Log #". $kunci . "\n\n". $hylink;
+		}
+
+		if($ket == "edit_tugas"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja mengubah tugas pada kegiatan " .$kegiatan_id. "(".$kegiatan_nama.") dengan kode Log #". $kunci . "\n\n". $hylink;
+		}
+
+		if($ket == "delete_tugas"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus tugas: ".$param1." pada kegiatan ". $kegiatan_nama ." dengan kode Log #". $kunci . "\n\n". $hylink;
+		}
+
+		if($ket == "add_berkas"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah berkas(".$param1.") pada kegiatan ". $kegiatan_nama ." dengan kode Log #". $kunci . "\n\n". $hylink;
+		}
+
+		if($ket == "delete_berkas"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus berkas pada kegiatan ". $kegiatan_nama ." dengan kode Log #". $kunci . "\n\n". $hylink;
+		}
+
+		if($ket == "add_peserta"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah peserta pada kegiatan ". $kegiatan_nama ." dengan kode Log #". $kunci . "\n\n". $hylink;
+		}
+
+		if($ket == "delete_peserta"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menghapus panitia pada kegiatan ". $kegiatan_nama ." dengan kode Log #". $kunci . "\n\n". $hylink;
 		}
 
 		// Setting telegram bot nya
@@ -276,6 +304,20 @@ class BaseController extends Controller
 			$notifikasi_user = $this->setting_notif->findByUser($k['user']);
 
 			// Periksa jika user gamau di notif
+			if($notifikasi_user->keg_pan == 1 && $ket == "add_panitia") // Tugas/task
+			{
+				$content = ['chat_id' => $user->chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];
+				$this->simpan_chat($msg, $user_id);
+				$bot->sendMessage($content);
+			}
+
+			if($notifikasi_user->keg_pan == 1 && $ket == "delete_panitia") // Tugas/task
+			{
+				$content = ['chat_id' => $user->chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];
+				$this->simpan_chat($msg, $user_id);
+				$bot->sendMessage($content);
+			}
+
 			if($notifikasi_user->keg_tug == 1 && $ket == "add_tugas") // Tugas/task
 			{
 				$content = ['chat_id' => $user->chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];
