@@ -157,6 +157,14 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 		$routes->get('/', 'Notifikasi::index');
 		$routes->get('login/on', 'Notifikasi::loginOn');
 		$routes->get('login/off', 'Notifikasi::loginOff');
+		$routes->get('kegiatan/panitia/on', 'Notifikasi::kegpanOn');
+		$routes->get('kegiatan/panitia/off', 'Notifikasi::kegpanOff');
+		$routes->get('kegiatan/tugas/on', 'Notifikasi::kegtugOn');
+		$routes->get('kegiatan/tugas/off', 'Notifikasi::kegtugOff');
+		$routes->get('kegiatan/berkas/on', 'Notifikasi::kegberOn');
+		$routes->get('kegiatan/berkas/off', 'Notifikasi::kegberOff');
+		$routes->get('kegiatan/peserta/on', 'Notifikasi::kegpesOn');
+		$routes->get('kegiatan/peserta/off', 'Notifikasi::kegpesOff');
 		$routes->add('tambah', 'Users::add');
 		$routes->add('ubah/(:any)', 'Users::update/$1');
 		$routes->get('hapus/(:any)', 'Users::delete/$1');

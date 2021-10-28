@@ -241,6 +241,50 @@ class BaseController extends Controller
 		}
 	}
 
+	public function report_to_panitia(string $ket, string $kunci, string $tabel, string $key, string $param1 = null, string $param2 = null){
+
+		$msg = '';
+		$user_id = (session()->user_id ?: 1);
+		$user_nama = (session()->user_nama ?: '');
+
+		if($tabel == 'kegiatan'){
+			$kegiatan = $this->kegiatan->find($key);
+			$kegiatan_id = ($kegiatan['id'] ?: 1);
+			$kegiatan_nama = ($kegiatan['nama'] ?: '');
+		}
+
+		$hylink = site_url("log/".encrypt_url($kunci));
+		$hylink = "<a href='".$hylink."'>Klik disini untuk detail</a>";
+
+		if($ket == "add_panitia"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah panitia(".$param1." sebagai ".$param2.") pada kegiatan ". $kegiatan_nama ." dengan kode Log #". $kunci . "\n\n". $hylink;
+		}
+
+		if($ket == "add_tugas"){
+			$msg = "UserId: #" .$user_id. "(".$user_nama.") baru saja menambah tugas: ".$param1." pada kegiatan ". $kegiatan_nama ." dengan kode Log #". $kunci . "\n\n". $hylink;
+		}
+
+		// Setting telegram bot nya
+		$bot_token = env("BOT_TOKEN_TELE");
+		$bot = new \Telegram($bot_token);
+
+		// Dapetin semua panitia di kegiatan tsb trus looping
+		$panitias = $this->panitia->getByKegiatan($key);
+
+		foreach ($panitias as $k) {
+			$user = $this->users->withDeleted()->find($k['user']);
+			$notifikasi_user = $this->setting_notif->findByUser($k['user']);
+
+			// Periksa jika user gamau di notif
+			if($notifikasi_user->keg_tug == 1 && $ket == "add_tugas") // Tugas/task
+			{
+				$content = ['chat_id' => $user->chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];
+				$this->simpan_chat($msg, $user_id);
+				$bot->sendMessage($content);
+			}
+		}
+	}
+
 	function simpan_chat($pesan, $user, $status = 1)
   {
     $data = [

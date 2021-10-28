@@ -115,6 +115,18 @@ class Kegiatan extends BaseController
 		}
 	}
 
+	function tes(){
+		$panitias = $this->panitia->getByKegiatan(1);
+		foreach ($panitias as $k) {
+			$user = $this->users->withDeleted()->find($k['user']);
+			$isMauDiNotif = $this->setting_notif->findByUser($k['user']);
+			if($isMauDiNotif->keg_pan == 1){
+
+			}
+		}
+		// print_r($data);
+	}
+
 	public function aksiTambahTugas()
 	{
 		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
@@ -136,7 +148,8 @@ class Kegiatan extends BaseController
 			$lastid = $this->tugas->simpan($additionalData);
 			if($lastid){
 				$resp = $this->log("insert",$lastid,"tugas");
-				$this->report_to_admin("add_tugas", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
+				$this->report_to_admin("add_tugas", $resp, 'kegiatan', $this->request->getPost('kegiatan'), $this->request->getPost('tugas'));
+				$this->report_to_panitia("add_tugas", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Panitia"]);
 			}else{
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Panitia']);

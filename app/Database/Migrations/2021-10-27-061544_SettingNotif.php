@@ -6,9 +6,9 @@ use CodeIgniter\Database\Migration;
 
 class SettingNotif extends Migration
 {
-    public function up()
-    {
-        $this->forge->addField(
+	public function up()
+	{
+		$this->forge->addField(
 			[
 				'id'         => [
 					'type'           => 'INT',
@@ -16,24 +16,48 @@ class SettingNotif extends Migration
 					'unsigned'       => true,
 					'auto_increment' => true,
 				],
-                'user'         => [
+				'user'         => [
 					'type'           => 'INT',
 					'constraint'     => 11
 				],
-                'login'         => [
+				'login'         => [
 					'type'           => 'INT',
 					'constraint'     => 11,
-                    'default'        => null,
-                    'null'           => true
+					'default'        => null,
+					'null'           => true
 				],
-            ]
+				'keg_pan'         => [
+					'type'           => 'INT',
+					'constraint'     => 11,
+					'default'        => null,
+					'null'           => true
+				],
+				'keg_tug'         => [
+					'type'           => 'INT',
+					'constraint'     => 11,
+					'default'        => null,
+					'null'           => true
+				],
+				'keg_ber'         => [
+					'type'           => 'INT',
+					'constraint'     => 11,
+					'default'        => null,
+					'null'           => true
+				],
+				'keg_pes'         => [
+					'type'           => 'INT',
+					'constraint'     => 11,
+					'default'        => null,
+					'null'           => true
+				],
+			]
 		);
 		$this->forge->addKey('id', true);
 		$this->forge->createTable('setting_notif');
-    }
+	}
 
-    public function down()
-    {
-        $this->forge->dropTable('setting_notif');
-    }
+	public function down()
+	{
+		$this->forge->dropTable('setting_notif');
+	}
 }
