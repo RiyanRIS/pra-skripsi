@@ -18,7 +18,9 @@
               <!-- TASKS -->
               <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
+                <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
                   <a href="<?= site_url("home/kegiatan/".$subnav."/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
+                <?php } ?>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -30,7 +32,9 @@
                           <th>Lokasi</th>
                           <th>Banner</th>
                           <th>Kontak</th>
+                          <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
                           <th>#</th>
+                          <?php } ?>
                         </tr>
                       </thead>
                       <tbody>
@@ -41,10 +45,12 @@
                           <td><?= $kegiatan['lokasi'] ?></td>
                           <td><img width="64px" src="<?= urlImg($kegiatan['banner'], "banner-kegiatan") ?>" alt=""></td>
                           <td>cp: <?= $kegiatan['cp1'] ?> </br>link: <?= $kegiatan['link1'] ?> </br></td>
+                          <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
                           <td>
                             <a href="<?= site_url('home/kegiatan/'.$subnav.'/ubah/'.encrypt_url($kegiatan['id'])) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
                             <a onclick="confirmation(event)" href="<?= site_url('home/kegiatan/'.$subnav.'/hapus/'.$kegiatan['id']) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                           </td>
+                          <?php } ?>
                         </tr>
                         <?php endforeach;?>
                       <tbody>

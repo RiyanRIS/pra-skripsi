@@ -30,9 +30,8 @@
           <label for="input-berkas-permission" class="col-md-2 col-form-label">Permission*</label>
           <div class="col-md-10">
             <select name="permission" id="input-berkas-permission" class="form-control" required="true">
-              <option value="anggota" selected="true">Anggota</option>
               <option value="umum">Umum</option>
-              <option value="pengurus">Pengurus</option>
+              <option value="panitia" selected="true">Hanya Panitia</option>
             </select>
             <span class="text-muted small">*atur siapa yang bisa mengakses file ini</span>
           </div>

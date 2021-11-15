@@ -108,6 +108,20 @@ function punyaAksesKegiatan(string $user_id, string $kegiatan): bool
   return $res;
 }
 
+function isUserSudahJadiPeserta(int $kegiatan): bool
+{
+  $res = false;
+  $panitiaModel = model('App\Models\PesertaModel', false);
+  $tes = $panitiaModel->getByKegiatan($kegiatan);
+  
+  foreach ($tes as $key) {
+    if(session()->user_id == $key['user']){
+      $res = true;
+    }
+  }
+  return $res;
+}
+
 function slugify($text)
 {
   $text = preg_replace('~[^\pL\d]+~u', '-', $text);

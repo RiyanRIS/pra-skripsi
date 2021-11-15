@@ -4,10 +4,13 @@
                 <div class="card-body">
                   <ul class="list-unstyled list-justify list-file-simple">
                   <?php if(count(@$list_berkas)>0){ 
-                      foreach ($list_berkas as $key) { 
-                        if($key['size'] > 10)  
+                      foreach ($list_berkas as $key) {
+                        if($key['permission'] == 'panitia' && !punyaAksesKegiatan(session()->user_id, $id)){
+                          continue;
+                        }
+                        if($key['size'] > 10)
                       ?>
-                    <li><a href="<?= base_url("assets/berkas/kegiatan/".$key['link']) ?>"><i class="fa fa-file-word-o"></i><?= $key['nama'] ?></a> <span><?= formatBytes($key['size']) ?></span></li>
+                      <li><a href="<?= base_url("assets/berkas/kegiatan/".$key['link']) ?>"><i class="fa fa-file-word-o"></i><?= $key['nama'] ?></a> <span><?= formatBytes($key['size']) ?></span></li>
                     <?php } }else{
                       echo "<h5 style=\"color:red\">Belum ada berkas tersimpan</h5>";
                     } ?>

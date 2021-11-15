@@ -209,6 +209,7 @@ class Kegiatan extends BaseController
 			if($update){
 				$resp = $this->log("update",$id,"tugas",json_encode($sebelum),json_encode($sesudah));
 				$this->report_to_admin("edit_tugas", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
+				$this->report_to_panitia("edit_tugas", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Mengubah Tugas"]);
 			}else{
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Mengubah Tugas']);
@@ -234,6 +235,7 @@ class Kegiatan extends BaseController
 			if($status){
 				$resp = $this->log("delete",$id,"tugas");
 				$this->report_to_admin("delete_tugas", $resp, 'kegiatan', $keg_id['kegiatan']);
+				$this->report_to_panitia("delete_tugas", $resp, 'kegiatan', $keg_id['kegiatan']);
 				$message = [1, "Berhasil Menghapus Tugas"];
 			}else{
 				$message = [0, "Gagal Menghapus Tugas"];
@@ -279,6 +281,7 @@ class Kegiatan extends BaseController
 				$resp = $this->log("insert",$lastid,"panitia");
 				$this->report_to_admin("add_panitia", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
 				$this->report_to_usernya("add_panitia", $this->request->getPost('user'), $resp, 'kegiatan', $this->request->getPost('kegiatan'), $this->request->getPost('posisi'));
+				$this->report_to_panitia("add_panitia", $resp, 'kegiatan', $this->request->getPost('kegiatan'), $this->request->getPost('user'), $this->request->getPost('posisi'));
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Panitia"]);
 			}else{
 				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Panitia']);
@@ -456,6 +459,24 @@ class Kegiatan extends BaseController
 		}
 	}
 
+	public function aksiGabung(){
+		$additionalData = [
+			'kegiatan' 	=> $this->request->getPost('kegiatan'),
+			'user' 			=> $this->request->getPost('user'),
+			'tgl_daftar'  	=> time(),
+			'hadir' 		=> 0
+		];
+		$lastid = $this->peserta->simpan($additionalData);
+		if($lastid){
+			$resp = $this->log("insert",$lastid,"peserta");
+			$this->report_to_admin("add_peserta", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
+			$this->report_to_usernya("add_peserta", $this->request->getPost('user'), $resp, 'kegiatan', $this->request->getPost('kegiatan'));
+			return redirect()->back()->with('msg', [1,"Berhasil Bergabung"]);
+		}else{
+			return redirect()->back()->with('msg', [0,'Gagal Bergabung']);
+		}
+	}
+
 	public function aksiHadirPeserta($id, $url)
 	{
 		$id = decrypt_url($id);
@@ -535,6 +556,20 @@ class Kegiatan extends BaseController
 			return redirect()->to($url_redirect)->with('msg', $message);
 		}else{
 			return redirect()->back()->with("msg", [0,"Ada parameter yang hilang, harap hubungi pengembang."]);
+		}
+	}
+
+	public function modalGabung()
+	{
+		if ($this->request->isAJAX()) {
+			$id = $this->request->getPost('id');
+			$data = [
+				'id' => $id,
+			];
+			$msg = [
+				'data' => view('kegiatan/modal-gabung', $data)
+			];
+			echo json_encode($msg);
 		}
 	}
 

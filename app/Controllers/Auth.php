@@ -60,6 +60,11 @@ class Auth extends BaseController
 		$bot->sendMessage($content);
 	}
 
+	function hai(){
+		$user = $this->users->withDeleted()->find(11);
+		print_r($user);
+	}
+
 	public function daftar()
 	{
 		return view("auth/daftar");

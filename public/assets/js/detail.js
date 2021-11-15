@@ -149,4 +149,25 @@ $(document).ready(function() {
     });
   });
 
+  $('#btn-gabung1').click(function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: $(this).attr('data-url'),
+      dataType: "json",
+      type: 'POST',
+      data: {
+        id: $(this).attr('data-id')
+      },
+      success: function(response) {
+        if (response.data) {
+          $('.viewmodal').html(response.data).show()
+          $('#gabung1').modal('show')
+        }
+      },
+      error: function(xhr, thrownError) {
+        alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+      }
+    });
+  });
+
 });

@@ -96,6 +96,7 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 			$routes->post('tambah-peserta', 'Kegiatan::modalTambahPeserta');
 			$routes->post('tambah-tugas', 'Kegiatan::modalTambahTugas');
 			$routes->post('edit-tugas', 'Kegiatan::modalEditTugas');
+			$routes->post('gabung', 'Kegiatan::modalGabung');
 		});
 		
 		// kegiatan/aksi
@@ -115,6 +116,7 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 			$routes->post('edit-tugas', 'Kegiatan::aksiEditTugas');
 			$routes->get('hapus-tugas/(:any)/(:any)', 'Kegiatan::aksiHapusTugas/$1/$2');
 
+			$routes->post('gabung', 'Kegiatan::aksiGabung');
 			
 		});
 

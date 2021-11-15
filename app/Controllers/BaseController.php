@@ -304,26 +304,34 @@ class BaseController extends Controller
 			$notifikasi_user = $this->setting_notif->findByUser($k['user']);
 
 			// Periksa jika user gamau di notif
-			if($notifikasi_user->keg_pan == 1 && $ket == "add_panitia") // Tugas/task
+			if($notifikasi_user->keg_pan == 1 && ($ket == "add_panitia" || $ket == "delete_panitia")) 
 			{
-				$content = ['chat_id' => $user->chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];
+				$content = ['chat_id' => $user['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
 				$this->simpan_chat($msg, $user_id);
 				$bot->sendMessage($content);
 			}
 
-			if($notifikasi_user->keg_pan == 1 && $ket == "delete_panitia") // Tugas/task
+			if($notifikasi_user->keg_tug == 1 && ($ket == "add_tugas" || $ket == "edit_tugas" || $ket == "delete_tugas"))
 			{
-				$content = ['chat_id' => $user->chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];
+				$content = ['chat_id' => $user['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
 				$this->simpan_chat($msg, $user_id);
 				$bot->sendMessage($content);
 			}
 
-			if($notifikasi_user->keg_tug == 1 && $ket == "add_tugas") // Tugas/task
+			if($notifikasi_user->keg_ber == 1 && ($ket == "add_berkas" || $ket == "delete_berkas"))
 			{
-				$content = ['chat_id' => $user->chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];
+				$content = ['chat_id' => $user['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
 				$this->simpan_chat($msg, $user_id);
 				$bot->sendMessage($content);
 			}
+
+			if($notifikasi_user->keg_pes == 1 && ($ket == "add_peserta" || $ket == "delete_peserta"))
+			{
+				$content = ['chat_id' => $user['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
+				$this->simpan_chat($msg, $user_id);
+				$bot->sendMessage($content);
+			}
+
 		}
 	}
 

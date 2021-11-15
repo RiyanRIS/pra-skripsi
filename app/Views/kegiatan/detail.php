@@ -61,7 +61,16 @@
                           </ul>
                         </div>
                       </div>
-                    <?php } ?>
+                    <?php } else {
+                    if(!isUserSudahJadiPeserta($id)){ ?>
+                      <div class="col-md-3 text-right">
+                        <div class="btn-group">
+                          <button type="button" id="btn-gabung1" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/gabung') ?>" class="btn btn-primary" aria-expanded="false">Gabung
+                          </button>
+                        </div>
+                      </div>
+                      <?php }
+                    } ?>
                   </div>
                   <div class="project-subheading">
                     <div class="layout-table project-metrics">
