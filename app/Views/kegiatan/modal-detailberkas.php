@@ -22,7 +22,7 @@
               <?php foreach ($list as $key) { 
                 if($key['permission'] == 'panitia' && !punyaAksesKegiatan(session()->user_id, $id)){
                   continue;
-                } 
+                }  
                 ?>
               <tr>
                 <td><a href="<?= base_url("assets/berkas/kegiatan/".$key['link']) ?>"> <?= $key['nama'] ?>(<?= formatBytes($key['size']) ?>)</a></td>
