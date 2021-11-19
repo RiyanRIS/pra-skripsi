@@ -14,13 +14,14 @@ SIM Kegiatan UKM-IK adalah sebuah sistem manajemen kegiatan yang digunakan untuk
 4. [Master Data](#master-data)
     - [Users](#users)
     - [Kegiatan](#kegiatan)
-5. [Alur Kegiatan](#alur-kegiatan)
+5. [Pendaftaran](#alur-daftar)
+6. [Alur Kegiatan](#alur-kegiatan)
     - [Tugas](#tugas)
     - [Panitia](#panitia)
     - [Berkas](#berkas)
     - [Peserta](#peserta)
-6. [Screenshots](#screenshots)
-7. [Lisensi](#license)
+7. [Screenshots](#screenshots)
+8. [Lisensi](#license)
 
 <hr>
 
@@ -142,12 +143,27 @@ Status kegiatan ada 2 yaitu `aktif` dan `sudah selesai`
 
 Notifikasi akan otomatis dikirim kepada `panitia kegiatan dan admin` ketika ada perubahan pada kegiatan terkait.
 
+## Alur Daftar
+Pendaftaran dapat melalui admin (tanpa linked ke telegram atau menggunakan telegram)
 
-### Reg Tele
+### Alur Daftar Melalui Admin
+- Admin harus login kedalam sistem
+- Masuk ke navigasi Pengguna -> Semua Pengguna
+- Klik `tambah data`
+- Isi biodata pengguna
+- Klik simpan untuk menyimpan
 
+### Alur Daftar Melalui Akun Telegram
 - Masuk kedalam bot [@kegiatan_ukmik_bot](https://t.me/kegiatan_ukmik_bot)
 - Tulis pesan ```Daftar``` lalu kirim
-- Ikuti petunjuk berikutnya
+- Maka akan mendapat balasan berupa username dan password untuk login kedalam sistem.  
+
+#### Contoh
+![pendafataran berhasil](https://i.ibb.co/JsXdLqD/Screenshot-from-2021-11-19-19-56-11.png)
+Ketika mengetikkan `daftar` akan mendapat pesan berhasil, dan mendapat akun username dan password untuk masuk kedalam sistem.
+
+![akun sudah terdaftar](https://i.ibb.co/vLgQGB0/Screenshot-from-2021-11-19-19-51-08.png)
+Akun sudah terdaftar, ketika mengetikkan daftar akan mendapat pesan bahwa kamu telah melakukan pendaftaran.
 
 ## Alur Kegiatan
 
