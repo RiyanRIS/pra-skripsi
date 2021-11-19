@@ -41,7 +41,7 @@ class Bot extends BaseController
     $cached = $this->getCache($this->chatid);
 
     if($cached == 'masukkan kode'){
-      $usersByTerahir = $this->users->getByTerahir(1634960702);
+      $usersByTerahir = $this->users->getByTerahir($text);
       if(count($usersByTerahir) == 1){
         $data_up = [
           'chat_id' => $this->chatid
@@ -177,6 +177,13 @@ class Bot extends BaseController
       ];
 
       $userid = $this->users->simpan($data);
+
+      $settingNotif = [
+        'user' => $userid,
+        'login' => 1
+      ];
+      $this->setting_notif->simpan($settingNotif);
+      
       $rep = $this->log("insert", $userid, "users");
       $this->report_to_admin("reg_user_from_tele", $rep);
       $pesan = "Pendaftaran Berhasil. \n\nKami akan mengenalimu dengan nama \"$nama\". Kamu dapat masuk ke sistem kami dengan \n\nusername: $username\npassword: $username. \n\nJangan lupa untuk mengubah username & password setelah berhasil masuk.\n\nJika mengalami masalah saat masuk, hubungi admin.";

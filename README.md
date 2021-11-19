@@ -19,9 +19,10 @@ SIM Kegiatan UKM-IK adalah sebuah sistem manajemen kegiatan yang digunakan untuk
     - [Tugas](#tugas)
     - [Panitia](#panitia)
     - [Berkas](#berkas)
-    - [Peserta](#peserta)
-7. [Screenshots](#screenshots)
-8. [Lisensi](#license)
+    - [Peserta](#)
+7. [List Perintah BOT](#list-perintah-bot)
+8. [Screenshots](#screenshots)
+9. [Lisensi](#license)
 
 <hr>
 
@@ -57,7 +58,8 @@ Fitur pada Aplikasi ini meliputi:
     - Atur Notifikasi
     - Ubah Profil Pengguna
     - Cek Kegiatan yang Diikuti
-6. Manajemen Kegiatan
+6. Otomatisasi Bot Telegram
+7. Manajemen Kegiatan
     - List Kegiatan
     - Ikuti Kegiatan
     - Atur Panitia Kegiatan
@@ -153,6 +155,20 @@ Pendaftaran dapat melalui admin (tanpa linked ke telegram atau menggunakan teleg
 - Isi biodata pengguna
 - Klik simpan untuk menyimpan
 
+Ketika daftar melalui admin, user yang baru saja terdaftar belum mentautkan akun dengan telegram yang dia miliki.
+
+### Alur Mentautkan Akun Baru dengan Telegram
+- Pertama, ketik `sudah ada akun`
+- Baca Intruksi yang diberikan BOT, lalu ketik `masukkan kode`
+- Login dengan akun yang ingin kamu tautkan, buka `Setting -> Dasar` Lalu klik `Dapatkan kode`
+- Kembali ke telegram lalu masukkan kode undanganmu
+
+Contoh liat gambar di bawah
+![Fitur sudah ada akun selesai](https://i.ibb.co/GtKTm3m/Screenshot-from-2021-11-19-21-06-00.png)
+
+Lokasi Kode undangan dapat dilihat di bawah
+![Kode Undangan](https://i.ibb.co/1bX0bVB/Screenshot-from-2021-11-19-21-07-22.png)
+
 ### Alur Daftar Melalui Akun Telegram
 - Masuk kedalam bot [@kegiatan_ukmik_bot](https://t.me/kegiatan_ukmik_bot)
 - Tulis pesan ```Daftar``` lalu kirim
@@ -184,6 +200,14 @@ Tugas adalah task kecil untuk setiap kegiatan yang perlu dikerjakan oleh panitia
 ### Peserta
 
 <hr>
+
+
+## List Perintah Bot
+- `daftar` => Mendaftar akun pada sistem melalui BOT.
+- `sudah ada akun` => Digunakan ketika ingin mentautkan akun dengan telegram, perintah ini akan memberikan bantuan untuk memperoleh kode undangan.
+- `masukkan kode` => Digunakan setelah user mendapat kode undangan untuk mentautkan akun.
+- `lihat kegiatan` => Melihat list Kegiatan yang terdaftar sesuai role.
+
 
 ## Screenshots
 
