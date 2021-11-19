@@ -335,6 +335,56 @@ class BaseController extends Controller
 		}
 	}
 
+	public function report_to_allusers(string $ket, string $kunci, string $tabel, string $key, string $param1 = null, string $param2 = null){
+		$msg = '';
+		$msg1 = '';
+		$user_id = (session()->user_id ?: 1);
+		$user_nama = (session()->user_nama ?: '');
+
+		$kegiatan_nama = '';
+		$kegiatan_desc = '';
+		$kegiatan_tanggal = '';
+		$kegiatan_lokasi = '';
+
+		if($tabel == 'kegiatan'){
+			$kegiatan = $this->kegiatan->find($key);
+			$kegiatan_id = ($kegiatan['id'] ?: 1);
+			$kegiatan_nama = ($kegiatan['nama'] ?: '');
+			$kegiatan_desc = ($kegiatan['deskripsi'] ?: '');
+			$kegiatan_tanggal = date("d F Y, H:i" ,$kegiatan['tanggal']);
+			$kegiatan_lokasi = ($kegiatan['lokasi'] ?: '');
+
+
+		}
+
+		$hylink = site_url("log/".encrypt_url($kunci));
+		$hylink = "<a href='".$hylink."'>Klik disini untuk detail</a>";
+
+		if($ket == "add_kegiatan"){
+			$msg = "Haloo..\nBaru saja ada kegiatan baru nih, detail dapat kamu lihat disini: \n\nNama Kegiatan: ${kegiatan_nama}\nNama Deskripsi: ${kegiatan_desc}\nTanggal Kegiatan: ${kegiatan_tanggal}\nLokasi Kegiatan: ${kegiatan_lokasi}\n\n". $hylink;
+			$msg1 = "Gunakan perintah\n\n <b>gabung kegiatan #${key}</b> \n\nUntuk berpartisipasi pada kegiatan tersebut.";
+		}
+
+		// Setting telegram bot nya
+		$bot_token = env("BOT_TOKEN_TELE");
+		$bot = new \Telegram($bot_token);
+		
+		$user = $this->users->findAll();
+		
+		foreach($user as $key){
+			
+			if($key['chat_id'] == null) continue;
+
+			$content = ['chat_id' => $key['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
+			$this->simpan_chat($msg, $key['id']);
+			$bot->sendMessage($content);
+
+			$content = ['chat_id' => $key['chat_id'], 'text' => $msg1, 'parse_mode' => 'HTML'];
+			$this->simpan_chat($msg, $key['id']);
+			$bot->sendMessage($content);
+		}
+	}
+
 	function simpan_chat($pesan, $user, $status = 1)
   {
     $data = [

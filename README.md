@@ -30,7 +30,7 @@ SIM Kegiatan UKM-IK adalah sebuah sistem manajemen kegiatan yang digunakan untuk
 Fitur pada Aplikasi ini meliputi:
 
 1. Akun Login
-    - Register Melalui Admin atau [Telegram](#reg-tele)
+    - Register Melalui Admin atau [Telegram](#alur-daftar)
     - Login dan Logout
     - Ingat Saya
     - Ganti Password
@@ -168,6 +168,8 @@ Akun sudah terdaftar, ketika mengetikkan daftar akan mendapat pesan bahwa kamu t
 ## Alur Kegiatan
 
 Kegiatan dapat dibuat oleh user yang memiliki role `admin, pengurus ataupun pengawas`. Dengan cara membuka halaman kegiatan dan klik `Buat Kegiatan Baru`. Lalu isi form pembuatan kegiatan dan klik `Simpan`
+
+Ketika membuat kegiatan, pesan otomatis akan masuk ke seluruh user bahwa ada kegiatan baru.
 
 Kegiatan dapat menyimpan task/tugas, panitia, berkas dan peserta.
 

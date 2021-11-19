@@ -662,6 +662,7 @@ class Kegiatan extends BaseController
 				if($lastid){
 					$resp = $this->log("insert",$lastid,"kegiatan");
 					$this->report_to_admin("add_kegiatan", $resp, 'kegiatan', $lastid);
+					$this->report_to_allusers("add_kegiatan", $resp, 'kegiatan', $lastid);
 					return redirect()->to($url_redirect)->with('msg', [1,"Berhasil Membuat Kegiatan"]);
 				}else{
 					return redirect()->to($url_redirect)->with('msg', [0,'gagal Menambahkan Kegiatan']);
