@@ -15,7 +15,7 @@
             </div>
           </li>
 
-          <li><a class="<?= nav('Notifikasi',@$title) ?>" href="#" class=""><i class="ti-light-bulb"></i> <span class="title">Pengingat</span></a></li>
+          <!-- <li><a class="<?= nav('Notifikasi',@$title) ?>" href="#" class=""><i class="ti-light-bulb"></i> <span class="title">Pengingat</span></a></li> -->
           
           <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
 

@@ -31,7 +31,8 @@ class Kegiatan extends BaseController
 				$data['subnav'] = "internal";
 				$data['pgtitle'] = "Kegiatan Internal UKM IK";
 				$data['pgdesc'] = "Data kegiatan yang bersifat internal (khusus anggota dan pengurus)";
-				$data['kegiatans'] =  $this->kegiatan->where('jenis', 'internal')->orWhere('jenis', 'pengurus')->findAll();
+				$data['kegiatans'] =  $this->kegiatan->where('jenis', 'internal')->findAll();
+				// $data['kegiatans'] =  $this->kegiatan->where('jenis', 'internal')->orWhere('jenis', 'pengurus')->findAll();
 
 			}elseif(@$segments[2] == "master"){
 				$data['subnav'] = "master";
@@ -957,14 +958,14 @@ class Kegiatan extends BaseController
 			$URI = service('uri');
 			$segments = $URI->getSegments();
 
-			if($segments[1] == "pengguna"){
-				$url_redirect = site_url('home/pengguna');
-			}elseif($segments[1] == "pengurus"){
-				$url_redirect = site_url('home/pengurus');
-			}elseif($segments[1] == "peserta"){
-				$url_redirect = site_url('home/peserta');
-			}elseif($segments[1] == "master"){
-				$url_redirect = site_url('home/master');
+			if($segments[2] == "pengguna"){
+				$url_redirect = site_url('home/kegiatan/master');
+			}elseif($segments[2] == "pengurus"){
+				$url_redirect = site_url('home/kegiatan/master');
+			}elseif($segments[2] == "peserta"){
+				$url_redirect = site_url('home/kegiatan/master');
+			}elseif($segments[2] == "master"){
+				$url_redirect = site_url('home/kegiatan/master');
 			}else{
 				echo "Akses dilarang."; die();
 			}
@@ -972,12 +973,13 @@ class Kegiatan extends BaseController
 			$data = [
 				'delete_at' => time(),
 			];
-			$status = $this->users->update($id,$data);
+
+			$status = $this->kegiatan->update($id,$data);
 			if($status){
-				$resp = $this->log("delete",$id,"users");
+				$resp = $this->log("delete", $id, "kegiatan");
 				$this->report_to_admin("delete_kegiatan", $resp, 'kegiatan', $id);
-				$message = [1, "Berhasil Menghapus Pengguna"];
-			}else{
+				$message = [1, "Berhasil Menghapus Kegiatan"];
+			} else {
 				$message = [0, "Gagal Menghapus Pengguna"];
 			}
 			return redirect()->to($url_redirect)->with('msg', $message);

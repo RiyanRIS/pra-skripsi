@@ -1,4 +1,4 @@
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
               <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
                 <i class="ti-bell"></i>
                 <span class="badge bg-danger">5</span>
@@ -37,4 +37,4 @@
                 </li>
                 <li class="dropdown-item"><a href="#" class="more">See all notifications</a></li>
               </ul>
-            </li>
+            </li> -->

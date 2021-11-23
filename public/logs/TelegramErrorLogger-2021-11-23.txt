@@ -1,0 +1,25 @@
+============[Date]============
+[ 2021-11-23 13:03:43  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+curl_error_code:		6
+curl_error:		Could not resolve host: api.telegram.org
+=========[Sent Data]==========
+[ref]
+ref.text= Terjadi aktivitas login pada akun kamu, jika memang benar, abaikan pesan ini.
+ref.parse_mode= HTML
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Auth.php(60): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Auth.php(34): App\Controllers\Auth->notifLogin()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Auth->login()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#10 {main}
+

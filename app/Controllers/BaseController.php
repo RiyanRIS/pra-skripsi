@@ -144,7 +144,7 @@ class BaseController extends Controller
 		$user_nama = (session()->user_nama ?: '');
 
 		if($tabel == 'kegiatan'){
-			$kegiatan = $this->kegiatan->find($key);
+			$kegiatan = $this->kegiatan->withDeleted()->find($key);
 			$kegiatan_id = ($kegiatan['id'] ?: 1);
 			$kegiatan_nama = ($kegiatan['nama'] ?: '');
 		}
@@ -248,7 +248,7 @@ class BaseController extends Controller
 		$user_nama = (session()->user_nama ?: '');
 
 		if($tabel == 'kegiatan'){
-			$kegiatan = $this->kegiatan->find($key);
+			$kegiatan = $this->kegiatan->withDeleted()->find($key);
 			$kegiatan_id = ($kegiatan['id'] ?: 1);
 			$kegiatan_nama = ($kegiatan['nama'] ?: '');
 		}
