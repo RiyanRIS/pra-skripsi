@@ -116,18 +116,6 @@ class Kegiatan extends BaseController
 		}
 	}
 
-	function tes(){
-		$panitias = $this->panitia->getByKegiatan(1);
-		foreach ($panitias as $k) {
-			$user = $this->users->withDeleted()->find($k['user']);
-			$isMauDiNotif = $this->setting_notif->findByUser($k['user']);
-			if($isMauDiNotif->keg_pan == 1){
-
-			}
-		}
-		// print_r($data);
-	}
-
 	public function aksiTambahTugas()
 	{
 		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
@@ -251,7 +239,7 @@ class Kegiatan extends BaseController
 	{
 		if ($this->request->isAJAX()) {
 			$id = $this->request->getPost('id');
-			$list_penanggungjawab = $this->users->findAll();
+			$list_penanggungjawab = $this->users->whereIn('role', ['admin', 'anggota'])->findAll();
 			$data = [
 				'list' => $list_penanggungjawab,
 				'id' => $id,
@@ -265,7 +253,7 @@ class Kegiatan extends BaseController
 
 	public function aksiTambahPanitia()
 	{
-		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+		if(!punyaAkses(['admin'])){
 			return false;
 			die();
 		}
@@ -292,7 +280,7 @@ class Kegiatan extends BaseController
 
 	public function aksiHapusPanitia($id, $url)
 	{
-		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+		if(!punyaAkses(['admin'])){
 			return false;
 			die();
 		}

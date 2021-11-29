@@ -23,7 +23,7 @@
                 <?php } ?>
                 </div>
                 <div class="card-body">
-                  <div class="table-responsive">
+                  <!-- <div class="table-responsive"> -->
                     <table id="datatable" class="table table-hover table-bordered">
                       <thead class="thead-light">
                         <tr>
@@ -41,7 +41,7 @@
                       <?php foreach ($kegiatans as $kegiatan):?>
                         <tr>
                           <td><a href="<?= site_url('home/kegiatan/detail/'.encrypt_url($kegiatan['id'])) ?>"><?= $kegiatan['nama'] ?></a> </br><?= $kegiatan['deskripsi'] ?> </td>
-                          <td><?= date("d F Y H:i", $kegiatan['tanggal']) ?></td>
+                          <td style="min-width:150px"><?= date("d F Y H:i", $kegiatan['tanggal']) ?></td>
                           <td><?= $kegiatan['lokasi'] ?></td>
                           <td><img width="64px" src="<?= urlImg($kegiatan['banner'], "banner-kegiatan") ?>" alt=""></td>
                           <td>cp: <?= $kegiatan['cp1'] ?> </br>link: <?= $kegiatan['link1'] ?> </br></td>
@@ -55,7 +55,7 @@
                         <?php endforeach;?>
                       <tbody>
                     </table>
-                  </div>
+                  <!-- </div> -->
                 </div>
               </div>
               <!-- END TASKS -->

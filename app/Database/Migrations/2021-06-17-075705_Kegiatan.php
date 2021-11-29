@@ -60,7 +60,7 @@ class Kegiatan extends Migration
 				],
 				'jenis'       => [
 					'type'           => 'ENUM',
-					'constraint'     => ['umum', 'internal', 'pengurus'],
+					'constraint'     => ['umum', 'internal'],
 					'default'        => 'umum',
 				],
 				'create_at'  => [
