@@ -30,7 +30,7 @@ class Users extends Migration
 				],
 				'role'       => [
 					'type'           => 'ENUM',
-					'constraint'     => ['admin', 'pengurus', 'pengawas', 'peserta'],
+					'constraint'     => ['admin', 'anggota', 'peserta'],
 					'default'        => 'peserta',
 				],
 				'nohp'       => [

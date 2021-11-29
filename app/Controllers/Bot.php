@@ -1,5 +1,20 @@
 <?php
 
+/**
+  *** jika belum terdaftar
+  
+  * start
+  *   daftar
+  *   sudah ada akun
+
+  *** jika sudah terdaftar
+  
+  * start
+  *   kegiatan yang tersedia
+  *   kegiatan yang sedang diikuti
+  *   pengaturan
+*/
+
 namespace App\Controllers;
 
 class Bot extends BaseController

@@ -110,40 +110,17 @@ Password: kodokkayang
 
 ### Users
 
-**ROLE** : `Admin`, `Pengawas`, `Pengurus`, `Peserta`
-
-```
-Admin::akses(){
-  Admin mendapat full akses dari sistem ini.
-}
-```
-```
-Pengawas::akses()
-{
-  Pengawas memiliki akses ke seluruh fitur kegiatan dan users.
-}
-```
-```
-Pengurus::akses()
-{
-  Pengurus memiliki akses ke suluruh fitur kegiatan dan hanya memiliki akses ke peserta.
-}
-```
-```
-Peserta::akses()
-{
-  Peserta hanya dapat mengakses detail kegiatan, jika peserta masuk kedalam kepanitian, dia memiliki akses ke beberapa fitur kegiatan seperti menambah tugas dan peserta kegiatan.
-}
-```
+- Role Pengguna pada sistem terdiri dari `Admin`, `Anggota` dan `Peserta`
+- Admin mendapat full akses(semua fitur) dari sistem ini.
+- Anggota memiliki akses informasi kegiatan, mendapat notifikasi kegiatan yang diikuti. Anggota dapat dipilih menjadi panitia kegiatan sehingga memiliki akses kedalam detail kegiatan yang dia pegang. Kedepanya, role anggota akan memiliki hak istimewa ketimbang peserta, seperti diskon ketika ada kegiatan yang berbayar, atau hal lainya.
+- Peserta hanya dapat mengakses detail kegiatan, peserta akan mendapat notifikasi pemberitahuan terhadap kegiatan yang sedang dia ikuti.
 
 ### Kegiatan
 
-Kegiatan memiliki 3 jenis, `Umum`, `Internal` dan `Khusus Pengurus`
-`Satu Kegiatan` memiliki `Satu Penanggung Jawab` yang berasal dari pengurus ataupun pengawas.
-
-Status kegiatan ada 2 yaitu `aktif` dan `sudah selesai`
-
-Notifikasi akan otomatis dikirim kepada `panitia kegiatan dan admin` ketika ada perubahan pada kegiatan terkait.
+- Kegiatan UKM I&K memiliki 2 jenis, `Umum` dan `Internal`
+- `Satu Kegiatan` memiliki `Satu Penanggung Jawab` yang berasal dari admin.
+- Status kegiatan ada 3 yaitu `belum terlaksana`, `aktif` dan `sudah terlaksana`
+- Notifikasi akan otomatis dikirim kepada `admin`, `panitia` dan `peserta` ketika ada perubahan pada kegiatan terkait.
 
 ## Alur Daftar
 Pendaftaran dapat melalui admin (tanpa linked ke telegram atau menggunakan telegram)
@@ -155,12 +132,14 @@ Pendaftaran dapat melalui admin (tanpa linked ke telegram atau menggunakan teleg
 - Isi biodata pengguna
 - Klik simpan untuk menyimpan
 
-Ketika daftar melalui admin, user yang baru saja terdaftar belum mentautkan akun dengan telegram yang dia miliki.
+Ketika daftar melalui admin, user yang baru saja terdaftar **harus** mentautkan akun dengan telegram yang dia miliki.
 
 ### Alur Mentautkan Akun Baru dengan Telegram
-- Pertama, ketik `sudah ada akun`
-- Baca Intruksi yang diberikan BOT, lalu ketik `masukkan kode`
-- Login dengan akun yang ingin kamu tautkan, buka `Setting -> Dasar` Lalu klik `Dapatkan kode`
+- Masuk kedalam bot [@kegiatan_ukmik_bot](https://t.me/kegiatan_ukmik_bot)
+- Klik `start`
+- Lalu klik `sudah ada akun`
+- Baca Intruksi yang diberikan BOT, lalu klik `masukkan kode`
+- Login kedalam sistem [sim ketika](https://skripsi.riyanris.my.id) dengan akun yang baru saja kamu buat, lalu buka `Setting -> Dasar` klik `Dapatkan kode`
 - Kembali ke telegram lalu masukkan kode undanganmu
 
 Contoh liat gambar di bawah
@@ -171,12 +150,13 @@ Lokasi Kode undangan dapat dilihat di bawah
 
 ### Alur Daftar Melalui Akun Telegram
 - Masuk kedalam bot [@kegiatan_ukmik_bot](https://t.me/kegiatan_ukmik_bot)
-- Tulis pesan ```Daftar``` lalu kirim
-- Maka akan mendapat balasan berupa username dan password untuk login kedalam sistem.  
+- Klik `start`
+- Lalu klik `Daftar`
+- Maka akan mendapat balasan berupa username dan password untuk login kedalam sistem.
 
-#### Contoh
+Contoh daftar melalui telegram
 ![pendafataran berhasil](https://i.ibb.co/JsXdLqD/Screenshot-from-2021-11-19-19-56-11.png)
-Ketika mengetikkan `daftar` akan mendapat pesan berhasil, dan mendapat akun username dan password untuk masuk kedalam sistem.
+Ketika mengeklik `daftar` akan mendapat pesan berhasil, dan mendapat akun username dan password untuk masuk kedalam sistem.
 
 ![akun sudah terdaftar](https://i.ibb.co/vLgQGB0/Screenshot-from-2021-11-19-19-51-08.png)
 Akun sudah terdaftar, ketika mengetikkan daftar akan mendapat pesan bahwa kamu telah melakukan pendaftaran.

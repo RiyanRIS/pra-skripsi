@@ -33,10 +33,10 @@ class Auth extends BaseController
 				if($this->setting_notif->loginNotifBool($data_user->id)){
 					$this->notifLogin($data_user);
 				}
-				return redirect()->to(site_url("home/dashboard"))->with('msg', [1, "Berhasil masuk"]);
+				return redirect()->to(site_url("home/dashboard"))->with('msg', [1, lang('Auth.msgBerhasilMasuk')]);
 			} else {
-				$ses = [0, "Kombinasi username dan password masih belum tepat."];
-				session()->set(['msg' => $ses]);
+				$ses = [0, lang('Auth.msgGagalMasuk')];
+				session()->setFlashdata(['msg' => $ses]);
 			}
 		}
 		$data = [
@@ -52,17 +52,12 @@ class Auth extends BaseController
 		if($chat_id == null){
 			return false;
 		}
-		$msg = "Terjadi aktivitas login pada akun kamu, jika memang benar, abaikan pesan ini.";
+		$msg = lang('Auth.notiftele');
 		$bot_token = env("BOT_TOKEN_TELE");
 		$bot = new \Telegram($bot_token);
 		$content = ['chat_id' => $chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];
 		$this->simpan_chat($msg, $user_id);
 		$bot->sendMessage($content);
-	}
-
-	function hai(){
-		$user = $this->users->withDeleted()->find(11);
-		print_r($user);
 	}
 
 	public function daftar()
@@ -77,6 +72,6 @@ class Auth extends BaseController
 
 	public function logout(){
 		$this->auth->logout(session()->user_id);
-		return redirect()->to(site_url('auth'))->with('msg', [1, "Berhasil keluar"]);
+		return redirect()->to(site_url('auth'))->with('msg', [1, lang("Auth.msgBerhasilKeluar")]);
 	}
 }
