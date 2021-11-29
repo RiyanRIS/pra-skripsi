@@ -66,8 +66,8 @@
       <div class="right">
         <div class="overlay"></div>
         <div class="content text">
-          <h1 class="heading">SIM KETIKA - Kegiatan UKM Informatika & Komputer</h1>
-          <p>by RiyanRIS</p>
+          <h1 class="heading">SIM KETIKA</h1>
+          <p>(Kegiatan UKM Informatika & Komputer)</p>
         </div>
       </div>
     </div>
