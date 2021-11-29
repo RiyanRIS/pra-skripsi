@@ -353,9 +353,9 @@ class Users extends BaseController
 			if ($status) {
 				$rep = $this->log("delete", $id, "users");
 				$this->report_to_admin("delete_user", $rep);
-				$message = [1, "Berhasil Menghapus Pengguna"];
+				$message = [1, lang("LangUsers.hapusBerhasil")];
 			} else {
-				$message = [0, "Gagal Menghapus Pengguna"];
+				$message = [0, lang("LangUsers.hapusGagal")];
 			}
 			return redirect()->to($url_redirect)->with('msg', $message);
 		} else {
