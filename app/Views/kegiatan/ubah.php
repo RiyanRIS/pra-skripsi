@@ -88,15 +88,6 @@
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $cp2['label'] ?></label>
-                      <div class="col-md-10">
-                        <input type="text" name="<?= $cp2['name'] ?>" id="<?= $cp2['name'] ?>" class="form-control <?= (@$errors['cp2']?'is-invalid':'') ?>" placeholder="<?= $cp2['placeholder'] ?>" value="<?= $cp2['value'] ?>">
-                        <div class="invalid-feedback">
-                          <?= @$errors['cp2'] ?>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group row">
                       <label class="col-md-2 col-form-label"><?= $link1['label'] ?>*</label>
                       <div class="col-md-10">
                         <input type="text" name="<?= $link1['name'] ?>" id="<?= $link1['name'] ?>" class="form-control <?= (@$errors['link1']?'is-invalid':'') ?>" placeholder="<?= $link1['placeholder'] ?>" required="true" value="<?= $link1['value'] ?>">
@@ -113,24 +104,15 @@
                         <select required="true" name="<?= $jenis['name'] ?>" class="form-control">
                           <option <?= ($jenis['value']!='umum'?:'selected') ?> value="umum">Umum</option>
                           <option <?= ($jenis['value']!='internal'?:'selected') ?> value="internal">Internal</option>
-                          <option <?= ($jenis['value']!='pengurus'?:'selected') ?> value="pengurus">Pengurus</option>
                         </select>
                       </div>
                     </div>
                     <?php 
                     elseif($subnav=="umum"): 
                       echo form_hidden("jenis", "umum");
-                    elseif($subnav=="internal"): ?>
-                      <div class="form-group row">
-                      <label class="col-md-2 col-form-label"><?= $jenis['label'] ?>*</label>
-                      <div class="col-md-10">
-                        <select required="true" name="<?= $jenis['name'] ?>" class="form-control">
-                          <option <?= ($jenis['value']!='internal'?:'selected') ?> value="internal">Internal</option>
-                          <option <?= ($jenis['value']!='pengurus'?:'selected') ?> value="pengurus">Pengurus</option>
-                        </select>
-                      </div>
-                    </div>
-                    <?php endif ?>
+                    elseif($subnav=="internal"):
+                      echo form_hidden("jenis", "internal");
+                     endif ?>
 
                     <div class="form-group row">
                       <label class="col-md-2 col-form-label"><?= $banner['label'] ?></label>

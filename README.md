@@ -75,8 +75,8 @@ Fitur pada Aplikasi ini meliputi:
 
 | URL | https://skripsi.riyanris.my.id |
 | --- | --- |
-| username | kodokkayang |
-| password | kodokkayang |
+| username | admin |
+| password | admin |
 
 ## INSTALASI
 
@@ -100,8 +100,8 @@ Fitur pada Aplikasi ini meliputi:
 
 ### Login Admin
 ```
-Username: kodokkayang
-Password: kodokkayang
+Username: admin
+Password: admin
 ```
 
 <hr>

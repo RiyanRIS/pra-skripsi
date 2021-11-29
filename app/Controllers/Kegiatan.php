@@ -30,9 +30,8 @@ class Kegiatan extends BaseController
 			}elseif(@$segments[2] == "internal"){
 				$data['subnav'] = "internal";
 				$data['pgtitle'] = "Kegiatan Internal UKM IK";
-				$data['pgdesc'] = "Data kegiatan yang bersifat internal (khusus anggota dan pengurus)";
+				$data['pgdesc'] = "Data kegiatan yang bersifat internal";
 				$data['kegiatans'] =  $this->kegiatan->where('jenis', 'internal')->findAll();
-				// $data['kegiatans'] =  $this->kegiatan->where('jenis', 'internal')->orWhere('jenis', 'pengurus')->findAll();
 
 			}elseif(@$segments[2] == "master"){
 				$data['subnav'] = "master";
@@ -42,9 +41,10 @@ class Kegiatan extends BaseController
 				$data['kegiatans'] =  $this->kegiatan->findAll();
 
 				return view('kegiatan/master-index',$data);
-
+				die();
 			}else{
-				echo "Akses dilarang."; die();
+				return redirect()->back()->with('msg', [0,lang("Error.halamanTidakLengkap")]);
+				die();
 			}
 		}else{
 				$data['subnav'] = "semua";
@@ -460,7 +460,8 @@ class Kegiatan extends BaseController
 		}
 	}
 
-	public function aksiGabung(){
+	public function aksiGabung()
+	{
 		$additionalData = [
 			'kegiatan' 	=> $this->request->getPost('kegiatan'),
 			'user' 			=> $this->request->getPost('user'),
@@ -576,8 +577,8 @@ class Kegiatan extends BaseController
 
 	public function add()
 	{
-		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
-			return redirect()->back()->with('msg', [0, "Akses dilarang"]);
+		if(!punyaAkses(['admin'])){
+			return redirect()->back()->with('msg', [0,lang("Error.tidakMemilikiAksesKehalamanTsb")]);
 			die();
 		}
 
@@ -610,9 +611,9 @@ class Kegiatan extends BaseController
 				$data['subnav'] = "master";
 				$data['title'] = "Master Kegiatan";
 				$data['pgtitle'] = "Tambah Kegiatan";
-
 			}else{
-				echo "Akses dilarang."; die();
+				return redirect()->back()->with('msg', [0,lang("Error.halamanTidakLengkap")]);
+				die();
 			}
 		}else{
 				$url_redirect = site_url('home/kegiatan/semua');
@@ -653,7 +654,6 @@ class Kegiatan extends BaseController
 					'deskripsi' 			=> $this->request->getPost('deskripsi'),
 					'banner' 					=> $this->request->getPost('banner'),
 					'cp1' 						=> $this->request->getPost('cp1'),
-					'cp2' 						=> $this->request->getPost('cp2'),
 				  'link1' 					=> $this->request->getPost('link1'),
 					'jenis' 					=> $this->request->getPost('jenis'),
 					'banner'		 			=> $newimg,
@@ -664,15 +664,15 @@ class Kegiatan extends BaseController
 					$resp = $this->log("insert",$lastid,"kegiatan");
 					$this->report_to_admin("add_kegiatan", $resp, 'kegiatan', $lastid);
 					$this->report_to_allusers("add_kegiatan", $resp, 'kegiatan', $lastid);
-					return redirect()->to($url_redirect)->with('msg', [1,"Berhasil Membuat Kegiatan"]);
+					return redirect()->to($url_redirect)->with('msg', [1, lang('LangKegiatan.tambahBerhasil')]);
 				}else{
-					return redirect()->to($url_redirect)->with('msg', [0,'gagal Menambahkan Kegiatan']);
+					return redirect()->to($url_redirect)->with('msg', [0, lang('LangKegiatan.tambahGagal')]);
 				}
 
 		}else{
 
 			$data['errors'] = $this->validation->getErrors();
-			$data['list_penanggungjawab'] = $this->users->where('role','pengurus')->findAll();
+			$data['list_penanggungjawab'] = $this->users->where('role','admin')->findAll();
 
 			$data['nama'] = [
 				'name'  => 'nama',
@@ -710,16 +710,9 @@ class Kegiatan extends BaseController
 
 			$data['cp1'] = [
 				'name'  => 'cp1',
-				'label'    => 'Kontak Person 1',
+				'label'    => 'Kontak Person',
 				'placeholder' => '08xxxx',
 				'value' => set_value('cp1'),
-			];
-
-			$data['cp2'] = [
-				'name'  => 'cp2',
-				'label'    => 'Kontak Person 2',
-				'placeholder' => '08xxxx',
-				'value' => set_value('cp2'),
 			];
 
 			$data['link1'] = [
@@ -747,8 +740,8 @@ class Kegiatan extends BaseController
 
 	public function update($id)
 	{
-		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
-			return redirect()->back()->with('msg', [0, "Akses dilarang"]);
+		if(!punyaAkses(['admin'])){
+			return redirect()->back()->with('msg', [0,lang("Error.tidakMemilikiAksesKehalamanTsb")]);
 			die();
 		}
 
@@ -801,7 +794,8 @@ class Kegiatan extends BaseController
 				$data['id'] = $id;
 
 		}else{
-			echo "Akses dilarang."; die();
+			return redirect()->back()->with('msg', [0,lang("Error.halamanTidakLengkap")]);
+			die();
 		}
 
 		$this->breadcrumb->add('Ubah', '/');
@@ -851,7 +845,6 @@ class Kegiatan extends BaseController
 					'deskripsi' 			=> $this->request->getPost('deskripsi'),
 					'banner' 					=> $this->request->getPost('banner'),
 					'cp1' 						=> $this->request->getPost('cp1'),
-					'cp2' 						=> $this->request->getPost('cp2'),
 				  'link1' 					=> $this->request->getPost('link1'),
 					'jenis' 					=> $this->request->getPost('jenis'),
 					'banner'		 			=> $imglama,
@@ -864,9 +857,9 @@ class Kegiatan extends BaseController
 			if($lastid){
 				$resp = $this->log("update",$id,"kegiatan",json_encode($sebelum),json_encode($sesudah));
 				$this->report_to_admin("edit_kegiatan", $resp, 'kegiatan', $id);
-				return redirect()->to($url_redirect)->with('msg', [1,"Berhasil Mengubah Kegiatan"]);
+				return redirect()->to($url_redirect)->with('msg', [1, lang('LangKegiatan.ubahBerhasil')]);
 			}else{
-				return redirect()->to($url_redirect)->with('msg', [0,"Gagal Mengubah Kegiatan"]);
+				return redirect()->to($url_redirect)->with('msg', [0, lang('LangKegiatan.ubahGagal')]);
 			}
 		}else{
 
@@ -874,7 +867,7 @@ class Kegiatan extends BaseController
 			$data['errors'] = $this->validation->getErrors();
 			$data['banner'] = $datakegiatans['banner'];
 
-			$data['list_penanggungjawab'] = $this->users->whereIn('role',['pengurus','pengawas'])->findAll();
+			$data['list_penanggungjawab'] = $this->users->where('role', 'admin')->findAll();
 
 			$data['nama'] = [
 				'name'  => 'nama',
@@ -912,16 +905,9 @@ class Kegiatan extends BaseController
 
 			$data['cp1'] = [
 				'name'  => 'cp1',
-				'label'    => 'Kontak Person 1',
+				'label'    => 'Kontak Person',
 				'placeholder' => '08xxxx',
 				'value' => set_value('cp1', $datakegiatans['cp1']),
-			];
-
-			$data['cp2'] = [
-				'name'  => 'cp2',
-				'label'    => 'Kontak Person 2',
-				'placeholder' => '08xxxx',
-				'value' => set_value('cp2', $datakegiatans['cp2']),
 			];
 
 			$data['link1'] = [
@@ -949,8 +935,8 @@ class Kegiatan extends BaseController
 
 	public function delete(int $id)
 	{
-		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
-			return redirect()->back()->with('msg', [0, "Akses dilarang"]);
+		if(!punyaAkses(['admin'])){
+			return redirect()->back()->with('msg', [0,lang("Error.tidakMemilikiAksesKehalamanTsb")]);
 			die();
 		}
 
@@ -958,16 +944,11 @@ class Kegiatan extends BaseController
 			$URI = service('uri');
 			$segments = $URI->getSegments();
 
-			if($segments[2] == "pengguna"){
-				$url_redirect = site_url('home/kegiatan/master');
-			}elseif($segments[2] == "pengurus"){
-				$url_redirect = site_url('home/kegiatan/master');
-			}elseif($segments[2] == "peserta"){
-				$url_redirect = site_url('home/kegiatan/master');
-			}elseif($segments[2] == "master"){
+			if($segments[2] == "master"){
 				$url_redirect = site_url('home/kegiatan/master');
 			}else{
-				echo "Akses dilarang."; die();
+				return redirect()->back()->with('msg', [0,lang("Error.halamanTidakLengkap")]);
+				die();
 			}
 
 			$data = [
@@ -978,13 +959,13 @@ class Kegiatan extends BaseController
 			if($status){
 				$resp = $this->log("delete", $id, "kegiatan");
 				$this->report_to_admin("delete_kegiatan", $resp, 'kegiatan', $id);
-				$message = [1, "Berhasil Menghapus Kegiatan"];
+				$message = [1, lang("LangKegiatan.hapusBerhasil")];
 			} else {
-				$message = [0, "Gagal Menghapus Pengguna"];
+				$message = [0, lang("LangKegiatan.hapusGagal")];
 			}
 			return redirect()->to($url_redirect)->with('msg', $message);
 		}else{
-			return redirect()->back()->with("msg", [0,"Ada parameter yang hilang, harap hubungi pengembang."]);
+			return redirect()->back()->with("msg", [0, lang("Error.parameterHilang")]);
 		}
 	}
 }
