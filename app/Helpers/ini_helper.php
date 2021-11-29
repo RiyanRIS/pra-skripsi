@@ -81,6 +81,18 @@ function toRp($val)
   return "Rp " . number_format($val, 0, ',', '.');
 }
 
+function toWaNum($val)
+{
+  $res = '';
+  if(substr($val, 0, 2) === "08"){
+    $res = "62" . substr($val, 1);
+  }elseif(substr($val, 0, 3) === "+62"){
+    $res = "62" . substr($val, 1);
+  }
+
+  return $res;
+}
+
 function urlImg($nama, $jenis)
 {
   return base_url("assets/images/" . $jenis . "/" . $nama);

@@ -46,8 +46,9 @@
                           <img width="48px" src="<?= base_url("assets/images/avatar/" . $user['ava']) ?>" alt=""> <?= ucwords($user['role']) ?>
                         </td>
                         <td>
-                          <img width="16px" src="<?= base_url("assets/images/wa.png") ?>" alt=""><a href="https://wa.me/"> <?= ($user['nohp'] ?: "-") ?></a> </br>
-                          <img width="16px" src="<?= base_url("assets/images/tel.png") ?>" alt=""><a href="https://t.me/"> <?= ($user['chat_id'] ?: "-") ?>
+                          <img width="16px" src="<?= base_url("assets/images/wa.png") ?>" alt=""> <?= ($user['nohp'] ? "<a href='https://wa.me/".toWaNum($user['nohp'])."' target='_blank'>".$user['nohp']."</a>" : "-") ?> </br>
+                          <img width="16px" src="<?= base_url("assets/images/tel.png") ?>" alt="">
+                          <?= ($user['chat_id'] ? "<a href='https://t.me/".$user['chat_id']."' target='_blank'>".$user['chat_id']."</a>" : "-") ?>
                         </td>
                         <td>
                           <b>CreateAt: </b> <?= date("d F Y H:i", $user['create_at']) ?> </br>
