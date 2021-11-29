@@ -22,11 +22,11 @@
     <div class="auth-box register">
       <div class="content">
         <div class="header">
-          <p class="lead">Daftar akun baru</p>
+          <p class="lead">Daftar Akun Baru</p>
         </div>
         <p>Untuk mendaftar akun baru, silahkan gunakan telegram lalu ketik <a target="BLANK" href="https://t.me/kegiatan_ukmik_bot">@kegiatan_ukmik_bot</a> dan ikuti langkah untuk mendaftar melalui bot tersebut.</p>
         <p>Atau hubungi admin untuk membuatkan akun baru.</p>
-        <a href="<?= site_url("auth/login") ?>">Kembali</a>
+        <a href="<?= site_url("auth/login") ?>">Kembali</a> <a class="pull-right" href="https://github.com/riyanris/pra-skripsi#alur-daftar" target="_BLANK">Dokumentasi</a>
       </div>
     </div>
   </div>

@@ -161,6 +161,15 @@ Ketika mengeklik `daftar` akan mendapat pesan berhasil, dan mendapat akun userna
 ![akun sudah terdaftar](https://i.ibb.co/vLgQGB0/Screenshot-from-2021-11-19-19-51-08.png)
 Akun sudah terdaftar, ketika mengetikkan daftar akan mendapat pesan bahwa kamu telah melakukan pendaftaran.
 
+### Alur Jika Lupa Password
+- Admin harus login kedalam sistem
+- Masuk ke navigasi Pengguna -> Semua Pengguna
+- Cari pengguna yang bermasalah
+- Klik tombol ![ubah data](https://i.ibb.co/WyqmTR6/Screenshot-from-2021-11-29-16-34-30.png)
+- Lalu isikan password baru pada form `Password` dan `Konfirmasi Password`
+- Klik simpan dan pastikan mendapat pesan berhasil.
+- Berikan password baru kepada user yang bermasalah tadi
+
 ## Alur Kegiatan
 
 Kegiatan dapat dibuat oleh user yang memiliki role `admin, pengurus ataupun pengawas`. Dengan cara membuka halaman kegiatan dan klik `Buat Kegiatan Baru`. Lalu isi form pembuatan kegiatan dan klik `Simpan`

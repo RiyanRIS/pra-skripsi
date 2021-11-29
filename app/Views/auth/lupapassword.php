@@ -22,10 +22,10 @@
     <div class="auth-box register">
       <div class="content">
         <div class="header">
-          <p class="lead">Lupa password:</p>
+          <p class="lead">Lupa Password</p>
         </div>
-        <p>Silahkan hubungi admin untuk mereset akunmu, pastikan kamu ingat username atau nama akun kamu, atau tunjukkan bukti bahwa kamu pernah berpartisipasi minimal satu kegiatan.</p>
-        <a href="<?= site_url("auth/login") ?>">Kembali</a>
+        <p>Silahkan hubungi admin untuk mereset akunmu, pastikan kamu ingat minimal username atau nama akun kamu, atau tunjukkan bukti kepada admin bahwa kamu pernah berpartisipasi minimal satu kegiatan.</p>
+        <a href="<?= site_url("auth/login") ?>">Kembali</a> <a class="pull-right" href="https://github.com/riyanris/pra-skripsi#alur-jika-lupa-password" target="_BLANK">Dokumentasi</a>
       </div>
     </div>
   </div>
