@@ -17,7 +17,7 @@
 
           <!-- <li><a class="<?= nav('Notifikasi',@$title) ?>" href="#" class=""><i class="ti-light-bulb"></i> <span class="title">Pengingat</span></a></li> -->
           
-          <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
+          <?php if(punyaAkses(['admin'])){ ?>
 
           <li class="menu-group">Master Data</li>
           <li><a class="<?= nav('Master Kegiatan',@$title) ?>"  href="<?= site_url("home/kegiatan/master") ?>" class=""><i class="ti-calendar"></i> <span class="title">Master Kegiatan</span></a></li>
@@ -26,7 +26,7 @@
             <div id="pengguna" class="collapse <?= navshow('Pengguna',@$title) ?>" style="">
               <ul class="submenu">
                 <li><a href="<?= site_url("home/pengguna") ?>" class="<?= nav('pengguna',@$subnav) ?>">Semua Pengguna</a></li>
-                <li><a href="<?= site_url("home/pengurus") ?>" class="<?= nav('pengurus',@$subnav) ?>">Pengurus</a></li>
+                <li><a href="<?= site_url("home/anggota") ?>" class="<?= nav('anggota',@$subnav) ?>">Anggota</a></li>
                 <li><a href="<?= site_url("home/peserta") ?>" class="<?= nav('peserta',@$subnav) ?>">Peserta</a></li>
               </ul>
             </div>

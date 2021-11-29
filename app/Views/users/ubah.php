@@ -95,15 +95,14 @@
                       <div class="col-md-10">
                         <select required="true" name="<?= $role['name'] ?>" class="form-control">
                           <option <?= ($role['value']!='admin'?:'selected') ?> value="admin">Admin</option>
-                          <option <?= ($role['value']!='pengurus'?:'selected') ?> value="pengurus">Pengurus</option>
-                          <option <?= ($role['value']!='pengawas'?:'selected') ?> value="pengawas">Pengawas</option>
+                          <option <?= ($role['value']!='anggota'?:'selected') ?> value="anggota">Anggota</option>
                           <option <?= ($role['value']!='peserta'?:'selected') ?> value="peserta">Peserta</option>
                         </select>
                       </div>
                     </div>
                     <?php   
-                    elseif($subnav=="pengurus"): 
-                      echo form_hidden("role", "pengurus");
+                    elseif($subnav=="anggota"): 
+                      echo form_hidden("role", "anggota");
                     elseif($subnav=="peserta"):
                       echo form_hidden("role", "peserta");
                     endif ?>

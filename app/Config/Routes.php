@@ -59,7 +59,7 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 		$routes->get('hapus/(:any)', 'Users::delete/$1');
 	});
 
-	$routes->group('pengurus', function ($routes) {
+	$routes->group('anggota', function ($routes) {
 		$routes->get('/', 'Users::index');
 		$routes->add('tambah', 'Users::add');
 		$routes->add('ubah/(:any)', 'Users::update/$1');

@@ -18,10 +18,8 @@
           <!-- TASKS -->
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-              <?php if(punyaAkses(['admin', 'pengawas'])){ ?>
+              <?php if(punyaAkses(['admin'])){ ?>
                 <a href="<?= site_url("home/" . $subnav . "/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
-              <?php } else if(punyaAkses(['pengurus']) && $subnav == "peserta") { ?>
-                <a href="<?= site_url("home/peserta/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
               <?php } else { echo $pgtitle; } ?>
             </div>
             <div class="card-body">
@@ -33,10 +31,8 @@
                       <th>Role</th>
                       <th>Kontak</th>
                       <th>Activity</th>
-                      <?php if(punyaAkses(['admin', 'pengawas'])){ ?>
+                      <?php if(punyaAkses(['admin'])){ ?>
                       <th>#</th>
-                      <?php } else if(punyaAkses(['pengurus']) && $subnav == "peserta") { ?>
-                        <th>#</th>
                       <?php } ?>
                     </tr>
                   </thead>
@@ -57,17 +53,12 @@
                           <b>CreateAt: </b> <?= date("d F Y H:i", $user['create_at']) ?> </br>
                           <b>LastSeen: </b> <?= ($user['terahir_dilihat'] == null ? "-" : date("d F Y H:i", $user['terahir_dilihat'])) ?>
                         </td>
-                        <?php if(punyaAkses(['admin', 'pengawas'])){ ?>
+                        <?php if(punyaAkses(['admin'])){ ?>
                         <td>
                           <a href="<?= site_url('home/' . $subnav . '/ubah/' . encrypt_url($user['id'])) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
                           <a onclick="confirmation(event)" href="<?= site_url('home/' . $subnav . '/hapus/' . encrypt_url($user['id'])) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </td>
-                      <?php } else if(punyaAkses(['pengurus']) && $subnav == "peserta") { ?>
-                        <td>
-                          <a href="<?= site_url('home/' . $subnav . '/ubah/' . encrypt_url($user['id'])) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                          <a onclick="confirmation(event)" href="<?= site_url('home/' . $subnav . '/hapus/' . encrypt_url($user['id'])) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                        </td>
-                        <?php } ?>
+                      <?php } ?>
                       </tr>
                     <?php endforeach; ?>
                   <tbody>

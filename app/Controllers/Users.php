@@ -8,8 +8,8 @@ class Users extends BaseController
 {
 	public function index()
 	{
-		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
-			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+		if(!punyaAkses(['admin'])){
+			return redirect()->back()->with('msg', [0, lang("Error.tidakMemilikiAksesKehalamanTsb")]);
 		}
 
 		$URI = service('uri');
@@ -25,18 +25,18 @@ class Users extends BaseController
 			$data['pgtitle'] = "Data Pengguna";
 			$data['pgdesc'] = "Seluruh pengguna dalam sistem ini";
 			$data['users'] =  $this->users->findAll();
-		} elseif ($segments[1] == "pengurus") {
-			$data['subnav'] = "pengurus";
-			$data['pgtitle'] = "Data Pengurus";
-			$data['pgdesc'] = "Seluruh pengurus UKM Informatika dan Komputer";
-			$data['users'] =  $this->users->where('role', 'pengurus')->findAll();
+		} elseif ($segments[1] == "anggota") {
+			$data['subnav'] = "anggota";
+			$data['pgtitle'] = "Data Anggota";
+			$data['pgdesc'] = "Seluruh anggota UKM Informatika dan Komputer";
+			$data['users'] =  $this->users->where('role', 'anggota')->findAll();
 		} elseif ($segments[1] == "peserta") {
 			$data['subnav'] = "peserta";
 			$data['pgtitle'] = "Data Peserta";
 			$data['pgdesc'] = "Peserta yang pernah mendaftar pada sistem";
 			$data['users'] =  $this->users->where('role', 'peserta')->findAll();
 		} else {
-			echo "Akses dilarang.";
+			return redirect()->back()->with('msg', [0,lang("Error.halamanTidakLengkap")]);
 			die();
 		}
 
@@ -45,18 +45,13 @@ class Users extends BaseController
 
 	public function add()
 	{
-		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
-			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+		if(!punyaAkses(['admin'])){
+			return redirect()->back()->with('msg', [0,lang("Error.tidakMemilikiAksesKehalamanTsb")]);
 			die();
 		}
 
 		$URI = service('uri');
 		$segments = $URI->getSegments();
-
-		if(session()->user_role == "pengurus" && $segments[1] != "peserta"){
-			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
-			die();
-		}
 
 		$data = [
 			'breadcrumbs' => $this->breadcrumb->buildAuto(),
@@ -68,16 +63,16 @@ class Users extends BaseController
 			$url_redirect = site_url('home/pengguna');
 			$data['subnav'] = "pengguna";
 			$data['pgtitle'] = "Tambah Pengguna";
-		} elseif ($segments[1] == "pengurus") {
-			$url_redirect = site_url('home/pengurus');
-			$data['subnav'] = "pengurus";
-			$data['pgtitle'] = "Tambah Pengurus";
+		} elseif ($segments[1] == "anggota") {
+			$url_redirect = site_url('home/anggota');
+			$data['subnav'] = "anggota";
+			$data['pgtitle'] = "Tambah Anggota";
 		} elseif ($segments[1] == "peserta") {
 			$url_redirect = site_url('home/peserta');
 			$data['subnav'] = "peserta";
 			$data['pgtitle'] = "Tambah Peserta";
 		} else {
-			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+			return redirect()->back()->with('msg', [0,lang("Error.halamanTidakLengkap")]);
 			die();
 		}
 
@@ -113,8 +108,8 @@ class Users extends BaseController
 
 				if($segments[1] == "peserta"){
 					$additionalData['role'] = 'peserta';
-				} else  if($segments[1] == "pengurus"){
-					$additionalData['role'] = 'pengurus';
+				} else  if($segments[1] == "anggota"){
+					$additionalData['role'] = 'anggota';
 				}
 
 				$lastid = $this->users->simpan($additionalData);
@@ -128,9 +123,9 @@ class Users extends BaseController
 				if ($lastid) {
 					$rep = $this->log("insert", $lastid, "users");
 					$this->report_to_admin("add_user", $rep);
-					return redirect()->to($url_redirect)->with('msg', [1, "Berhasil Menambahkan Pengguna"]);
+					return redirect()->to($url_redirect)->with('msg', [1, lang("LangUsers.tambahBerhasil")]);
 				} else {
-					return redirect()->to($url_redirect)->with('msg', [0, 'gagal Menambahkan Pengguna']);
+					return redirect()->to($url_redirect)->with('msg', [0, lang("LangUsers.tambahGagal")]);
 				}
 		} else {
 
@@ -181,18 +176,13 @@ class Users extends BaseController
 
 	public function update($id)
 	{
-		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
-			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+		if(!punyaAkses(['admin'])){
+			return redirect()->back()->with('msg', [0,lang("Error.tidakMemilikiAksesKehalamanTsb")]);
 		}
 		
 		$id = decrypt_url($id);
 		$URI = service('uri');
 		$segments = $URI->getSegments();
-
-		if(session()->user_role == "pengurus" && $segments[1] != "peserta"){
-			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
-			die();
-		}
 
 		$datausers = $this->users->find($id);
 
@@ -208,18 +198,18 @@ class Users extends BaseController
 			$data['subnav'] = "pengguna";
 			$data['pgtitle'] = "Ubah Pengguna";
 			$this->breadcrumb->add('Pengguna', $url_redirect);
-		} elseif ($segments[1] == "pengurus") {
-			$url_redirect = site_url('home/pengurus');
-			$data['subnav'] = "pengurus";
-			$data['pgtitle'] = "Ubah Pengurus";
-			$this->breadcrumb->add('Pengurus', $url_redirect);
+		} elseif ($segments[1] == "anggota") {
+			$url_redirect = site_url('home/anggota');
+			$data['subnav'] = "anggota";
+			$data['pgtitle'] = "Ubah Anggota";
+			$this->breadcrumb->add('Anggota', $url_redirect);
 		} elseif ($segments[1] == "peserta") {
 			$url_redirect = site_url('home/peserta');
 			$data['subnav'] = "peserta";
 			$data['pgtitle'] = "Ubah Peserta";
 			$this->breadcrumb->add('Peserta', $url_redirect);
 		} else {
-			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+			return redirect()->back()->with('msg', [0,lang("Error.halamanTidakLengkap")]);
 			die();
 		}
 
@@ -268,8 +258,8 @@ class Users extends BaseController
 
 			if($segments[1] == "peserta"){
 				$additionalData['role'] = 'peserta';
-			} else  if($segments[1] == "pengurus"){
-				$additionalData['role'] = 'pengurus';
+			} else  if($segments[1] == "anggota"){
+				$additionalData['role'] = 'anggota';
 			}
 
 			$sebelum = $this->users->find($id);
@@ -280,9 +270,9 @@ class Users extends BaseController
 				$rep = $this->log("update", $id, "users", json_encode($sebelum), json_encode($sesudah));
 				$this->report_to_admin("edit_user", $rep);
 				$this->report_to_usernya("edit_user", $id, $rep);
-				return redirect()->to($url_redirect)->with('msg', [1, "Berhasil Mengubah Pengguna"]);
+				return redirect()->to($url_redirect)->with('msg', [1, lang('LangUsers.ubahBerhasil')]);
 			} else {
-				return redirect()->to($url_redirect)->with('msg', [0, 'gagal Mengubah Pengguna']);
+				return redirect()->to($url_redirect)->with('msg', [0, lang('LangUsers.ubahGagal')]);
 			}
 		} else {
 
@@ -336,8 +326,8 @@ class Users extends BaseController
 
 	public function delete($id)
 	{
-		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
-			return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+		if(!punyaAkses(['admin'])){
+			return redirect()->back()->with('msg', [0,lang("Error.tidakMemilikiAksesKehalamanTsb")]);
 		}
 		
 		$id = decrypt_url($id);
@@ -345,19 +335,14 @@ class Users extends BaseController
 			$URI = service('uri');
 			$segments = $URI->getSegments();
 
-			if(session()->user_role == "pengurus" && $segments[1] != "peserta"){
-				return redirect()->back()->with('msg', [0,'Akses dilarang.']);
-				die();
-			}
-
 			if ($segments[1] == "pengguna") {
 				$url_redirect = site_url('home/pengguna');
-			} elseif ($segments[1] == "pengurus") {
-				$url_redirect = site_url('home/pengurus');
+			} elseif ($segments[1] == "anggota") {
+				$url_redirect = site_url('home/anggota');
 			} elseif ($segments[1] == "peserta") {
 				$url_redirect = site_url('home/peserta');
 			} else {
-				return redirect()->back()->with('msg', [0,'Akses dilarang.']);
+				return redirect()->back()->with('msg', [0,lang("Error.halamanTidakLengkap")]);
 				die();
 			}
 
@@ -374,7 +359,7 @@ class Users extends BaseController
 			}
 			return redirect()->to($url_redirect)->with('msg', $message);
 		} else {
-			return redirect()->back()->with("msg", [0, "Ada parameter yang hilang, harap hubungi pengembang."]);
+			return redirect()->back()->with("msg", [0, lang("Error.parameterHilang")]);
 		}
 	}
 }
