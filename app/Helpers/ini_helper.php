@@ -76,6 +76,17 @@ function formatBytes($bytes, $precision = 2)
   return round($bytes, $precision) . ' ' . $units[$pow];
 }
 
+function buildStatusKegiatan($tgl)
+{
+  $res = '';
+  if($tgl <= time()){
+    $res = '<span class="badge badge-info">SUDAH TERLAKSANA</span>';
+  }else{
+    $res = '<span class="badge badge-success">AKTIF</span>';
+  }
+  echo $res;
+}
+
 function toRp($val)
 {
   return "Rp " . number_format($val, 0, ',', '.');

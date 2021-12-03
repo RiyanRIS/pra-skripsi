@@ -15,7 +15,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-12 pb-3">
-            <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
+            <?php if(punyaAkses(['admin'])){ ?>
               <a href="<?= site_url("home/kegiatan/".$subnav."/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Buat Kegiatan Baru</a>
             <?php } ?>
             </div>
@@ -25,7 +25,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                   <h3 class="card-title"><a href="<?= site_url("home/kegiatan/detail/".encrypt_url($kegiatan['id'])) ?>"><?= $kegiatan['nama'] ?></a></h3>
                   <div class="right">
-                    <span class="badge badge-success">AKTIF</span>
+                    <?= buildStatusKegiatan($kegiatan['tanggal']) ?>
                   </div>
                 </div>
                 <div class="card-body">

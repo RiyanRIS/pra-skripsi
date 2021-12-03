@@ -18,7 +18,7 @@
               <!-- TASKS -->
               <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
+                <?php if(punyaAkses(['admin'])){ ?>
                   <a href="<?= site_url("home/kegiatan/".$subnav."/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah Data</a>
                 <?php } ?>
                 </div>
@@ -32,7 +32,7 @@
                           <th>Lokasi</th>
                           <th>Banner</th>
                           <th>Kontak</th>
-                          <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
+                          <?php if(punyaAkses(['admin'])){ ?>
                           <th>#</th>
                           <?php } ?>
                         </tr>
@@ -40,13 +40,13 @@
                       <tbody>
                       <?php foreach ($kegiatans as $kegiatan):?>
                         <tr>
-                          <td><a href="<?= site_url('home/kegiatan/detail/'.encrypt_url($kegiatan['id'])) ?>"><?= $kegiatan['nama'] ?></a> </br><?= $kegiatan['deskripsi'] ?> </td>
+                          <td><h4><a href="<?= site_url('home/kegiatan/detail/'.encrypt_url($kegiatan['id'])) ?>"><?= $kegiatan['nama'] ?></a></h4> </br><?= $kegiatan['deskripsi'] ?> </td>
                           <td style="min-width:150px"><?= date("d F Y H:i", $kegiatan['tanggal']) ?></td>
                           <td><?= $kegiatan['lokasi'] ?></td>
                           <td><img width="64px" src="<?= urlImg($kegiatan['banner'], "banner-kegiatan") ?>" alt=""></td>
-                          <td>cp: <?= $kegiatan['cp1'] ?> </br>link: <?= $kegiatan['link1'] ?> </br></td>
-                          <?php if(punyaAkses(['admin', 'pengawas', 'pengurus'])){ ?>
-                          <td>
+                          <td>cp: <?= $kegiatan['cp1'] ?> </br>link: <?= $kegiatan['link1'] ?> </td>
+                          <?php if(punyaAkses(['admin'])){ ?>
+                          <td style="min-width:120px">
                             <a href="<?= site_url('home/kegiatan/'.$subnav.'/ubah/'.encrypt_url($kegiatan['id'])) ?>" title="Ubah Data" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
                             <a onclick="confirmation(event)" href="<?= site_url('home/kegiatan/'.$subnav.'/hapus/'.$kegiatan['id']) ?>" title="Hapus Data" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                           </td>

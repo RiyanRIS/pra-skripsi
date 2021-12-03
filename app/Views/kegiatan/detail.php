@@ -34,7 +34,7 @@
                       <?php } ?>
                         <div class="media-body">
                           <h2 class="project-title"><?= ucwords($kegiatan['nama']) ?></h2>
-                          <span class="badge badge-success status">Aktif</span>
+                          <?= buildStatusKegiatan($kegiatan['tanggal']) ?> 
                         </div>
                       </div>
                     </div>

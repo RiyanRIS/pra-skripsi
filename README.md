@@ -119,7 +119,7 @@ Password: admin
 
 - Kegiatan UKM I&K memiliki 2 jenis, `Umum` dan `Internal`
 - `Satu Kegiatan` memiliki `Satu Penanggung Jawab` yang berasal dari admin.
-- Status kegiatan ada 3 yaitu `belum terlaksana`, `aktif` dan `sudah terlaksana`
+- Status kegiatan ada 2 yaitu `aktif` dan `sudah terlaksana`
 - Notifikasi akan otomatis dikirim kepada `admin`, `panitia` dan `peserta` ketika ada perubahan pada kegiatan terkait.
 
 ## Alur Daftar
