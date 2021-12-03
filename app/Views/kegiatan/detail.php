@@ -34,7 +34,7 @@
                       <?php } ?>
                         <div class="media-body">
                           <h2 class="project-title"><?= ucwords($kegiatan['nama']) ?></h2>
-                          <?= buildStatusKegiatan($kegiatan['tanggal']) ?>     
+                          <?= buildStatusKegiatan($kegiatan['tanggal']) ?>      
                         </div>
                       </div>
                     </div>
