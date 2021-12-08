@@ -76,6 +76,24 @@ function formatBytes($bytes, $precision = 2)
   return round($bytes, $precision) . ' ' . $units[$pow];
 }
 
+function totalKegiatan(){
+  $model = model('App\Models\KegiatanModel', false);
+  $res = $model->findAll();
+  return count($res);
+}
+
+function totalPengguna(){
+  $model = model('App\Models\UsersModel', false);
+  $res = $model->findAll();
+  return count($res);
+}
+
+function totalMsg(){
+  $model = model('App\Models\ChatModel', false);
+  $res = $model->findAll();
+  return count($res);
+}
+
 function buildStatusKegiatan($tgl)
 {
   $res = '';

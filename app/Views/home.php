@@ -28,7 +28,7 @@
                         </ul>
                       </div> -->
                     </div>
-                    <i class="ti-truck custom-text-blue4"></i> <span class="value">12</span>
+                    <i class="ti-calendar custom-text-blue4"></i> <span class="value"><?= totalKegiatan() ?></span>
                     <div class="progress progress-transparent custom-color-blue4" style="height: 5px;">
                       <div class="progress-bar" style="width: 100%;"></div>
                     </div>
@@ -47,7 +47,7 @@
                         </ul>
                       </div> -->
                     </div>
-                    <i class="ti-package custom-text-purple"></i> <span class="value">94</span>
+                    <i class="ti-user custom-text-purple"></i> <span class="value"><?= totalPengguna() ?></span>
                     <div class="progress progress-transparent custom-color-purple" style="height: 5px;">
                       <div class="progress-bar" style="width: 100%;"></div>
                     </div>
@@ -66,7 +66,7 @@
                         </ul>
                       </div> -->
                     </div>
-                    <i class="ti-settings custom-text-green3"></i> <span class="value">1340</span>
+                    <i class="ti-comments custom-text-green3"></i> <span class="value"><?= totalMsg() ?></span>
                     <div class="progress progress-xs progress-transparent custom-color-green3" style="height: 5px;">
                       <div class="progress-bar" style="width: 100%"></div>
                     </div>
