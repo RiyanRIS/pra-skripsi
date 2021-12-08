@@ -14,31 +14,50 @@ class Kegiatan extends BaseController
 				'title' => "Kegiatan",
 		];
 
+		if($this->request->getGet("awal") && $this->request->getGet("ahir")){
+			$data['dtawal'] = $this->request->getGet("awal");
+			$data['dtahir'] = $this->request->getGet("ahir");
+			$dtawal = strtotime($data['dtawal']);
+			$dtahir = strtotime($data['dtahir']);
+		}
+
 		if(@$segments[2]){
 			if(@$segments[2] == "semua"){
 				$data['subnav'] = "semua";
 				$data['pgtitle'] = "Data Semua Kegiatan";
 				$data['pgdesc'] = "Seluruh kegiatan UKM Informatika dan Komputer";
-				$data['kegiatans'] =  $this->kegiatan->findAll();
+				if(@$data['dtawal']){
+					$data['kegiatans'] =  $this->kegiatan->where('tanggal >', $dtawal)->where('tanggal <', $dtahir)->orderBy("tanggal", "DESC")->findAll();
+				} else {
+					$data['kegiatans'] =  $this->kegiatan->orderBy("tanggal", "DESC")->findAll();
+				}
 
 			}elseif(@$segments[2] == "umum"){
 				$data['subnav'] = "umum";
 				$data['pgtitle'] = "Kegiatan Umum";
 				$data['pgdesc'] = "Data kegiatan yang bersifat umum";
-				$data['kegiatans'] =  $this->kegiatan->where('jenis', 'umum')->findAll();
+				if(@$data['dtawal']){
+					$data['kegiatans'] =  $this->kegiatan->where('tanggal >', $dtawal)->where('tanggal <', $dtahir)->orderBy("tanggal", "DESC")->where('jenis', 'umum')->findAll();
+				} else {
+					$data['kegiatans'] =  $this->kegiatan->orderBy("tanggal", "DESC")->where('jenis', 'umum')->findAll();
+				}
 
 			}elseif(@$segments[2] == "internal"){
 				$data['subnav'] = "internal";
 				$data['pgtitle'] = "Kegiatan Internal UKM IK";
 				$data['pgdesc'] = "Data kegiatan yang bersifat internal";
-				$data['kegiatans'] =  $this->kegiatan->where('jenis', 'internal')->findAll();
+				if(@$data['dtawal']){
+					$data['kegiatans'] =  $this->kegiatan->where('tanggal >', $dtawal)->where('tanggal <', $dtahir)->orderBy("tanggal", "DESC")->where('jenis', 'internal')->findAll();
+				} else {
+					$data['kegiatans'] =  $this->kegiatan->orderBy("tanggal", "DESC")->where('jenis', 'internal')->findAll();
+				}
 
 			}elseif(@$segments[2] == "master"){
 				$data['subnav'] = "master";
 				$data['title'] = "Master Kegiatan";
 				$data['pgtitle'] = "Data Semua Kegiatan";
 				$data['pgdesc'] = "Seluruh kegiatan UKM Informatika dan Komputer";
-				$data['kegiatans'] =  $this->kegiatan->findAll();
+				$data['kegiatans'] =  $this->kegiatan->orderBy("tanggal", "DESC")->findAll();
 
 				return view('kegiatan/master-index',$data);
 				die();

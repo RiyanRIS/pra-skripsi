@@ -23,7 +23,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-4">
-                      <p>Umum</p>
+                      <p><b>Umum</b></p>
                       <label class="switch-input">
                         <input type="checkbox" onclick="login(this)" id="sw-login" name="switch-login" <?= ($setting_notif->login == 1 ? 'checked=""' : "") ?>>
                         <i data-swon-text="ON" data-swoff-text="OFF"></i>
@@ -31,7 +31,7 @@
                       </label>
                     </div>
                     <div class="col-md-4">
-                      <p>Notifikasi Kegiatan</p>
+                      <p><b>Notifikasi Kegiatan</b></p>
                       <label class="switch-input">
                         <input type="checkbox" onclick="kegpan(this)" id="sw-kegpan" name="switch-kegpan" <?= ($setting_notif->keg_pan == 1 ? 'checked=""' : "") ?>>
                         <i data-swon-text="ON" data-swoff-text="OFF"></i>

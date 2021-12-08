@@ -51,6 +51,11 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 	$routes->get('setting', 'Home::setting');
 	$routes->get('setting/getkode', 'Home::settingCode');
 
+	$routes->group('kegiatan-saya', function ($routes) {
+		$routes->get('/', 'KegSay::index');
+	
+	});
+
 	// MODEL PENGGUNA
 	$routes->group('pengguna', function ($routes) {
 		$routes->get('/', 'Users::index');

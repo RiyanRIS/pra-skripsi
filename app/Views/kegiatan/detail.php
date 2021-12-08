@@ -62,7 +62,7 @@
                         </div>
                       </div>
                     <?php } else {
-                    if(!isUserSudahJadiPeserta($id)){ ?>
+                    if(!isUserSudahJadiPeserta($id) && $kegiatan['tanggal'] >= time()){ ?>
                       <div class="col-md-3 text-right">
                         <div class="btn-group">
                           <button type="button" id="btn-gabung1" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/gabung') ?>" class="btn btn-primary" aria-expanded="false">Gabung

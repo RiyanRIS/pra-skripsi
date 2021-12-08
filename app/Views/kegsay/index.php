@@ -18,21 +18,6 @@
             <?php if(punyaAkses(['admin'])){ ?>
               <a href="<?= site_url("home/kegiatan/".$subnav."/tambah") ?>" title="Tambah Data" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Buat Kegiatan Baru</a>
             <?php } ?>
-            <div class="form-row pt-2">
-              <div class="col-md-4">
-              <input type="date" value="<?= (@$dtawal ?: "") ?>" id="date1" class="form-control">
-              </div>
-              <div class="col-md-4">
-              <input type="date" value="<?= (@$dtahir ?: "") ?>" id="date2" class="form-control">
-              </div>
-              <div class="col-md-4">
-              <button id="btn-filter" class="btn btn-primary">Filter</button>
-              <?php if(@$dtawal){ ?>
-              <button id="btn-filter-reset" class="btn btn-info">Reset</button>
-              <?php } ?>
-              </div>
-            </div>
-            
             </div>
           <?php if(count($kegiatans)!=0){ foreach ($kegiatans as $kegiatan):?>
             <div class="col-md-6 col-lg-4">
@@ -99,15 +84,7 @@
   <script src="<?= base_url() ?>/assets/plugins/easy-pie-chart/jquery.easypiechart.min.js"></script>
 
   <script>
-  $("#btn-filter").click((e) => {
-    e.preventDefault();
-    const date1 = $("#date1").val()
-    const date2 = $("#date2").val()
-    window.location.href = "?awal="+ date1 +"&ahir=" + date2;
-  })
-  $("#btn-filter-reset").click((e) => {
-    window.location.href = "?";
-  })
+  !function(o){"use strict";var t=function(){};t.prototype.init=function(){0<o(".progress-chart").length&&o(".progress-chart").easyPieChart({size:110,barColor:"#45AEEF",trackColor:"rgba(160, 174, 186, .2)",scaleColor:!1,lineWidth:6,lineCap:"round",animate:800}),0<o(".project-accordion").length&&o('.project-accordion [data-toggle="collapse"]').on("click",function(){o(this).find(".toggle-icon").toggleClass("fa-minus-circle fa-plus-circle")})},o.AppViewsProjects=new t,o.AppViewsProjects.Constructor=t}(window.jQuery),function(o){"use strict";window.jQuery.AppViewsProjects.init()}();
   $('.btn-detail-berkas').click(function(e) {
     e.preventDefault();
     $.ajax({

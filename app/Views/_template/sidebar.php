@@ -8,12 +8,17 @@
             <a href="#navkegiatan" data-toggle="collapse" data-parent="#sidebar-nav-menu" aria-expanded="false" class="<?= nav('Kegiatan',@$title) ?> collapsed"><i class="ti-calendar"></i> <span class="title">Kegiatan</span> <i class="icon-submenu ti-angle-left"></i></a>
             <div id="navkegiatan" class="collapse <?= navshow('Kegiatan',@$title) ?>" style="">
               <ul class="submenu">
+                <?php if(punyaAkses(['admin', 'anggota'])){ ?>
                 <li><a href="<?= site_url("home/kegiatan/semua") ?>" class="<?= nav('semua',@$subnav) ?>">Semua Kegiatan</a></li>
+                <?php } ?>
                 <li><a href="<?= site_url("home/kegiatan/umum") ?>" class="<?= nav('umum',@$subnav) ?>">Umum</a></li>
+                <?php if(punyaAkses(['admin', 'anggota'])){ ?>
                 <li><a href="<?= site_url("home/kegiatan/internal") ?>" class="<?= nav('internal',@$subnav) ?>">Internal</a></li>
+                <?php } ?>
               </ul>
             </div>
           </li>
+          <li><a class="<?= nav('Kegiatan Saya',@$title) ?>" href="<?= site_url('home/kegiatan-saya') ?>" class=""><i class="ti-light-bulb"></i> <span class="title">Kegiatan Saya</span></a></li>
 
           <!-- <li><a class="<?= nav('Notifikasi',@$title) ?>" href="#" class=""><i class="ti-light-bulb"></i> <span class="title">Pengingat</span></a></li> -->
           
