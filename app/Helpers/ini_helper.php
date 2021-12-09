@@ -149,15 +149,21 @@ function punyaAksesKegiatan(string $user_id, string $kegiatan): bool
   return $res;
 }
 
-function isUserSudahJadiPeserta(int $kegiatan): bool
+function isUserSudahJadiPeserta(int $kegiatan, int $user_id = null): bool
 {
   $res = false;
   $panitiaModel = model('App\Models\PesertaModel', false);
   $tes = $panitiaModel->getByKegiatan($kegiatan);
   
   foreach ($tes as $key) {
-    if(session()->user_id == $key['user']){
-      $res = true;
+    if($user_id == null){
+      if(session()->user_id == $key['user']){
+        $res = true;
+      }
+    } else {
+      if($user_id == $key['user']){
+        $res = true;
+      }
     }
   }
   return $res;

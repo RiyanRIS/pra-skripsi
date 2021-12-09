@@ -17,6 +17,8 @@
 
 namespace App\Controllers;
 
+use function PHPUnit\Framework\stringStartsWith;
+
 class Bot extends BaseController
 {
 
@@ -55,25 +57,29 @@ class Bot extends BaseController
 
     $cached = $this->getCache($this->chatid);
 
-    if($cached == 'masukkan kode'){
-      $usersByTerahir = $this->users->getByTerahir($text);
-      if(count($usersByTerahir) == 1){
-        $data_up = [
-          'chat_id' => $this->chatid
-        ];
-        $this->users->update($usersByTerahir[0]['id'], $data_up);
-        $nama = $usersByTerahir[0]['nama'];
-        $username = $usersByTerahir[0]['username'];
-        $role = ucwords($usersByTerahir[0]['role']);
-        $pesan = "*Verifikasi berhasil*\n\nNama: ${nama}\nUsername: ${username}\nRole: ${role}";
-      } else if(count($usersByTerahir) > 1){
-        $pesan = "Kami mengalamai masalah pada sistem, harap ulangi prosesnya dari awal.";
-      } else {
-        $pesan = "Kode undangan tidak ditemukan, cek sekali lagi atau ulangi prosesnya dari awal.";
-      }
-      $this->kirim($pesan);
-      $this->cache->destroy($this->chatid);
-      die();
+    // if($cached == 'masukkan kode'){
+    //   $usersByTerahir = $this->users->getByTerahir($text);
+    //   if(count($usersByTerahir) == 1){
+    //     $data_up = [
+    //       'chat_id' => $this->chatid
+    //     ];
+    //     $this->users->update($usersByTerahir[0]['id'], $data_up);
+    //     $nama = $usersByTerahir[0]['nama'];
+    //     $username = $usersByTerahir[0]['username'];
+    //     $role = ucwords($usersByTerahir[0]['role']);
+    //     $pesan = "*Verifikasi berhasil*\n\nNama: ${nama}\nUsername: ${username}\nRole: ${role}";
+    //   } else if(count($usersByTerahir) > 1){
+    //     $pesan = "Kami mengalamai masalah pada sistem, harap ulangi prosesnya dari awal.";
+    //   } else {
+    //     $pesan = "Kode undangan tidak ditemukan, cek sekali lagi atau ulangi prosesnya dari awal.";
+    //   }
+    //   $this->kirim($pesan);
+    //   $this->cache->destroy($this->chatid);
+    //   die();
+    // }
+
+    if ($text == "/start") {
+      $this->start();
     }
 
     if ($text == "daftar") {
@@ -90,15 +96,27 @@ class Bot extends BaseController
 
     $this->userid = $this->cek_pengguna();
     if($this->userid == null){
-      $this->awal();
+      $this->start();
     }
 
     if ($text == "detail") {
       $this->detail();
     }
 
-    if ($text == "kegiatan yang sedang diikuti") {
-      $this->kegiatan_yang_sedang_diikuti($this->userid);
+    if ($text == "kegiatan yang tersedia") {
+      $this->kegiatan_yang_tersedia($this->userid);
+    }
+
+    if ($text == "kegiatan yang diikuti") {
+      $this->kegiatan_yang_diikuti($this->userid);
+    }
+
+    if(substr( $text, 0, 7 ) === "/detkeg"){
+      $this->detailKegiatan($text);
+    }
+
+    if(substr( $text, 0, 7 ) === "/gabkeg"){
+      $this->gabungKegiatan($text);
     }
 
     // if ($text == "kegiatan yang telah diikuti") {
@@ -119,58 +137,70 @@ class Bot extends BaseController
       $this->bantuan();
     }
 
-    if (@$ex[0] == "lihat" || @$ex[0] == "show") {
-      if (@$ex[1] == "kegiatan") {
-        if (@$ex[2] == "detail") {
-          if (@$ex[3]) {
-            $id = $ex[3];
-            $this->showDetailKegiatan($id);
-          } else {
-            $this->kirim("Maaf bung.\nTolong kirim id kegiatan yang ingin lo tengok.", $this->userid);
-            $this->setCached("lihat kegiatan detail");
-            die();
-          }
-        } else {
-          if (@$ex[2]) {
-            $this->kirim("Maaf bung.\nPerintah \"Lihat Kegiatan\" memiliki parameter \n- detail", $this->userid);
-            $this->cache->destroy($this->chatid);
-            die();
-          } else {
-            $this->showKegiatan();
-          }
-        }
-      } else {
-        $this->show();
-      }
-    }
+    // if (@$ex[0] == "lihat" || @$ex[0] == "show") {
+    //   if (@$ex[1] == "kegiatan") {
+    //     if (@$ex[2] == "detail") {
+    //       if (@$ex[3]) {
+    //         $id = $ex[3];
+    //         $this->showDetailKegiatan($id);
+    //       } else {
+    //         $this->kirim("Maaf bung.\nTolong kirim id kegiatan yang ingin lo tengok.", $this->userid);
+    //         $this->setCached("lihat kegiatan detail");
+    //         die();
+    //       }
+    //     } else {
+    //       if (@$ex[2]) {
+    //         $this->kirim("Maaf bung.\nPerintah \"Lihat Kegiatan\" memiliki parameter \n- detail", $this->userid);
+    //         $this->cache->destroy($this->chatid);
+    //         die();
+    //       } else {
+    //         $this->showKegiatan();
+    //       }
+    //     }
+    //   } else {
+    //     $this->show();
+    //   }
+    // }
 
-    $c = $this->getCache();
+    // $c = $this->getCache();
 
-    if ($c) {
-      if ($c == "lihat") {
-        if (@$ex[0] == "kegiatan") {
-          $this->showKegiatan();
-        }
-      } elseif ($c == "lihat kegiatan detail") {
-        $id = $ex[0];
-        $this->showDetailKegiatan($id);
-      }
-    }
+    // if ($c) {
+    //   if ($c == "lihat") {
+    //     if (@$ex[0] == "kegiatan") {
+    //       $this->showKegiatan();
+    //     }
+    //   } elseif ($c == "lihat kegiatan detail") {
+    //     $id = $ex[0];
+    //     $this->showDetailKegiatan($id);
+    //   }
+    // }
 
-    $this->bBantuan();
-    $this->cache->destroy($this->chatid);
-    die();
+    // $this->bBantuan();
+    // $this->cache->destroy($this->chatid);
+    // die();
   }
 
-  function awal(){
-    $option = array(
-      array($this->bot->buildKeyboardButton("Sudah ada akun"), $this->bot->buildKeyboardButton("Daftar")),
-      array($this->bot->buildKeyboardButton("Bantuan"))
-    );
-    $keyb = $this->bot->buildKeyBoard($option, true);
-    $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => "Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.");
-    $this->bot->sendMessage($content);
-    die();
+  function start(){
+    $idd = $this->cek_pengguna();
+    if($idd == null){
+      $option = array(
+        array($this->bot->buildKeyboardButton("Sudah ada akun"), $this->bot->buildKeyboardButton("Daftar")),
+        array($this->bot->buildKeyboardButton("Bantuan"))
+      );
+      $keyb = $this->bot->buildKeyBoard($option, true);
+      $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => "Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.");
+      $this->bot->sendMessage($content);
+      die();
+    } else {
+      $option = array(
+        array($this->bot->buildKeyboardButton("Kegiatan Yang Tersedia"), $this->bot->buildKeyboardButton("Kegiatan Yang Diikuti")),
+        array($this->bot->buildKeyboardButton("Pengaturan"))
+      );
+      $keyb = $this->bot->buildKeyBoard($option, true);
+      $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => "Hai, silahkan pilih menu dibawah.");
+      $this->bot->sendMessage($content);
+      die();
+    }
   }
 
   function daftar(){
@@ -235,20 +265,159 @@ class Bot extends BaseController
     die();
   }
 
-  function kegiatan_yang_sedang_diikuti($user_id){
-    
+  function kegiatan_yang_tersedia($user_id){
+    $pesan = ""; $no = 1;
+
+    $user = getUsersById($user_id);
+
+    if($user['role'] == 'admin' || $user['role'] == 'anggota'){
+      
+      $list_kegiatan = $this->kegiatan->whereIn("jenis", ["internal", "umum"])->where('tanggal > ', time())->orderBy("tanggal", "DESC")->limit(10)->findAll();
+      
+      $pesan .= "Hai, ".$user['nama'];
+
+      if(count($list_kegiatan) == 0){
+        $pesan .= "\n\nSaat ini belum ada kegiatan yang dapat kamu ikuti.";
+      } else {
+        $pesan .= "\n\nBerikut list kegiatan yang bisa kamu ikutin: \n\n";
+        
+        foreach($list_kegiatan as $key){
+          $pesan .= $no++ . ". " . $key['nama'];
+          $pesan .= "\nDetail: /detkeg" . $key['id'];
+          $pesan .= "\nGabung: /gabkeg" . $key['id'];
+          $pesan .= "\n\n\n";
+        }
+      }
+
+      $option = array(
+        array($this->bot->buildKeyboardButton("Kegiatan Yang Tersedia"), $this->bot->buildKeyboardButton("Kegiatan Yang Diikuti")),
+        array($this->bot->buildKeyboardButton("Pengaturan"))
+      );
+      $keyb = $this->bot->buildKeyBoard($option, true);
+      $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => $pesan);
+      $this->bot->sendMessage($content);
+      die();
+    } else {
+      echo "peserta";
+    }
   }
 
-  function detail(){
-    $cek = $this->users->where('chat_id', $this->chatid)->where('delete_at', null)->findAll();
-    $pesan = "## DETAIL USERS\n\nNama: " . $cek[0]['nama']."\nUsername: " . $cek[0]['username']."\nStatus: " . $cek[0]['role'] . "\n\nJika ini kesalahan, hubungi admin.";
+  function kegiatan_yang_diikuti($user_id){
+    $pesan = ""; $no = 1;
+
+    $user = getUsersById($user_id);
+
+    if($user['role'] == 'admin' || $user['role'] == 'anggota'){
+      
+      $list_kegiatan = $this->peserta->getByUser(session()->user_id);
+
+      $pesan .= "Hai, ".$user['nama'];
+
+      if(count($list_kegiatan) == 0){
+        $pesan .= "\n\nKegiatan yang kamu ikuti masih kosong.";
+      } else {
+        $pesan .= "\n\nBerikut list kegiatan yang telah kamu ikutin: \n\n";
+        
+        foreach($list_kegiatan as $key){
+          $pesan .= $no++ . ". " . $key['nama'];
+          $pesan .= "\nDetail: /detkeg" . $key['id'];
+          $pesan .= "\nGabung: /gabkeg" . $key['id'];
+          $pesan .= "\n\n\n";
+        }
+      }
+
+      $option = array(
+        array($this->bot->buildKeyboardButton("Kegiatan Yang Tersedia"), $this->bot->buildKeyboardButton("Kegiatan Yang Diikuti")),
+        array($this->bot->buildKeyboardButton("Pengaturan"))
+      );
+      $keyb = $this->bot->buildKeyBoard($option, true);
+      $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => $pesan);
+      $this->bot->sendMessage($content);
+      die();
+    } else {
+      echo "peserta";
+    }
+  }
+
+  function detailKegiatan($txt){
+    $pesan = "";
+    $id = str_replace("/detkeg", "", $txt);
+
+    $kegiatan = $this->kegiatan->find($id);
+    $peserta = $this->peserta->getByKegiatan($id);
+
+    if($kegiatan){
+      $tanggal = date("d F Y H:i", $kegiatan['tanggal']);
+      $pesan .= $kegiatan['nama'];
+      $pesan .= "\n\nTanggal Kegiatan: ". $tanggal;
+      $pesan .= "\nlokasi: ". $kegiatan['lokasi'];
+      $pesan .= "\ndeskripsi: \n\n". $kegiatan['deskripsi'];
+      $pesan .= "\n\nContact Person: ". $kegiatan['cp1'];
+      $pesan .= "\nLink: ". $kegiatan['link1'];
+      $pesan .= "\nTotal Peserta: ". count($peserta) ." orang.";
+    } else {
+      $pesan .= "Maaf, kami tidak menemukan data kegiatan yang kamu cari.";
+    }
+
     $option = array(
-      array($this->bot->buildInlineKeyboardButton("Kegiatan yang sedang diikuti", '', 'kegiatan_yang_diikuti'), $this->bot->buildInlineKeyboardButton("Kegiatan yang bisa diikuti"), $this->bot->buildInlineKeyboardButton("Kegiatan yang telah diikuti")),
+      array($this->bot->buildKeyboardButton("Kegiatan Yang Tersedia"), $this->bot->buildKeyboardButton("Kegiatan Yang Diikuti")),
+      array($this->bot->buildKeyboardButton("Pengaturan"))
     );
     $keyb = $this->bot->buildKeyBoard($option, true);
     $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => $pesan);
     $this->bot->sendMessage($content);
     die();
+  }
+
+  function gabungKegiatan($txt){
+    $pesan = ""; $tes = true;
+    $id = str_replace("/gabkeg", "", $txt);
+
+    $kegiatan = $this->kegiatan->find($id);
+
+    if(!$kegiatan){
+      $tes = false;
+      $pesan = "Kegiatan dengan kode ".$id." tidak ditemukan.\n\nGunakan tombol Kegiatan Yang Tersedia untuk memunculkan list kegiatan.";
+    }
+
+    if($tes == true){
+      if(!isUserSudahJadiPeserta($id, $this->userid)){
+
+        $additionalData = [
+          'kegiatan' 	=> $id,
+          'user' 			=> $this->userid,
+          'tgl_daftar'  	=> time(),
+          'hadir' 		=> 0
+        ];
+
+        $lastid = $this->peserta->simpan($additionalData);
+        if($lastid){
+          $resp = $this->log("insert",$lastid,"peserta");
+          $this->report_to_admin("add_peserta", $resp, 'kegiatan', $id);
+          $this->report_to_usernya("add_peserta", $this->userid, $resp, 'kegiatan', $id);
+          $pesan = "Berhasil Gabung";
+        }else{
+          $pesan = "Gagal Gabung";
+        }
+      } else {
+        $pesan = "Anda sudah tergabung dalam kegiatan tersebut";
+      }
+    }
+
+    $option = array(
+      array($this->bot->buildKeyboardButton("Kegiatan Yang Tersedia"), $this->bot->buildKeyboardButton("Kegiatan Yang Diikuti")),
+      array($this->bot->buildKeyboardButton("Pengaturan"))
+    );
+    $keyb = $this->bot->buildKeyBoard($option, true);
+    $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => $pesan);
+    $this->bot->sendMessage($content);
+    die();
+  }
+
+  function echoo($data){
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
   }
 
   function bantuan(){

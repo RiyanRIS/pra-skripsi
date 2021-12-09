@@ -289,3 +289,47 @@ ref.parse_mode= HTML
 #9 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
 #10 {main}
 
+============[Date]============
+[ 2021-12-08 17:02:57  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: chat_id is empty
+=========[Sent Data]==========
+[ref]
+ref.chat_id= 
+ref.reply_markup= {"keyboard":[[{"text":"Kegiatan Yang Tersedia","request_contact":false,"request_location":false},{"text":"Kegiatan Yang Diikuti","request_contact":false,"request_location":false}],[{"text":"Pengaturan","request_contact":false,"request_location":false}]],"one_time_keyboard":true,"resize_keyboard":false,"selective":true}
+ref.text= Hai, Dennis Yuniar Widcitra
+
+Berikut list kegiatan yang bisa kamu ikutin: 
+
+1. Rapat Anggota Bulan Januari
+Detail: /detkeg11
+Gabung: /gabkeg11
+
+
+2. Camping Bersama (Waduk Sermo)
+Detail: /detkeg12
+Gabung: /gabkeg12
+
+
+3. Rapat Anggota Bulan Desember
+Detail: /detkeg10
+Gabung: /gabkeg10
+
+
+
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(299): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->kegiatan_yang_tersedia()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#9 {main}
+

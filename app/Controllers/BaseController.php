@@ -140,7 +140,7 @@ class BaseController extends Controller
 
 	public function report_to_admin(string $ket, string $kunci, string $tabel = null, string $key = null){
 		$msg = '';
-		$user_id = (session()->user_id ?: 1);
+		$user_id = (session()->user_id ?: 6);
 		$user_nama = (session()->user_nama ?: '');
 
 		if($tabel == 'kegiatan'){
