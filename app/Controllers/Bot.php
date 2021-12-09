@@ -17,8 +17,6 @@
 
 namespace App\Controllers;
 
-use function PHPUnit\Framework\stringStartsWith;
-
 class Bot extends BaseController
 {
 
@@ -50,15 +48,15 @@ class Bot extends BaseController
       $this->start();
     }
 
-    if ($text == "daftar" || $text == "/daftar") {
+    if (($text == "daftar") || ($text == "/daftar")) {
       $this->daftar();
     }
 
-    if ($text == "sudah ada akun" || $text == "/sudah_ada_akun") {
+    if (($text == "sudah ada akun") || ($text == "/sudah_ada_akun")) {
       $this->sudah_ada_akun();
     }
 
-    if ($text == "masukkan kode" || $text == "/masukkan_kode") {
+    if (($text == "masukkan kode") || ($text == "/masukkan_kode")) {
       $this->masukkan_kode();
     }
 
@@ -67,15 +65,15 @@ class Bot extends BaseController
       $this->start();
     }
 
-    if ($text == "detail" || $text == "/detail") {
+    if (($text == "detail") || ($text == "/detail")) {
       $this->detail();
     }
 
-    if ($text == "kegiatan yang tersedia" || $text == "/kegiatan_yang_tersedia") {
+    if (($text == "kegiatan yang tersedia") || ($text == "/kegiatan_yang_tersedia")) {
       $this->kegiatan_yang_tersedia($this->userid);
     }
 
-    if ($text == "kegiatan yang diikuti" || $text == "/kegiatan_yang_diikuti") {
+    if (($text == "kegiatan yang diikuti") || ($text == "/kegiatan_yang_diikuti")) {
       $this->kegiatan_yang_diikuti($this->userid);
     }
 
@@ -87,7 +85,7 @@ class Bot extends BaseController
       $this->gabungKegiatan($text);
     }
 
-    if($text == "bantuan" || $text == "/bantuan"){
+    if(($text == "bantuan") || ($text == "/bantuan")){
       $this->bantuan();
     }
 

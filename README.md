@@ -172,7 +172,7 @@ Akun sudah terdaftar, ketika mengetikkan daftar akan mendapat pesan bahwa kamu t
 
 ## Alur Kegiatan
 
-Kegiatan dapat dibuat oleh user yang memiliki role `admin, pengurus ataupun pengawas`. Dengan cara membuka halaman kegiatan dan klik `Buat Kegiatan Baru`. Lalu isi form pembuatan kegiatan dan klik `Simpan`
+Kegiatan dapat dibuat oleh user yang memiliki role `admin`. Dengan cara membuka halaman kegiatan dan klik `Buat Kegiatan Baru`. Lalu isi form pembuatan kegiatan dan klik `Simpan`
 
 Ketika membuat kegiatan, pesan otomatis akan masuk ke seluruh user bahwa ada kegiatan baru.
 
@@ -184,19 +184,29 @@ Tugas adalah task kecil untuk setiap kegiatan yang perlu dikerjakan oleh panitia
 
 ### Panitia
 
+Panitian adalah orang yang memiliki tanggungjawab pada masing masing divisinya
+
 ### Berkas
 
+Berkas disini adalah yang dibutuhkan oleh peserta ataupun khusus untuk panitia
+
 ### Peserta
+
+Peserta, ya peserta.
 
 <hr>
 
 
 ## List Perintah Bot
-- `daftar` => Mendaftar akun pada sistem melalui BOT.
-- `sudah ada akun` => Digunakan ketika ingin mentautkan akun dengan telegram, perintah ini akan memberikan bantuan untuk memperoleh kode undangan.
-- `masukkan kode` => Digunakan setelah user mendapat kode undangan untuk mentautkan akun.
-- `lihat kegiatan` => Melihat list Kegiatan yang terdaftar sesuai role.
-
+- `/start` => Perintah awal menjalankan BOT.
+- `/daftar` => Mendaftar akun pada sistem melalui BOT.
+- `/sudah_ada_akun` => Digunakan ketika ingin mentautkan akun dengan telegram, perintah ini akan memberikan bantuan untuk memperoleh kode undangan.
+- `/masukkan_kode` => Digunakan setelah user mendapat kode undangan untuk mentautkan akun.
+- `/kegiatan_yang_tersedia` => List kegiatan
+- `/kegiatan_yang_diikuti` => List kegiatan yang telah diikuti
+- `/detkeg` => Detail kegiatan(diikuti dengan kode, semisal /detkeg1)
+- `/gabkeg` => Gabung dalam suatu kegiatan(diikuti dengan kode, semisal /gabkeg1)
+- `/bantuan` => Memunculkan bantuan
 
 ## Screenshots
 
