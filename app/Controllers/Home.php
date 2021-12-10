@@ -190,9 +190,9 @@ class Home extends BaseController
 		return view('log_umum',$data);
 	}
 
-	function autorespon(){
+	public function autorespon(){
 		echo "<pre>".date("Y-m-d H:i:s")."</pre>";
-		
+
 		$time_now = time();
 
 		$kegiatan = $this->kegiatan->where("tanggal >", $time_now)->findAll();
