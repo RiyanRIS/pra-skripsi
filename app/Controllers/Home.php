@@ -189,7 +189,7 @@ class Home extends BaseController
 		];
 		return view('log_umum',$data);
 	}
-     
+      
 	public function autorespon(){
 		echo "<pre>".date("Y-m-d H:i:s")."</pre>";
 
