@@ -1,0 +1,45 @@
+============[Date]============
+[ 2021-12-10 12:36:11  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		400
+description:		Bad Request: message text is empty
+=========[Sent Data]==========
+[ref]
+ref.update_id= 235016608
+ref.message.message_id= 711
+ref.message.from.id= 780207093
+ref.message.from.is_bot= false
+ref.message.from.first_name= Riyan Risky
+ref.message.from.username= kodokkayang
+ref.message.from.language_code= en
+ref.message.chat.id= 780207093
+ref.message.chat.first_name= Riyan Risky
+ref.message.chat.username= kodokkayang
+ref.message.chat.type= private
+ref.message.date= 1639114570
+ref.message.text= /bantuan
+ref.message.entities.0.offset= 0
+ref.message.entities.0.length= 8
+ref.message.entities.0.type= bot_command
+
+
+[ref]
+ref.reply_markup= {"keyboard":[[{"text":"Kegiatan Yang Tersedia","request_contact":false,"request_location":false},{"text":"Kegiatan Yang Diikuti","request_contact":false,"request_location":false}],[{"text":"Bantuan","request_contact":false,"request_location":false}]],"one_time_keyboard":true,"resize_keyboard":false,"selective":true}
+ref.text= 
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(334): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(309): App\Controllers\Bot->kirimbtn()
+#5 /home/riyanris/ngawur/praskripsi/app/Controllers/Bot.php(89): App\Controllers\Bot->bantuan()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(802): App\Controllers\Bot->index()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#10 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#11 {main}
+

@@ -292,19 +292,19 @@ class Bot extends BaseController
 
   function bantuan(){
     $pesan = "
-      Panel Bantuan\n
-      \n
-      - /start = Perintah awal\n
-      - /daftar = Untuk mendaftar akun\n
-      - /sudah_ada_akun = Jika sudah memiliki akun dan ingin mentautkan dengan akun telegram\n
-      - /masukkan_kode = Input kode undangan dari sistem ke telegram\n
-      - /kagiatan_yang_tersedia = List kegiatan yang tersedia\n
-      - /kegiatan_yang_diikuti = List kegiatan yang diikuti\n
-      - /detkeg = Detail kegiatan(diikuti dengan kode, semisal /detkeg1)\n
-      - /gabkeg = Gabung dalam suatu kegiatan(diikuti dengan kode, semisal /gabkeg1)\n
-      - /bantuan = Memunculkan bantuan\n
-      \n
-      Jika masih mengalami stuck hubungi admin.
+Panel Bantuan
+
+/start = Perintah awal
+/daftar = Untuk mendaftar akun
+/sudah_ada_akun = Jika sudah memiliki akun dan ingin mentautkan dengan akun telegram
+/masukkan_kode = Input kode undangan dari sistem ke telegram
+/kagiatan_yang_tersedia = List kegiatan yang tersedia
+/kegiatan_yang_diikuti = List kegiatan yang diikuti
+/detkeg = Detail kegiatan(diikuti dengan kode, semisal /detkeg1)
+/gabkeg = Gabung dalam suatu kegiatan(diikuti dengan kode, semisal /gabkeg1)
+/bantuan = Memunculkan bantuan
+
+Jika masih mengalami stuck hubungi admin.
       ";
     $this->kirimbtn($pesan);
   }

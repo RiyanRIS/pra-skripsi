@@ -190,12 +190,63 @@ class Home extends BaseController
 		return view('log_umum',$data);
 	}
 
-	function tes(){
-		$msg = "<a href='https://google.com'>tes</a>";
+	function autorespon(){
+		echo "<pre>".date("Y-m-d H:i:s")."</pre>";
+		
+		$time_now = time();
 
+		$kegiatan = $this->kegiatan->where("tanggal >", $time_now)->findAll();
+
+		foreach ($kegiatan as $key) {
+			if($key['tanggal'] <= ($time_now + 1800)) // Cek jika ada notif 30 menit
+			{
+				if($key['notif_30'] == 1){
+					$pesan = "Sekitar 30 menit lagi, akan dilaksanakan kegiatan ". $key['nama'];
+					$this->pesan($key['id'], $pesan);
+				}
+			} else if($key['tanggal'] <= ($time_now + 3600)) {
+				if($key['notif_1jam'] == 1){
+					$pesan = "Sekitar 1 jam lagi, akan dilaksanakan kegiatan ". $key['nama'];
+					
+					$this->pesan($key['id'], $pesan);
+				}
+			} else if($key['tanggal'] <= ($time_now + 7200)) {
+				if($key['notif_2jam'] == 1){
+					$pesan = "Sekitar 2 jam lagi, akan dilaksanakan kegiatan ". $key['nama'];
+					
+					$this->pesan($key['id'], $pesan);
+				}
+			} else if($key['tanggal'] <= ($time_now + 10800)) {
+				if($key['notif_3jam'] == 1){
+					$pesan = "Sekitar 3 jam lagi, akan dilaksanakan kegiatan ". $key['nama'];
+					
+					$this->pesan($key['id'], $pesan);
+				}
+			} else if($key['tanggal'] <= ($time_now + 86400)) {
+				if($key['notif_1hari'] == 1){
+					$pesan = "Sekitar 1 hari lagi, akan dilaksanakan kegiatan ". $key['nama'];
+					
+					$this->pesan($key['id'], $pesan);
+				}
+			}
+		}
+	}
+
+	function pesan($kegiatan, $pesan){
+		$peserta = $this->peserta->getByKegiatan($kegiatan);
+
+		foreach($peserta as $key){
+			$users = $this->users->find($key['user']);
+			if($users['chat_id'] != null){
+				$this->kirim_pesan($users['chat_id'], $pesan);
+			}
+		}
+	}
+
+	function kirim_pesan($to, $msg){
 		$bot_token = env("BOT_TOKEN_TELE");
 		$bot = new \Telegram($bot_token);
-		$content = ['chat_id' => '780207093', 'text' => $msg, 'parse_mode' => 'HTML'];
+		$content = ['chat_id' => $to, 'text' => $msg, 'parse_mode' => 'HTML'];
 		$bot->sendMessage($content);
 	}
 }

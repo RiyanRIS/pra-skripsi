@@ -63,6 +63,31 @@ class Kegiatan extends Migration
 					'constraint'     => ['umum', 'internal'],
 					'default'        => 'umum',
 				],
+				'notif_30'       => [
+					'type'           => 'INT',
+					'constraint'     => 1,
+					'default'        => 1,
+				],
+				'notif_1jam'       => [
+					'type'           => 'INT',
+					'constraint'     => 1,
+					'default'        => 1,
+				],
+				'notif_2jam'       => [
+					'type'           => 'INT',
+					'constraint'     => 1,
+					'default'        => 1,
+				],
+				'notif_3jam'       => [
+					'type'           => 'INT',
+					'constraint'     => 1,
+					'default'        => 1,
+				],
+				'notif_1hari'       => [
+					'type'           => 'INT',
+					'constraint'     => 1,
+					'default'        => 1,
+				],
 				'create_at'  => [
 					'type'           => 'INT',
 					'constraint'     => 11,

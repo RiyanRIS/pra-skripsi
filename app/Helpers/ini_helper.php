@@ -61,6 +61,12 @@ function navshow($a, $b)
   }
 }
 
+function tampilkan($data){
+  echo "<pre>";
+  print_r($data);
+  echo "</pre>";
+}
+
 function formatBytes($bytes, $precision = 2)
 {
   $units = array('B', 'KB', 'MB', 'GB', 'TB');
