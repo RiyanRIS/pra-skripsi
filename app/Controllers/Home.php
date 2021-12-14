@@ -205,28 +205,45 @@ class Home extends BaseController
 					$this->pesan($key['id'], $pesan);
 				}
 			} else if($key['tanggal'] <= ($time_now + 3600)) {
-				if($key['notif_1jam'] == 1){
-					$pesan = "Sekitar 1 jam lagi, akan dilaksanakan kegiatan ". $key['nama'];
-					
-					$this->pesan($key['id'], $pesan);
+
+				if($this->cek_notif($key['id'], 1) == false){
+					if($key['notif_1jam'] == 1){
+						$pesan = "Sekitar 1 jam lagi, akan dilaksanakan kegiatan ". $key['nama'];
+						
+						$this->pesan($key['id'], $pesan);
+						$this->catat_notif($key['id'], 1);
+					}
 				}
 			} else if($key['tanggal'] <= ($time_now + 7200)) {
-				if($key['notif_2jam'] == 1){
-					$pesan = "Sekitar 2 jam lagi, akan dilaksanakan kegiatan ". $key['nama'];
-					
-					$this->pesan($key['id'], $pesan);
+
+				if($this->cek_notif($key['id'], 2) == false){
+					if($key['notif_2jam'] == 1){
+						$pesan = "Sekitar 2 jam lagi, akan dilaksanakan kegiatan ". $key['nama'];
+						
+						$this->pesan($key['id'], $pesan);
+						$this->catat_notif($key['id'], 2);
+					}
 				}
 			} else if($key['tanggal'] <= ($time_now + 10800)) {
-				if($key['notif_3jam'] == 1){
-					$pesan = "Sekitar 3 jam lagi, akan dilaksanakan kegiatan ". $key['nama'];
-					
-					$this->pesan($key['id'], $pesan);
+
+				if($this->cek_notif($key['id'], 3) == false){
+					if($key['notif_3jam'] == 1){
+						$pesan = "Sekitar 3 jam lagi, akan dilaksanakan kegiatan ". $key['nama'];
+						
+						$this->pesan($key['id'], $pesan);
+						$this->catat_notif($key['id'], 3);
+					}
 				}
 			} else if($key['tanggal'] <= ($time_now + 86400)) {
-				if($key['notif_1hari'] == 1){
-					$pesan = "Sekitar 1 hari lagi, akan dilaksanakan kegiatan ". $key['nama'];
-					
-					$this->pesan($key['id'], $pesan);
+
+				if($this->cek_notif($key['id'], 4) == false){
+					if($key['notif_1hari'] == 1){
+						$pesan = "Sekitar 1 hari lagi, akan dilaksanakan kegiatan ". $key['nama'];
+						
+						$this->pesan($key['id'], $pesan);
+						$this->catat_notif($key['id'], 4);
+
+					}
 				}
 			}
 		}
@@ -249,4 +266,25 @@ class Home extends BaseController
 		$content = ['chat_id' => $to, 'text' => $msg, 'parse_mode' => 'HTML'];
 		$bot->sendMessage($content);
 	}
+
+	function catat_notif($kegiatan, $notif){
+		$data = [
+			"id_kegiatan" => $kegiatan,
+			"notif_ke" => $notif
+		];
+		$this->report_notif_kegiatan->simpan($data);
+	}
+
+	function cek_notif($kegiatan, $notif):bool {
+		$res = false;
+
+		$reportnya = $this->report_notif_kegiatan->where("id_kegiatan", $kegiatan)->where("notif_ke", $notif)->findAll();
+
+		if($reportnya){
+			$res = true;
+		}
+
+		return $res;	
+	}
+
 }

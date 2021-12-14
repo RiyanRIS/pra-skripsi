@@ -13,6 +13,7 @@ use \App\Models\BerkasModel;
 use \App\Models\PanitiaModel;
 use \App\Models\PesertaModel;
 use \App\Models\KegiatanModel;
+use \App\Models\ReportNotifKegiatanModel;
 
 use \App\Libraries\Breadcrumb;
 
@@ -46,6 +47,7 @@ class BaseController extends Controller
 	protected $chat;
 	protected $cache;
 	protected $setting_notif;
+	protected $report_notif_kegiatan;
 
 	public $data = [];
 
@@ -75,6 +77,7 @@ class BaseController extends Controller
 		$this->chat = new ChatModel();
 		$this->cache = new CacheModel();
 		$this->setting_notif = new SettingNotifModel();
+		$this->report_notif_kegiatan = new ReportNotifKegiatanModel();
 	}
 
 	public function log(String $ket, int $kunci = null, String $tabel = null, String $sebelum = null, String $sesudah = null, int $users = 0)
