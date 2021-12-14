@@ -92,6 +92,7 @@ $routes->group('home', ['filter' => 'authfilter'], function ($routes) {
 		$routes->get('detail/ubah/(:any)', 'Kegiatan::update/$1');
 		$routes->post('detail/ubah/(:any)', 'Kegiatan::update/$1');
 		$routes->get('detail/(:any)', 'Kegiatan::detail/$1');
+		$routes->get('cek-aktivitas/(:any)', 'Home::logg/$1');
 		
 		// kegiatan/modal
 		$routes->group('modal', function ($routes) {
