@@ -201,6 +201,7 @@ class Home extends BaseController
          
 	public function autorespon(){
 		echo "<pre>".date("Y-m-d H:i:s")."</pre>";
+		// echo "<pre>".time()."</pre>";
 
 		$time_now = time();
 
