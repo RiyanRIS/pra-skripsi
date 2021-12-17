@@ -181,17 +181,22 @@ class Home extends BaseController
 	}
 
 	public function logg($id){
+		$id = decrypt_url($id);
 		$log = $this->log->find($id);
-		try {
-			$nama = $this->users->withDeleted()->find($log['users'])['nama'];
-		} catch (\Throwable $th) {
-			$nama = "@sistem";
+		if($log){
+			try {
+				$nama = $this->users->withDeleted()->find($log['users'])['nama'];
+			} catch (\Throwable $th) {
+				$nama = "@sistem";
+			}
+			$data = [
+				'data' => $log,
+				'nama' => $nama
+			];
+			return view('log_umum',$data);
+		} else {
+			echo "<pre>Error, data log tidak ditemukan.</pre>";
 		}
-		$data = [
-			'data' => $log,
-			'nama' => $nama
-		];
-		return view('log_umum',$data);
 	}
          
 	public function autorespon(){
