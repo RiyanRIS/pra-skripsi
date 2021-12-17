@@ -107,7 +107,7 @@ class BaseController extends Controller
 
 		$hylink = site_url("log/".encrypt_url($kunci));
 		$hylink = "<a href='".$hylink."'>Klik disini untuk detail</a>";
-		
+
 		if($tabel == 'kegiatan'){
 			$kegiatan = $this->kegiatan->find($key);
 			$kegiatan_id = ($kegiatan['id'] ?: 1);
@@ -127,7 +127,7 @@ class BaseController extends Controller
 		}
 
 		if($ket == "add_peserta"){
-			$msg = "Kamu baru saja dimasukkan/mendaftar sebagai peserta pada kegiatan ${kegiatan_nama}.\n\n" . $hylink;
+			$msg = "Kamu baru saja dimasukkan/mendaftar sebagai peserta pada kegiatan ${kegiatan_nama}.\n\nDetail kegiatan: /detkeg".$key;
 		}
 
 		if($ket == "delete_peserta"){
