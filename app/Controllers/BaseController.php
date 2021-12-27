@@ -119,19 +119,19 @@ class BaseController extends Controller
 		}
 
 		if($ket == "add_panitia"){
-			$msg = "Kamu baru saja dimasukkan kepanitiaan pada kegiatan ${kegiatan_nama} sebagai ${param1}.\n\n" . $hylink;
+			$msg = "Kamu baru saja dimasukkan kepanitiaan pada kegiatan ${kegiatan_nama} sebagai ${param1}.\n\n";
 		}
 
 		if($ket == "delete_panitia"){
-			$msg = "Kamu baru saja dihapus/dikeluarkan kepanitiaan pada kegiatan ".$kegiatan_nama.".\n\n" . $hylink;
+			$msg = "Kamu baru saja dihapus/dikeluarkan kepanitiaan pada kegiatan ".$kegiatan_nama.".\n\n";
 		}
 
 		if($ket == "add_peserta"){
-			$msg = "Kamu baru saja dimasukkan/mendaftar sebagai peserta pada kegiatan ${kegiatan_nama}.\n\nDetail kegiatan: /detkeg".$key;
+			$msg = "Kamu baru saja dimasukkan/mendaftar sebagai peserta pada kegiatan ${kegiatan_nama}.\n\nDetail kegiatan: /detkeg".$key."\nKeluar kegiatan: /kelkeg".$key;
 		}
 
 		if($ket == "delete_peserta"){
-			$msg = "Kamu baru saja dihapus/dikeluarkan sebagai peserta untuk kegiatan ".$kegiatan_nama.".\n\n" . $hylink;
+			$msg = "Kamu baru saja dihapus/dikeluarkan sebagai peserta untuk kegiatan ".$kegiatan_nama.".\n\nDetail kegiatan: /detkeg".$key."\nGabung kegiatan: /gabkeg".$key;
 		}
 
 		$bot_token = env("BOT_TOKEN_TELE");

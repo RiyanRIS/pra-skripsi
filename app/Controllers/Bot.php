@@ -85,6 +85,10 @@ class Bot extends BaseController
       $this->gabungKegiatan($text);
     }
 
+    if(substr( $text, 0, 7 ) === "/kelkeg"){
+      $this->keluarKegiatan($text);
+    }
+
     if(($text == "bantuan") || ($text == "/bantuan")){
       $this->bantuan();
     }
@@ -311,6 +315,36 @@ class Bot extends BaseController
     $this->kirimbtn($pesan);
   }
 
+  function keluarKegiatan($txt){
+    $pesan = ""; $tes = true;
+    $id = str_replace("/kelkeg", "", $txt);
+
+    $kegiatan = $this->kegiatan->find($id);
+
+    if(!$kegiatan){
+      $tes = false;
+      $pesan = "Kegiatan dengan kode ".$id." tidak ditemukan.\n\nGunakan tombol Kegiatan Yang Tersedia (/kegiatan_yang_tersedia) untuk memunculkan list kegiatan.";
+    }
+
+    if($tes == true){
+      if(isUserSudahJadiPeserta($id, $this->userid)){
+        $lastid = $this->peserta->delete($this->userid);
+        if($lastid){
+          $resp = $this->log("delete",$id,"peserta");
+          $this->report_to_admin("delete_peserta", $resp, 'kegiatan', $id['kegiatan']);
+          $this->report_to_usernya("delete_peserta", $this->userid, $resp, 'kegiatan', $id);
+          $pesan = "Berhasil Keluar";
+        }else{
+          $pesan = "Gagal Keluar";
+        }
+      } else {
+        $pesan = "Anda belum tergabung dalam kegiatan tersebut";
+      }
+    }
+
+    $this->kirimbtn($pesan);
+  }
+
   function profil(){
     $userid = $this->cek_pengguna();
     $user = $this->users->find($userid);
@@ -330,6 +364,7 @@ Panel Bantuan
 /kegiatan_yang_diikuti = List kegiatan yang diikuti
 /detkeg = Detail kegiatan(diikuti dengan kode, semisal /detkeg1)
 /gabkeg = Gabung dalam suatu kegiatan(diikuti dengan kode, semisal /gabkeg1)
+/kelkeg = Keluar dari suatu kegiatan(diikuti dengan kode, semisal /kelkeg1)
 /profil = Memunculkan profil akun
 /bantuan = Memunculkan bantuan
 
