@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'notiftele' => "Terjadi aktivitas login pada akun kamu, jika memang benar, abaikan pesan ini.",
+  'notiftele' => "Akun kamu baru saja login kedalam sistem. \n\nKamu mendapatkan pesan ini untuk memastikan ini memang kamu. Jika bukan kamu, silahkan lapor admin({admin}).",
 
   'msgBerhasilMasuk' => "Kamu telah masuk",
   'msgBerhasilKeluar' => "Kamu telah keluar",

@@ -69,7 +69,7 @@ class Bot extends BaseController
       $this->detail();
     }
 
-    if (($text == "kegiatan yang tersedia") || ($text == "/kegiatan_yang_tersedia")) {
+    if ($text == "kegiatan yang tersedia" || $text == "/kegiatan_yang_tersedia") {
       $this->kegiatan_yang_tersedia($this->userid);
     }
 
@@ -87,6 +87,10 @@ class Bot extends BaseController
 
     if(($text == "bantuan") || ($text == "/bantuan")){
       $this->bantuan();
+    }
+
+    if(($text == "profil") || ($text == "/profil")){
+      $this->profil();
     }
 
   }
@@ -139,7 +143,7 @@ class Bot extends BaseController
       $this->kirim($pesan);
       $this->bantuan();
     } else {
-      $pesan = "Kamu telah melakukan pendaftaran. Gunakan perintah \"detail\" untuk melihat detail akun kamu. \n\nJika ini kesalahan, hubungi admin.";
+      $pesan = "Kamu telah melakukan pendaftaran. Gunakan perintah /profil untuk melihat detail akun kamu. \n\nJika ini kesalahan, hubungi admin.";
       $this->kirim($pesan);
     }
     die();
@@ -156,7 +160,7 @@ class Bot extends BaseController
       $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => $pesan);
       $this->bot->sendMessage($content);  
     } else {
-      $pesan = "Akun kamu sudah terikat dengan sistem. Gunakan perintah \"detail\" untuk melihat detail akun kamu. \n\nJika ini kesalahan, hubungi admin.";
+      $pesan = "Akun kamu sudah terikat dengan sistem. Gunakan perintah /profil untuk melihat detail akun kamu. \n\nJika ini kesalahan, hubungi admin.";
       $this->kirim($pesan);
     }
     die();
@@ -195,7 +199,24 @@ class Bot extends BaseController
 
       $this->kirimbtn($pesan);
     } else {
-      echo "peserta";
+      $list_kegiatan = $this->kegiatan->where("jenis", "umum")->where('tanggal > ', time())->orderBy("tanggal", "DESC")->limit(10)->findAll();
+      
+      $pesan .= "Hai, ".$user['nama'];
+
+      if(count($list_kegiatan) == 0){
+        $pesan .= "\n\nSaat ini belum ada kegiatan yang dapat kamu ikuti.";
+      } else {
+        $pesan .= "\n\nBerikut list kegiatan yang bisa kamu ikutin: \n\n";
+        
+        foreach($list_kegiatan as $key){
+          $pesan .= $no++ . ". " . $key['nama'];
+          $pesan .= "\nDetail: /detkeg" . $key['id'];
+          $pesan .= "\nGabung: /gabkeg" . $key['id'];
+          $pesan .= "\n\n\n";
+        }
+      }
+
+      $this->kirimbtn($pesan);
     }
   }
 
@@ -290,6 +311,13 @@ class Bot extends BaseController
     $this->kirimbtn($pesan);
   }
 
+  function profil(){
+    $userid = $this->cek_pengguna();
+    $user = $this->users->find($userid);
+    $pesan = "Profil kamu\n\nNama: ".$user['nama']."\nUsername: ".$user['username']."\nRole: ".ucwords($user['role'])."\n\nKamu dapat merubah detail informasimu dari dalam sistem.";
+    $this->kirimbtn($pesan);
+  }
+
   function bantuan(){
     $pesan = "
 Panel Bantuan
@@ -298,10 +326,11 @@ Panel Bantuan
 /daftar = Untuk mendaftar akun
 /sudah_ada_akun = Jika sudah memiliki akun dan ingin mentautkan dengan akun telegram
 /masukkan_kode = Input kode undangan dari sistem ke telegram
-/kagiatan_yang_tersedia = List kegiatan yang tersedia
+/kegiatan_yang_tersedia = List kegiatan yang tersedia
 /kegiatan_yang_diikuti = List kegiatan yang diikuti
 /detkeg = Detail kegiatan(diikuti dengan kode, semisal /detkeg1)
 /gabkeg = Gabung dalam suatu kegiatan(diikuti dengan kode, semisal /gabkeg1)
+/profil = Memunculkan profil akun
 /bantuan = Memunculkan bantuan
 
 Jika masih mengalami stuck hubungi admin.

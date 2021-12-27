@@ -52,7 +52,7 @@ class Auth extends BaseController
 		if($chat_id == null){
 			return false;
 		}
-		$msg = lang('Auth.notiftele');
+		$msg = lang('Auth.notiftele', ["admin" => "https://t.me/kodokkayang"]);
 		$bot_token = env("BOT_TOKEN_TELE");
 		$bot = new \Telegram($bot_token);
 		$content = ['chat_id' => $chat_id, 'text' => $msg, 'parse_mode' => 'HTML'];

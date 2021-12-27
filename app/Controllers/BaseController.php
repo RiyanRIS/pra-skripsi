@@ -356,16 +356,20 @@ class BaseController extends Controller
 			$kegiatan_desc = ($kegiatan['deskripsi'] ?: '');
 			$kegiatan_tanggal = date("d F Y, H:i" ,$kegiatan['tanggal']);
 			$kegiatan_lokasi = ($kegiatan['lokasi'] ?: '');
-
-
 		}
 
 		$hylink = site_url("log/".encrypt_url($kunci));
 		$hylink = "<a href='".$hylink."'>Klik disini untuk detail</a>";
 
 		if($ket == "add_kegiatan"){
-			$msg = "Haloo..\nBaru saja ada kegiatan baru nih, detail dapat kamu lihat disini: \n\nNama Kegiatan: ${kegiatan_nama}\nNama Deskripsi: ${kegiatan_desc}\nTanggal Kegiatan: ${kegiatan_tanggal}\nLokasi Kegiatan: ${kegiatan_lokasi}\n\n". $hylink;
-			$msg1 = "Gunakan perintah\n\n <b>gabung kegiatan #${key}</b> \n\nUntuk berpartisipasi pada kegiatan tersebut.";
+			$args_lang = [
+				"nama" => $kegiatan_nama,
+				"desc" => $kegiatan_desc, 
+				"tanggal" => $kegiatan_tanggal, 
+				"lokasi" => $kegiatan_lokasi, 
+				"id" => $kegiatan_id
+			];
+			$msg = lang("LangTele.kegiatan_baru", $args_lang);
 		}
 
 		// Setting telegram bot nya
@@ -379,10 +383,6 @@ class BaseController extends Controller
 			if($key['chat_id'] == null) continue;
 
 			$content = ['chat_id' => $key['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
-			$this->simpan_chat($msg, $key['id']);
-			$bot->sendMessage($content);
-
-			$content = ['chat_id' => $key['chat_id'], 'text' => $msg1, 'parse_mode' => 'HTML'];
 			$this->simpan_chat($msg, $key['id']);
 			$bot->sendMessage($content);
 		}

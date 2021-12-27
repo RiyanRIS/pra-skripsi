@@ -449,10 +449,37 @@ class Kegiatan extends BaseController
 		
 		if ($this->request->getPost())
 		{
+			$user = $this->users->find($this->request->getPost('user'));
+			if($user['chat_id']){
+				$additionalData = [
+					'kegiatan' 	=> $this->request->getPost('kegiatan'),
+					'user' 			=> $this->request->getPost('user'),
+					'tgl_daftar'  	=> time(),
+					'hadir' 		=> 0
+				];
+				$lastid = $this->peserta->simpan($additionalData);
+				if($lastid){
+					$resp = $this->log("insert",$lastid,"peserta");
+					$this->report_to_admin("add_peserta", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
+					$this->report_to_usernya("add_peserta", $this->request->getPost('user'), $resp, 'kegiatan', $this->request->getPost('kegiatan'));
+					return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Peserta"]);
+				}else{
+					return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Peserta']);
+				}
+			} else {
+				return redirect()->back()->with('msg', [0,'Akun tersebut belum tertaut dengan telegram']);
+			}
+		}
+	}
+
+	public function aksiGabung()
+	{
+		$user = $this->users->find($this->request->getPost('user'));
+		if($user['chat_id']){
 			$additionalData = [
 				'kegiatan' 	=> $this->request->getPost('kegiatan'),
 				'user' 			=> $this->request->getPost('user'),
-				'tgl_daftar'  	=> time(),
+				'tgl_daftar' => time(),
 				'hadir' 		=> 0
 			];
 			$lastid = $this->peserta->simpan($additionalData);
@@ -460,29 +487,12 @@ class Kegiatan extends BaseController
 				$resp = $this->log("insert",$lastid,"peserta");
 				$this->report_to_admin("add_peserta", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
 				$this->report_to_usernya("add_peserta", $this->request->getPost('user'), $resp, 'kegiatan', $this->request->getPost('kegiatan'));
-				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,"Berhasil Menambahkan Peserta"]);
+				return redirect()->back()->with('msg', [1,"Berhasil Bergabung"]);
 			}else{
-				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'gagal Menambahkan Peserta']);
+				return redirect()->back()->with('msg', [0,'Gagal Bergabung']);
 			}
-		}
-	}
-
-	public function aksiGabung()
-	{
-		$additionalData = [
-			'kegiatan' 	=> $this->request->getPost('kegiatan'),
-			'user' 			=> $this->request->getPost('user'),
-			'tgl_daftar'  	=> time(),
-			'hadir' 		=> 0
-		];
-		$lastid = $this->peserta->simpan($additionalData);
-		if($lastid){
-			$resp = $this->log("insert",$lastid,"peserta");
-			$this->report_to_admin("add_peserta", $resp, 'kegiatan', $this->request->getPost('kegiatan'));
-			$this->report_to_usernya("add_peserta", $this->request->getPost('user'), $resp, 'kegiatan', $this->request->getPost('kegiatan'));
-			return redirect()->back()->with('msg', [1,"Berhasil Bergabung"]);
-		}else{
-			return redirect()->back()->with('msg', [0,'Gagal Bergabung']);
+		} else {
+			return redirect()->back()->with('msg', [0,'Akun anda belum tertaut dengan telegram']);
 		}
 	}
 

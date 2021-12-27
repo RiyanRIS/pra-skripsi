@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use CodeIgniter\Language\Language;
 
 class Home extends BaseController
 {
@@ -257,6 +258,18 @@ class Home extends BaseController
 				}
 			}
 		}
+	}
+
+	function halo(){
+		$args_lang = [
+			"nama" => "nama kegiatan",
+			"desc" => "desknya", 
+			"tanggal" => "waktu tanggal", 
+			"lokasi" => "tempatnya", 
+			"id" => "4"
+		];
+		$msg = lang("LangTele.kegiatan_baru", $args_lang);
+		echo $msg;
 	}
 
 	function pesan($kegiatan, $pesan){
