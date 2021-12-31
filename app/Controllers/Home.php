@@ -211,9 +211,10 @@ class Home extends BaseController
 		foreach ($kegiatan as $key) {
 			if($key['tanggal'] <= ($time_now + 1800)) // Cek jika ada notif 30 menit
 			{
-				if($key['notif_30'] == 1){
+				if($this->cek_notif($key['id'], 5) == false){
 					$pesan = "Sekitar 30 menit lagi, akan dilaksanakan kegiatan ". $key['nama'];
 					$this->pesan($key['id'], $pesan);
+					$this->catat_notif($key['id'], 5);
 				}
 			} else if($key['tanggal'] <= ($time_now + 3600)) {
 
@@ -223,6 +224,9 @@ class Home extends BaseController
 						
 						$this->pesan($key['id'], $pesan);
 						$this->catat_notif($key['id'], 1);
+
+						// echo $key['tanggal'] - $time_now;
+						// echo gmdate("H:i:s", $key['tanggal'] - $time_now);
 					}
 				}
 			} else if($key['tanggal'] <= ($time_now + 7200)) {
@@ -257,6 +261,7 @@ class Home extends BaseController
 					}
 				}
 			}
+			echo $pesan;
 		}
 	}
 
