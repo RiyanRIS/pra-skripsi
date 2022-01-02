@@ -115,7 +115,7 @@ class BaseController extends Controller
 		}
 
 		if($ket == "edit_user"){
-			$msg = "Detail data kamu baru saja dirubah, jika memang benar kamu melakukan aktivitas ini, abaikan pesan ini.\n\n" + $hylink;
+			$msg = "Detail data kamu baru saja dirubah, jika memang benar kamu melakukan aktivitas ini, abaikan pesan ini.\n\n" . $hylink;
 		}
 
 		if($ket == "add_panitia"){

@@ -254,7 +254,7 @@ class Home extends BaseController
 				if($this->cek_notif($key['id'], 4) == false){
 					if($key['notif_1hari'] == 1){
 						$pesan = "Sekitar 1 hari lagi, akan dilaksanakan kegiatan ". $key['nama'];
-						
+
 						$this->pesan($key['id'], $pesan);
 						$this->catat_notif($key['id'], 4);
 
