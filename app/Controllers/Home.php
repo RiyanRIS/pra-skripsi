@@ -261,7 +261,7 @@ class Home extends BaseController
 					}
 				}
 			}
-			echo $pesan;
+			// echo @$pesan;
 		}
 	}
 
