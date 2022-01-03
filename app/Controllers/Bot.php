@@ -243,14 +243,31 @@ class Bot extends BaseController
         foreach($list_kegiatan as $key){
           $pesan .= $no++ . ". " . $key['nama'];
           $pesan .= "\nDetail: /detkeg" . $key['id'];
-          $pesan .= "\nGabung: /gabkeg" . $key['id'];
+          $pesan .= "\nKeluar: /kelkeg" . $key['id'];
           $pesan .= "\n\n\n";
         }
       }
 
       $this->kirimbtn($pesan);
     } else {
-      echo "peserta";
+      $list_kegiatan = $this->peserta->getByUser(session()->user_id);
+
+      $pesan .= "Hai, ".$user['nama'];
+
+      if(count($list_kegiatan) == 0){
+        $pesan .= "\n\nKegiatan yang kamu ikuti masih kosong.";
+      } else {
+        $pesan .= "\n\nBerikut list kegiatan yang telah kamu ikutin: \n\n";
+        
+        foreach($list_kegiatan as $key){
+          $pesan .= $no++ . ". " . $key['nama'];
+          $pesan .= "\nDetail: /detkeg" . $key['id'];
+          $pesan .= "\nKeluar: /kelkeg" . $key['id'];
+          $pesan .= "\n\n\n";
+        }
+      }
+
+      $this->kirimbtn($pesan);
     }
   }
 
