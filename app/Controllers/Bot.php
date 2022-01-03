@@ -231,7 +231,7 @@ class Bot extends BaseController
 
     if($user['role'] == 'admin' || $user['role'] == 'anggota'){
       
-      $list_kegiatan = $this->peserta->getByUser(session()->user_id);
+      $list_kegiatan = $this->peserta->getByUser($user_id);
 
       $pesan .= "Hai, ".$user['nama'];
 
@@ -250,7 +250,7 @@ class Bot extends BaseController
 
       $this->kirimbtn($pesan);
     } else {
-      $list_kegiatan = $this->peserta->getByUser(session()->user_id);
+      $list_kegiatan = $this->peserta->getByUser($user_id);
 
       $pesan .= "Hai, ".$user['nama'];
 
