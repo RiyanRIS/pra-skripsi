@@ -339,9 +339,10 @@ class Kegiatan extends BaseController
 
 	public function aksiTambahBerkas()
 	{
-		if(!punyaAkses(['admin', 'pengawas', 'pengurus'])){
+		if(!punyaAkses(['admin', 'anggota'])){
 			if(!punyaAksesKegiatan(session()->user_id, $this->request->getPost('kegiatan'))){
-				return false;
+				// return false;
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'Kamu tidak memiliki akses ke halaman ini']);
 				die();
 			}
 		}
@@ -420,6 +421,47 @@ class Kegiatan extends BaseController
 		}else{
 			return redirect()->back()->with("msg", [0,"Ada parameter yang hilang, harap hubungi pengembang."]);
 		}
+	}
+
+	public function modalPesanBroadcast()
+	{
+		if ($this->request->isAJAX()) {
+			$id = $this->request->getPost('id');
+			$list = $this->users->findAll();
+			$data = [
+				'id' => $id,
+				'list' => $list,
+			];
+			$msg = [
+				'data' => view('kegiatan/modal-pesanbroadcast', $data)
+			];
+			echo json_encode($msg);
+		}
+	}
+
+	public function aksiPesanBroadcast()
+	{
+		if(!punyaAkses(['admin', 'anggota'])){
+			if(!punyaAksesKegiatan(session()->user_id, $this->request->getPost('kegiatan'))){
+				return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [0,'Kamu tidak memiliki akses ke halaman ini']);
+				die();
+			}
+		}
+
+		$kegiatan = $this->request->getPost('kegiatan');
+		$msg =  "[PESAN BROADCAST]\n\n" . $this->request->getPost('pesan');
+		$peserta = $this->peserta->getByKegiatan($kegiatan);
+
+		foreach($peserta as $key){
+			$users = $this->users->find($key['user']);
+			if($users['chat_id'] != null){
+				$bot_token = env("BOT_TOKEN_TELE");
+				$bot = new \Telegram($bot_token);
+				$content = ['chat_id' => $users['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
+				$bot->sendMessage($content);
+			}
+		}
+		return redirect()->to(site_url('home/kegiatan/detail/'.\encrypt_url($this->request->getPost('kegiatan'))))->with('msg', [1,'Pesan broadcast berhasil']);
 	}
 
 	public function modalTambahPeserta()

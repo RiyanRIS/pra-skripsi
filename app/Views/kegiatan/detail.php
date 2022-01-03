@@ -46,6 +46,7 @@
                           <ul class="dropdown-menu dropdown-menu-right" role="menu">
                             <li><a href="<?= site_url('home/kegiatan/detail/ubah/'.encrypt_url($id)) ?>">Ubah Kegiatan</a></li>
                             <li><a href="javascript:void(0)" title="Tambah Tugas" id="btn-tambah-tugas" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/tambah-tugas') ?>">Tambah Tugas</a></li>
+                            <li><a href="javascript:void(0)" title="Pesan Broadcast" id="btn-pesan-broadcast" data-id="<?= $id ?>" data-url="<?= site_url('home/kegiatan/modal/pesan-broadcast') ?>">Pesan Broadcast</a></li>
                             <!-- <hr>
                             <li><a href="<?= site_url('home/kegiatan/cek-aktivitas/'.encrypt_url($id)) ?>">Log Aktivitas</a></li> -->
                           </ul>

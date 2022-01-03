@@ -329,7 +329,7 @@ class Bot extends BaseController
         if($lastid){
           $resp = $this->log("insert",$lastid,"peserta");
           $this->report_to_admin("add_peserta", $resp, 'kegiatan', $id);
-          $this->report_to_usernya("add_peserta", $this->userid, $resp, 'kegiatan', $id);
+          // $this->report_to_usernya("add_peserta", $this->userid, $resp, 'kegiatan', $id);
           $pesan = "Anda berhasil bergabung dalam kegiatan ".$kegiatan['nama']."\nMulai sekarang anda akan mendapat notifikasi dan pengingat terkait kegiatan ini.";
         }else{
           $pesan = "Gagal Gabung, hubungi admin(".$this->admin.")";
@@ -359,10 +359,10 @@ class Bot extends BaseController
         if($lastid){
           $resp = $this->log("delete",$id,"peserta");
           $this->report_to_admin("delete_peserta", $resp, 'kegiatan', $id['kegiatan']);
-          $this->report_to_usernya("delete_peserta", $this->userid, $resp, 'kegiatan', $id);
-          $pesan = "Berhasil Keluar";
+          // $this->report_to_usernya("delete_peserta", $this->userid, $resp, 'kegiatan', $id);
+          $pesan = "Berhasil keluar, sekarang anda tidak lagi terdaftar pada kegiatan tersebut dan tidak mendapat notifikasi lagi.";
         }else{
-          $pesan = "Gagal Keluar";
+          $pesan = "Gagal Keluar, hubungi admin(".$this->admin.")";
         }
       } else {
         $pesan = "Anda belum tergabung dalam kegiatan tersebut";
@@ -395,7 +395,7 @@ Panel Bantuan
 /profil = Memunculkan profil akun
 /bantuan = Memunculkan bantuan
 
-url: ".$this->url."
+url website: ".$this->url."
 admin: ".$this->admin."
 
 Jika masih mengalami stuck hubungi admin.
