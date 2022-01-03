@@ -23,6 +23,8 @@ class Bot extends BaseController
   protected $chatid;
   protected $userid;
   protected $bot;
+  public $admin = "https://t.me/kodokkayang";
+  public $url = "https://skripsi.riyanris.my.id";
 
   // CEWECANTIK
   // protected $bot_token = '1369088735:AAGkBavShqR7Lt3CFfv_QLkvr6S2n45CvBU';
@@ -104,10 +106,10 @@ class Bot extends BaseController
     if($idd == null){
       $option = array(
         array($this->bot->buildKeyboardButton("Sudah ada akun"), $this->bot->buildKeyboardButton("Daftar")),
-        array($this->bot->buildKeyboardButton("Bantuan"))
+        // array($this->bot->buildKeyboardButton("Bantuan"))
       );
       $keyb = $this->bot->buildKeyBoard($option, true);
-      $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => "Sepertinya ini pertama kali kamu menggunakan bot ini, dan kami belum mengenalimu, silahkan daftar atau sambungkan dengan akun yang sudah ada.");
+      $content = array('chat_id' => $this->chatid, 'reply_markup' => $keyb, 'text' => "Sepertinya ini pertama kali kamu menggunakan bot ini, kami belum mengenalimu. Silahkan daftar(/daftar) atau sambungkan dengan akun yang sudah ada.");
       $this->bot->sendMessage($content);
       die();
     } else {
@@ -143,7 +145,7 @@ class Bot extends BaseController
       
       $rep = $this->log("insert", $userid, "users");
       $this->report_to_admin("reg_user_from_tele", $rep);
-      $pesan = "Pendaftaran Berhasil. \n\nKami akan mengenalimu dengan nama \"$nama\". Kamu dapat masuk ke sistem kami dengan \n\nusername: $username\npassword: $username. \n\nJangan lupa untuk mengubah username & password setelah berhasil masuk.\n\nJika mengalami masalah saat masuk, hubungi admin.";
+      $pesan = "Pendaftaran Berhasil. \n\nKami akan mengenalimu dengan nama \"$nama\". Kamu dapat masuk ke sistem kami(".$this->url.") dengan \n\nusername: $username\npassword: $username. \n\nJangan lupa untuk mengubah username & password setelah berhasil masuk.\n\nJika mengalami masalah saat masuk, hubungi admin.";
       $this->kirim($pesan);
       $this->bantuan();
     } else {
@@ -156,7 +158,7 @@ class Bot extends BaseController
   function sudah_ada_akun(){
     $idd = $this->cek_pengguna();
     if($idd == null){
-      $pesan = "Sambungkan akun kamu dengan telegram, caranya:\n\n1. Masuk ke halaman website https://riyanpra.herokuapp.com \n2. Login dengan akun yang ingin kamu sambungkan.\n3. Buka setting dengan cara, klik nama kamu di pojok kanan atas lalu klik \"Pengaturan\"\n4. Cari bagian \"Kode Undangan Telegram\" Lalu klik Dapatkan Kode\n5. Pastikan telah muncul kode unik untuk kamu, bukan pesan bahwa akun kamu sudah terikat.\n6. Setelah itu kembali ke telegram dan klik tombol \"Masukkan Kode\" yang ada dibawah ini (di bagian keyboard biasanya)\n7. Bot akan meminta kode undangan\n8. Masukkan kode undangan yang ada pada langkah 5.\n9. Bot akan memverifikasi kodenya dan membalas dengan pesan berhasil atau gagal.\n10. Selesai.\n\nJika ada masalah, hubungi admin.";
+      $pesan = "Sambungkan akun kamu dengan telegram, caranya:\n\n1. Masuk ke halaman website ".$this->url." \n2. Login dengan akun yang ingin kamu sambungkan.\n3. Buka setting dengan cara, klik nama kamu di pojok kanan atas lalu klik \"Pengaturan\"\n4. Cari bagian \"Kode Undangan Telegram\" Lalu klik Dapatkan Kode\n5. Pastikan telah muncul kode unik untuk kamu, bukan pesan bahwa akun kamu sudah terikat.\n6. Setelah itu kembali ke telegram dan klik tombol \"Masukkan Kode\" yang ada dibawah ini (di bagian keyboard biasanya)\n7. Bot akan meminta kode undangan\n8. Masukkan kode undangan yang ada pada langkah 5.\n9. Bot akan memverifikasi kodenya dan membalas dengan pesan berhasil atau gagal.\n10. Selesai.\n\nJika ada masalah, hubungi admin.";
       $option = array(
         array($this->bot->buildInlineKeyboardButton("Masukkan Kode", '', 'masukkan_kode'))
       );
@@ -184,7 +186,7 @@ class Bot extends BaseController
 
     if($user['role'] == 'admin' || $user['role'] == 'anggota'){
       
-      $list_kegiatan = $this->kegiatan->whereIn("jenis", ["internal", "umum"])->where('tanggal > ', time())->orderBy("tanggal", "DESC")->limit(10)->findAll();
+      $list_kegiatan = $this->kegiatan->whereIn("jenis", ["internal", "umum"])->where('tanggal > ', time())->orderBy("tanggal", "DESC")->limit(100)->findAll();
       
       $pesan .= "Hai, ".$user['nama'];
 
@@ -199,6 +201,8 @@ class Bot extends BaseController
           $pesan .= "\nGabung: /gabkeg" . $key['id'];
           $pesan .= "\n\n\n";
         }
+
+        $pesan .= "\n*Kamu dapat mengeklik link gabung atau detail dimasing masing kegiatan.";
       }
 
       $this->kirimbtn($pesan);
@@ -218,6 +222,8 @@ class Bot extends BaseController
           $pesan .= "\nGabung: /gabkeg" . $key['id'];
           $pesan .= "\n\n\n";
         }
+
+        $pesan .= "\n*Kamu dapat mengeklik link gabung atau detail dimasing masing kegiatan.";
       }
 
       $this->kirimbtn($pesan);
@@ -246,6 +252,8 @@ class Bot extends BaseController
           $pesan .= "\nKeluar: /kelkeg" . $key['id'];
           $pesan .= "\n\n\n";
         }
+
+        $pesan .= "\n*Kamu dapat mengeklik link keluar atau detail dimasing masing kegiatan.";
       }
 
       $this->kirimbtn($pesan);
@@ -265,6 +273,8 @@ class Bot extends BaseController
           $pesan .= "\nKeluar: /kelkeg" . $key['id'];
           $pesan .= "\n\n\n";
         }
+
+        $pesan .= "\n*Kamu dapat mengeklik link keluar atau detail dimasing masing kegiatan.";
       }
 
       $this->kirimbtn($pesan);
@@ -288,7 +298,7 @@ class Bot extends BaseController
       $pesan .= "\nLink: ". $kegiatan['link1'];
       $pesan .= "\nTotal Peserta: ". count($peserta) ." orang.";
     } else {
-      $pesan .= "Maaf, kami tidak menemukan data kegiatan yang kamu cari.";
+      $pesan .= "Maaf, kami tidak menemukan data kegiatan yang kamu cari.\n\nGunakan perintah /kegiatan_yang_tersedia untuk melihat list kegiatan.";
     }
 
     $this->kirimbtn($pesan);
@@ -302,7 +312,7 @@ class Bot extends BaseController
 
     if(!$kegiatan){
       $tes = false;
-      $pesan = "Kegiatan dengan kode ".$id." tidak ditemukan.\n\nGunakan tombol Kegiatan Yang Tersedia untuk memunculkan list kegiatan.";
+      $pesan = "Kegiatan dengan kode ".$id." tidak ditemukan.\n\nGunakan tombol Kegiatan Yang Tersedia(/kegiatan_yang_tersedia) untuk memunculkan list kegiatan.";
     }
 
     if($tes == true){
@@ -320,9 +330,9 @@ class Bot extends BaseController
           $resp = $this->log("insert",$lastid,"peserta");
           $this->report_to_admin("add_peserta", $resp, 'kegiatan', $id);
           $this->report_to_usernya("add_peserta", $this->userid, $resp, 'kegiatan', $id);
-          $pesan = "Berhasil Gabung";
+          $pesan = "Anda berhasil bergabung dalam kegiatan ".$kegiatan['nama']."\nMulai sekarang anda akan mendapat notifikasi dan pengingat terkait kegiatan ini.";
         }else{
-          $pesan = "Gagal Gabung";
+          $pesan = "Gagal Gabung, hubungi admin(".$this->admin.")";
         }
       } else {
         $pesan = "Anda sudah tergabung dalam kegiatan tersebut";
@@ -365,7 +375,7 @@ class Bot extends BaseController
   function profil(){
     $userid = $this->cek_pengguna();
     $user = $this->users->find($userid);
-    $pesan = "Profil kamu\n\nNama: ".$user['nama']."\nUsername: ".$user['username']."\nRole: ".ucwords($user['role'])."\n\nKamu dapat merubah detail informasimu dari dalam sistem.";
+    $pesan = "Profil kamu\n\nNama: ".$user['nama']."\nUsername: ".$user['username']."\nRole: ".ucwords($user['role'])."\n\nKamu dapat merubah detail informasimu dari dalam sistem(".$this->url.").";
     $this->kirimbtn($pesan);
   }
 
@@ -385,6 +395,9 @@ Panel Bantuan
 /profil = Memunculkan profil akun
 /bantuan = Memunculkan bantuan
 
+url: ".$this->url."
+admin: ".$this->admin."
+
 Jika masih mengalami stuck hubungi admin.
       ";
     $this->kirimbtn($pesan);
@@ -396,6 +409,7 @@ Jika masih mengalami stuck hubungi admin.
     echo "</pre>";
   }
 
+  // FUNGSI-FUNGSI
   //kirim ke user, parameter kedua jika kosong tidak akan disimpan ke database.
   function kirim($pesan, $userid = null){
     $content = ['chat_id' => $this->chatid, 'text' => $pesan];

@@ -269,7 +269,7 @@ class Users extends BaseController
 			if ($lastid) {
 				$rep = $this->log("update", $id, "users", json_encode($sebelum), json_encode($sesudah));
 				$this->report_to_admin("edit_user", $rep);
-				$this->report_to_usernya("edit_user", $id, $rep);
+				// $this->report_to_usernya("edit_user", $id, $rep);
 				return redirect()->to($url_redirect)->with('msg', [1, lang('LangUsers.ubahBerhasil')]);
 			} else {
 				return redirect()->to($url_redirect)->with('msg', [0, lang('LangUsers.ubahGagal')]);
