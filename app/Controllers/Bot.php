@@ -87,6 +87,10 @@ class Bot extends BaseController
       $this->gabungKegiatan($text);
     }
 
+    if(substr( $text, 0, 7 ) === "/lihpes"){
+      $this->lihatPeserta($text);
+    }
+
     if(substr( $text, 0, 7 ) === "/kelkeg"){
       $this->keluarKegiatan($text);
     }
@@ -183,6 +187,11 @@ class Bot extends BaseController
     $pesan = ""; $no = 1;
 
     $user = getUsersById($user_id);
+    $punyaHaklebih = false;
+
+    if($user['role'] == "admin"){
+      $punyaHaklebih = true;
+    }
 
     if($user['role'] == 'admin' || $user['role'] == 'anggota'){
       
@@ -217,9 +226,16 @@ class Bot extends BaseController
         $pesan .= "\n\nBerikut list kegiatan yang bisa kamu ikutin: \n\n";
         
         foreach($list_kegiatan as $key){
+          if(punyaAksesKegiatan($user_id, $key['id'])){
+            $punyaHaklebih = true;
+          }
+
           $pesan .= $no++ . ". " . $key['nama'];
           $pesan .= "\nDetail: /detkeg" . $key['id'];
           $pesan .= "\nGabung: /gabkeg" . $key['id'];
+          if($punyaHaklebih){
+            $pesan .= "\nPeserta: /lihpes" . $key['id'];
+          }
           $pesan .= "\n\n\n";
         }
 
@@ -234,6 +250,11 @@ class Bot extends BaseController
     $pesan = ""; $no = 1;
 
     $user = getUsersById($user_id);
+    $punyaHaklebih = false;
+
+    if($user['role'] == "admin"){
+      $punyaHaklebih = true;
+    }
 
     if($user['role'] == 'admin' || $user['role'] == 'anggota'){
       
@@ -247,9 +268,16 @@ class Bot extends BaseController
         $pesan .= "\n\nBerikut list kegiatan yang telah kamu ikutin: \n\n";
         
         foreach($list_kegiatan as $key){
+          if(punyaAksesKegiatan($user_id, $key['id'])){
+            $punyaHaklebih = true;
+          }
+
           $pesan .= $no++ . ". " . $key['nama'];
           $pesan .= "\nDetail: /detkeg" . $key['id'];
           $pesan .= "\nKeluar: /kelkeg" . $key['id'];
+          if($punyaHaklebih){
+          $pesan .= "\nPeserta: /lihpes" . $key['id'];
+          }
           $pesan .= "\n\n\n";
         }
 
@@ -297,6 +325,27 @@ class Bot extends BaseController
       $pesan .= "\n\nContact Person: ". $kegiatan['cp1'];
       $pesan .= "\nLink: ". $kegiatan['link1'];
       $pesan .= "\nTotal Peserta: ". count($peserta) ." orang.";
+    } else {
+      $pesan .= "Maaf, kami tidak menemukan data kegiatan yang kamu cari.\n\nGunakan perintah /kegiatan_yang_tersedia untuk melihat list kegiatan.";
+    }
+
+    $this->kirimbtn($pesan);
+  }
+
+  function lihatPeserta($txt){
+    $pesan = "";
+    $id = str_replace("/lihpes", "", $txt);
+
+    $kegiatan = $this->kegiatan->find($id);
+    $peserta = $this->peserta->getByKegiatan($id);
+
+    if($kegiatan){
+      $pesan .= $kegiatan['nama'];
+      $pesan .= "\n\n"; $no = 1;
+      foreach($peserta as $key){
+        $pesan .= $no++ . ". " . $key['nama']."\n";
+      }
+      
     } else {
       $pesan .= "Maaf, kami tidak menemukan data kegiatan yang kamu cari.\n\nGunakan perintah /kegiatan_yang_tersedia untuk melihat list kegiatan.";
     }

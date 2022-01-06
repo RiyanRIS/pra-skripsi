@@ -155,7 +155,7 @@
   $('#tanggal').datetimepicker({
     format: 'Y-m-d H:i:s',
     formatDate: 'Y/m/d',
-	  minDate: '<?= date("Y/m/d") ?>',
+	  minDate: '<?= date("Y/m/d", strtotime(date("d-m-Y"). "+1 days")) ?>',
   });
   
   </script>
