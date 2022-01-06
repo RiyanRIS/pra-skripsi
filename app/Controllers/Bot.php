@@ -290,7 +290,7 @@ class Bot extends BaseController
   }
 
   function lihatPeserta($txt){
-    $user = getUsersById($this->user_id);
+    $user = getUsersById($this->userid);
     $punyaHaklebih = false;
     $pesan = "";
     $id = str_replace("/lihpes", "", $txt);
@@ -302,13 +302,13 @@ class Bot extends BaseController
       $punyaHaklebih = true;
     }
 
-    if(punyaAksesKegiatan($this->user_id, $id)){
+    if(punyaAksesKegiatan($this->userid, $id)){
       $punyaHaklebih = true;
     }
 
     if($punyaHaklebih){
       if($kegiatan){
-        $pesan .= $kegiatan['nama'];
+        $pesan .= "Peserta Kegiatan " . $kegiatan['nama'];
         $pesan .= "\n\n"; $no = 1;
         foreach($peserta as $key){
           $pesan .= $no++ . ". " . $key['nama']."\n";
