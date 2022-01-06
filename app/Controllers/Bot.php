@@ -194,56 +194,35 @@ class Bot extends BaseController
     }
 
     if($user['role'] == 'admin' || $user['role'] == 'anggota'){
-      
       $list_kegiatan = $this->kegiatan->whereIn("jenis", ["internal", "umum"])->where('tanggal > ', time())->orderBy("tanggal", "DESC")->limit(100)->findAll();
-      
-      $pesan .= "Hai, ".$user['nama'];
-
-      if(count($list_kegiatan) == 0){
-        $pesan .= "\n\nSaat ini belum ada kegiatan yang dapat kamu ikuti.";
-      } else {
-        $pesan .= "\n\nBerikut list kegiatan yang bisa kamu ikutin: \n\n";
-        
-        foreach($list_kegiatan as $key){
-          $pesan .= $no++ . ". " . $key['nama'];
-          $pesan .= "\nDetail: /detkeg" . $key['id'];
-          $pesan .= "\nGabung: /gabkeg" . $key['id'];
-          $pesan .= "\n\n\n";
-        }
-
-        $pesan .= "\n*Kamu dapat mengeklik link gabung atau detail dimasing masing kegiatan.";
-      }
-
-      $this->kirimbtn($pesan);
     } else {
       $list_kegiatan = $this->kegiatan->where("jenis", "umum")->where('tanggal > ', time())->orderBy("tanggal", "DESC")->limit(10)->findAll();
+    }
+    $pesan .= "Hai, ".$user['nama'];
+
+    if(count($list_kegiatan) == 0){
+      $pesan .= "\n\nSaat ini belum ada kegiatan yang dapat kamu ikuti.";
+    } else {
+      $pesan .= "\n\nBerikut list kegiatan yang bisa kamu ikutin: \n\n";
       
-      $pesan .= "Hai, ".$user['nama'];
-
-      if(count($list_kegiatan) == 0){
-        $pesan .= "\n\nSaat ini belum ada kegiatan yang dapat kamu ikuti.";
-      } else {
-        $pesan .= "\n\nBerikut list kegiatan yang bisa kamu ikutin: \n\n";
-        
-        foreach($list_kegiatan as $key){
-          if(punyaAksesKegiatan($user_id, $key['id'])){
-            $punyaHaklebih = true;
-          }
-
-          $pesan .= $no++ . ". " . $key['nama'];
-          $pesan .= "\nDetail: /detkeg" . $key['id'];
-          $pesan .= "\nGabung: /gabkeg" . $key['id'];
-          if($punyaHaklebih){
-            $pesan .= "\nPeserta: /lihpes" . $key['id'];
-          }
-          $pesan .= "\n\n\n";
+      foreach($list_kegiatan as $key){
+        if(punyaAksesKegiatan($user_id, $key['id'])){
+          $punyaHaklebih = true;
         }
 
-        $pesan .= "\n*Kamu dapat mengeklik link gabung atau detail dimasing masing kegiatan.";
+        $pesan .= $no++ . ". " . $key['nama'];
+        $pesan .= "\nDetail: /detkeg" . $key['id'];
+        $pesan .= "\nGabung: /gabkeg" . $key['id'];
+        if($punyaHaklebih){
+          $pesan .= "\nPeserta: /lihpes" . $key['id'];
+        }
+        $pesan .= "\n\n\n";
       }
 
-      $this->kirimbtn($pesan);
+      $pesan .= "\n*Kamu dapat mengeklik link gabung atau detail dimasing masing kegiatan.";
     }
+
+    $this->kirimbtn($pesan);
   }
 
   function kegiatan_yang_diikuti($user_id){
@@ -257,56 +236,34 @@ class Bot extends BaseController
     }
 
     if($user['role'] == 'admin' || $user['role'] == 'anggota'){
-      
       $list_kegiatan = $this->peserta->getByUser($user_id);
-
-      $pesan .= "Hai, ".$user['nama'];
-
-      if(count($list_kegiatan) == 0){
-        $pesan .= "\n\nKegiatan yang kamu ikuti masih kosong.";
-      } else {
-        $pesan .= "\n\nBerikut list kegiatan yang telah kamu ikutin: \n\n";
-        
-        foreach($list_kegiatan as $key){
-          if(punyaAksesKegiatan($user_id, $key['id'])){
-            $punyaHaklebih = true;
-          }
-
-          $pesan .= $no++ . ". " . $key['nama'];
-          $pesan .= "\nDetail: /detkeg" . $key['id'];
-          $pesan .= "\nKeluar: /kelkeg" . $key['id'];
-          if($punyaHaklebih){
-          $pesan .= "\nPeserta: /lihpes" . $key['id'];
-          }
-          $pesan .= "\n\n\n";
-        }
-
-        $pesan .= "\n*Kamu dapat mengeklik link keluar atau detail dimasing masing kegiatan.";
-      }
-
-      $this->kirimbtn($pesan);
     } else {
       $list_kegiatan = $this->peserta->getByUser($user_id);
+    }
+    $pesan .= "Hai, ".$user['nama'];
 
-      $pesan .= "Hai, ".$user['nama'];
-
-      if(count($list_kegiatan) == 0){
-        $pesan .= "\n\nKegiatan yang kamu ikuti masih kosong.";
-      } else {
-        $pesan .= "\n\nBerikut list kegiatan yang telah kamu ikutin: \n\n";
-        
-        foreach($list_kegiatan as $key){
-          $pesan .= $no++ . ". " . $key['nama'];
-          $pesan .= "\nDetail: /detkeg" . $key['id'];
-          $pesan .= "\nKeluar: /kelkeg" . $key['id'];
-          $pesan .= "\n\n\n";
+    if(count($list_kegiatan) == 0){
+      $pesan .= "\n\nKegiatan yang kamu ikuti masih kosong.";
+    } else {
+      $pesan .= "\n\nBerikut list kegiatan yang telah kamu ikutin: \n\n";
+      
+      foreach($list_kegiatan as $key){
+        if(punyaAksesKegiatan($user_id, $key['id'])){
+          $punyaHaklebih = true;
         }
 
-        $pesan .= "\n*Kamu dapat mengeklik link keluar atau detail dimasing masing kegiatan.";
+        $pesan .= $no++ . ". " . $key['nama'];
+        $pesan .= "\nDetail: /detkeg" . $key['id'];
+        $pesan .= "\nKeluar: /kelkeg" . $key['id'];
+        if($punyaHaklebih){
+        $pesan .= "\nPeserta: /lihpes" . $key['id'];
+        }
+        $pesan .= "\n\n\n";
       }
 
-      $this->kirimbtn($pesan);
+      $pesan .= "\n*Kamu dapat mengeklik link keluar atau detail dimasing masing kegiatan.";
     }
+    $this->kirimbtn($pesan);
   }
 
   function detailKegiatan($txt){
@@ -333,21 +290,35 @@ class Bot extends BaseController
   }
 
   function lihatPeserta($txt){
+    $user = getUsersById($this->user_id);
+    $punyaHaklebih = false;
     $pesan = "";
     $id = str_replace("/lihpes", "", $txt);
 
     $kegiatan = $this->kegiatan->find($id);
     $peserta = $this->peserta->getByKegiatan($id);
 
-    if($kegiatan){
-      $pesan .= $kegiatan['nama'];
-      $pesan .= "\n\n"; $no = 1;
-      foreach($peserta as $key){
-        $pesan .= $no++ . ". " . $key['nama']."\n";
+    if($user['role'] == "admin"){
+      $punyaHaklebih = true;
+    }
+
+    if(punyaAksesKegiatan($this->user_id, $id)){
+      $punyaHaklebih = true;
+    }
+
+    if($punyaHaklebih){
+      if($kegiatan){
+        $pesan .= $kegiatan['nama'];
+        $pesan .= "\n\n"; $no = 1;
+        foreach($peserta as $key){
+          $pesan .= $no++ . ". " . $key['nama']."\n";
+        }
+        
+      } else {
+        $pesan .= "Maaf, kami tidak menemukan data kegiatan yang kamu cari.\n\nGunakan perintah /kegiatan_yang_tersedia untuk melihat list kegiatan.";
       }
-      
     } else {
-      $pesan .= "Maaf, kami tidak menemukan data kegiatan yang kamu cari.\n\nGunakan perintah /kegiatan_yang_tersedia untuk melihat list kegiatan.";
+      $pesan = "Maaf, kamu tidak memiliki akses ke perintah ini.";
     }
 
     $this->kirimbtn($pesan);
