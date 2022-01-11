@@ -378,7 +378,7 @@ class Bot extends BaseController
         $lastid = $this->peserta->delete($this->userid);
         if($lastid){
           $resp = $this->log("delete",$id,"peserta");
-          $this->report_to_admin("delete_peserta", $resp, 'kegiatan', $id['kegiatan']);
+          $this->report_to_admin("delete_peserta", $resp, 'kegiatan', $id);
           // $this->report_to_usernya("delete_peserta", $this->userid, $resp, 'kegiatan', $id);
           $pesan = "Berhasil keluar, sekarang anda tidak lagi terdaftar pada kegiatan tersebut dan tidak mendapat notifikasi lagi.";
         }else{
