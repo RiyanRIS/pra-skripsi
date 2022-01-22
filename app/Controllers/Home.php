@@ -315,4 +315,31 @@ class Home extends BaseController
 		return $res;	
 	}
 
+	function tes(){
+
+		$time_start1 = microtime(true);
+		$users = $this->users->findAll();
+		$bot_token = env("BOT_TOKEN_TELE");
+		$bot = new \Telegram($bot_token);
+		$msg = "Halo.."; $no = 1; $sukses = 0;
+		$users = $this->users->findAll();
+		foreach($users as $key){
+			if($key['chat_id'] == null) continue;
+			$content = ['chat_id' => $key['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
+			$time_start = microtime(true);
+			$statistik = $bot->sendMessage($content);
+			if($statistik['ok'] == 1){
+				$sukses++;
+			}
+			$time_end = microtime(true);
+			$time = $time_end - $time_start;
+			echo "[".time()."]\nPesan ke-".$no++." kepada ".$key['nama']." dalam $time seconds.\n";
+			tampilkan($statistik);
+			echo "\n\n\n";
+		}
+		$time_end1 = microtime(true);
+		$time1 = $time_end1 - $time_start1;
+		echo "Semua pesan dikirim dalam $time1 detik. Kepada $no orang.";
+	}
+
 }

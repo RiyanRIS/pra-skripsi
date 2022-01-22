@@ -1,0 +1,27 @@
+============[Date]============
+[ 2022-01-19 08:27:21  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		403
+description:		Forbidden: bot was blocked by the user
+=========[Sent Data]==========
+[ref]
+ref.text= UserId: #6(Riyan Risky y) baru saja menghapus berkas pada kegiatan 35(Makrab Anggota Baru) dengan kode Log #44605
+
+<a href='http://localhost:8080/log/dnd1RTVBeTk3RDQrb3VCY1lCM1NaUT09'>Klik disini untuk detail</a>
+ref.parse_mode= HTML
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/BaseController.php(243): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/app/Controllers/Kegiatan.php(415): App\Controllers\BaseController->report_to_admin()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Kegiatan->aksiHapusBerkas()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#7 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#8 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#9 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#10 {main}
+

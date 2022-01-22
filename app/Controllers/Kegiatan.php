@@ -407,7 +407,7 @@ class Kegiatan extends BaseController
 			}
 
 			$url_redirect = site_url('home/kegiatan/detail/'.$url);
-			unlink("assets/berkas/kegiatan/".$keg_id['link']);
+			// unlink("assets/berkas/kegiatan/".$keg_id['link']);
 			$status = $this->berkas->delete($id);
 
 			if($status){

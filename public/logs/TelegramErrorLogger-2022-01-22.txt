@@ -1,0 +1,144 @@
+============[Date]============
+[ 2022-01-22 13:01:06  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		403
+description:		Forbidden: bot was blocked by the user
+=========[Sent Data]==========
+[ref]
+ref.text= Halo..
+ref.parse_mode= HTML
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Home.php(331): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Home->tes()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#9 {main}
+
+============[Date]============
+[ 2022-01-22 13:01:13  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		403
+description:		Forbidden: bot was blocked by the user
+=========[Sent Data]==========
+[ref]
+ref.text= Halo..
+ref.parse_mode= HTML
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Home.php(331): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Home->tes()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#9 {main}
+
+============[Date]============
+[ 2022-01-22 13:01:52  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		403
+description:		Forbidden: bot was blocked by the user
+=========[Sent Data]==========
+[ref]
+ref.text= Halo..
+ref.parse_mode= HTML
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Home.php(331): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Home->tes()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#9 {main}
+
+============[Date]============
+[ 2022-01-22 13:01:57  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		403
+description:		Forbidden: bot was blocked by the user
+=========[Sent Data]==========
+[ref]
+ref.text= Halo..
+ref.parse_mode= HTML
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Home.php(331): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Home->tes()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#9 {main}
+
+============[Date]============
+[ 2022-01-22 13:02:28  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		403
+description:		Forbidden: bot was blocked by the user
+=========[Sent Data]==========
+[ref]
+ref.text= Halo..
+ref.parse_mode= HTML
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Home.php(331): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Home->tes()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#9 {main}
+
+============[Date]============
+[ 2022-01-22 13:03:34  Asia/Bangkok ] 
+==========[Response]==========
+ok:			False
+error_code:		403
+description:		Forbidden: bot was blocked by the user
+=========[Sent Data]==========
+[ref]
+ref.text= Halo..
+ref.parse_mode= HTML
+
+
+============[Trace]===========
+#0 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(3217): TelegramErrorLogger::log()
+#1 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(111): Telegram->sendAPIRequest()
+#2 /home/riyanris/ngawur/praskripsi/vendor/eleirbag89/telegrambotphp/Telegram.php(196): Telegram->endpoint()
+#3 /home/riyanris/ngawur/praskripsi/app/Controllers/Home.php(331): Telegram->sendMessage()
+#4 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(824): App\Controllers\Home->tes()
+#5 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#6 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/riyanris/ngawur/praskripsi/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#8 /home/riyanris/ngawur/praskripsi/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(43): require_once('/home/riyanris/...')
+#9 {main}
+
