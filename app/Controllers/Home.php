@@ -316,15 +316,6 @@ class Home extends BaseController
 	}
 
 	function uji(){
-		$chat_id = "780207093";
-		$bot_token = env("BOT_TOKEN_TELE");
-		$bot = new \Telegram($bot_token);
-		$img = curl_file_create('assets/images/tel.png', 'image/png');
-		$content = array('chat_id' => $chat_id, 'caption' => "Ini caption...", 'photo' => $img);
-		$bot->sendPhoto($content);
-
-		die(); return;
-
 		$time_start1 = microtime(true);
 		$users = $this->users->findAll();
 		$bot_token = env("BOT_TOKEN_TELE");
