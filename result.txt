@@ -91,7 +91,7 @@ Array
         )
 
 )
-[1642833929] Pesan ke-5 kepada Annisa Salsabila dalam 0.43900990486145 seconds.
+[1642833929] Pesan ke-5 kepada Annisa Salsabila dalam 0,43900990486145 seconds.
 Array
 (
     [ok] => 1
@@ -119,14 +119,14 @@ Array
         )
 
 )
-[1642833930] Pesan ke-6 kepada P dalam 0.43463492393494 seconds.
+[1642833930] Pesan ke-6 kepada P dalam 0,43463492393494 seconds.
 Array
 (
     [ok] => 
     [error_code] => 403
     [description] => Forbidden: bot was blocked by the user
 )
-[1642833930] Pesan ke-7 kepada Baby Yoda dalam 0.44370794296265 seconds.
+[1642833930] Pesan ke-7 kepada Baby Yoda dalam 0,44370794296265 seconds.
 Array
 (
     [ok] => 1
@@ -154,7 +154,7 @@ Array
         )
 
 )
-[1642833931] Pesan ke-8 kepada Ferdi Dirgantara dalam 0.46060800552368 seconds.
+[1642833931] Pesan ke-8 kepada Ferdi Dirgantara dalam 0,46060800552368 seconds.
 Array
 (
     [ok] => 1
@@ -183,7 +183,7 @@ Array
         )
 
 )
-[1642833931] Pesan ke-9 kepada Akim ~ dalam 0.51243710517883 seconds.
+[1642833931] Pesan ke-9 kepada Akim ~ dalam 0,51243710517883 seconds.
 Array
 (
     [ok] => 1
@@ -212,7 +212,7 @@ Array
         )
 
 )
-[1642833932] Pesan ke-10 kepada Bayi Kecil dalam 0.51722002029419 seconds.
+[1642833932] Pesan ke-10 kepada Bayi Kecil dalam 0,51722002029419 seconds.
 Array
 (
     [ok] => 1
@@ -241,7 +241,7 @@ Array
         )
 
 )
-[1642833932] Pesan ke-11 kepada fadlan z dalam 0.63664197921753 seconds.
+[1642833932] Pesan ke-11 kepada fadlan z dalam 0,63664197921753 seconds.
 Array
 (
     [ok] => 1
@@ -270,14 +270,14 @@ Array
         )
 
 )
-[1642833933] Pesan ke-12 kepada ‏bangHasan HS dalam 0.42720603942871 seconds.
+[1642833933] Pesan ke-12 kepada ‏bangHasan HS dalam 0,42720603942871 seconds.
 Array
 (
     [ok] => 
     [error_code] => 403
     [description] => Forbidden: bot was blocked by the user
 )
-[1642833933] Pesan ke-13 kepada Alfri Ansyah dalam 0.44809412956238 seconds.
+[1642833933] Pesan ke-13 kepada Alfri Ansyah dalam 0,44809412956238 seconds.
 Array
 (
     [ok] => 1
@@ -306,14 +306,14 @@ Array
         )
 
 )
-[1642833934] Pesan ke-14 kepada Ahmad dalam 0.4313440322876 seconds.
+[1642833934] Pesan ke-14 kepada Ahmad dalam 0,4313440322876 seconds.
 Array
 (
     [ok] => 
     [error_code] => 403
     [description] => Forbidden: bot was blocked by the user
 )
-[1642833934] Pesan ke-15 kepada https://royalqi.github.io dalam 0.45380902290344 seconds.
+[1642833934] Pesan ke-15 kepada https://royalqi.github.io dalam 0,45380902290344 seconds.
 Array
 (
     [ok] => 1
@@ -341,7 +341,7 @@ Array
         )
 
 )
-[1642833935] Pesan ke-16 kepada root@linux dalam 0.45786499977112 seconds.
+[1642833935] Pesan ke-16 kepada root@linux dalam 0,45786499977112 seconds.
 Array
 (
     [ok] => 1
@@ -369,7 +369,7 @@ Array
         )
 
 )
-[1642833935] Pesan ke-17 kepada Dandi M Iqbal dalam 0.48909592628479 seconds.
+[1642833935] Pesan ke-17 kepada Dandi M Iqbal dalam 0,48909592628479 seconds.
 Array
 (
     [ok] => 1
@@ -398,7 +398,7 @@ Array
         )
 
 )
-[1642833936] Pesan ke-18 kepada Donisius Andrew dalam 0.44666790962219 seconds.
+[1642833936] Pesan ke-18 kepada Donisius Andrew dalam 0,44666790962219 seconds.
 Array
 (
     [ok] => 1
@@ -427,7 +427,7 @@ Array
         )
 
 )
-[1642833936] Pesan ke-19 kepada Ridho R dalam 0.44529700279236 seconds.
+[1642833936] Pesan ke-19 kepada Ridho R dalam 0,44529700279236 seconds.
 Array
 (
     [ok] => 1
@@ -456,7 +456,7 @@ Array
         )
 
 )
-[1642833937] Pesan ke-20 kepada Retax Xetar dalam 0.45011496543884 seconds.
+[1642833937] Pesan ke-20 kepada Retax Xetar dalam 0,45011496543884 seconds.
 Array
 (
     [ok] => 1
@@ -485,14 +485,14 @@ Array
         )
 
 )
-[1642833937] Pesan ke-21 kepada Paska dalam 0.4296760559082 seconds.
+[1642833937] Pesan ke-21 kepada Paska dalam 0,4296760559082 seconds.
 Array
 (
     [ok] => 
     [error_code] => 403
     [description] => Forbidden: bot was blocked by the user
 )
-[1642833937] Pesan ke-22 kepada La Atun dalam 0.44549298286438 seconds.
+[1642833937] Pesan ke-22 kepada La Atun dalam 0,44549298286438 seconds.
 Array
 (
     [ok] => 1
@@ -521,14 +521,14 @@ Array
         )
 
 )
-[1642833938] Pesan ke-23 kepada Nadheva Derdika dalam 0.4244658946991 seconds.
+[1642833938] Pesan ke-23 kepada Nadheva Derdika dalam 0,4244658946991 seconds.
 Array
 (
     [ok] => 
     [error_code] => 403
     [description] => Forbidden: bot was blocked by the user
 )
-[1642833938] Pesan ke-24 kepada Jevrin Garmindo dalam 0.46789407730103 seconds.
+[1642833938] Pesan ke-24 kepada Jevrin Garmindo dalam 0,46789407730103 seconds.
 Array
 (
     [ok] => 1
@@ -556,7 +556,7 @@ Array
         )
 
 )
-[1642833939] Pesan ke-25 kepada W2n dalam 0.45371508598328 seconds.
+[1642833939] Pesan ke-25 kepada W2n dalam 0,45371508598328 seconds.
 Array
 (
     [ok] => 1
@@ -584,7 +584,7 @@ Array
         )
 
 )
-[1642833939] Pesan ke-26 kepada Amir | Dasa Kreativa Studio dalam 0.45841693878174 seconds.
+[1642833939] Pesan ke-26 kepada Amir | Dasa Kreativa Studio dalam 0,45841693878174 seconds.
 Array
 (
     [ok] => 1
@@ -613,7 +613,7 @@ Array
         )
 
 )
-[1642833940] Pesan ke-27 kepada Isfa Hany dalam 0.47552990913391 seconds.
+[1642833940] Pesan ke-27 kepada Isfa Hany dalam 0,47552990913391 seconds.
 Array
 (
     [ok] => 1
@@ -642,7 +642,7 @@ Array
         )
 
 )
-[1642833940] Pesan ke-28 kepada Viktor dalam 0.48918104171753 seconds.
+[1642833940] Pesan ke-28 kepada Viktor dalam 0,48918104171753 seconds.
 Array
 (
     [ok] => 1
@@ -670,7 +670,7 @@ Array
         )
 
 )
-[1642833941] Pesan ke-29 kepada taelha dalam 0.44033598899841 seconds.
+[1642833941] Pesan ke-29 kepada taelha dalam 0,44033598899841 seconds.
 Array
 (
     [ok] => 1
@@ -698,7 +698,7 @@ Array
         )
 
 )
-[1642833941] Pesan ke-30 kepada Isham Fakhri dalam 0.44508695602417 seconds.
+[1642833941] Pesan ke-30 kepada Isham Fakhri dalam 0,44508695602417 seconds.
 Array
 (
     [ok] => 1
@@ -727,7 +727,7 @@ Array
         )
 
 )
-[1642833942] Pesan ke-31 kepada reza dalam 0.44385194778442 seconds.
+[1642833942] Pesan ke-31 kepada reza dalam 0,44385194778442 seconds.
 Array
 (
     [ok] => 1
@@ -755,7 +755,7 @@ Array
         )
 
 )
-[1642833942] Pesan ke-32 kepada עדנאן dalam 0.44403910636902 seconds.
+[1642833942] Pesan ke-32 kepada עדנאן dalam 0,44403910636902 seconds.
 Array
 (
     [ok] => 1
@@ -783,7 +783,7 @@ Array
         )
 
 )
-[1642833943] Pesan ke-33 kepada Sumarlin - jkt48 dalam 0.54068207740784 seconds.
+[1642833943] Pesan ke-33 kepada Sumarlin - jkt48 dalam 0,54068207740784 seconds.
 Array
 (
     [ok] => 1
@@ -812,14 +812,14 @@ Array
         )
 
 )
-[1642833943] Pesan ke-34 kepada Hanasa dalam 0.42290091514587 seconds.
+[1642833943] Pesan ke-34 kepada Hanasa dalam 0,42290091514587 seconds.
 Array
 (
     [ok] => 
     [error_code] => 403
     [description] => Forbidden: bot was blocked by the user
 )
-[1642833943] Pesan ke-35 kepada Joseph Stalin dalam 0.43828105926514 seconds.
+[1642833943] Pesan ke-35 kepada Joseph Stalin dalam 0,43828105926514 seconds.
 Array
 (
     [ok] => 1
@@ -848,7 +848,7 @@ Array
         )
 
 )
-[1642833944] Pesan ke-36 kepada Marshel Anrey dalam 0.46511101722717 seconds.
+[1642833944] Pesan ke-36 kepada Marshel Anrey dalam 0,46511101722717 seconds.
 Array
 (
     [ok] => 1
@@ -877,7 +877,7 @@ Array
         )
 
 )
-[1642833944] Pesan ke-37 kepada Dilaaaaa dalam 0.44892191886902 seconds.
+[1642833944] Pesan ke-37 kepada Dilaaaaa dalam 0,44892191886902 seconds.
 Array
 (
     [ok] => 1
@@ -905,7 +905,7 @@ Array
         )
 
 )
-[1642833945] Pesan ke-38 kepada Hard dalam 0.45035600662231 seconds.
+[1642833945] Pesan ke-38 kepada Hard dalam 0,45035600662231 seconds.
 Array
 (
     [ok] => 1
@@ -933,7 +933,7 @@ Array
         )
 
 )
-[1642833945] Pesan ke-39 kepada RF dalam 0.45620799064636 seconds.
+[1642833945] Pesan ke-39 kepada RF dalam 0,45620799064636 seconds.
 Array
 (
     [ok] => 1
@@ -961,7 +961,7 @@ Array
         )
 
 )
-[1642833946] Pesan ke-40 kepada Hamdani D.H dalam 0.44491600990295 seconds.
+[1642833946] Pesan ke-40 kepada Hamdani D.H dalam 0,44491600990295 seconds.
 Array
 (
     [ok] => 1
@@ -990,7 +990,7 @@ Array
         )
 
 )
-[1642833946] Pesan ke-41 kepada ⁣ Σ dalam 0.43329405784607 seconds.
+[1642833946] Pesan ke-41 kepada ⁣ Σ dalam 0,43329405784607 seconds.
 Array
 (
     [ok] => 1
@@ -1019,7 +1019,7 @@ Array
         )
 
 )
-[1642833947] Pesan ke-42 kepada Adpt dalam 0.44072079658508 seconds.
+[1642833947] Pesan ke-42 kepada Adpt dalam 0,44072079658508 seconds.
 Array
 (
     [ok] => 1
@@ -1047,7 +1047,7 @@ Array
         )
 
 )
-[1642833947] Pesan ke-43 kepada Anym dalam 0.43675804138184 seconds.
+[1642833947] Pesan ke-43 kepada Anym dalam 0,43675804138184 seconds.
 Array
 (
     [ok] => 1
@@ -1075,7 +1075,7 @@ Array
         )
 
 )
-[1642833947] Pesan ke-44 kepada Raafi dalam 0.45717883110046 seconds.
+[1642833947] Pesan ke-44 kepada Raafi dalam 0,45717883110046 seconds.
 Array
 (
     [ok] => 1
@@ -1103,7 +1103,7 @@ Array
         )
 
 )
-[1642833948] Pesan ke-45 kepada Hehe dalam 0.56237506866455 seconds.
+[1642833948] Pesan ke-45 kepada Hehe dalam 0,56237506866455 seconds.
 Array
 (
     [ok] => 1
@@ -1131,7 +1131,7 @@ Array
         )
 
 )
-[1642833948] Pesan ke-46 kepada ADMIN dalam 0.4462308883667 seconds.
+[1642833948] Pesan ke-46 kepada ADMIN dalam 0,4462308883667 seconds.
 Array
 (
     [ok] => 1
@@ -1159,7 +1159,7 @@ Array
         )
 
 )
-[1642833949] Pesan ke-47 kepada _Reduce dalam 0.47933483123779 seconds.
+[1642833949] Pesan ke-47 kepada _Reduce dalam 0,47933483123779 seconds.
 Array
 (
     [ok] => 1
@@ -1187,7 +1187,7 @@ Array
         )
 
 )
-[1642833949] Pesan ke-48 kepada Higi Wiv dalam 0.45107388496399 seconds.
+[1642833949] Pesan ke-48 kepada Higi Wiv dalam 0,45107388496399 seconds.
 Array
 (
     [ok] => 1
@@ -1216,7 +1216,7 @@ Array
         )
 
 )
-[1642833950] Pesan ke-49 kepada Madi Ganz dalam 0.45810699462891 seconds.
+[1642833950] Pesan ke-49 kepada Madi Ganz dalam 0,45810699462891 seconds.
 Array
 (
     [ok] => 1
@@ -1245,7 +1245,7 @@ Array
         )
 
 )
-[1642833950] Pesan ke-50 kepada Fajar Tri dalam 0.46719408035278 seconds.
+[1642833950] Pesan ke-50 kepada Fajar Tri dalam 0,46719408035278 seconds.
 Array
 (
     [ok] => 1
@@ -1274,7 +1274,7 @@ Array
         )
 
 )
-[1642833951] Pesan ke-51 kepada Dede N dalam 0.45000910758972 seconds.
+[1642833951] Pesan ke-51 kepada Dede N dalam 0,45000910758972 seconds.
 Array
 (
     [ok] => 1
@@ -1302,7 +1302,7 @@ Array
         )
 
 )
-[1642833951] Pesan ke-52 kepada Mohammad Nashir dalam 0.43686294555664 seconds.
+[1642833951] Pesan ke-52 kepada Mohammad Nashir dalam 0,43686294555664 seconds.
 Array
 (
     [ok] => 1
@@ -1331,14 +1331,14 @@ Array
         )
 
 )
-[1642833952] Pesan ke-53 kepada Tarihoran dalam 0.52643299102783 seconds.
+[1642833952] Pesan ke-53 kepada Tarihoran dalam 0,52643299102783 seconds.
 Array
 (
     [ok] => 
     [error_code] => 403
     [description] => Forbidden: bot was blocked by the user
 )
-[1642833952] Pesan ke-54 kepada Feͤrͬiͥ Lee dalam 0.59698295593262 seconds.
+[1642833952] Pesan ke-54 kepada Feͤrͬiͥ Lee dalam 0,59698295593262 seconds.
 Array
 (
     [ok] => 1
@@ -1367,7 +1367,7 @@ Array
         )
 
 )
-[1642833953] Pesan ke-55 kepada UCHI Mods dalam 0.53666687011719 seconds.
+[1642833953] Pesan ke-55 kepada UCHI Mods dalam 0,53666687011719 seconds.
 Array
 (
     [ok] => 1
@@ -1396,7 +1396,7 @@ Array
         )
 
 )
-[1642833953] Pesan ke-56 kepada Dayen Day dalam 0.49269795417786 seconds.
+[1642833953] Pesan ke-56 kepada Dayen Day dalam 0,49269795417786 seconds.
 Array
 (
     [ok] => 1
@@ -1425,14 +1425,14 @@ Array
         )
 
 )
-[1642833954] Pesan ke-57 kepada M. Zainul Arifin dalam 0.45870304107666 seconds.
+[1642833954] Pesan ke-57 kepada M. Zainul Arifin dalam 0,45870304107666 seconds.
 Array
 (
     [ok] => 
     [error_code] => 403
     [description] => Forbidden: bot was blocked by the user
 )
-[1642833954] Pesan ke-58 kepada Heri Purnomo dalam 0.524080991745 seconds.
+[1642833954] Pesan ke-58 kepada Heri Purnomo dalam 0,524080991745 seconds.
 Array
 (
     [ok] => 1
@@ -1461,7 +1461,7 @@ Array
         )
 
 )
-[1642833955] Pesan ke-59 kepada Operator dalam 0.44850587844849 seconds.
+[1642833955] Pesan ke-59 kepada Operator dalam 0,44850587844849 seconds.
 Array
 (
     [ok] => 1
@@ -1489,7 +1489,7 @@ Array
         )
 
 )
-[1642833955] Pesan ke-60 kepada si Hender dalam 0.4476420879364 seconds.
+[1642833955] Pesan ke-60 kepada si Hender dalam 0,4476420879364 seconds.
 Array
 (
     [ok] => 1
@@ -1518,7 +1518,7 @@ Array
         )
 
 )
-[1642833956] Pesan ke-61 kepada dan dalam 0.43537998199463 seconds.
+[1642833956] Pesan ke-61 kepada dan dalam 0,43537998199463 seconds.
 Array
 (
     [ok] => 1
