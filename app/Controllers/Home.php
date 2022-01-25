@@ -345,7 +345,7 @@ class Home extends BaseController
 		$users = $this->users->findAll();
 		foreach($users as $key){
 			if($key['chat_id'] == null) continue;
-			$content = ['chat_id' => $key['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
+			$content = ['chat_id' => $key['chat_id'], 'text' => $msg];
 			$time_start = microtime(true);
 			$bot->sendMessage($content);
 			$time_end = microtime(true);
