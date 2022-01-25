@@ -315,28 +315,46 @@ class Home extends BaseController
 		return $res;	
 	}
 
-	function uji(){
+	function uji_gambar(){
 		$time_start1 = microtime(true);
 		$users = $this->users->findAll();
 		$bot_token = env("BOT_TOKEN_TELE");
 		$bot = new \Telegram($bot_token);
-		// $msg = "Halo..";
-		// $msg = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 		$img = curl_file_create('assets/images/tel.png', 'image/png');
 		$users = $this->users->findAll();
 		foreach($users as $key){
 			if($key['chat_id'] == null) continue;
-			// $content = ['chat_id' => $key['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
 			$content = array('chat_id' => $key['chat_id'], 'caption' => "Ini caption...", 'photo' => $img);
 			$time_start = microtime(true);
 			$bot->sendMessage($content);
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
-			echo $time."\n";
+			echo $time."\n\n";
 		}
 		$time_end1 = microtime(true);
 		$time1 = $time_end1 - $time_start1;
-		echo "Semua pesan dikirim dalam $time1 detik.";
+		echo "\n\n\nSemua pesan dikirim dalam $time1 detik.";
+	}
+
+	function uji_teks(){
+		$time_start1 = microtime(true);
+		$users = $this->users->findAll();
+		$bot_token = env("BOT_TOKEN_TELE");
+		$bot = new \Telegram($bot_token);
+		$msg = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+		$users = $this->users->findAll();
+		foreach($users as $key){
+			if($key['chat_id'] == null) continue;
+			$content = ['chat_id' => $key['chat_id'], 'text' => $msg, 'parse_mode' => 'HTML'];
+			$time_start = microtime(true);
+			$bot->sendMessage($content);
+			$time_end = microtime(true);
+			$time = $time_end - $time_start;
+			echo $time."\n\n";
+		}
+		$time_end1 = microtime(true);
+		$time1 = $time_end1 - $time_start1;
+		echo "\n\n\nSemua pesan dikirim dalam $time1 detik.";
 	}
 
 }
