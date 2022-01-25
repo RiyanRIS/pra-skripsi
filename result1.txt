@@ -1,0 +1,1463 @@
+[1643098607] Pesan ke-1 kepada Riyan Risky y dalam 0.45309996604919 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2909
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 780207093
+                    [first_name] => Riyan Risky
+                    [username] => kodokkayang
+                    [type] => private
+                )
+
+            [date] => 1643098607
+            [text] => Halo..
+        )
+
+)
+[1643098608] Pesan ke-2 kepada Burhan R dalam 0.44976592063904 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098608] Pesan ke-3 kepada Tarisa Dwi Septiaa dalam 0.45826292037964 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2910
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1465606536
+                    [first_name] => Tarisa
+                    [last_name] => Bbb
+                    [username] => Tarisa89
+                    [type] => private
+                )
+
+            [date] => 1643098608
+            [text] => Halo..
+        )
+
+)
+[1643098609] Pesan ke-4 kepada Diva Putri Welfianti dalam 0.5367591381073 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2911
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1033139718
+                    [first_name] => Diva Putri
+                    [last_name] => Welfianti
+                    [username] => divaputriwelfianti
+                    [type] => private
+                )
+
+            [date] => 1643098608
+            [text] => Halo..
+        )
+
+)
+[1643098609] Pesan ke-5 kepada Annisa Salsabila dalam 0.4847469329834 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2912
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1113815025
+                    [first_name] => ✨🌙 B I L A 🌙✨
+                    [username] => crybabytears
+                    [type] => private
+                )
+
+            [date] => 1643098609
+            [text] => Halo..
+        )
+
+)
+[1643098610] Pesan ke-6 kepada P dalam 0.48658394813538 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098610] Pesan ke-7 kepada Baby Yoda dalam 0.50732588768005 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2913
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1176290951
+                    [first_name] => Baby Yoda
+                    [username] => mayreel
+                    [type] => private
+                )
+
+            [date] => 1643098610
+            [text] => Halo..
+        )
+
+)
+[1643098610] Pesan ke-8 kepada Ferdi Dirgantara dalam 0.454106092453 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2914
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 423603991
+                    [first_name] => Ferdi
+                    [last_name] => Dirgantara
+                    [username] => FerdiDirgantara
+                    [type] => private
+                )
+
+            [date] => 1643098610
+            [text] => Halo..
+        )
+
+)
+[1643098611] Pesan ke-9 kepada Akim ~ dalam 0.44779992103577 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2915
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1004130938
+                    [first_name] => Akim
+                    [last_name] => ~
+                    [username] => nrhkim
+                    [type] => private
+                )
+
+            [date] => 1643098611
+            [text] => Halo..
+        )
+
+)
+[1643098611] Pesan ke-10 kepada Bayi Kecil dalam 0.44932699203491 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2916
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1808724914
+                    [first_name] => Bayi
+                    [last_name] => Kecil
+                    [username] => kaayumaniss
+                    [type] => private
+                )
+
+            [date] => 1643098611
+            [text] => Halo..
+        )
+
+)
+[1643098612] Pesan ke-11 kepada fadlan z dalam 0.54804491996765 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2917
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 652113159
+                    [first_name] => fadlan
+                    [last_name] => z
+                    [username] => fdlznma
+                    [type] => private
+                )
+
+            [date] => 1643098612
+            [text] => Halo..
+        )
+
+)
+[1643098612] Pesan ke-12 kepada ‏bangHasan HS dalam 0.4382541179657 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098613] Pesan ke-13 kepada Alfri Ansyah dalam 0.4627411365509 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098613] Pesan ke-14 kepada Ahmad dalam 0.43615388870239 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098614] Pesan ke-15 kepada https://royalqi.github.io dalam 0.46793389320374 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2920
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 685631733
+                    [first_name] => https://royalqi.github.io
+                    [username] => royal_q_ind
+                    [type] => private
+                )
+
+            [date] => 1643098614
+            [text] => Halo..
+        )
+
+)
+[1643098614] Pesan ke-16 kepada root@linux dalam 0.43248414993286 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098615] Pesan ke-17 kepada Dandi M Iqbal dalam 0.46791791915894 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2921
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 536382126
+                    [first_name] => Dandi
+                    [last_name] => M Iqbal
+                    [username] => dandimiqbal
+                    [type] => private
+                )
+
+            [date] => 1643098614
+            [text] => Halo..
+        )
+
+)
+[1643098615] Pesan ke-18 kepada Donisius Andrew dalam 0.45409202575684 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2923
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 674657284
+                    [first_name] => Donisius
+                    [last_name] => Andrew
+                    [username] => andrewdonisius
+                    [type] => private
+                )
+
+            [date] => 1643098615
+            [text] => Halo..
+        )
+
+)
+[1643098616] Pesan ke-19 kepada Ridho R dalam 0.43606495857239 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098616] Pesan ke-20 kepada Retax Xetar dalam 0.49209499359131 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2925
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1137072571
+                    [first_name] => Retax
+                    [last_name] => Xetar
+                    [username] => retaxetar
+                    [type] => private
+                )
+
+            [date] => 1643098616
+            [text] => Halo..
+        )
+
+)
+[1643098616] Pesan ke-21 kepada Paska dalam 0.43088698387146 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098617] Pesan ke-22 kepada La Atun dalam 0.44729900360107 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2926
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1894135121
+                    [first_name] => La
+                    [last_name] => Atun
+                    [username] => toen14
+                    [type] => private
+                )
+
+            [date] => 1643098617
+            [text] => Halo..
+        )
+
+)
+[1643098617] Pesan ke-23 kepada Nadheva Derdika dalam 0.44243717193604 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098618] Pesan ke-24 kepada Jevrin Garmindo dalam 0.46951508522034 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2927
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1281755925
+                    [first_name] => Jevrin Garmindo
+                    [username] => JevrinGarmindo
+                    [type] => private
+                )
+
+            [date] => 1643098618
+            [text] => Halo..
+        )
+
+)
+[1643098618] Pesan ke-25 kepada W2n dalam 0.44812607765198 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2928
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 582076826
+                    [first_name] => W2n
+                    [username] => mayang_n
+                    [type] => private
+                )
+
+            [date] => 1643098618
+            [text] => Halo..
+        )
+
+)
+[1643098619] Pesan ke-26 kepada Amir | Dasa Kreativa Studio dalam 0.44934701919556 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2929
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 2021825151
+                    [first_name] => Amir
+                    [last_name] => | Dasa Kreativa Studio
+                    [username] => cakadi190
+                    [type] => private
+                )
+
+            [date] => 1643098619
+            [text] => Halo..
+        )
+
+)
+[1643098619] Pesan ke-27 kepada Isfa Hany dalam 0.47498989105225 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2930
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 401800760
+                    [first_name] => Isfa
+                    [last_name] => Hany
+                    [username] => hanysfa
+                    [type] => private
+                )
+
+            [date] => 1643098619
+            [text] => Halo..
+        )
+
+)
+[1643098620] Pesan ke-28 kepada Viktor dalam 0.47799706459045 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2931
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1276258511
+                    [first_name] => Viktor
+                    [username] => HERONMAN
+                    [type] => private
+                )
+
+            [date] => 1643098620
+            [text] => Halo..
+        )
+
+)
+[1643098620] Pesan ke-29 kepada taelha dalam 0.60052299499512 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2932
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 605166480
+                    [first_name] => taelha
+                    [username] => taelha
+                    [type] => private
+                )
+
+            [date] => 1643098620
+            [text] => Halo..
+        )
+
+)
+[1643098621] Pesan ke-30 kepada Isham Fakhri dalam 0.48210692405701 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2933
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 719345908
+                    [first_name] => Isham
+                    [last_name] => Fakhri
+                    [username] => elthief
+                    [type] => private
+                )
+
+            [date] => 1643098621
+            [text] => Halo..
+        )
+
+)
+[1643098621] Pesan ke-31 kepada reza dalam 0.46846199035645 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2934
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1543130704
+                    [first_name] => reza
+                    [username] => rezaa325
+                    [type] => private
+                )
+
+            [date] => 1643098621
+            [text] => Halo..
+        )
+
+)
+[1643098622] Pesan ke-32 kepada עדנאן dalam 0.47221612930298 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2935
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1998266192
+                    [first_name] => adnan
+                    [username] => insideurmindd
+                    [type] => private
+                )
+
+            [date] => 1643098622
+            [text] => Halo..
+        )
+
+)
+[1643098622] Pesan ke-33 kepada Sumarlin - jkt48 dalam 0.60166907310486 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2936
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 17479571
+                    [first_name] => Sumarlin
+                    [last_name] => - jkt48
+                    [username] => zhxmarlin
+                    [type] => private
+                )
+
+            [date] => 1643098622
+            [text] => Halo..
+        )
+
+)
+[1643098623] Pesan ke-34 kepada Hanasa dalam 0.46346092224121 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098623] Pesan ke-35 kepada Joseph Stalin dalam 0.45085000991821 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2937
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 2123786121
+                    [first_name] => Joseph
+                    [last_name] => Stalin
+                    [username] => Bapak_Stalin
+                    [type] => private
+                )
+
+            [date] => 1643098623
+            [text] => Halo..
+        )
+
+)
+[1643098624] Pesan ke-36 kepada Marshel Anrey dalam 0.48241806030273 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2938
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 76414315
+                    [first_name] => Marshel
+                    [last_name] => Anrey
+                    [username] => marshelanrey
+                    [type] => private
+                )
+
+            [date] => 1643098624
+            [text] => Halo..
+        )
+
+)
+[1643098624] Pesan ke-37 kepada Dilaaaaa dalam 0.47480702400208 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2939
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1016651978
+                    [first_name] => Dilaaaaa
+                    [username] => aprillawahyuni
+                    [type] => private
+                )
+
+            [date] => 1643098624
+            [text] => Halo..
+        )
+
+)
+[1643098625] Pesan ke-38 kepada Hard dalam 0.51070404052734 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2940
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1364313975
+                    [first_name] => Hard
+                    [username] => Hard_ha
+                    [type] => private
+                )
+
+            [date] => 1643098625
+            [text] => Halo..
+        )
+
+)
+[1643098625] Pesan ke-39 kepada RF dalam 0.43499398231506 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098626] Pesan ke-40 kepada Hamdani D.H dalam 0.45761585235596 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2941
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1021911991
+                    [first_name] => Hamdani
+                    [last_name] => D.H
+                    [username] => Samdanii
+                    [type] => private
+                )
+
+            [date] => 1643098625
+            [text] => Halo..
+        )
+
+)
+[1643098626] Pesan ke-41 kepada ⁣ Σ dalam 0.44439196586609 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2942
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 5008033993
+                    [first_name] => ⁣
+                    [last_name] => Σ
+                    [username] => abcdefghijkLmnOpQrstuVwxYzScript
+                    [type] => private
+                )
+
+            [date] => 1643098626
+            [text] => Halo..
+        )
+
+)
+[1643098626] Pesan ke-42 kepada Adpt dalam 0.45070600509644 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2943
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1307847863
+                    [first_name] => Adpt
+                    [username] => crossxy
+                    [type] => private
+                )
+
+            [date] => 1643098626
+            [text] => Halo..
+        )
+
+)
+[1643098627] Pesan ke-43 kepada Anym dalam 0.45930814743042 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2944
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 875689244
+                    [first_name] => Anym
+                    [username] => anympedia
+                    [type] => private
+                )
+
+            [date] => 1643098627
+            [text] => Halo..
+        )
+
+)
+[1643098627] Pesan ke-44 kepada Raafi dalam 0.4496488571167 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2945
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 144974374
+                    [first_name] => Raafi
+                    [username] => wadidawoleee
+                    [type] => private
+                )
+
+            [date] => 1643098627
+            [text] => Halo..
+        )
+
+)
+[1643098628] Pesan ke-45 kepada Hehe dalam 0.48807811737061 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2946
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 856305074
+                    [first_name] => Hehe
+                    [username] => BBINER0111
+                    [type] => private
+                )
+
+            [date] => 1643098628
+            [text] => Halo..
+        )
+
+)
+[1643098628] Pesan ke-46 kepada ADMIN dalam 0.45318579673767 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2947
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1855828250
+                    [first_name] => ADMIN
+                    [username] => hallo62
+                    [type] => private
+                )
+
+            [date] => 1643098628
+            [text] => Halo..
+        )
+
+)
+[1643098629] Pesan ke-47 kepada _Reduce dalam 0.52374315261841 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2948
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1000342417
+                    [first_name] => _Reduce
+                    [username] => reduceIT
+                    [type] => private
+                )
+
+            [date] => 1643098629
+            [text] => Halo..
+        )
+
+)
+[1643098629] Pesan ke-48 kepada Higi Wiv dalam 0.44390082359314 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2949
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1275532028
+                    [first_name] => Higi
+                    [last_name] => Wiv
+                    [username] => xh3my
+                    [type] => private
+                )
+
+            [date] => 1643098629
+            [text] => Halo..
+        )
+
+)
+[1643098630] Pesan ke-49 kepada Madi Ganz dalam 0.45332503318787 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2950
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1975187896
+                    [first_name] => Madi
+                    [last_name] => Ganz
+                    [username] => AnonymousFoxxx
+                    [type] => private
+                )
+
+            [date] => 1643098630
+            [text] => Halo..
+        )
+
+)
+[1643098630] Pesan ke-50 kepada Fajar Tri dalam 0.47216796875 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2951
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1192283629
+                    [first_name] => Fajar
+                    [last_name] => Tri
+                    [username] => Fajatri12
+                    [type] => private
+                )
+
+            [date] => 1643098630
+            [text] => Halo..
+        )
+
+)
+[1643098631] Pesan ke-51 kepada Dede N dalam 0.52543902397156 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2952
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 356556371
+                    [first_name] => Dede N
+                    [username] => Dedeypenk
+                    [type] => private
+                )
+
+            [date] => 1643098631
+            [text] => Halo..
+        )
+
+)
+[1643098631] Pesan ke-52 kepada Mohammad Nashir dalam 0.46868205070496 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2953
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 215655165
+                    [first_name] => Mohammad
+                    [last_name] => Nashir
+                    [username] => Nashir1974
+                    [type] => private
+                )
+
+            [date] => 1643098631
+            [text] => Halo..
+        )
+
+)
+[1643098632] Pesan ke-53 kepada Tarihoran dalam 0.46654081344604 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098632] Pesan ke-54 kepada Feͤrͬiͥ Lee dalam 0.53541398048401 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2954
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 177517779
+                    [first_name] => Feͤrͬiͥ
+                    [last_name] => Lee
+                    [username] => ferilee
+                    [type] => private
+                )
+
+            [date] => 1643098632
+            [text] => Halo..
+        )
+
+)
+[1643098633] Pesan ke-55 kepada UCHI Mods dalam 0.44788599014282 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2955
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1206551388
+                    [first_name] => UCHI
+                    [last_name] => Senpai
+                    [username] => UCHIMods
+                    [type] => private
+                )
+
+            [date] => 1643098632
+            [text] => Halo..
+        )
+
+)
+[1643098633] Pesan ke-56 kepada Dayen Day dalam 0.44395184516907 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2956
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 428894729
+                    [first_name] => Dayen
+                    [last_name] => Day
+                    [username] => Yendayen
+                    [type] => private
+                )
+
+            [date] => 1643098633
+            [text] => Halo..
+        )
+
+)
+[1643098634] Pesan ke-57 kepada M. Zainul Arifin dalam 0.46592092514038 seconds.
+Array
+(
+    [ok] => 
+    [error_code] => 403
+    [description] => Forbidden: bot was blocked by the user
+)
+[1643098634] Pesan ke-58 kepada Heri Purnomo dalam 0.45405912399292 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2957
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 79678479
+                    [first_name] => Heri
+                    [last_name] => Purnomo
+                    [username] => idoenk
+                    [type] => private
+                )
+
+            [date] => 1643098634
+            [text] => Halo..
+        )
+
+)
+[1643098634] Pesan ke-59 kepada Operator dalam 0.45163702964783 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2958
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 487333751
+                    [first_name] => Operator
+                    [username] => rsvn_id
+                    [type] => private
+                )
+
+            [date] => 1643098634
+            [text] => Halo..
+        )
+
+)
+[1643098635] Pesan ke-60 kepada si Hender dalam 0.44779706001282 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2959
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 248339410
+                    [first_name] => si
+                    [last_name] => Hender
+                    [username] => Sihendr4
+                    [type] => private
+                )
+
+            [date] => 1643098635
+            [text] => Halo..
+        )
+
+)
+[1643098635] Pesan ke-61 kepada dan dalam 0.48232507705688 seconds.
+Array
+(
+    [ok] => 1
+    [result] => Array
+        (
+            [message_id] => 2960
+            [from] => Array
+                (
+                    [id] => 1848204186
+                    [is_bot] => 1
+                    [first_name] => Kegiatan-UKMIK
+                    [username] => kegiatan_ukmik_bot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 1355566773
+                    [first_name] => dan
+                    [username] => uncleave
+                    [type] => private
+                )
+
+            [date] => 1643098635
+            [text] => Halo..
+        )
+
+)
+Semua pesan dikirim dalam 28.754339933395 detik. Kepada 62 orang.
