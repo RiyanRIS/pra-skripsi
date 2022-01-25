@@ -329,7 +329,7 @@ class Home extends BaseController
 			$bot->sendMessage($content);
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
-			echo$time;
+			echo $time."\n";
 		}
 		$time_end1 = microtime(true);
 		$time1 = $time_end1 - $time_start1;
