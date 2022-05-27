@@ -17,5 +17,11 @@ class MySeeder extends Seeder
 			'role'  		=> "admin",
 			'create_at' => time(),
 		]);
+
+		$setting_notif = model('SettingNotifModel');
+
+		$setting_notif->insert([
+			'user'      => 1,
+		]);
 	}
 }

@@ -18,7 +18,8 @@ class ReportNotif extends Migration
 				],
 				'id_kegiatan'         => [
 					'type'           => 'INT',
-					'constraint'     => 11
+					'constraint'     => 11,
+					'unsigned'       => true,
 				],
                 'notif_ke'         => [
 					'type'           => 'INT',
